@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-slate-800;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-lg bg-brand-teal px-6 py-3 font-body text-sm font-semibold text-white
+           transition-[transform,box-shadow] duration-300 ease-spring
+           hover:scale-[1.03] hover:shadow-cardHover
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal
+           active:scale-[0.98];
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center gap-2 rounded-lg bg-brand-amber px-6 py-3 font-body text-sm font-semibold text-white
+           transition-[transform,box-shadow] duration-300 ease-spring
+           hover:scale-[1.03] hover:shadow-[0_8px_30px_-12px_rgba(217,119,6,0.4)]
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-amber
+           active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 rounded-lg border-2 border-brand-teal bg-transparent px-6 py-3 font-body text-sm font-semibold text-brand-teal
+           transition-[transform,background-color] duration-300 ease-spring
+           hover:scale-[1.03] hover:bg-brand-teal-50
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal
+           active:scale-[0.98];
+  }
+}
+
+/* Grain texture overlay */
+.grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  pointer-events: none;
+  z-index: 1;
+}
