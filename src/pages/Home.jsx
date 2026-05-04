@@ -27,39 +27,42 @@ export default function Home() {
       <Hero />
 
       {/* Featured Courses */}
-      <RevealSection>
-        <section className="py-20 bg-white">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto mb-14 max-w-2xl text-center">
-              <span className="mb-3 inline-block rounded-full bg-brand-primary-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-primary">
-                Our Programs
-              </span>
-              <h2 className="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-                Featured Diploma Programs
-              </h2>
-              <p className="mt-3 text-slate-500">
-                Explore our most popular programs designed to launch your career in psychology and health sciences.
-              </p>
-            </div>
+      <section className="relative py-24 bg-gradient-to-b from-slate-50 to-white">
+        {/* Subtle pattern */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(79,70,229,0.4) 1px, transparent 0)',
+            backgroundSize: '28px 28px',
+          }}
+        />
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {featured.map((course, i) => (
-                <div key={course.id} className="reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
-                  <div className="visible">
-                    <CourseCard course={course} />
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-10 text-center">
-              <Link to="/courses" className="btn-outline">
-                View All Courses <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto mb-14 max-w-2xl text-center">
+            <span className="mb-3 inline-flex items-center gap-1 rounded-full bg-brand-primary-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-primary">
+              Our Programs
+            </span>
+            <h2 className="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+              Featured Diploma Programs
+            </h2>
+            <p className="mt-3 text-slate-500">
+              Explore our most popular programs designed to launch your career in psychology and health sciences.
+            </p>
           </div>
-        </section>
-      </RevealSection>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {featured.map((course, i) => (
+              <CourseCard key={course.id} course={course} index={i} />
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link to="/courses" className="btn-outline">
+              View All 9 Courses <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <RevealSection>
         <FeeSection />
