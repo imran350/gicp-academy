@@ -31,7 +31,7 @@ export default function About() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto mb-14 max-w-2xl text-center">
-          <span className="mb-3 inline-block rounded-full bg-brand-teal-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-teal">
+          <span className="mb-3 inline-block rounded-full bg-brand-primary-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-primary">
             About Us
           </span>
           <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
@@ -69,8 +69,8 @@ export default function About() {
                 key={h.title}
                 className="rounded-2xl border border-slate-100 bg-white p-6 shadow-card"
               >
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-teal-50">
-                  <Icon className="h-5 w-5 text-brand-teal" />
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-primary-50">
+                  <Icon className="h-5 w-5 text-brand-primary" />
                 </div>
                 <h3 className="mb-2 font-display text-base font-bold text-slate-900">{h.title}</h3>
                 <p className="text-sm leading-relaxed text-slate-500">{h.desc}</p>
@@ -93,7 +93,7 @@ export default function About() {
                   key={c.label}
                   className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-slate-700 shadow-sm"
                 >
-                  <Icon className="h-4 w-4 text-brand-teal" />
+                  <Icon className="h-4 w-4 text-brand-primary" />
                   {c.label}
                 </div>
               )

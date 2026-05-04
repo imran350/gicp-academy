@@ -8,13 +8,14 @@ export default {
     extend: {
       colors: {
         brand: {
-          teal: '#0F766E',
-          'teal-dark': '#0D5F59',
-          'teal-light': '#14B8A6',
-          'teal-50': '#F0FDFA',
-          amber: '#D97706',
-          'amber-light': '#F59E0B',
-          'amber-50': '#FFFBEB',
+          primary: '#4F46E5',
+          'primary-dark': '#3730A3',
+          'primary-light': '#818CF8',
+          'primary-50': '#EEF2FF',
+          accent: '#EA580C',
+          'accent-light': '#FB923C',
+          'accent-50': '#FFF7ED',
+          dark: '#0F172A',
         },
       },
       fontFamily: {
@@ -25,8 +26,8 @@ export default {
         tightest: '-0.03em',
       },
       boxShadow: {
-        card: '0 8px 30px -12px rgba(15,118,110,0.25)',
-        cardHover: '0 16px 40px -12px rgba(15,118,110,0.35)',
+        card: '0 8px 30px -12px rgba(79,70,229,0.25)',
+        cardHover: '0 16px 40px -12px rgba(79,70,229,0.35)',
         float: '0 20px 50px -15px rgba(0,0,0,0.3)',
       },
       transitionTimingFunction: {

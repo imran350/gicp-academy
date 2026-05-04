@@ -8,6 +8,7 @@ import Courses from './pages/Courses'
 import Admissions from './pages/Admissions'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import CourseDetail from './pages/CourseDetail'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -27,6 +28,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/courses" element={<Courses />} />
+            <Route path="/course/:id" element={<CourseDetail />} />
             <Route path="/admissions" element={<Admissions />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />

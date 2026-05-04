@@ -6,7 +6,7 @@ export default function Contact() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto mb-14 max-w-2xl text-center">
-          <span className="mb-3 inline-block rounded-full bg-brand-teal-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-teal">
+          <span className="mb-3 inline-block rounded-full bg-brand-primary-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-primary">
             Contact
           </span>
           <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
@@ -31,7 +31,7 @@ export default function Contact() {
             <div>
               <h3 className="font-display text-base font-bold text-slate-900">WhatsApp</h3>
               <p className="mt-1 text-sm text-slate-500">Chat with us directly for quick responses</p>
-              <span className="mt-2 inline-block text-sm font-semibold text-brand-teal">
+              <span className="mt-2 inline-block text-sm font-semibold text-brand-primary">
                 0301-9753393
               </span>
             </div>
@@ -42,13 +42,13 @@ export default function Contact() {
             href="mailto:info@gicpacademy.com"
             className="group flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-card transition-[transform,box-shadow] duration-300 ease-spring hover:-translate-y-1 hover:shadow-cardHover"
           >
-            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-brand-teal-50">
-              <Mail className="h-6 w-6 text-brand-teal" />
+            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-brand-primary-50">
+              <Mail className="h-6 w-6 text-brand-primary" />
             </div>
             <div>
               <h3 className="font-display text-base font-bold text-slate-900">Email</h3>
               <p className="mt-1 text-sm text-slate-500">Send us a detailed message anytime</p>
-              <span className="mt-2 inline-block text-sm font-semibold text-brand-teal">
+              <span className="mt-2 inline-block text-sm font-semibold text-brand-primary">
                 info@gicpacademy.com
               </span>
             </div>
@@ -56,13 +56,13 @@ export default function Contact() {
 
           {/* Phone */}
           <div className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
-            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-brand-teal-50">
-              <Phone className="h-6 w-6 text-brand-teal" />
+            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-brand-primary-50">
+              <Phone className="h-6 w-6 text-brand-primary" />
             </div>
             <div>
               <h3 className="font-display text-base font-bold text-slate-900">Phone</h3>
               <p className="mt-1 text-sm text-slate-500">Call us during business hours</p>
-              <span className="mt-2 inline-block text-sm font-semibold text-brand-teal">
+              <span className="mt-2 inline-block text-sm font-semibold text-brand-primary">
                 0301-9753393
               </span>
             </div>
@@ -70,13 +70,13 @@ export default function Contact() {
 
           {/* Location / Hours */}
           <div className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
-            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-brand-teal-50">
-              <Clock className="h-6 w-6 text-brand-teal" />
+            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-brand-primary-50">
+              <Clock className="h-6 w-6 text-brand-primary" />
             </div>
             <div>
               <h3 className="font-display text-base font-bold text-slate-900">Program Schedule</h3>
               <p className="mt-1 text-sm text-slate-500">Classes held online</p>
-              <span className="mt-2 inline-block text-sm font-semibold text-brand-teal">
+              <span className="mt-2 inline-block text-sm font-semibold text-brand-primary">
                 2 Days / Week
               </span>
             </div>

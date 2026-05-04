@@ -11,11 +11,11 @@ export default function Footer() {
           {/* Academy info */}
           <div>
             <Link to="/" className="mb-4 flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-teal">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-primary">
                 <GraduationCap className="h-5 w-5 text-white" />
               </div>
               <span className="font-display text-xl font-bold text-white">
-                GICP <span className="text-brand-teal-light">Academy</span>
+                GICP <span className="text-brand-primary-light">Academy</span>
               </span>
             </Link>
             <p className="mt-3 text-sm leading-relaxed text-slate-400">
@@ -39,7 +39,7 @@ export default function Footer() {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="text-sm text-slate-400 transition-colors duration-200 hover:text-brand-teal-light focus-visible:outline-brand-teal"
+                    className="text-sm text-slate-400 transition-colors duration-200 hover:text-brand-primary-light focus-visible:outline-brand-primary"
                   >
                     {link.label}
                   </Link>
@@ -55,27 +55,27 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm text-slate-400">
-                <Phone className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-teal-light" />
+                <Phone className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-primary-light" />
                 <a
                   href="https://wa.me/923019753393"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition-colors hover:text-brand-teal-light"
+                  className="transition-colors hover:text-brand-primary-light"
                 >
                   WhatsApp: 0301-9753393
                 </a>
               </li>
               <li className="flex items-start gap-2 text-sm text-slate-400">
-                <Mail className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-teal-light" />
+                <Mail className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-primary-light" />
                 <a
                   href="mailto:info@gicpacademy.com"
-                  className="transition-colors hover:text-brand-teal-light"
+                  className="transition-colors hover:text-brand-primary-light"
                 >
                   info@gicpacademy.com
                 </a>
               </li>
               <li className="flex items-start gap-2 text-sm text-slate-400">
-                <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-teal-light" />
+                <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-primary-light" />
                 Pakistan — Online Programs
               </li>
             </ul>

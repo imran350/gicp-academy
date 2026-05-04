@@ -40,7 +40,7 @@ export default function FeaturesList() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto mb-14 max-w-2xl text-center">
-          <span className="mb-3 inline-block rounded-full bg-brand-teal-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-teal">
+          <span className="mb-3 inline-block rounded-full bg-brand-primary-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-primary">
             Why GICP Academy
           </span>
           <h2 className="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
@@ -60,8 +60,8 @@ export default function FeaturesList() {
                 key={f.title}
                 className="group rounded-2xl border border-slate-100 bg-white p-6 transition-[transform,box-shadow] duration-300 ease-spring hover:-translate-y-1 hover:shadow-card"
               >
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-teal-50 transition-colors duration-200 group-hover:bg-brand-teal group-hover:text-white">
-                  <Icon className="h-5 w-5 text-brand-teal transition-colors duration-200 group-hover:text-white" />
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-primary-50 transition-colors duration-200 group-hover:bg-brand-primary group-hover:text-white">
+                  <Icon className="h-5 w-5 text-brand-primary transition-colors duration-200 group-hover:text-white" />
                 </div>
                 <h3 className="mb-2 font-display text-base font-bold text-slate-900">{f.title}</h3>
                 <p className="text-sm leading-relaxed text-slate-500">{f.desc}</p>

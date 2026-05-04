@@ -7,7 +7,7 @@ export default function FeeSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto mb-14 max-w-2xl text-center">
-          <span className="mb-3 inline-block rounded-full bg-brand-teal-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-teal">
+          <span className="mb-3 inline-block rounded-full bg-brand-primary-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-primary">
             Fee Structure
           </span>
           <h2 className="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
@@ -32,7 +32,7 @@ export default function FeeSection() {
               {['Complete course material', 'Live online classes', 'Assignments & exams', 'Digital certification'].map(
                 (item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
-                    <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-teal" />
+                    <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-primary" />
                     {item}
                   </li>
                 )
@@ -41,15 +41,15 @@ export default function FeeSection() {
           </div>
 
           {/* Scholarship */}
-          <div className="relative rounded-2xl border-2 border-brand-amber bg-white p-8 shadow-card">
+          <div className="relative rounded-2xl border-2 border-brand-accent bg-white p-8 shadow-card">
             {/* Badge */}
-            <div className="absolute -top-3 right-6 inline-flex items-center gap-1 rounded-full bg-brand-amber px-3 py-1 text-xs font-bold text-white">
+            <div className="absolute -top-3 right-6 inline-flex items-center gap-1 rounded-full bg-brand-accent px-3 py-1 text-xs font-bold text-white">
               <Sparkles className="h-3 w-3" /> Scholarship
             </div>
             <h3 className="mb-1 font-display text-lg font-bold text-slate-900">Scholarship Fee</h3>
             <p className="mb-5 text-sm text-slate-500">For eligible students — limited seats</p>
             <div className="mb-6">
-              <span className="font-display text-4xl font-extrabold text-brand-amber">PKR 35,000</span>
+              <span className="font-display text-4xl font-extrabold text-brand-accent">PKR 35,000</span>
               <span className="ml-1 text-sm text-slate-400">/ program</span>
             </div>
             <ul className="mb-8 space-y-3">
@@ -60,7 +60,7 @@ export default function FeeSection() {
                 'Priority career support',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
-                  <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-amber" />
+                  <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-accent" />
                   {item}
                 </li>
               ))}

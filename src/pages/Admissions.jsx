@@ -41,7 +41,7 @@ export default function Admissions() {
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-10 text-center">
-          <span className="mb-3 inline-block rounded-full bg-brand-teal-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-teal">
+          <span className="mb-3 inline-block rounded-full bg-brand-primary-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-primary">
             Admissions
           </span>
           <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
@@ -70,7 +70,7 @@ export default function Admissions() {
                 required
                 value={form.full_name}
                 onChange={handleChange}
-                className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-[border-color,box-shadow] duration-200 focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/20"
+                className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-[border-color,box-shadow] duration-200 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
                 placeholder="Your full name"
               />
             </div>
@@ -87,7 +87,7 @@ export default function Admissions() {
                 required
                 value={form.father_name}
                 onChange={handleChange}
-                className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-[border-color,box-shadow] duration-200 focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/20"
+                className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-[border-color,box-shadow] duration-200 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
                 placeholder="Your father's name"
               />
             </div>
@@ -104,7 +104,7 @@ export default function Admissions() {
                 required
                 value={form.phone}
                 onChange={handleChange}
-                className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-[border-color,box-shadow] duration-200 focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/20"
+                className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-[border-color,box-shadow] duration-200 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
                 placeholder="03XX-XXXXXXX"
               />
             </div>
@@ -120,7 +120,7 @@ export default function Admissions() {
                 name="email"
                 value={form.email}
                 onChange={handleChange}
-                className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-[border-color,box-shadow] duration-200 focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/20"
+                className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-[border-color,box-shadow] duration-200 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
                 placeholder="you@example.com"
               />
             </div>
@@ -137,7 +137,7 @@ export default function Admissions() {
               required
               value={form.course}
               onChange={handleChange}
-              className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 transition-[border-color,box-shadow] duration-200 focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/20"
+              className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 transition-[border-color,box-shadow] duration-200 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
             >
               <option value="">— Choose a program —</option>
               {courses.map((c) => (
@@ -159,7 +159,7 @@ export default function Admissions() {
               rows={4}
               value={form.message}
               onChange={handleChange}
-              className="w-full resize-none rounded-lg border border-slate-200 px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-[border-color,box-shadow] duration-200 focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/20"
+              className="w-full resize-none rounded-lg border border-slate-200 px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-[border-color,box-shadow] duration-200 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
               placeholder="Any questions or special requests..."
             />
           </div>
