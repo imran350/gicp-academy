@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import {
   Clock, CalendarDays, ArrowLeft, CheckCircle, Send,
-  CreditCard, Smartphone, Building, AlertCircle, Star,
+  Smartphone, Building, AlertCircle,
 } from 'lucide-react'
 import { supabase } from '../lib/supabase'
 import courses from '../data/courses'
@@ -13,24 +13,18 @@ const paymentMethods = [
     label: 'JazzCash',
     icon: Smartphone,
     desc: 'Pay via JazzCash mobile wallet',
-    color: 'bg-red-50 text-red-600 border-red-200',
-    activeColor: 'bg-red-100 border-red-400 ring-2 ring-red-200',
   },
   {
     id: 'easypaisa',
     label: 'EasyPaisa',
     icon: Smartphone,
     desc: 'Pay via EasyPaisa mobile wallet',
-    color: 'bg-green-50 text-green-600 border-green-200',
-    activeColor: 'bg-green-100 border-green-400 ring-2 ring-green-200',
   },
   {
     id: 'bank',
     label: 'Bank Transfer',
     icon: Building,
     desc: 'Direct bank deposit / wire transfer',
-    color: 'bg-blue-50 text-blue-600 border-blue-200',
-    activeColor: 'bg-blue-100 border-blue-400 ring-2 ring-blue-200',
   },
 ]
 
@@ -39,11 +33,11 @@ export default function CourseDetail() {
   const course = courses.find((c) => c.id === id)
 
   const [form, setForm] = useState({
-    full_name: '',
-    father_name: '',
-    phone: '',
+    first_name: '',
+    last_name: '',
+    whatsapp: '',
     email: '',
-    course: course?.title || '',
+    program: course?.title || '',
     payment_method: '',
     message: '',
   })
@@ -51,19 +45,17 @@ export default function CourseDetail() {
 
   if (!course) {
     return (
-      <section className="pt-24 pb-20">
-        <div className="mx-auto max-w-3xl px-4 text-center">
-          <h1 className="font-display text-3xl font-bold text-slate-900">Course Not Found</h1>
-          <p className="mt-3 text-slate-500">This course doesn't exist.</p>
+      <section className="bg-brand-cream pt-24 pb-20">
+        <div className="mx-auto max-w-3xl px-6 text-center">
+          <h1 className="font-display text-3xl font-bold text-brand-navy">Course Not Found</h1>
+          <p className="mt-3 text-brand-muted">This course doesn't exist.</p>
           <Link to="/courses" className="btn-primary mt-6">
-            <ArrowLeft className="h-4 w-4" /> Back to Courses
+            <ArrowLeft className="mr-1 h-4 w-4" /> Back to Courses
           </Link>
         </div>
       </section>
     )
   }
-
-  const Icon = course.icon
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -75,22 +67,25 @@ export default function CourseDetail() {
 
     try {
       if (!supabase) throw new Error('Supabase not configured')
-      const { error } = await supabase.from('admissions').insert([form])
+      const { error } = await supabase.from('applications').insert([form])
       if (error) throw error
       setStatus('success')
-      setForm({ full_name: '', father_name: '', phone: '', email: '', course: course.title, payment_method: '', message: '' })
+      setForm({ first_name: '', last_name: '', whatsapp: '', email: '', program: course.title, payment_method: '', message: '' })
     } catch {
       setStatus('error')
     }
   }
 
+  const inputClass =
+    'w-full rounded border border-black/10 bg-brand-cream px-3.5 py-2.5 text-[0.9rem] text-brand-text outline-none transition-colors duration-200 focus:border-brand-teal'
+
   return (
-    <section className="pt-24 pb-20 bg-slate-50">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="bg-brand-cream pt-24 pb-20">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Back link */}
         <Link
           to="/courses"
-          className="mb-6 inline-flex items-center gap-1 text-sm font-medium text-slate-500 transition-colors hover:text-brand-primary"
+          className="mb-6 inline-flex items-center gap-1 text-[0.9rem] font-medium text-brand-muted transition-colors hover:text-brand-teal"
         >
           <ArrowLeft className="h-4 w-4" /> Back to Courses
         </Link>
@@ -99,38 +94,37 @@ export default function CourseDetail() {
           {/* Left: Course info */}
           <div className="lg:col-span-2">
             {/* Course header */}
-            <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-card">
-              <div className="flex items-start gap-4">
-                <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-brand-primary-50">
-                  <Icon className="h-7 w-7 text-brand-primary" />
-                </div>
-                <div>
-                  <h1 className="font-display text-2xl font-bold text-slate-900 sm:text-3xl">
-                    {course.title}
-                  </h1>
-                  <p className="mt-1 text-lg font-medium text-brand-primary">{course.subtitle}</p>
-                </div>
+            <div className="rounded-lg border border-black/6 bg-white p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+              <div className="mb-2 text-[0.72rem] font-semibold uppercase tracking-[2px] text-brand-teal">
+                Program {course.num}
               </div>
-
-              <p className="mt-6 text-base leading-relaxed text-slate-600">{course.description}</p>
+              <h1 className="font-display text-2xl font-bold text-brand-navy sm:text-3xl">
+                {course.title}
+              </h1>
+              {course.tagline && (
+                <p className="mt-2 text-[0.95rem] font-medium italic text-brand-teal">{course.tagline}</p>
+              )}
+              <p className="mt-4 text-[0.95rem] font-light leading-[1.7] text-brand-muted">{course.description}</p>
 
               {/* Meta */}
               <div className="mt-6 flex flex-wrap gap-3">
-                <span className="inline-flex items-center gap-1.5 rounded-lg bg-brand-primary-50 px-3 py-1.5 text-sm font-medium text-brand-primary">
-                  <Clock className="h-4 w-4" /> {course.duration}
+                <span className="inline-flex items-center gap-1.5 rounded-sm border border-brand-teal/30 px-3 py-1.5 text-[0.85rem] font-medium text-brand-teal">
+                  <Clock className="h-3.5 w-3.5" /> {course.duration}
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-lg bg-brand-primary-50 px-3 py-1.5 text-sm font-medium text-brand-primary">
-                  <CalendarDays className="h-4 w-4" /> {course.schedule}
+                <span className="inline-flex items-center gap-1.5 rounded-sm border border-brand-teal/30 px-3 py-1.5 text-[0.85rem] font-medium text-brand-teal">
+                  <CalendarDays className="h-3.5 w-3.5" /> {course.schedule}
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-lg bg-brand-accent-50 px-3 py-1.5 text-sm font-medium text-brand-accent">
-                  <Star className="h-4 w-4" /> Internationally Recognized
-                </span>
+                {course.badge && (
+                  <span className="inline-flex items-center rounded-sm border border-brand-gold/40 bg-brand-gold/10 px-3 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[1px] text-brand-gold">
+                    {course.badge}
+                  </span>
+                )}
               </div>
             </div>
 
             {/* What you'll learn */}
-            <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-8 shadow-card">
-              <h2 className="mb-4 font-display text-xl font-bold text-slate-900">What You'll Learn</h2>
+            <div className="mt-6 rounded-lg border border-black/6 bg-white p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+              <h2 className="mb-4 font-display text-xl font-bold text-brand-navy">What You'll Learn</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {[
                   'Comprehensive theoretical knowledge',
@@ -142,30 +136,30 @@ export default function CourseDetail() {
                   'Research methodology',
                   'Ethical practice guidelines',
                 ].map((item) => (
-                  <div key={item} className="flex items-start gap-2">
-                    <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-primary" />
-                    <span className="text-sm text-slate-600">{item}</span>
+                  <div key={item} className="flex items-start gap-2.5">
+                    <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-teal" />
+                    <span className="text-[0.9rem] text-brand-muted">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Payment Methods Info */}
-            <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-8 shadow-card">
-              <h2 className="mb-4 font-display text-xl font-bold text-slate-900">Payment Methods</h2>
-              <p className="mb-4 text-sm text-slate-500">We accept the following payment methods:</p>
-              <div className="grid gap-4 sm:grid-cols-3">
+            {/* Payment Methods */}
+            <div className="mt-6 rounded-lg border border-black/6 bg-white p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+              <h2 className="mb-4 font-display text-xl font-bold text-brand-navy">Payment Methods</h2>
+              <p className="mb-4 text-[0.85rem] text-brand-muted">We accept the following payment methods:</p>
+              <div className="grid gap-3 sm:grid-cols-3">
                 {paymentMethods.map((pm) => {
                   const PmIcon = pm.icon
                   return (
                     <div
                       key={pm.id}
-                      className={`flex items-center gap-3 rounded-xl border p-4 ${pm.color}`}
+                      className="flex items-center gap-3 rounded-md border border-black/6 bg-brand-cream p-4"
                     >
-                      <PmIcon className="h-6 w-6 flex-shrink-0" />
+                      <PmIcon className="h-5 w-5 flex-shrink-0 text-brand-teal" />
                       <div>
-                        <p className="text-sm font-bold">{pm.label}</p>
-                        <p className="text-xs opacity-70">{pm.desc}</p>
+                        <p className="text-[0.85rem] font-semibold text-brand-navy">{pm.label}</p>
+                        <p className="text-[0.75rem] text-brand-muted">{pm.desc}</p>
                       </div>
                     </div>
                   )
@@ -174,20 +168,19 @@ export default function CourseDetail() {
             </div>
           </div>
 
-          {/* Right: Sticky enrollment card (Udemy style) */}
+          {/* Right: Sticky enrollment card */}
           <div className="lg:col-span-1">
             <div className="sticky top-24">
               {/* Price card */}
-              <div className="rounded-2xl border border-slate-200 bg-white shadow-card overflow-hidden">
-                {/* Header */}
-                <div className="bg-gradient-to-r from-brand-primary to-brand-primary-dark p-6 text-white">
+              <div className="overflow-hidden rounded-lg border border-black/6 bg-white shadow-[0_8px_32px_rgba(0,0,0,0.06)]">
+                <div className="bg-brand-navy p-6 text-white">
                   <div className="flex items-baseline gap-2">
-                    <span className="font-display text-3xl font-extrabold">PKR 35,000</span>
-                    <span className="text-sm line-through opacity-60">PKR 55,000</span>
+                    <span className="font-display text-3xl font-bold text-brand-gold">PKR 35,000</span>
+                    <span className="text-[0.85rem] line-through text-white/50">PKR 55,000</span>
                   </div>
-                  <p className="mt-1 text-sm text-indigo-200">Scholarship fee — limited seats</p>
-                  <div className="mt-3 inline-flex items-center gap-1 rounded-full bg-white/20 px-2.5 py-1 text-xs font-semibold">
-                    <Star className="h-3 w-3" /> Save PKR 20,000
+                  <p className="mt-1 text-[0.85rem] text-white/60">Scholarship fee — limited seats</p>
+                  <div className="mt-3 inline-flex items-center gap-1 rounded-sm border border-brand-gold/40 bg-brand-gold/10 px-2.5 py-1 text-[0.72rem] font-bold uppercase tracking-[1px] text-brand-gold">
+                    &#9733; Save PKR 20,000
                   </div>
                 </div>
 
@@ -201,8 +194,8 @@ export default function CourseDetail() {
                       'Digital Certification',
                       'Installment Plan Available',
                     ].map((item) => (
-                      <li key={item} className="flex items-center gap-2 text-sm text-slate-600">
-                        <CheckCircle className="h-4 w-4 flex-shrink-0 text-brand-primary" />
+                      <li key={item} className="flex items-center gap-2.5 text-[0.85rem] text-brand-muted">
+                        <CheckCircle className="h-4 w-4 flex-shrink-0 text-brand-teal" />
                         {item}
                       </li>
                     ))}
@@ -210,14 +203,14 @@ export default function CourseDetail() {
 
                   <button
                     onClick={() => document.getElementById('enroll-form')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="btn-accent w-full justify-center text-base"
+                    className="w-full rounded bg-brand-gold py-3.5 text-[0.95rem] font-bold text-brand-navy transition-colors hover:bg-brand-gold-light"
                   >
-                    <Send className="h-4 w-4" /> Enroll Now
+                    <Send className="mr-1 inline h-4 w-4" /> Enroll Now
                   </button>
 
-                  <p className="mt-3 text-center text-xs text-slate-400">
+                  <p className="mt-3 text-center text-[0.78rem] text-brand-muted">
                     Questions?{' '}
-                    <a href="https://wa.me/923019753393" target="_blank" rel="noopener noreferrer" className="text-brand-primary hover:underline">
+                    <a href="https://wa.me/923019753393" target="_blank" rel="noopener noreferrer" className="text-brand-teal hover:underline">
                       Chat on WhatsApp
                     </a>
                   </p>
@@ -225,92 +218,49 @@ export default function CourseDetail() {
               </div>
 
               {/* Enrollment form */}
-              <div id="enroll-form" className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
-                <h3 className="mb-4 font-display text-lg font-bold text-slate-900">Quick Enrollment</h3>
+              <div id="enroll-form" className="mt-6 rounded-lg border border-black/6 bg-white p-6 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+                <h3 className="mb-4 font-display text-lg font-bold text-brand-navy">Quick Enrollment</h3>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <label className="mb-1 block text-sm font-medium text-slate-700">
-                      Full Name <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="full_name"
-                      required
-                      value={form.full_name}
-                      onChange={handleChange}
-                      className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
-                      placeholder="Your full name"
-                    />
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="mb-1 block text-[0.78rem] font-semibold text-brand-text">First Name *</label>
+                      <input type="text" name="first_name" required value={form.first_name} onChange={handleChange} className={inputClass} placeholder="Ayesha" />
+                    </div>
+                    <div>
+                      <label className="mb-1 block text-[0.78rem] font-semibold text-brand-text">Last Name</label>
+                      <input type="text" name="last_name" value={form.last_name} onChange={handleChange} className={inputClass} placeholder="Khan" />
+                    </div>
                   </div>
 
                   <div>
-                    <label className="mb-1 block text-sm font-medium text-slate-700">
-                      Father's Name <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="father_name"
-                      required
-                      value={form.father_name}
-                      onChange={handleChange}
-                      className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
-                      placeholder="Your father's name"
-                    />
+                    <label className="mb-1 block text-[0.78rem] font-semibold text-brand-text">WhatsApp *</label>
+                    <input type="tel" name="whatsapp" required value={form.whatsapp} onChange={handleChange} className={inputClass} placeholder="0300-0000000" />
                   </div>
 
                   <div>
-                    <label className="mb-1 block text-sm font-medium text-slate-700">
-                      Phone / WhatsApp <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      required
-                      value={form.phone}
-                      onChange={handleChange}
-                      className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
-                      placeholder="03XX-XXXXXXX"
-                    />
+                    <label className="mb-1 block text-[0.78rem] font-semibold text-brand-text">Email</label>
+                    <input type="email" name="email" value={form.email} onChange={handleChange} className={inputClass} placeholder="you@email.com" />
                   </div>
 
                   <div>
-                    <label className="mb-1 block text-sm font-medium text-slate-700">Email</label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={form.email}
-                      onChange={handleChange}
-                      className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
-                      placeholder="you@example.com"
-                    />
+                    <label className="mb-1 block text-[0.78rem] font-semibold text-brand-text">Program</label>
+                    <input type="text" value={course.title} readOnly className={`${inputClass} bg-white text-brand-muted cursor-default`} />
                   </div>
 
-                  {/* Course (pre-filled, read-only) */}
+                  {/* Payment */}
                   <div>
-                    <label className="mb-1 block text-sm font-medium text-slate-700">Course</label>
-                    <input
-                      type="text"
-                      name="course"
-                      value={course.title}
-                      readOnly
-                      className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-500"
-                    />
-                  </div>
-
-                  {/* Payment Method */}
-                  <div>
-                    <label className="mb-1 block text-sm font-medium text-slate-700">
-                      Payment Method <span className="text-red-500">*</span>
-                    </label>
-                    <div className="grid gap-2">
+                    <label className="mb-1.5 block text-[0.78rem] font-semibold text-brand-text">Payment Method *</label>
+                    <div className="space-y-2">
                       {paymentMethods.map((pm) => {
                         const PmIcon = pm.icon
                         return (
                           <label
                             key={pm.id}
-                            className={`flex cursor-pointer items-center gap-3 rounded-lg border p-3 transition-[border-color,background-color] duration-200 ${
-                              form.payment_method === pm.id ? pm.activeColor : 'border-slate-200 hover:border-slate-300'
+                            className={`flex cursor-pointer items-center gap-3 rounded-md border p-3 transition-colors duration-200 ${
+                              form.payment_method === pm.id
+                                ? 'border-brand-teal bg-brand-teal/5'
+                                : 'border-black/7 hover:border-brand-teal/50'
                             }`}
                           >
                             <input
@@ -322,47 +272,35 @@ export default function CourseDetail() {
                               onChange={handleChange}
                               className="sr-only"
                             />
-                            <PmIcon className="h-5 w-5 flex-shrink-0" />
-                            <span className="text-sm font-medium">{pm.label}</span>
+                            <PmIcon className="h-4 w-4 text-brand-teal" />
+                            <span className="text-[0.85rem] font-medium text-brand-text">{pm.label}</span>
                           </label>
                         )
                       })}
                     </div>
                   </div>
 
-                  {/* Message */}
                   <div>
-                    <label className="mb-1 block text-sm font-medium text-slate-700">Message (optional)</label>
-                    <textarea
-                      name="message"
-                      rows={3}
-                      value={form.message}
-                      onChange={handleChange}
-                      className="w-full resize-none rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
-                      placeholder="Any questions..."
-                    />
+                    <label className="mb-1 block text-[0.78rem] font-semibold text-brand-text">Message (optional)</label>
+                    <textarea name="message" rows={3} value={form.message} onChange={handleChange} className={`${inputClass} resize-none`} placeholder="Any questions..." />
                   </div>
 
-                  {/* Submit */}
                   <button
                     type="submit"
                     disabled={status === 'submitting'}
-                    className="btn-primary w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="w-full rounded bg-brand-navy py-3.5 text-[0.95rem] font-semibold text-white transition-colors hover:bg-brand-teal disabled:opacity-60"
                   >
-                    {status === 'submitting' ? 'Submitting...' : (
-                      <>Submit Application <Send className="h-4 w-4" /></>
-                    )}
+                    {status === 'submitting' ? 'Submitting...' : <>Submit Application <Send className="ml-1 inline h-4 w-4" /></>}
                   </button>
 
-                  {/* Status */}
                   {status === 'success' && (
-                    <div className="flex items-center gap-2 rounded-lg bg-emerald-50 p-3 text-sm text-emerald-700">
+                    <div className="flex items-center gap-2 rounded bg-brand-teal/10 p-3 text-[0.85rem] text-brand-teal">
                       <CheckCircle className="h-4 w-4 flex-shrink-0" />
                       Application submitted! We'll contact you on WhatsApp.
                     </div>
                   )}
                   {status === 'error' && (
-                    <div className="flex items-center gap-2 rounded-lg bg-red-50 p-3 text-sm text-red-700">
+                    <div className="flex items-center gap-2 rounded bg-red-50 p-3 text-[0.85rem] text-red-700">
                       <AlertCircle className="h-4 w-4 flex-shrink-0" />
                       Something went wrong. Try again or WhatsApp us.
                     </div>

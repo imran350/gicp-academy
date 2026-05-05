@@ -5,6 +5,7 @@ import Hero from '../components/Hero'
 import CourseCard from '../components/CourseCard'
 import FeeSection from '../components/FeeSection'
 import FeaturesList from '../components/FeaturesList'
+import HowItWorks from '../components/HowItWorks'
 import courses from '../data/courses'
 
 function RevealSection({ children, className = '' }) {
@@ -20,46 +21,34 @@ function RevealSection({ children, className = '' }) {
 }
 
 export default function Home() {
-  const featured = courses.filter((c) => c.featured)
-
   return (
     <>
       <Hero />
 
-      {/* Featured Courses */}
-      <section className="relative py-24 bg-gradient-to-b from-slate-50 to-white">
-        {/* Subtle pattern */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(79,70,229,0.4) 1px, transparent 0)',
-            backgroundSize: '28px 28px',
-          }}
-        />
-
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto mb-14 max-w-2xl text-center">
-            <span className="mb-3 inline-flex items-center gap-1 rounded-full bg-brand-primary-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-primary">
-              Our Programs
-            </span>
-            <h2 className="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              Featured Diploma Programs
-            </h2>
-            <p className="mt-3 text-slate-500">
-              Explore our most popular programs designed to launch your career in psychology and health sciences.
+      {/* Programs Section */}
+      <section className="bg-white py-24 lg:py-28">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mb-16 flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-teal">
+                Our Diploma Programs
+              </div>
+              <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-bold leading-tight text-brand-navy">
+                Choose Your
+                <br />
+                Specialization
+              </h2>
+            </div>
+            <p className="max-w-sm text-[1rem] font-light leading-[1.7] text-brand-muted">
+              Each program is designed around practical outcomes, evidence-based methods, and career readiness.
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {featured.map((course, i) => (
-              <CourseCard key={course.id} course={course} index={i} />
+          {/* Grid */}
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {courses.map((course) => (
+              <CourseCard key={course.id} course={course} />
             ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <Link to="/courses" className="btn-outline">
-              View All 9 Courses <ArrowRight className="h-4 w-4" />
-            </Link>
           </div>
         </div>
       </section>
@@ -69,37 +58,81 @@ export default function Home() {
       </RevealSection>
 
       <RevealSection>
+        <HowItWorks />
+      </RevealSection>
+
+      <RevealSection>
         <FeaturesList />
       </RevealSection>
 
-      {/* CTA Banner */}
-      <section className="grain relative overflow-hidden bg-gradient-to-br from-brand-primary-dark to-brand-primary py-20">
-        <div
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(ellipse 70% 50% at 70% 50%, rgba(234,88,12,0.15), transparent)',
-          }}
-        />
-        <div className="relative z-10 mx-auto max-w-3xl px-4 text-center">
-          <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Ready to Start Your Journey?
+      {/* Careers Section */}
+      <RevealSection>
+        <section className="grain relative overflow-hidden bg-brand-navy py-24 lg:py-28">
+          <div
+            className="pointer-events-none absolute -right-24 -top-24 h-[500px] w-[500px] rounded-full"
+            style={{ background: 'radial-gradient(ellipse, rgba(26,122,110,0.15), transparent 70%)' }}
+          />
+
+          <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
+              <div>
+                <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-gold">
+                  Career Opportunities
+                </div>
+                <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-bold leading-tight text-white">
+                  Where Will
+                  <br />
+                  Your Diploma
+                  <br />
+                  Take You?
+                </h2>
+                <p className="mt-4 mb-8 max-w-md text-[1rem] font-light leading-[1.7] text-white/50">
+                  Our graduates are equipped to work across a wide range of clinical, educational, and community settings.
+                </p>
+                <Link to="/admissions" className="btn-primary">
+                  Start Your Journey
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { icon: '\uD83C\uDFE5', label: 'Clinics & Hospitals' },
+                  { icon: '\u267F', label: 'Rehabilitation Centers' },
+                  { icon: '\uD83C\uDFEB', label: 'Schools & Special Education' },
+                  { icon: '\uD83D\uDCBC', label: 'Private Practice' },
+                  { icon: '\uD83C\uDF0D', label: 'NGOs & Public Health' },
+                  { icon: '\uD83E\uDDE0', label: 'Mental Health Organizations' },
+                ].map((c) => (
+                  <div
+                    key={c.label}
+                    className="rounded-md border border-white/8 bg-white/5 p-5 transition-colors duration-200 hover:border-brand-teal/40 hover:bg-brand-teal/15"
+                  >
+                    <div className="mb-2.5 text-[1.4rem]">{c.icon}</div>
+                    <div className="text-[0.85rem] font-medium leading-snug text-white/85">
+                      {c.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      </RevealSection>
+
+      {/* CTA Strip */}
+      <section className="bg-brand-teal py-20 px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-8">
+          <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold leading-[1.25] text-white max-w-lg">
+            Limited Scholarship Seats Available —{' '}
+            <em className="not-italic text-brand-gold-light">Enroll Today</em>
           </h2>
-          <p className="mt-4 text-lg text-indigo-100">
-            Apply now and take the first step toward a rewarding career in psychology or health sciences.
-          </p>
-          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Link to="/admissions" className="btn-accent text-base">
-              Apply Now <ArrowRight className="h-4 w-4" />
+          <div className="flex flex-col items-end gap-3">
+            <Link to="/admissions" className="btn-white">
+              Apply Now &rarr;
             </Link>
-            <a
-              href="https://wa.me/923019753393"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-outline !border-white/20 !text-white hover:!bg-white/10"
-            >
-              Chat on WhatsApp
-            </a>
+            <span className="text-[0.8rem] text-white/65">
+              &#128197; New batch starting soon &middot; Seats filling fast
+            </span>
           </div>
         </div>
       </section>

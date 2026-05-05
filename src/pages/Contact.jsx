@@ -1,99 +1,140 @@
-import { Phone, Mail, MapPin, MessageCircle, Clock } from 'lucide-react'
+import { Mail, Globe, MessageCircle } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export default function Contact() {
   return (
-    <section className="pt-24 pb-20 bg-slate-50">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="mx-auto mb-14 max-w-2xl text-center">
-          <span className="mb-3 inline-block rounded-full bg-brand-primary-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-primary">
-            Contact
-          </span>
-          <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            Get in Touch
+    <>
+      {/* Navy Header */}
+      <section className="bg-brand-navy pt-28 pb-16">
+        <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
+          <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-gold">
+            Get In Touch
+          </div>
+          <h1 className="font-display text-[clamp(2rem,4vw,3rem)] font-bold leading-tight text-white">
+            Ready to Begin?
           </h1>
-          <p className="mt-3 text-slate-500">
-            Have questions? Reach out to us anytime — we're here to help.
+          <p className="mt-3 text-[1rem] font-light text-white/50">
+            Reach out on WhatsApp for the fastest response, or fill in the enquiry form.
           </p>
         </div>
+      </section>
 
-        <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
-          {/* WhatsApp */}
-          <a
-            href="https://wa.me/923019753393"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-card transition-[transform,box-shadow] duration-300 ease-spring hover:-translate-y-1 hover:shadow-cardHover"
-          >
-            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-[#25D366]/10">
-              <MessageCircle className="h-6 w-6 text-[#25D366]" />
-            </div>
+      {/* Content */}
+      <section className="bg-brand-cream pb-20">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
+            {/* Left: Contact Info */}
             <div>
-              <h3 className="font-display text-base font-bold text-slate-900">WhatsApp</h3>
-              <p className="mt-1 text-sm text-slate-500">Chat with us directly for quick responses</p>
-              <span className="mt-2 inline-block text-sm font-semibold text-brand-primary">
-                0301-9753393
-              </span>
-            </div>
-          </a>
+              <h2 className="font-display text-[1.6rem] font-bold text-brand-navy mb-2">Contact Information</h2>
+              <p className="mb-8 text-[0.95rem] font-light text-brand-muted">We're here to help. Choose your preferred way to reach us.</p>
 
-          {/* Email */}
-          <a
-            href="mailto:info@gicpacademy.com"
-            className="group flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-card transition-[transform,box-shadow] duration-300 ease-spring hover:-translate-y-1 hover:shadow-cardHover"
-          >
-            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-brand-primary-50">
-              <Mail className="h-6 w-6 text-brand-primary" />
-            </div>
-            <div>
-              <h3 className="font-display text-base font-bold text-slate-900">Email</h3>
-              <p className="mt-1 text-sm text-slate-500">Send us a detailed message anytime</p>
-              <span className="mt-2 inline-block text-sm font-semibold text-brand-primary">
-                info@gicpacademy.com
-              </span>
-            </div>
-          </a>
+              <div className="space-y-4">
+                {/* WhatsApp */}
+                <a
+                  href="https://wa.me/923019753393"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-4 rounded-lg border border-brand-teal/20 bg-white p-5 transition-colors duration-200 hover:bg-brand-teal/5"
+                >
+                  <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded bg-brand-teal text-[1.1rem]">
+                    <MessageCircle className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <div className="text-[0.72rem] font-semibold uppercase tracking-[2px] text-brand-muted">WhatsApp</div>
+                    <div className="text-[1rem] font-semibold text-brand-navy">0301-9753393</div>
+                    <div className="text-[0.8rem] text-brand-muted">Chat with us directly for quick responses</div>
+                  </div>
+                </a>
 
-          {/* Phone */}
-          <div className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
-            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-brand-primary-50">
-              <Phone className="h-6 w-6 text-brand-primary" />
-            </div>
-            <div>
-              <h3 className="font-display text-base font-bold text-slate-900">Phone</h3>
-              <p className="mt-1 text-sm text-slate-500">Call us during business hours</p>
-              <span className="mt-2 inline-block text-sm font-semibold text-brand-primary">
-                0301-9753393
-              </span>
-            </div>
-          </div>
+                {/* Email */}
+                <a
+                  href="mailto:gicpacademy@gmail.com"
+                  className="flex items-start gap-4 rounded-lg border border-brand-gold/20 bg-white p-5 transition-colors duration-200 hover:bg-brand-gold/5"
+                >
+                  <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded bg-brand-gold text-[1.1rem]">
+                    <Mail className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <div className="text-[0.72rem] font-semibold uppercase tracking-[2px] text-brand-muted">Email</div>
+                    <div className="text-[1rem] font-semibold text-brand-navy">gicpacademy@gmail.com</div>
+                    <div className="text-[0.8rem] text-brand-muted">Send us a detailed message anytime</div>
+                  </div>
+                </a>
 
-          {/* Location / Hours */}
-          <div className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
-            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-brand-primary-50">
-              <Clock className="h-6 w-6 text-brand-primary" />
+                {/* Website */}
+                <a
+                  href="https://www.gicpacademy.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-4 rounded-lg border border-brand-navy/20 bg-white p-5 transition-colors duration-200 hover:bg-brand-navy/5"
+                >
+                  <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded bg-brand-navy text-[1.1rem]">
+                    <Globe className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <div className="text-[0.72rem] font-semibold uppercase tracking-[2px] text-brand-muted">Website</div>
+                    <div className="text-[1rem] font-semibold text-brand-navy">www.gicpacademy.com</div>
+                    <div className="text-[0.8rem] text-brand-muted">Visit our official website</div>
+                  </div>
+                </a>
+              </div>
             </div>
-            <div>
-              <h3 className="font-display text-base font-bold text-slate-900">Program Schedule</h3>
-              <p className="mt-1 text-sm text-slate-500">Classes held online</p>
-              <span className="mt-2 inline-block text-sm font-semibold text-brand-primary">
-                2 Days / Week
-              </span>
+
+            {/* Right: Quick Apply */}
+            <div className="rounded-xl border border-brand-gold/20 bg-brand-navy p-8 shadow-[0_12px_40px_rgba(0,0,0,0.15)]">
+              <h2 className="font-display text-[1.6rem] font-bold text-white">Apply for Admission</h2>
+              <p className="mb-7 text-[0.85rem] text-white/50">Fill in your details and we'll contact you within 24 hours.</p>
+
+              <div className="mb-4 grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">First Name</label>
+                  <input type="text" className="w-full rounded border border-white/10 bg-white/10 px-3.5 py-3 text-[0.9rem] text-white outline-none focus:border-brand-gold placeholder:text-white/30" placeholder="e.g. Ayesha" />
+                </div>
+                <div>
+                  <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Last Name</label>
+                  <input type="text" className="w-full rounded border border-white/10 bg-white/10 px-3.5 py-3 text-[0.9rem] text-white outline-none focus:border-brand-gold placeholder:text-white/30" placeholder="e.g. Khan" />
+                </div>
+              </div>
+
+              <div className="mb-4">
+                <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">WhatsApp Number</label>
+                <input type="tel" className="w-full rounded border border-white/10 bg-white/10 px-3.5 py-3 text-[0.9rem] text-white outline-none focus:border-brand-gold placeholder:text-white/30" placeholder="0300-0000000" />
+              </div>
+
+              <div className="mb-4">
+                <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Email Address</label>
+                <input type="email" className="w-full rounded border border-white/10 bg-white/10 px-3.5 py-3 text-[0.9rem] text-white outline-none focus:border-brand-gold placeholder:text-white/30" placeholder="your@email.com" />
+              </div>
+
+              <div className="mb-4">
+                <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Program of Interest</label>
+                <select className="w-full rounded border border-white/10 bg-white/10 px-3.5 py-3 text-[0.9rem] text-white outline-none focus:border-brand-gold">
+                  <option className="text-brand-navy">Select a program...</option>
+                  <option className="text-brand-navy">ADCP — Advanced Diploma in Clinical Psychology</option>
+                  <option className="text-brand-navy">Diploma in Child Psychology</option>
+                  <option className="text-brand-navy">International Diploma in Autism (ASD)</option>
+                  <option className="text-brand-navy">Diploma in Speech & Language Therapy</option>
+                  <option className="text-brand-navy">Diploma in PECS</option>
+                  <option className="text-brand-navy">International Diploma in Physiotherapy</option>
+                  <option className="text-brand-navy">Diploma in Sensory Integration & Reflexes</option>
+                  <option className="text-brand-navy">International Diploma in CBT</option>
+                  <option className="text-brand-navy">Diploma in Nutrition & Dietetics</option>
+                  <option className="text-brand-navy">International Diploma in Public Health</option>
+                </select>
+              </div>
+
+              <div className="mb-6">
+                <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Message (Optional)</label>
+                <textarea rows={3} className="w-full resize-none rounded border border-white/10 bg-white/10 px-3.5 py-3 text-[0.9rem] text-white outline-none focus:border-brand-gold placeholder:text-white/30" placeholder="Any questions or additional info..." />
+              </div>
+
+              <Link to="/admissions" className="block w-full rounded bg-brand-gold py-4 text-center text-[0.95rem] font-bold text-brand-navy transition-colors hover:bg-brand-gold-light">
+                Submit Application
+              </Link>
             </div>
           </div>
         </div>
-
-        {/* Map placeholder */}
-        <div className="mx-auto mt-10 max-w-4xl overflow-hidden rounded-2xl border border-slate-200">
-          <div className="flex h-64 items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-            <div className="text-center">
-              <MapPin className="mx-auto mb-2 h-8 w-8 text-slate-400" />
-              <p className="text-sm font-medium text-slate-500">Pakistan — Online Programs</p>
-              <p className="mt-1 text-xs text-slate-400">All classes delivered via live online sessions</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }

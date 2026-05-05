@@ -8,7 +8,9 @@
   }
 
   body {
-    @apply bg-white text-slate-800;
+    background-color: #f7f3ed;
+    color: #1e2d3a;
+    font-family: 'DM Sans', system-ui, sans-serif;
   }
 
   h1, h2, h3, h4 {
@@ -18,26 +20,34 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-lg bg-brand-primary px-6 py-3 font-body text-sm font-semibold text-white
-           transition-[transform,box-shadow] duration-300 ease-spring
-           hover:scale-[1.03] hover:shadow-cardHover
-           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary
+    @apply inline-flex items-center gap-2 rounded bg-brand-teal px-9 py-4 font-body text-[0.95rem] font-semibold text-white
+           transition-[background-color,transform] duration-200
+           hover:bg-brand-teal-light hover:-translate-y-px
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal
            active:scale-[0.98];
   }
 
   .btn-accent {
-    @apply inline-flex items-center gap-2 rounded-lg bg-brand-accent px-6 py-3 font-body text-sm font-semibold text-white
-           transition-[transform,box-shadow] duration-300 ease-spring
-           hover:scale-[1.03] hover:shadow-[0_8px_30px_-12px_rgba(234,88,12,0.4)]
-           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent
+    @apply inline-flex items-center gap-2 rounded bg-brand-gold px-6 py-3 font-body text-sm font-semibold text-brand-navy
+           transition-[background-color,transform] duration-200
+           hover:bg-brand-gold-light hover:-translate-y-px
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-gold
            active:scale-[0.98];
   }
 
   .btn-outline {
-    @apply inline-flex items-center gap-2 rounded-lg border-2 border-brand-primary bg-transparent px-6 py-3 font-body text-sm font-semibold text-brand-primary
-           transition-[transform,background-color] duration-300 ease-spring
-           hover:scale-[1.03] hover:bg-brand-primary-50
-           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary
+    @apply inline-flex items-center gap-2 rounded border border-white/30 bg-transparent px-9 py-4 font-body text-[0.95rem] font-medium text-white
+           transition-[border-color,color] duration-200
+           hover:border-brand-gold hover:text-brand-gold
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-gold
+           active:scale-[0.98];
+  }
+
+  .btn-white {
+    @apply inline-flex items-center gap-2 rounded bg-white px-9 py-4 font-body text-[0.95rem] font-bold text-brand-teal
+           transition-[background-color] duration-200
+           hover:bg-brand-cream
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white
            active:scale-[0.98];
   }
 }
@@ -61,7 +71,7 @@
 }
 
 @keyframes slide-up {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -74,11 +84,19 @@
 }
 
 .animate-slide-up-delay {
-  animation: slide-up 0.8s ease-out 0.15s both;
+  animation: slide-up 0.8s ease-out 0.1s both;
 }
 
 .animate-slide-up-delay-2 {
+  animation: slide-up 0.8s ease-out 0.2s both;
+}
+
+.animate-slide-up-delay-3 {
   animation: slide-up 0.8s ease-out 0.3s both;
+}
+
+.animate-slide-up-delay-4 {
+  animation: slide-up 0.8s ease-out 0.4s both;
 }
 
 /* Scroll reveal */
@@ -91,4 +109,14 @@
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Exam timer pulse */
+@keyframes pulse-urgent {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.animate-pulse-urgent {
+  animation: pulse-urgent 1s infinite;
 }

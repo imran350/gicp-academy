@@ -5,196 +5,112 @@ import courses from '../data/courses'
 
 export default function Admissions() {
   const [form, setForm] = useState({
-    full_name: '',
-    father_name: '',
-    phone: '',
-    email: '',
-    course: '',
-    message: '',
+    first_name: '', last_name: '', whatsapp: '', email: '', program: '', payment_method: '', message: '',
   })
-  const [status, setStatus] = useState('idle') // idle | submitting | success | error
+  const [status, setStatus] = useState('idle')
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
-  }
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setStatus('submitting')
-
     try {
-      if (!supabase) {
-        throw new Error('Supabase not configured')
-      }
-      const { error } = await supabase.from('admissions').insert([form])
-
+      if (!supabase) throw new Error('Supabase not configured')
+      const { error } = await supabase.from('applications').insert([form])
       if (error) throw error
       setStatus('success')
-      setForm({ full_name: '', father_name: '', phone: '', email: '', course: '', message: '' })
-    } catch {
-      setStatus('error')
-    }
+      setForm({ first_name: '', last_name: '', whatsapp: '', email: '', program: '', payment_method: '', message: '' })
+    } catch { setStatus('error') }
   }
 
+  const inputClass = 'w-full rounded border border-black/10 bg-white px-3.5 py-3 text-[0.9rem] text-brand-text outline-none transition-colors duration-200 focus:border-brand-teal'
+
   return (
-    <section className="pt-24 pb-20 bg-slate-50">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="mb-10 text-center">
-          <span className="mb-3 inline-block rounded-full bg-brand-primary-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-primary">
+    <>
+      {/* Navy Header */}
+      <section className="bg-brand-navy pt-28 pb-16">
+        <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
+          <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-gold">
             Admissions
-          </span>
-          <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          </div>
+          <h1 className="font-display text-[clamp(2rem,4vw,3rem)] font-bold leading-tight text-white">
             Apply for Admission
           </h1>
-          <p className="mt-3 text-slate-500">
-            Fill out the form below to apply. We'll get back to you within 24 hours via WhatsApp.
+          <p className="mt-3 text-[1rem] font-light text-white/50">
+            Fill in your details and we'll contact you within 24 hours.
           </p>
         </div>
+      </section>
 
-        {/* Form */}
-        <form
-          onSubmit={handleSubmit}
-          className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card sm:p-8"
-        >
-          <div className="grid gap-5 sm:grid-cols-2">
-            {/* Full Name */}
-            <div>
-              <label htmlFor="full_name" className="mb-1.5 block text-sm font-medium text-slate-700">
-                Full Name <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="text"
-                id="full_name"
-                name="full_name"
-                required
-                value={form.full_name}
-                onChange={handleChange}
-                className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-[border-color,box-shadow] duration-200 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
-                placeholder="Your full name"
-              />
+      {/* Form */}
+      <section className="bg-brand-cream pb-20">
+        <div className="mx-auto max-w-3xl px-6 lg:px-8">
+          <form onSubmit={handleSubmit} className="rounded-xl border border-brand-gold/20 bg-brand-navy p-8 shadow-[0_12px_40px_rgba(0,0,0,0.15)] sm:p-11">
+            <h2 className="font-display text-[1.6rem] font-bold text-white">Apply for Admission</h2>
+            <p className="mb-7 text-[0.85rem] text-white/50">Fill in your details below and submit your enrollment request.</p>
+
+            <div className="mb-4 grid gap-4 sm:grid-cols-2">
+              <div>
+                <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">First Name <span className="text-red-400">*</span></label>
+                <input type="text" name="first_name" required value={form.first_name} onChange={handleChange} className={inputClass} placeholder="e.g. Ayesha" />
+              </div>
+              <div>
+                <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Last Name</label>
+                <input type="text" name="last_name" value={form.last_name} onChange={handleChange} className={inputClass} placeholder="e.g. Khan" />
+              </div>
             </div>
 
-            {/* Father's Name */}
-            <div>
-              <label htmlFor="father_name" className="mb-1.5 block text-sm font-medium text-slate-700">
-                Father's Name <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="text"
-                id="father_name"
-                name="father_name"
-                required
-                value={form.father_name}
-                onChange={handleChange}
-                className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-[border-color,box-shadow] duration-200 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
-                placeholder="Your father's name"
-              />
+            <div className="mb-4 grid gap-4 sm:grid-cols-2">
+              <div>
+                <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">WhatsApp Number <span className="text-red-400">*</span></label>
+                <input type="tel" name="whatsapp" required value={form.whatsapp} onChange={handleChange} className={inputClass} placeholder="0300-0000000" />
+              </div>
+              <div>
+                <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Email Address</label>
+                <input type="email" name="email" value={form.email} onChange={handleChange} className={inputClass} placeholder="your@email.com" />
+              </div>
             </div>
 
-            {/* Phone */}
-            <div>
-              <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-slate-700">
-                Phone / WhatsApp <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                required
-                value={form.phone}
-                onChange={handleChange}
-                className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-[border-color,box-shadow] duration-200 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
-                placeholder="03XX-XXXXXXX"
-              />
+            <div className="mb-4">
+              <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Program of Interest <span className="text-red-400">*</span></label>
+              <select name="program" required value={form.program} onChange={handleChange} className={`${inputClass} bg-white`}>
+                <option value="">Select a program...</option>
+                {courses.map((c) => <option key={c.id} value={c.title}>{c.title}</option>)}
+              </select>
             </div>
 
-            {/* Email */}
-            <div>
-              <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-slate-700">
-                Email Address
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={form.email}
-                onChange={handleChange}
-                className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-[border-color,box-shadow] duration-200 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
-                placeholder="you@example.com"
-              />
+            <div className="mb-4">
+              <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Payment Method</label>
+              <select name="payment_method" value={form.payment_method} onChange={handleChange} className={`${inputClass} bg-white`}>
+                <option value="">Select payment method...</option>
+                <option value="jazzcash">JazzCash</option>
+                <option value="easypaisa">EasyPaisa</option>
+                <option value="bank-transfer">Bank Transfer</option>
+              </select>
             </div>
-          </div>
 
-          {/* Course Select */}
-          <div className="mt-5">
-            <label htmlFor="course" className="mb-1.5 block text-sm font-medium text-slate-700">
-              Select Course <span className="text-red-500">*</span>
-            </label>
-            <select
-              id="course"
-              name="course"
-              required
-              value={form.course}
-              onChange={handleChange}
-              className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 transition-[border-color,box-shadow] duration-200 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
-            >
-              <option value="">— Choose a program —</option>
-              {courses.map((c) => (
-                <option key={c.id} value={c.title}>
-                  {c.title} — {c.subtitle}
-                </option>
-              ))}
-            </select>
-          </div>
+            <div className="mb-6">
+              <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Message (Optional)</label>
+              <textarea name="message" rows={4} value={form.message} onChange={handleChange} className={`${inputClass} resize-none`} placeholder="Any questions or additional info..." />
+            </div>
 
-          {/* Message */}
-          <div className="mt-5">
-            <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-slate-700">
-              Message (optional)
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={4}
-              value={form.message}
-              onChange={handleChange}
-              className="w-full resize-none rounded-lg border border-slate-200 px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 transition-[border-color,box-shadow] duration-200 focus:border-brand-primary focus:outline-none focus:ring-2 focus:ring-brand-primary/20"
-              placeholder="Any questions or special requests..."
-            />
-          </div>
+            <button type="submit" disabled={status === 'submitting'} className="w-full rounded bg-brand-gold py-4 text-[0.95rem] font-bold text-brand-navy transition-colors duration-200 hover:bg-brand-gold-light disabled:opacity-60">
+              {status === 'submitting' ? 'Submitting...' : <>Submit Application <Send className="ml-2 inline h-4 w-4" /></>}
+            </button>
 
-          {/* Submit */}
-          <button
-            type="submit"
-            disabled={status === 'submitting'}
-            className="btn-primary mt-6 w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed"
-          >
-            {status === 'submitting' ? (
-              'Submitting...'
-            ) : (
-              <>
-                Submit Application <Send className="h-4 w-4" />
-              </>
+            {status === 'success' && (
+              <div className="mt-4 flex items-center gap-2 rounded-lg bg-brand-teal/20 p-4 text-[0.9rem] text-brand-teal-light">
+                <CheckCircle className="h-5 w-5 flex-shrink-0" /> Application submitted successfully! We'll contact you on WhatsApp soon.
+              </div>
             )}
-          </button>
-
-          {/* Status messages */}
-          {status === 'success' && (
-            <div className="mt-4 flex items-center gap-2 rounded-lg bg-emerald-50 p-4 text-sm text-emerald-700">
-              <CheckCircle className="h-5 w-5 flex-shrink-0" />
-              Application submitted successfully! We'll contact you on WhatsApp soon.
-            </div>
-          )}
-
-          {status === 'error' && (
-            <div className="mt-4 flex items-center gap-2 rounded-lg bg-red-50 p-4 text-sm text-red-700">
-              <AlertCircle className="h-5 w-5 flex-shrink-0" />
-              Something went wrong. Please try again or contact us on WhatsApp.
-            </div>
-          )}
-        </form>
-      </div>
-    </section>
+            {status === 'error' && (
+              <div className="mt-4 flex items-center gap-2 rounded-lg bg-red-500/20 p-4 text-[0.9rem] text-red-300">
+                <AlertCircle className="h-5 w-5 flex-shrink-0" /> Something went wrong. Please try again or contact us on WhatsApp.
+              </div>
+            )}
+          </form>
+        </div>
+      </section>
+    </>
   )
 }

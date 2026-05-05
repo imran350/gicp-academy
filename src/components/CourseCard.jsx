@@ -1,74 +1,51 @@
 import { Link } from 'react-router-dom'
-import { Clock, CalendarDays, ArrowRight, Star } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
-export default function CourseCard({ course, index = 0 }) {
-  const Icon = course.icon
-
-  const gradients = [
-    'from-indigo-500 to-purple-600',
-    'from-violet-500 to-fuchsia-600',
-    'from-blue-500 to-cyan-600',
-    'from-emerald-500 to-teal-600',
-    'from-orange-500 to-red-500',
-    'from-pink-500 to-rose-600',
-    'from-cyan-500 to-blue-600',
-    'from-teal-500 to-emerald-600',
-    'from-purple-500 to-indigo-600',
-  ]
-
-  const gradient = gradients[index % gradients.length]
-
+export default function CourseCard({ course }) {
   return (
     <Link
       to={`/course/${course.id}`}
-      className="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-card transition-[transform,box-shadow] duration-300 ease-spring hover:-translate-y-2 hover:shadow-cardHover"
+      className="group relative flex flex-col overflow-hidden rounded-lg border border-black/6 bg-white transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(26,122,110,0.15)] hover:border-brand-teal/30"
     >
-      {/* Top gradient header */}
-      <div className={`relative flex h-36 items-end bg-gradient-to-br ${gradient} p-5`}>
-        {/* Decorative circles */}
-        <div className="pointer-events-none absolute -top-6 -right-6 h-24 w-24 rounded-full bg-white/10" />
-        <div className="pointer-events-none absolute -bottom-4 -left-4 h-16 w-16 rounded-full bg-white/10" />
+      {/* Top accent bar */}
+      <div className="h-1 bg-gradient-to-r from-brand-teal to-brand-gold" />
 
-        {/* Icon */}
-        <div className="absolute top-4 left-5 flex h-11 w-11 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
-          <Icon className="h-5 w-5 text-white" />
+      <div className="p-6 flex-1 flex flex-col">
+        {/* Number + Badge row */}
+        <div className="mb-3 flex items-center justify-between">
+          <span className="flex h-9 w-9 items-center justify-center rounded-md bg-brand-teal font-display text-[1rem] font-bold text-white">
+            {course.num}
+          </span>
+          {course.badge && (
+            <span className="rounded-sm bg-brand-gold/15 px-2.5 py-1 text-[0.68rem] font-bold uppercase tracking-[1px] text-brand-gold">
+              {course.badge}
+            </span>
+          )}
         </div>
 
-        {/* Featured badge */}
-        {course.featured && (
-          <div className="absolute top-4 right-4 flex items-center gap-1 rounded-full bg-white/20 px-2.5 py-1 text-xs font-bold text-white backdrop-blur-sm">
-            <Star className="h-3 w-3" /> Featured
-          </div>
+        {/* Title */}
+        <h3 className="mb-2 text-[0.95rem] font-semibold leading-snug text-brand-navy group-hover:text-brand-teal transition-colors duration-200">
+          {course.title}
+        </h3>
+
+        {/* Tagline */}
+        {course.tagline && (
+          <p className="mb-2 text-[0.8rem] font-medium leading-[1.5] text-brand-teal/80">
+            {course.tagline}
+          </p>
         )}
 
-        {/* Course title on gradient */}
-        <div className="relative z-10">
-          <h3 className="text-lg font-bold leading-snug text-white">
-            {course.title}
-          </h3>
-        </div>
-      </div>
-
-      {/* Card body */}
-      <div className="flex flex-1 flex-col p-5">
-        <p className="mb-2 text-sm font-medium text-brand-primary">{course.subtitle}</p>
-        <p className="mb-4 flex-1 text-sm leading-relaxed text-slate-500">
+        {/* Description */}
+        <p className="flex-1 text-[0.82rem] font-light leading-[1.6] text-brand-muted">
           {course.description}
         </p>
 
-        {/* Meta */}
-        <div className="mb-4 flex flex-wrap gap-2">
-          <span className="inline-flex items-center gap-1 rounded-md bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-600">
-            <Clock className="h-3 w-3" /> {course.duration}
+        {/* Duration + CTA */}
+        <div className="mt-4 flex items-center justify-between border-t border-black/6 pt-3">
+          <span className="text-[0.75rem] font-medium text-brand-muted">{course.duration} &middot; {course.schedule}</span>
+          <span className="flex items-center gap-1 text-[0.78rem] font-semibold text-brand-teal opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+            Details <ArrowRight className="h-3 w-3" />
           </span>
-          <span className="inline-flex items-center gap-1 rounded-md bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-600">
-            <CalendarDays className="h-3 w-3" /> {course.schedule}
-          </span>
-        </div>
-
-        {/* CTA */}
-        <div className="inline-flex items-center gap-1 text-sm font-semibold text-brand-primary transition-colors duration-200 group-hover:text-brand-primary-dark">
-          View Details <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
         </div>
       </div>
     </Link>

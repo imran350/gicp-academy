@@ -1,106 +1,94 @@
-import { GraduationCap, Briefcase, Building2, Globe, Award, Users } from 'lucide-react'
+import { Award, Users, Globe } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const highlights = [
-  {
-    icon: Award,
-    title: 'Recognized Certification',
-    desc: 'Our diplomas are recognized internationally, opening doors to career opportunities worldwide.',
-  },
-  {
-    icon: Users,
-    title: 'Expert Faculty',
-    desc: 'Learn from experienced practitioners and academics who bring real-world expertise to every class.',
-  },
-  {
-    icon: Globe,
-    title: 'Online Learning',
-    desc: 'Attend live classes from anywhere. All programs are delivered online with flexible schedules.',
-  },
+  { icon: Award, title: 'Recognized Certification', desc: 'Our diplomas are recognized internationally, opening doors to career opportunities worldwide.' },
+  { icon: Users, title: 'Expert Faculty', desc: 'Learn from experienced practitioners and academics who bring real-world expertise to every class.' },
+  { icon: Globe, title: 'Online Learning', desc: 'Attend live classes from anywhere. All programs are delivered online with flexible schedules.' },
 ]
 
 const careers = [
-  { icon: Building2, label: 'Hospitals' },
-  { icon: Briefcase, label: 'Private Clinics' },
-  { icon: GraduationCap, label: 'Rehabilitation Centers' },
-  { icon: Globe, label: 'NGOs & Public Health' },
+  { icon: '\uD83C\uDFE5', label: 'Clinics & Hospitals' },
+  { icon: '\u267F', label: 'Rehabilitation Centers' },
+  { icon: '\uD83C\uDFEB', label: 'Schools & Special Education' },
+  { icon: '\uD83D\uDCBC', label: 'Private Practice' },
+  { icon: '\uD83C\uDF0D', label: 'NGOs & Public Health' },
+  { icon: '\uD83E\uDDE0', label: 'Mental Health Organizations' },
 ]
 
 export default function About() {
   return (
-    <section className="pt-24 pb-20 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="mx-auto mb-14 max-w-2xl text-center">
-          <span className="mb-3 inline-block rounded-full bg-brand-primary-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-primary">
+    <>
+      {/* Navy Header */}
+      <section className="bg-brand-navy pt-28 pb-16">
+        <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
+          <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-gold">
             About Us
-          </span>
-          <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          </div>
+          <h1 className="font-display text-[clamp(2rem,4vw,3rem)] font-bold leading-tight text-white">
             About GICP Academy
           </h1>
-          <p className="mt-3 text-slate-500">
+          <p className="mt-3 text-[1rem] font-light text-white/50">
             Empowering the next generation of mental health and rehabilitation professionals.
           </p>
         </div>
+      </section>
 
-        {/* Mission */}
-        <div className="mx-auto mb-16 max-w-3xl">
-          <div className="rounded-2xl border border-slate-100 bg-slate-50 p-8">
-            <h2 className="mb-4 font-display text-2xl font-bold text-slate-900">Our Mission</h2>
-            <p className="leading-relaxed text-slate-600">
+      {/* Mission */}
+      <section className="bg-brand-cream py-16">
+        <div className="mx-auto max-w-3xl px-6 lg:px-8">
+          <div className="rounded-lg border border-brand-gold/20 bg-brand-navy p-8 text-white">
+            <h2 className="mb-4 font-display text-2xl font-bold text-brand-gold">Our Mission</h2>
+            <p className="leading-relaxed text-white/70">
               GICP Academy is dedicated to providing accessible, high-quality education in psychology,
               therapy, and health sciences. We believe every student in Pakistan deserves the opportunity
               to build a meaningful career in these critical fields — without the burden of prohibitive costs
               or geographic barriers.
             </p>
-            <p className="mt-4 leading-relaxed text-slate-600">
+            <p className="mt-4 leading-relaxed text-white/70">
               Our programs combine rigorous academic content with practical, hands-on training. Each diploma
               is designed to equip graduates with the knowledge, skills, and confidence to enter the workforce
               immediately upon completion.
             </p>
           </div>
         </div>
+      </section>
 
-        {/* Highlights */}
-        <div className="mb-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {highlights.map((h) => {
-            const Icon = h.icon
-            return (
-              <div
-                key={h.title}
-                className="rounded-2xl border border-slate-100 bg-white p-6 shadow-card"
-              >
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-primary-50">
-                  <Icon className="h-5 w-5 text-brand-primary" />
-                </div>
-                <h3 className="mb-2 font-display text-base font-bold text-slate-900">{h.title}</h3>
-                <p className="text-sm leading-relaxed text-slate-500">{h.desc}</p>
-              </div>
-            )
-          })}
-        </div>
-
-        {/* Careers */}
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="mb-3 font-display text-2xl font-bold text-slate-900">Career Opportunities</h2>
-          <p className="mb-8 text-slate-500">
-            Our graduates go on to work in a variety of professional settings:
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            {careers.map((c) => {
-              const Icon = c.icon
+      {/* Highlights */}
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {highlights.map((h) => {
+              const Icon = h.icon
               return (
-                <div
-                  key={c.label}
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-slate-700 shadow-sm"
-                >
-                  <Icon className="h-4 w-4 text-brand-primary" />
-                  {c.label}
+                <div key={h.title} className="rounded-lg border border-black/6 bg-brand-cream p-6">
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded bg-brand-teal">
+                    <Icon className="h-5 w-5 text-white" />
+                  </div>
+                  <h3 className="mb-2 text-[0.95rem] font-semibold text-brand-navy">{h.title}</h3>
+                  <p className="text-[0.85rem] font-light leading-[1.65] text-brand-muted">{h.desc}</p>
                 </div>
               )
             })}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Careers */}
+      <section className="bg-brand-navy py-16">
+        <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
+          <h2 className="mb-3 font-display text-2xl font-bold text-white">Career Opportunities</h2>
+          <p className="mb-8 text-[1rem] font-light text-white/50">Our graduates go on to work in a variety of professional settings:</p>
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+            {careers.map((c) => (
+              <div key={c.label} className="rounded-md border border-white/10 bg-white/5 px-4 py-4 text-[0.85rem] font-medium text-white/85 transition-colors hover:bg-brand-teal/15 hover:border-brand-teal/30">
+                <span className="mr-2">{c.icon}</span>{c.label}
+              </div>
+            ))}
+          </div>
+          <Link to="/admissions" className="btn-primary mt-10 inline-flex">Start Your Journey</Link>
+        </div>
+      </section>
+    </>
   )
 }

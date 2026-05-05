@@ -8,27 +8,27 @@ export default {
     extend: {
       colors: {
         brand: {
-          primary: '#4F46E5',
-          'primary-dark': '#3730A3',
-          'primary-light': '#818CF8',
-          'primary-50': '#EEF2FF',
-          accent: '#EA580C',
-          'accent-light': '#FB923C',
-          'accent-50': '#FFF7ED',
-          dark: '#0F172A',
+          navy: '#0d1b2a',
+          teal: '#1a7a6e',
+          'teal-light': '#22a898',
+          gold: '#c9a84c',
+          'gold-light': '#e8c96a',
+          cream: '#f7f3ed',
+          text: '#1e2d3a',
+          muted: '#6b7f8e',
         },
       },
       fontFamily: {
-        display: ['Playfair Display', 'Georgia', 'serif'],
-        body: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Cormorant Garamond', 'Georgia', 'serif'],
+        body: ['DM Sans', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
         tightest: '-0.03em',
       },
       boxShadow: {
-        card: '0 8px 30px -12px rgba(79,70,229,0.25)',
-        cardHover: '0 16px 40px -12px rgba(79,70,229,0.35)',
-        float: '0 20px 50px -15px rgba(0,0,0,0.3)',
+        card: '0 8px 30px -12px rgba(13,27,42,0.15)',
+        cardHover: '0 16px 40px -12px rgba(26,122,110,0.2)',
+        float: '0 20px 50px -15px rgba(0,0,0,0.2)',
       },
       transitionTimingFunction: {
         spring: 'cubic-bezier(0.34, 1.56, 0.64, 1)',

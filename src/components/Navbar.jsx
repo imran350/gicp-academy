@@ -1,61 +1,56 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, GraduationCap } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 const navLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/courses', label: 'Courses' },
-  { to: '/admissions', label: 'Admissions' },
-  { to: '/about', label: 'About' },
+  { to: '/courses', label: 'Programs' },
+  { to: '/admissions', label: 'Fees' },
+  { to: '/exam', label: 'Exam' },
+  { to: '/about', label: 'Careers' },
   { to: '/contact', label: 'Contact' },
 ]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const location = useLocation()
-  const isHome = location.pathname === '/'
 
-  const handleNavClick = (to) => {
+  const handleNavClick = () => {
     setOpen(false)
-    if (isHome && to === '/') {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }
   }
 
   return (
-    <nav className="fixed top-0 z-50 w-full border-b border-slate-100 bg-white/90 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <nav className="fixed top-0 z-50 w-full border-b border-brand-gold/20 bg-brand-navy/96 backdrop-blur-xl">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
         {/* Logo */}
         <Link
           to="/"
-          className="flex items-center gap-2 transition-opacity duration-200 hover:opacity-80"
-          onClick={() => handleNavClick('/')}
+          className="font-display text-xl font-bold tracking-wide text-brand-gold transition-opacity duration-200 hover:opacity-80"
+          onClick={handleNavClick}
         >
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-primary">
-            <GraduationCap className="h-5 w-5 text-white" />
-          </div>
-          <span className="font-display text-xl font-bold tracking-tight text-slate-900">
-            GICP <span className="text-brand-primary">Academy</span>
-          </span>
+          GICP <span className="font-normal text-white">Academy</span>
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
-              onClick={() => handleNavClick(link.to)}
-              className={`rounded-md px-3 py-2 text-sm font-medium transition-colors duration-200 ${
+              onClick={handleNavClick}
+              className={`text-[0.85rem] font-medium uppercase tracking-wide transition-colors duration-200 ${
                 location.pathname === link.to
-                  ? 'text-brand-primary'
-                  : 'text-slate-600 hover:text-brand-primary'
-              } focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary`}
+                  ? 'text-brand-gold'
+                  : 'text-white/75 hover:text-brand-gold'
+              }`}
             >
               {link.label}
             </Link>
           ))}
-          <Link to="/admissions" className="btn-primary ml-3 !py-2 !text-xs">
+          <Link
+            to="/admissions"
+            onClick={handleNavClick}
+            className="ml-2 rounded bg-brand-teal px-5 py-2.5 text-[0.85rem] font-semibold text-white transition-colors duration-200 hover:bg-brand-teal-light"
+          >
             Apply Now
           </Link>
         </div>
@@ -63,7 +58,7 @@ export default function Navbar() {
         {/* Mobile menu button */}
         <button
           onClick={() => setOpen(!open)}
-          className="inline-flex items-center justify-center rounded-md p-2 text-slate-600 transition-colors hover:bg-slate-100 hover:text-brand-primary focus-visible:outline-2 focus-visible:outline-brand-primary md:hidden"
+          className="inline-flex items-center justify-center rounded p-2 text-white/75 transition-colors hover:text-brand-gold md:hidden"
           aria-label="Toggle menu"
         >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -72,17 +67,17 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="border-t border-slate-100 bg-white md:hidden">
-          <div className="space-y-1 px-4 py-3">
+        <div className="border-t border-brand-gold/10 bg-brand-navy md:hidden">
+          <div className="space-y-1 px-6 py-4">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
-                onClick={() => handleNavClick(link.to)}
-                className={`block rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                onClick={handleNavClick}
+                className={`block rounded px-3 py-2.5 text-[0.85rem] font-medium uppercase tracking-wide transition-colors ${
                   location.pathname === link.to
-                    ? 'bg-brand-primary-50 text-brand-primary'
-                    : 'text-slate-600 hover:bg-slate-50 hover:text-brand-primary'
+                    ? 'text-brand-gold'
+                    : 'text-white/75 hover:text-brand-gold'
                 }`}
               >
                 {link.label}
@@ -90,8 +85,8 @@ export default function Navbar() {
             ))}
             <Link
               to="/admissions"
-              onClick={() => handleNavClick('/admissions')}
-              className="btn-primary mt-2 w-full justify-center"
+              onClick={handleNavClick}
+              className="mt-3 block rounded bg-brand-teal px-4 py-3 text-center text-[0.85rem] font-semibold text-white transition-colors hover:bg-brand-teal-light"
             >
               Apply Now
             </Link>
