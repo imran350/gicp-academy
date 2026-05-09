@@ -72,7 +72,7 @@ export default function Admissions() {
             </div>
 
             <div className="mb-4">
-              <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Program of Interest <span className="text-red-400">*</span></label>
+              <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Course of Interest <span className="text-red-400">*</span></label>
               <select name="program" required value={form.program} onChange={handleChange} className={`${inputClass} bg-white`}>
                 <option value="">Select a program...</option>
                 {courses.map((c) => <option key={c.id} value={c.title}>{c.title}</option>)}

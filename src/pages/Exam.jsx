@@ -34,7 +34,7 @@ const examQuestions = [
   {
     q: 'What does PECS stand for in special education?',
     options: [
-      'Program for Educational and Cognitive Skills',
+      'Course for Educational and Cognitive Skills',
       'Picture Exchange Communication System',
       'Psychological Evaluation and Cognitive Screening',
       'Pediatric Early Childhood System',
@@ -205,7 +205,7 @@ export default function Exam() {
               </div>
             </div>
           ) : (
-            <div className="overflow-hidden rounded-xl border border-black/8 bg-white shadow-[0_12px_40px_rgba(0,0,0,0.09)]">
+            <div className="overflow-hidden rounded-xl border border-brand-teal/10 bg-white/90 shadow-[0_12px_40px_rgba(0,0,0,0.09)]">
               <div className="p-10 text-center">
                 <div className="mb-3 text-[2.5rem]">{pct >= 50 ? '\uD83C\uDF89' : '\uD83D\uDE14'}</div>
                 <div className="text-[1.3rem] font-bold text-brand-navy">Score: <strong>{score} / {examQuestions.length}</strong></div>

@@ -34,6 +34,7 @@ const courses = [
     description:
       'Develop expertise in autism assessment, intervention strategies, and inclusive education practices for individuals across the autism spectrum.',
     badge: null,
+    imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+ASD+Support',
   },
   {
     id: 'speech-therapy',
@@ -46,6 +47,7 @@ const courses = [
     description:
       'Learn to assess and treat speech, language, and communication disorders. Cover articulation, fluency, voice, and language-based learning disabilities.',
     badge: null,
+    imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+Speech+Tools',
   },
   {
     id: 'pecs',
@@ -58,6 +60,7 @@ const courses = [
     description:
       'Learn practical techniques to support children with autism and communication challenges. Become a Certified PECS Communication Specialist.',
     badge: 'New Program',
+    imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+Nonverbal+Comm',
   },
   {
     id: 'physiotherapy',
@@ -70,6 +73,7 @@ const courses = [
     description:
       'Study musculoskeletal assessment, therapeutic exercises, electrotherapy, and rehabilitation techniques for diverse patient populations.',
     badge: null,
+    imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+Rehabilitation',
   },
   {
     id: 'sensory-integration',
@@ -82,6 +86,7 @@ const courses = [
     description:
       'Understand sensory processing, integration techniques, and primitive reflex integration. Learn to design effective sensory diets and therapeutic programs.',
     badge: null,
+    imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+Sensory+Therapy',
   },
   {
     id: 'cbt',
@@ -94,6 +99,7 @@ const courses = [
     description:
       'Master CBT techniques for treating anxiety, depression, PTSD, and more. Learn structured therapy sessions with practical case formulations.',
     badge: null,
+    imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+CBT+Sessions',
   },
   {
     id: 'nutrition',
@@ -106,6 +112,7 @@ const courses = [
     description:
       'Study clinical nutrition, therapeutic diets, and nutritional assessment. Learn to create diet plans for various health conditions and populations.',
     badge: null,
+    imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+Diet+Planning',
   },
   {
     id: 'public-health',
@@ -118,6 +125,7 @@ const courses = [
     description:
       'Explore epidemiology, health policy, environmental health, and community health promotion. Develop skills in health program planning and evaluation.',
     badge: null,
+    imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+Community+Health',
   },
 ]
 

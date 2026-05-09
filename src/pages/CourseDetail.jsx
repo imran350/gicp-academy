@@ -94,11 +94,11 @@ export default function CourseDetail() {
           {/* Left: Course info */}
           <div className="lg:col-span-2">
             {/* Course header */}
-            <div className="rounded-lg border border-black/6 bg-white p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+            <div className="rounded-lg border border-brand-teal/10 bg-white/80 p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
               <div className="mb-2 text-[0.72rem] font-semibold uppercase tracking-[2px] text-brand-teal">
-                Program {course.num}
+                Course {course.num}
               </div>
-              <h1 className="font-display text-2xl font-bold text-brand-navy sm:text-3xl">
+              <h1 className="font-display text-xl font-bold text-brand-navy sm:text-2xl md:text-3xl whitespace-normal leading-1.3 min-h-[60px] display-block py-2">
                 {course.title}
               </h1>
               {course.tagline && (
@@ -123,7 +123,7 @@ export default function CourseDetail() {
             </div>
 
             {/* What you'll learn */}
-            <div className="mt-6 rounded-lg border border-black/6 bg-white p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+            <div className="mt-6 rounded-lg border border-brand-teal/10 bg-white/80 p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
               <h2 className="mb-4 font-display text-xl font-bold text-brand-navy">What You'll Learn</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {[
@@ -145,7 +145,7 @@ export default function CourseDetail() {
             </div>
 
             {/* Payment Methods */}
-            <div className="mt-6 rounded-lg border border-black/6 bg-white p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+            <div className="mt-6 rounded-lg border border-brand-teal/10 bg-white/80 p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
               <h2 className="mb-4 font-display text-xl font-bold text-brand-navy">Payment Methods</h2>
               <p className="mb-4 text-[0.85rem] text-brand-muted">We accept the following payment methods:</p>
               <div className="grid gap-3 sm:grid-cols-3">
@@ -170,9 +170,9 @@ export default function CourseDetail() {
 
           {/* Right: Sticky enrollment card */}
           <div className="lg:col-span-1">
-            <div className="sticky top-24">
+            <div className="sticky top-28 z-10">
               {/* Price card */}
-              <div className="overflow-hidden rounded-lg border border-black/6 bg-white shadow-[0_8px_32px_rgba(0,0,0,0.06)]">
+              <div className="overflow-hidden rounded-lg border border-brand-teal/10 bg-white shadow-[0_8px_32px_rgba(0,0,0,0.06)]">
                 <div className="bg-brand-navy p-6 text-white">
                   <div className="flex items-baseline gap-2">
                     <span className="font-display text-3xl font-bold text-brand-gold">PKR 35,000</span>
@@ -187,7 +187,7 @@ export default function CourseDetail() {
                 <div className="p-6">
                   <ul className="mb-6 space-y-3">
                     {[
-                      '6 Months Program',
+                      '6 Months Course',
                       '2 Days / Week',
                       'Live Online Classes',
                       'Assignments & Exams',
@@ -218,7 +218,7 @@ export default function CourseDetail() {
               </div>
 
               {/* Enrollment form */}
-              <div id="enroll-form" className="mt-6 rounded-lg border border-black/6 bg-white p-6 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+              <div id="enroll-form" className="mt-6 rounded-lg border border-brand-teal/10 bg-white/80 p-6 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
                 <h3 className="mb-4 font-display text-lg font-bold text-brand-navy">Quick Enrollment</h3>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -244,7 +244,7 @@ export default function CourseDetail() {
                   </div>
 
                   <div>
-                    <label className="mb-1 block text-[0.78rem] font-semibold text-brand-text">Program</label>
+                    <label className="mb-1 block text-[0.78rem] font-semibold text-brand-text">Course</label>
                     <input type="text" value={course.title} readOnly className={`${inputClass} bg-white text-brand-muted cursor-default`} />
                   </div>
 

@@ -43,7 +43,7 @@ export default function FeeSection() {
           {/* Right: Fee cards */}
           <div className="flex flex-col gap-5">
             {/* Standard */}
-            <div className="rounded-lg border border-black/6 bg-white p-9">
+            <div className="rounded-lg border border-brand-teal/10 bg-white/80 p-9">
               <div className="mb-2 text-[0.78rem] font-semibold uppercase tracking-[2px] text-brand-muted">
                 Standard Fee
               </div>

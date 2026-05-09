@@ -12,7 +12,9 @@
       "Read(//c/Users/nateh/.cache/**)",
       "Bash(netstat:*)",
       "Bash(taskkill:*)",
-      "Bash(nslookup:*)"
+      "Bash(nslookup:*)",
+      "Bash(npx supabase *)",
+      "Bash(git add *)"
     ]
   }
 }

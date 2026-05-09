@@ -114,6 +114,10 @@ gicp-academy/
 - [x] All 5 pages verified via screenshots
 - [x] Supabase client set up (null-safe, won't crash without env vars)
 - [x] Website confirmed working on localhost:5173
+- [x] Resolved excessive white background issue (replaced bg-white with bg-brand-cream in all page sections)
+- [x] Fixed CourseCard.jsx invalid Tailwind classes
+- [x] Updated WhoWeServe.jsx to use current brand color system (navy/teal/gold/cream)
+- [x] Softened white card backgrounds with bg-white/80 for better cream page alignment
 
 ## Pending (Next Session)
 - [ ] **Supabase setup** — User needs to:

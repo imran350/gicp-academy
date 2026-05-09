@@ -36,7 +36,7 @@ const features = [
 
 export default function FeaturesList() {
   return (
-    <section className="bg-white py-24 lg:py-28">
+    <section className="bg-brand-cream py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div className="mb-16 max-w-lg">
@@ -58,7 +58,7 @@ export default function FeaturesList() {
             return (
               <div
                 key={f.title}
-                className="group rounded-lg border border-black/6 bg-brand-cream p-8 transition-colors duration-200 hover:bg-white"
+                className="group rounded-lg border border-brand-teal/10 bg-white/80 p-8 transition-colors duration-200 hover:bg-white"
               >
                 <div className="mb-4 flex h-11 w-11 items-center justify-center rounded bg-brand-teal/10">
                   <Icon className="h-5 w-5 text-brand-teal" />

@@ -10,7 +10,7 @@ export default function Courses() {
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
               <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-gold">
-                Our Diploma Programs
+                Our Diploma Courses
               </div>
               <h1 className="font-display text-[clamp(2rem,4vw,3rem)] font-bold leading-tight text-white">
                 Choose Your<br />Specialization
@@ -23,8 +23,8 @@ export default function Courses() {
         </div>
       </section>
 
-      {/* Programs Grid */}
-      <section className="bg-white pb-20">
+      {/* Courses Grid */}
+      <section className="bg-brand-cream pb-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {courses.map((course) => (

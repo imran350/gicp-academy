@@ -34,7 +34,7 @@ export default function Contact() {
                   href="https://wa.me/923019753393"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-4 rounded-lg border border-brand-teal/20 bg-white p-5 transition-colors duration-200 hover:bg-brand-teal/5"
+                  className="flex items-start gap-4 rounded-lg border border-brand-teal/20 bg-white/80 p-5 transition-colors duration-200 hover:bg-brand-teal/5"
                 >
                   <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded bg-brand-teal text-[1.1rem]">
                     <MessageCircle className="h-5 w-5 text-white" />
@@ -49,7 +49,7 @@ export default function Contact() {
                 {/* Email */}
                 <a
                   href="mailto:gicpacademy@gmail.com"
-                  className="flex items-start gap-4 rounded-lg border border-brand-gold/20 bg-white p-5 transition-colors duration-200 hover:bg-brand-gold/5"
+                  className="flex items-start gap-4 rounded-lg border border-brand-gold/20 bg-white/80 p-5 transition-colors duration-200 hover:bg-brand-gold/5"
                 >
                   <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded bg-brand-gold text-[1.1rem]">
                     <Mail className="h-5 w-5 text-white" />
@@ -66,7 +66,7 @@ export default function Contact() {
                   href="https://www.gicpacademy.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-4 rounded-lg border border-brand-navy/20 bg-white p-5 transition-colors duration-200 hover:bg-brand-navy/5"
+                  className="flex items-start gap-4 rounded-lg border border-brand-navy/20 bg-white/80 p-5 transition-colors duration-200 hover:bg-brand-navy/5"
                 >
                   <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded bg-brand-navy text-[1.1rem]">
                     <Globe className="h-5 w-5 text-white" />
@@ -107,7 +107,7 @@ export default function Contact() {
               </div>
 
               <div className="mb-4">
-                <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Program of Interest</label>
+                <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Course of Interest</label>
                 <select className="w-full rounded border border-white/10 bg-white/10 px-3.5 py-3 text-[0.9rem] text-white outline-none focus:border-brand-gold">
                   <option className="text-brand-navy">Select a program...</option>
                   <option className="text-brand-navy">ADCP — Advanced Diploma in Clinical Psychology</option>
