@@ -144,6 +144,48 @@ export default function CourseDetail() {
               </div>
             </div>
 
+            {/* Learning Format (from reference) */}
+            <div className="mt-6 rounded-lg border border-brand-teal/10 bg-white/80 p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+              <h2 className="mb-4 font-display text-xl font-bold text-brand-navy">Learning Format</h2>
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">🎥</div>
+                  <div>
+                    <p className="text-[0.85rem] font-semibold text-brand-navy">Live Classes</p>
+                    <p className="text-[0.75rem] text-brand-muted">Interactive sessions via Zoom & Google Meet, 2 days per week</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">📼</div>
+                  <div>
+                    <p className="text-[0.85rem] font-semibold text-brand-navy">Recorded Lectures</p>
+                    <p className="text-[0.75rem] text-brand-muted">Full access to all recorded sessions anytime, anywhere</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">📋</div>
+                  <div>
+                    <p className="text-[0.85rem] font-semibold text-brand-navy">Assignments</p>
+                    <p className="text-[0.75rem] text-brand-muted">Real-world case studies and clinical assignments</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">⏱</div>
+                  <div>
+                    <p className="text-[0.85rem] font-semibold text-brand-navy">Online Exam</p>
+                    <p className="text-[0.75rem] text-brand-muted">30-minute timed paper — auto-submitted, instant results</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">🎓</div>
+                  <div>
+                    <p className="text-[0.85rem] font-semibold text-brand-navy">Certificate</p>
+                    <p className="text-[0.75rem] text-brand-muted">Professional diploma certificate on successful completion</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Payment Methods */}
             <div className="mt-6 rounded-lg border border-brand-teal/10 bg-white/80 p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
               <h2 className="mb-4 font-display text-xl font-bold text-brand-navy">Payment Methods</h2>
@@ -174,17 +216,39 @@ export default function CourseDetail() {
               {/* Price card */}
               <div className="overflow-hidden rounded-lg border border-brand-teal/10 bg-white shadow-[0_8px_32px_rgba(0,0,0,0.06)]">
                 <div className="bg-brand-navy p-6 text-white">
-                  <div className="flex items-baseline gap-2">
-                    <span className="font-display text-3xl font-bold text-brand-gold">PKR 35,000</span>
-                    <span className="text-[0.85rem] line-through text-white/50">PKR 55,000</span>
+                  {/* Standard Fee Section */}
+                  <div className="mb-4">
+                    <p className="text-[0.85rem] text-white/60">Standard Fee</p>
+                    <div className="flex items-baseline gap-2">
+                      <span className="font-display text-3xl font-bold text-white">PKR 55,000</span>
+                    </div>
+                    <p className="mt-1 text-[0.75rem] text-white/40">Available for all applicants</p>
                   </div>
-                  <p className="mt-1 text-[0.85rem] text-white/60">Scholarship fee — limited seats</p>
-                  <div className="mt-3 inline-flex items-center gap-1 rounded-sm border border-brand-gold/40 bg-brand-gold/10 px-2.5 py-1 text-[0.72rem] font-bold uppercase tracking-[1px] text-brand-gold">
-                    &#9733; Save PKR 20,000
+
+                  {/* Scholarship Fee Section */}
+                  <div className="mb-4">
+                    <p className="text-[0.85rem] text-white/60">Scholarship Fee (Limited Seats)</p>
+                    <div className="flex items-baseline gap-2">
+                      <span className="font-display text-3xl font-bold text-brand-gold">PKR 35,000</span>
+                      <span className="text-[0.85rem] line-through text-white/50">PKR 55,000</span>
+                    </div>
+                    <p className="mt-1 text-[0.75rem] text-white/40">Save PKR 20,000 — apply fast</p>
+                  </div>
+
+                  {/* Payment Options */}
+                  <div className="mt-3 flex gap-2">
+                    <span className="rounded-sm border border-brand-gold/40 bg-brand-gold/10 px-2.5 py-1 text-[0.72rem] font-bold uppercase tracking-[1px] text-brand-gold">
+                      Full Payment
+                    </span>
+                    <span className="rounded-sm border border-brand-gold/40 bg-brand-gold/10 px-2.5 py-1 text-[0.72rem] font-bold uppercase tracking-[1px] text-brand-gold">
+                      Monthly Installments (PKR 5,833 x 6)
+                    </span>
                   </div>
                 </div>
-
                 <div className="p-6">
+              </div>
+
+
                   <ul className="mb-6 space-y-3">
                     {[
                       '6 Months Course',
@@ -310,7 +374,6 @@ export default function CourseDetail() {
             </div>
           </div>
         </div>
-      </div>
     </section>
   )
 }
