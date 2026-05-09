@@ -90,6 +90,13 @@ Upload the `dist/` folder to any hosting (Netlify, Vercel, cPanel).
 
 ---
 
+## 📝 Version History
+- **v3.1**: GICP logo addition, fee split (standard/scholarship), payment options, Fees link removal, CourseDetail JSX error fix
+- **v3.0**: Navy/Teal/Gold redesign, Exam page, 10 courses
+- **v2.1**: Redesigned middle sections
+- **v2.0**: Indigo+Orange color scheme, Udemy-style course detail page
+- **v1.0**: Baseline (all 5 pages, Supabase form, WhatsApp button)
+
 ## 📞 Contact Info (in code)
 - WhatsApp: `0301-9753393`
 - Email: `gicpacademy@gmail.com`
