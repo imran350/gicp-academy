@@ -5,10 +5,10 @@ export default function CourseCard({ course }) {
   return (
     <Link
       to={`/course/${course.id}`}
-      className="group relative flex flex-col overflow-hidden rounded-lg border border-black/6 bg-white transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(26,122,110,0.15)] hover:border-brand-teal/30"
+      className="group relative flex flex-col overflow-hidden rounded-xl border border-brand-teal/10 bg-gradient-to-br from-brand-cream/90 to-brand-teal/5 transition-[transform,box-shadow] duration-300 hover:-translate-y-1.5 hover:shadow-[0_4px_12px_rgba(26,122,110,0.08),0_8px_24px_rgba(26,122,110,0.04)]"
     >
       {/* Top accent bar */}
-      <div className="h-1 bg-gradient-to-r from-brand-teal to-brand-gold" />
+      <div className="h-1.5 bg-gradient-to-r from-brand-teal to-brand-gold" />
 
       <div className="p-6 flex-1 flex flex-col">
         {/* Number + Badge row */}
@@ -24,7 +24,7 @@ export default function CourseCard({ course }) {
         </div>
 
         {/* Title */}
-        <h3 className="mb-2 text-[0.95rem] font-semibold leading-snug text-brand-navy group-hover:text-brand-teal transition-colors duration-200">
+        <h3 className="mb-2 text-[1.05rem] font-bold leading-tight text-brand-navy group-hover:text-brand-teal transition-colors duration-300 tracking-[-0.02em]">
           {course.title}
         </h3>
 

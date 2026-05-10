@@ -3,8 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 
 const navLinks = [
-  { to: '/courses', label: 'Programs' },
-  { to: '/admissions', label: 'Fees' },
+  { to: '/courses', label: 'Courses' },
   { to: '/exam', label: 'Exam' },
   { to: '/about', label: 'Careers' },
   { to: '/contact', label: 'Contact' },
@@ -19,7 +18,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="fixed top-0 z-50 w-full border-b border-brand-gold/20 bg-brand-navy/96 backdrop-blur-xl">
+    <nav className="fixed top-0 z-50 w-full border-b border-brand-gold/20 bg-brand-navy backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
         {/* Logo */}
         <Link

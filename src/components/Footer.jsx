@@ -17,10 +17,10 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Programs */}
+          {/* Courses */}
           <div>
             <div className="mb-5 text-[0.72rem] font-bold uppercase tracking-[2px] text-brand-gold">
-              Programs
+              Courses
             </div>
             <ul className="flex flex-col gap-2.5">
               {[
@@ -51,7 +51,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-2.5">
               {[
                 { to: '/', label: 'Home' },
-                { to: '/courses', label: 'All Programs' },
+                { to: '/courses', label: 'All Courses' },
                 { to: '/admissions', label: 'Fees & Scholarships' },
                 { to: '/about', label: 'About' },
                 { to: '/contact', label: 'Contact Us' },

@@ -55,7 +55,7 @@ export default function About() {
       </section>
 
       {/* Highlights */}
-      <section className="bg-white py-16">
+      <section className="bg-brand-cream py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {highlights.map((h) => {

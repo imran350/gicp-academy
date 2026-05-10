@@ -25,15 +25,15 @@ export default function Home() {
     <>
       <Hero />
 
-      {/* Programs Section */}
-      <section className="bg-white py-24 lg:py-28">
+      {/* Courses Section */}
+      <section className="bg-brand-cream py-24 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mb-16 flex flex-wrap items-end justify-between gap-6">
             <div>
               <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-teal">
-                Our Diploma Programs
+                Our Diploma Courses
               </div>
-              <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-bold leading-tight text-brand-navy">
+              <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.5rem)] font-bold leading-tight text-brand-navy">
                 Choose Your
                 <br />
                 Specialization
@@ -79,7 +79,7 @@ export default function Home() {
                 <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-gold">
                   Career Opportunities
                 </div>
-                <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-bold leading-tight text-white">
+                <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.5rem)] font-bold leading-tight text-white">
                   Where Will
                   <br />
                   Your Diploma

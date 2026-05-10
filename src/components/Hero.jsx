@@ -24,7 +24,7 @@ export default function Hero() {
             </div>
 
             {/* Heading */}
-            <h1 className="mb-7 font-display text-[clamp(2.8rem,6vw,5.2rem)] font-bold leading-[1.12] text-white animate-slide-up">
+            <h1 className="mb-7 font-display text-[clamp(2.8rem,6vw,4.2rem)] font-bold leading-[1.12] text-white animate-slide-up">
               Empowering Future
               <br />
               Professionals in
@@ -61,7 +61,7 @@ export default function Hero() {
                 Apply for Admission
               </Link>
               <Link to="/courses" className="btn-outline">
-                View Programs
+                View Courses
               </Link>
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function Hero() {
       {/* STATS STRIP */}
       <div className="grid grid-cols-2 gap-0 bg-brand-navy lg:grid-cols-4">
         {[
-          { number: '10+', label: 'Diploma Programs' },
+          { number: '10+', label: 'Diploma Courses' },
           { number: '6', label: 'Months Duration' },
           { number: '35K', label: 'Scholarship Fee (PKR)' },
           { number: '100%', label: 'Online & Flexible' },

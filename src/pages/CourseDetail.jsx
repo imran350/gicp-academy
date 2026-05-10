@@ -49,8 +49,8 @@ export default function CourseDetail() {
         <div className="mx-auto max-w-3xl px-6 text-center">
           <h1 className="font-display text-3xl font-bold text-brand-navy">Course Not Found</h1>
           <p className="mt-3 text-brand-muted">This course doesn't exist.</p>
-          <Link to="/courses" className="btn-primary mt-6">
-            <ArrowLeft className="mr-1 h-4 w-4" /> Back to Courses
+          <Link to="/courses" className="btn-primary mt-6 inline-block">
+            <ArrowLeft className="mr-1 inline h-4 w-4" /> Back to Courses
           </Link>
         </div>
       </section>
@@ -71,6 +71,10 @@ export default function CourseDetail() {
       if (error) throw error
       setStatus('success')
       setForm({ first_name: '', last_name: '', whatsapp: '', email: '', program: course.title, payment_method: '', message: '' })
+      // Send WhatsApp notification to academy
+      const whatsappMsg = `📋 New Application Received!\nName: ${form.first_name} ${form.last_name}\nWhatsApp: ${form.whatsapp}\nEmail: ${form.email || 'N/A'}\nCourse: ${form.program}
+\nPayment Method: ${form.payment_method}\nMessage: ${form.message || 'None'}`;
+      window.open(`https://wa.me/923019753393?text=${encodeURIComponent(whatsappMsg)}`, '_blank')
     } catch {
       setStatus('error')
     }
@@ -94,11 +98,11 @@ export default function CourseDetail() {
           {/* Left: Course info */}
           <div className="lg:col-span-2">
             {/* Course header */}
-            <div className="rounded-lg border border-black/6 bg-white p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+            <div className="rounded-lg border border-brand-teal/10 bg-white/80 p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
               <div className="mb-2 text-[0.72rem] font-semibold uppercase tracking-[2px] text-brand-teal">
-                Program {course.num}
+                Course {course.num}
               </div>
-              <h1 className="font-display text-2xl font-bold text-brand-navy sm:text-3xl">
+              <h1 className="font-display text-xl font-bold text-brand-navy sm:text-2xl md:text-3xl leading-tight py-2">
                 {course.title}
               </h1>
               {course.tagline && (
@@ -123,7 +127,7 @@ export default function CourseDetail() {
             </div>
 
             {/* What you'll learn */}
-            <div className="mt-6 rounded-lg border border-black/6 bg-white p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+            <div className="mt-6 rounded-lg border border-brand-teal/10 bg-white/80 p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
               <h2 className="mb-4 font-display text-xl font-bold text-brand-navy">What You'll Learn</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {[
@@ -144,8 +148,75 @@ export default function CourseDetail() {
               </div>
             </div>
 
+            {/* Learning Format */}
+            <div className="mt-6 rounded-lg border border-brand-teal/10 bg-white/80 p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+              <h2 className="mb-4 font-display text-xl font-bold text-brand-navy">Learning Format</h2>
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">🎥</div>
+                  <div>
+                    <p className="text-[0.85rem] font-semibold text-brand-navy">Live Classes</p>
+                    <p className="text-[0.75rem] text-brand-muted">Interactive sessions via Zoom & Google Meet, 2 days per week</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">📼</div>
+                  <div>
+                    <p className="text-[0.85rem] font-semibold text-brand-navy">Recorded Lectures</p>
+                    <p className="text-[0.75rem] text-brand-muted">Full access to all recorded sessions anytime, anywhere</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">📋</div>
+                  <div>
+                    <p className="text-[0.85rem] font-semibold text-brand-navy">Assignments</p>
+                    <p className="text-[0.75rem] text-brand-muted">Real-world case studies and clinical assignments</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">⏱</div>
+                  <div>
+                    <p className="text-[0.85rem] font-semibold text-brand-navy">Online Exam</p>
+                    <p className="text-[0.75rem] text-brand-muted">30-minute timed paper — auto-submitted, instant results</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">🎓</div>
+                  <div>
+                    <p className="text-[0.85rem] font-semibold text-brand-navy">Certificate</p>
+                    <p className="text-[0.75rem] text-brand-muted">Professional diploma certificate on successful completion</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Therapy Options Section */}
+            <div className="mt-6 rounded-lg border border-brand-teal/10 bg-white/80 p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+              <h2 className="mb-4 font-display text-xl font-bold text-brand-navy">Therapy Options</h2>
+              <div className="grid gap-6 sm:grid-cols-2">
+                <div className="rounded-md border border-brand-teal/20 p-5 bg-brand-cream/50">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-2xl">💻</span>
+                    <h3 className="font-display text-lg font-semibold text-brand-teal">Online Therapy</h3>
+                  </div>
+                  <p className="text-[0.9rem] text-brand-muted leading-relaxed">
+                    Live interactive sessions via Zoom & Google Meet, flexible timing according to your convenience. Access recorded lectures anytime, anywhere.
+                  </p>
+                </div>
+                <div className="rounded-md border border-brand-teal/20 p-5 bg-brand-cream/50">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-2xl">🏥</span>
+                    <h3 className="font-display text-lg font-semibold text-brand-teal">Physical Therapy</h3>
+                  </div>
+                  <p className="text-[0.9rem] text-brand-muted leading-relaxed">
+                    In-person sessions at our academy facility with experienced trainers. Hands-on practical training and clinical practice.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* Payment Methods */}
-            <div className="mt-6 rounded-lg border border-black/6 bg-white p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+            <div className="mt-6 rounded-lg border border-brand-teal/10 bg-white/80 p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
               <h2 className="mb-4 font-display text-xl font-bold text-brand-navy">Payment Methods</h2>
               <p className="mb-4 text-[0.85rem] text-brand-muted">We accept the following payment methods:</p>
               <div className="grid gap-3 sm:grid-cols-3">
@@ -170,24 +241,43 @@ export default function CourseDetail() {
 
           {/* Right: Sticky enrollment card */}
           <div className="lg:col-span-1">
-            <div className="sticky top-24">
+            <div className="sticky top-24 z-20">
               {/* Price card */}
-              <div className="overflow-hidden rounded-lg border border-black/6 bg-white shadow-[0_8px_32px_rgba(0,0,0,0.06)]">
+              <div className="overflow-hidden rounded-lg border border-brand-teal/10 bg-white shadow-[0_8px_32px_rgba(0,0,0,0.06)]">
                 <div className="bg-brand-navy p-6 text-white">
-                  <div className="flex items-baseline gap-2">
-                    <span className="font-display text-3xl font-bold text-brand-gold">PKR 35,000</span>
-                    <span className="text-[0.85rem] line-through text-white/50">PKR 55,000</span>
+                  {/* Standard Fee */}
+                  <div className="mb-4">
+                    <p className="text-[0.85rem] text-white/60">Standard Fee</p>
+                    <div className="flex items-baseline gap-2">
+                      <span className="font-display text-3xl font-bold text-white">PKR 55,000</span>
+                    </div>
+                    <p className="mt-1 text-[0.75rem] text-white/40">Available for all applicants</p>
                   </div>
-                  <p className="mt-1 text-[0.85rem] text-white/60">Scholarship fee — limited seats</p>
-                  <div className="mt-3 inline-flex items-center gap-1 rounded-sm border border-brand-gold/40 bg-brand-gold/10 px-2.5 py-1 text-[0.72rem] font-bold uppercase tracking-[1px] text-brand-gold">
-                    &#9733; Save PKR 20,000
+
+                  {/* Scholarship Fee */}
+                  <div className="mb-4">
+                    <p className="text-[0.85rem] text-white/60">Scholarship Fee (Limited Seats)</p>
+                    <div className="flex items-baseline gap-2">
+                      <span className="font-display text-3xl font-bold text-brand-gold">PKR 35,000</span>
+                      <span className="text-[0.85rem] line-through text-white/50">PKR 55,000</span>
+                    </div>
+                    <p className="mt-1 text-[0.75rem] text-white/40">Save PKR 20,000 — apply fast</p>
+                  </div>
+
+                  {/* Payment Options */}
+                  <div className="mt-3 flex gap-2">
+                    <span className="rounded-sm border border-brand-gold/40 bg-brand-gold/10 px-2.5 py-1 text-[0.72rem] font-bold uppercase tracking-[1px] text-brand-gold">
+                      Full Payment
+                    </span>
+                    <span className="rounded-sm border border-brand-gold/40 bg-brand-gold/10 px-2.5 py-1 text-[0.72rem] font-bold uppercase tracking-[1px] text-brand-gold">
+                      Monthly (PKR 5,883 x 6)
+                    </span>
                   </div>
                 </div>
-
                 <div className="p-6">
                   <ul className="mb-6 space-y-3">
                     {[
-                      '6 Months Program',
+                      '6 Months Course',
                       '2 Days / Week',
                       'Live Online Classes',
                       'Assignments & Exams',
@@ -216,99 +306,105 @@ export default function CourseDetail() {
                   </p>
                 </div>
               </div>
-
-              {/* Enrollment form */}
-              <div id="enroll-form" className="mt-6 rounded-lg border border-black/6 bg-white p-6 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
-                <h3 className="mb-4 font-display text-lg font-bold text-brand-navy">Quick Enrollment</h3>
-
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-2 gap-3">
-                    <div>
-                      <label className="mb-1 block text-[0.78rem] font-semibold text-brand-text">First Name *</label>
-                      <input type="text" name="first_name" required value={form.first_name} onChange={handleChange} className={inputClass} placeholder="Ayesha" />
-                    </div>
-                    <div>
-                      <label className="mb-1 block text-[0.78rem] font-semibold text-brand-text">Last Name</label>
-                      <input type="text" name="last_name" value={form.last_name} onChange={handleChange} className={inputClass} placeholder="Khan" />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="mb-1 block text-[0.78rem] font-semibold text-brand-text">WhatsApp *</label>
-                    <input type="tel" name="whatsapp" required value={form.whatsapp} onChange={handleChange} className={inputClass} placeholder="0300-0000000" />
-                  </div>
-
-                  <div>
-                    <label className="mb-1 block text-[0.78rem] font-semibold text-brand-text">Email</label>
-                    <input type="email" name="email" value={form.email} onChange={handleChange} className={inputClass} placeholder="you@email.com" />
-                  </div>
-
-                  <div>
-                    <label className="mb-1 block text-[0.78rem] font-semibold text-brand-text">Program</label>
-                    <input type="text" value={course.title} readOnly className={`${inputClass} bg-white text-brand-muted cursor-default`} />
-                  </div>
-
-                  {/* Payment */}
-                  <div>
-                    <label className="mb-1.5 block text-[0.78rem] font-semibold text-brand-text">Payment Method *</label>
-                    <div className="space-y-2">
-                      {paymentMethods.map((pm) => {
-                        const PmIcon = pm.icon
-                        return (
-                          <label
-                            key={pm.id}
-                            className={`flex cursor-pointer items-center gap-3 rounded-md border p-3 transition-colors duration-200 ${
-                              form.payment_method === pm.id
-                                ? 'border-brand-teal bg-brand-teal/5'
-                                : 'border-black/7 hover:border-brand-teal/50'
-                            }`}
-                          >
-                            <input
-                              type="radio"
-                              name="payment_method"
-                              value={pm.id}
-                              required
-                              checked={form.payment_method === pm.id}
-                              onChange={handleChange}
-                              className="sr-only"
-                            />
-                            <PmIcon className="h-4 w-4 text-brand-teal" />
-                            <span className="text-[0.85rem] font-medium text-brand-text">{pm.label}</span>
-                          </label>
-                        )
-                      })}
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="mb-1 block text-[0.78rem] font-semibold text-brand-text">Message (optional)</label>
-                    <textarea name="message" rows={3} value={form.message} onChange={handleChange} className={`${inputClass} resize-none`} placeholder="Any questions..." />
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={status === 'submitting'}
-                    className="w-full rounded bg-brand-navy py-3.5 text-[0.95rem] font-semibold text-white transition-colors hover:bg-brand-teal disabled:opacity-60"
-                  >
-                    {status === 'submitting' ? 'Submitting...' : <>Submit Application <Send className="ml-1 inline h-4 w-4" /></>}
-                  </button>
-
-                  {status === 'success' && (
-                    <div className="flex items-center gap-2 rounded bg-brand-teal/10 p-3 text-[0.85rem] text-brand-teal">
-                      <CheckCircle className="h-4 w-4 flex-shrink-0" />
-                      Application submitted! We'll contact you on WhatsApp.
-                    </div>
-                  )}
-                  {status === 'error' && (
-                    <div className="flex items-center gap-2 rounded bg-red-50 p-3 text-[0.85rem] text-red-700">
-                      <AlertCircle className="h-4 w-4 flex-shrink-0" />
-                      Something went wrong. Try again or WhatsApp us.
-                    </div>
-                  )}
-                </form>
-              </div>
             </div>
           </div>
+        </div>
+
+        {/* Enrollment form — full width, below the grid */}
+        <div id="enroll-form" className="mt-10 rounded-lg border border-brand-teal/10 bg-white/80 p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+          <h3 className="mb-6 font-display text-xl font-bold text-brand-navy">Quick Enrollment</h3>
+
+          <form onSubmit={handleSubmit} className="mx-auto max-w-3xl space-y-4">
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className="mb-1 block text-[0.78rem] font-semibold text-brand-text">First Name *</label>
+                <input type="text" name="first_name" required value={form.first_name} onChange={handleChange} className={inputClass} placeholder="Ayesha" />
+              </div>
+              <div>
+                <label className="mb-1 block text-[0.78rem] font-semibold text-brand-text">Last Name</label>
+                <input type="text" name="last_name" value={form.last_name} onChange={handleChange} className={inputClass} placeholder="Khan" />
+              </div>
+            </div>
+
+            <div>
+              <label className="mb-1 block text-[0.78rem] font-semibold text-brand-text">WhatsApp *</label>
+              <input type="tel" name="whatsapp" required value={form.whatsapp} onChange={handleChange} className={inputClass} placeholder="0300-0000000" />
+            </div>
+
+            <div>
+              <label className="mb-1 block text-[0.78rem] font-semibold text-brand-text">Email <span className="text-red-400">*</span></label>
+              <input type="email" name="email" required value={form.email} onChange={handleChange} className={inputClass} placeholder="you@email.com" />
+            </div>
+
+            <div>
+              <label className="mb-1 block text-[0.78rem] font-semibold text-brand-text">Course</label>
+              <input type="text" value={course.title} readOnly className={`${inputClass} bg-white text-brand-muted cursor-default`} />
+            </div>
+
+            {/* Payment */}
+            <div>
+              <label className="mb-1.5 block text-[0.78rem] font-semibold text-brand-text">Payment Method *</label>
+              <div className="grid gap-2 sm:grid-cols-3">
+                {paymentMethods.map((pm) => {
+                  const PmIcon = pm.icon
+                  return (
+                    <label
+                      key={pm.id}
+                      className={`flex cursor-pointer items-center gap-3 rounded-md border p-3 transition-colors duration-200 ${
+                        form.payment_method === pm.id
+                          ? 'border-brand-teal bg-brand-teal/5'
+                          : 'border-black/7 hover:border-brand-teal/50'
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="payment_method"
+                        value={pm.id}
+                        required
+                        checked={form.payment_method === pm.id}
+                        onChange={handleChange}
+                        className="sr-only"
+                      />
+                      <PmIcon className="h-4 w-4 text-brand-teal" />
+                      <span className="text-[0.85rem] font-medium text-brand-text">{pm.label}</span>
+                    </label>
+                  )
+                })}
+              </div>
+            </div>
+
+            <div>
+              <label className="mb-1 block text-[0.78rem] font-semibold text-brand-text">Message (optional)</label>
+              <textarea name="message" rows={3} value={form.message} onChange={handleChange} className={`${inputClass} resize-none`} placeholder="Any questions..." />
+            </div>
+
+            <button
+              type="submit"
+              disabled={status === 'submitting'}
+              className="w-full rounded bg-brand-navy py-3.5 text-[0.95rem] font-semibold text-white transition-colors hover:bg-brand-teal disabled:opacity-60"
+            >
+              {status === 'submitting' ? 'Submitting...' : <>Submit Application <Send className="ml-1 inline h-4 w-4" /></>}
+            </button>
+
+            {status === 'success' && (
+              <div className="flex items-center gap-2 rounded bg-brand-teal/10 p-3 text-[0.85rem] text-brand-teal">
+                <CheckCircle className="h-4 w-4 flex-shrink-0" />
+                Application submitted! We'll contact you on WhatsApp.
+              </div>
+            )}
+            {status === 'error' && (
+              <div className="flex items-center gap-2 rounded bg-red-50 p-3 text-[0.85rem] text-red-700">
+                <AlertCircle className="h-4 w-4 flex-shrink-0" />
+                Something went wrong. Try again or WhatsApp us.
+              </div>
+            )}
+
+            {/* Supabase Status Indicator */}
+            <div className="mt-4 flex items-center justify-center gap-2 text-[0.75rem] text-brand-muted">
+              <span className="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+              <span>Powered by secure Supabase backend</span>
+            </div>
+          </form>
         </div>
       </div>
     </section>
