@@ -332,8 +332,8 @@ export default function CourseDetail() {
             </div>
 
             <div>
-              <label className="mb-1 block text-[0.78rem] font-semibold text-brand-text">Email</label>
-              <input type="email" name="email" value={form.email} onChange={handleChange} className={inputClass} placeholder="you@email.com" />
+              <label className="mb-1 block text-[0.78rem] font-semibold text-brand-text">Email <span className="text-red-400">*</span></label>
+              <input type="email" name="email" required value={form.email} onChange={handleChange} className={inputClass} placeholder="you@email.com" />
             </div>
 
             <div>
@@ -398,6 +398,12 @@ export default function CourseDetail() {
                 Something went wrong. Try again or WhatsApp us.
               </div>
             )}
+
+            {/* Supabase Status Indicator */}
+            <div className="mt-4 flex items-center justify-center gap-2 text-[0.75rem] text-brand-muted">
+              <span className="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+              <span>Powered by secure Supabase backend</span>
+            </div>
           </form>
         </div>
       </div>

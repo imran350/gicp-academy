@@ -16,13 +16,17 @@ export default function Admissions() {
     setStatus('submitting')
     try {
       if (!supabase) throw new Error('Supabase not configured')
-      const { error } = await supabase.from('applications').insert([form])
+      const { data, error } = await supabase.from('applications').insert([form]).select('id')
       if (error) throw error
       setStatus('success')
       setForm({ first_name: '', last_name: '', whatsapp: '', email: '', program: '', payment_method: '', message: '' })
       // Send WhatsApp notification to academy
       const whatsappMsg = `📋 New Application Received!\nName: ${form.first_name} ${form.last_name}\nWhatsApp: ${form.whatsapp}\nEmail: ${form.email || 'N/A'}\nCourse: ${form.program}\nPayment Method: ${form.payment_method}\nMessage: ${form.message || 'None'}`;
-      window.open(`https://wa.me/923019753393?text=${encodeURIComponent(whatsappMsg)}`, '_blank')
+      const applicationId = data[0].id
+      const clientLink = `https://www.gicpacademy.com/application/${applicationId}`
+      const fullWhatsappMsg = `${whatsappMsg}
+Client Link: ${clientLink}`
+      window.open(`https://wa.me/923019753393?text=${encodeURIComponent(fullWhatsappMsg)}`, '_blank')
     } catch { setStatus('error') }
   }
 
@@ -111,8 +115,8 @@ export default function Admissions() {
                 <input type="tel" name="whatsapp" required value={form.whatsapp} onChange={handleChange} className={inputClass} placeholder="0300-0000000" />
               </div>
               <div>
-                <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Email Address</label>
-                <input type="email" name="email" value={form.email} onChange={handleChange} className={inputClass} placeholder="your@email.com" />
+                <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Email Address <span className="text-red-400">*</span></label>
+                <input type="email" name="email" required value={form.email} onChange={handleChange} className={inputClass} placeholder="your@email.com" />
               </div>
             </div>
 
@@ -143,16 +147,12 @@ export default function Admissions() {
               {status === 'submitting' ? 'Submitting...' : <>Submit Application <Send className="ml-2 inline h-4 w-4" /></>}
             </button>
 
-            {status === 'success' && (
-              <div className="mt-4 flex items-center gap-2 rounded-lg bg-brand-teal/20 p-4 text-[0.9rem] text-brand-teal-light">
-                <CheckCircle className="h-5 w-5 flex-shrink-0" /> Application submitted successfully! We'll contact you on WhatsApp soon.
-              </div>
-            )}
-            {status === 'error' && (
-              <div className="mt-4 flex items-center gap-2 rounded-lg bg-red-500/20 p-4 text-[0.9rem] text-red-300">
-                <AlertCircle className="h-5 w-5 flex-shrink-0" /> Something went wrong. Please try again or contact us on WhatsApp.
-              </div>
-            )}
+            {/* Supabase Status Indicator */}
+            <div className="mt-4 flex items-center justify-center gap-2 text-[0.75rem] text-brand-muted">
+              <span className="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+              <span>Powered by secure Supabase backend</span>
+            </div>
+
           </form>
         </div>
       </div>
