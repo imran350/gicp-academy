@@ -33,7 +33,7 @@ export default function Home() {
               <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-teal">
                 Our Diploma Courses
               </div>
-              <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-bold leading-tight text-brand-navy">
+              <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.5rem)] font-bold leading-tight text-brand-navy">
                 Choose Your
                 <br />
                 Specialization
@@ -79,7 +79,7 @@ export default function Home() {
                 <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-gold">
                   Career Opportunities
                 </div>
-                <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-bold leading-tight text-white">
+                <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.5rem)] font-bold leading-tight text-white">
                   Where Will
                   <br />
                   Your Diploma

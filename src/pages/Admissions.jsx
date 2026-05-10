@@ -20,6 +20,9 @@ export default function Admissions() {
       if (error) throw error
       setStatus('success')
       setForm({ first_name: '', last_name: '', whatsapp: '', email: '', program: '', payment_method: '', message: '' })
+      // Send WhatsApp notification to academy
+      const whatsappMsg = `📋 New Application Received!\nName: ${form.first_name} ${form.last_name}\nWhatsApp: ${form.whatsapp}\nEmail: ${form.email || 'N/A'}\nCourse: ${form.program}\nPayment Method: ${form.payment_method}\nMessage: ${form.message || 'None'}`;
+      window.open(`https://wa.me/923019753393?text=${encodeURIComponent(whatsappMsg)}`, '_blank')
     } catch { setStatus('error') }
   }
 
@@ -42,11 +45,53 @@ export default function Admissions() {
         </div>
       </section>
 
-      {/* Form */}
+      {/* Form + Fee Plan (Sample Image Layout) */}
       <section className="bg-brand-cream pb-20">
-        <div className="mx-auto max-w-3xl px-6 lg:px-8">
-          <form onSubmit={handleSubmit} className="rounded-xl border border-brand-gold/20 bg-brand-navy p-8 shadow-[0_12px_40px_rgba(0,0,0,0.15)] sm:p-11">
-            <h2 className="font-display text-[1.6rem] font-bold text-white">Apply for Admission</h2>
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Left: Fee Plan + Payment Methods (Sample Image) */}
+            <div className="rounded-xl border border-brand-gold/20 bg-white p-8 shadow-[0_12px_40px_rgba(0,0,0,0.15)] sm:p-11">
+              <div className="section-label text-brand-teal">FEE & PAYMENT</div>
+              <h2 className="font-display text-[1.75rem] font-bold text-brand-navy mt-2">Choose Your Plan</h2>
+              <div className="mt-4 flex flex-col sm:flex-row gap-4">
+                <div className="fee-card std flex-1 bg-cream p-4 border border-brand-teal/10">
+                  <div className="fee-lbl text-brand-muted text-sm font-semibold uppercase">STANDARD FEE</div>
+                  <div className="fee-amt font-display text-2xl font-bold text-brand-navy mt-1">PKR 55,000</div>
+                  <div className="fee-note text-brand-muted text-sm mt-1">Easy 2–3 installment plan available</div>
+                </div>
+                <div className="fee-card sch flex-1 bg-brand-navy p-4 border border-brand-gold/20">
+                  <div className="fee-ribbon text-brand-gold text-xs font-bold uppercase bg-brand-gold/10 inline-block px-2 py-1 mb-1">★ LIMITED</div>
+                  <div className="fee-lbl text-white/70 text-sm font-semibold uppercase">SCHOLARSHIP FEE</div>
+                  <div className="fee-amt font-display text-2xl font-bold text-brand-gold mt-1">PKR 35,000</div>
+                  <div className="fee-note text-white/50 text-sm mt-1">Apply fast — seats filling up</div>
+                </div>
+              </div>
+              <div className="mt-6">
+                <div className="pm-title text-brand-muted text-sm font-semibold uppercase">PAYMENT METHODS</div>
+                <div className="pm-cards mt-3 space-y-3">
+                  <div className="pm-card jz p-4 bg-pink-50 border-pink-100">
+                    <div className="pm-head flex items-center gap-2">
+                      <span className="pm-head-ic text-red-600">📱</span>
+                      <span className="pm-head-name font-semibold text-brand-navy">JazzCash / EasyPaisa</span>
+                    </div>
+                    <div className="pm-num font-bold text-brand-navy mt-1">0301-9753393</div>
+                    <div className="pm-hint text-sm text-brand-muted mt-1">Send payment screenshot on WhatsApp for confirmation</div>
+                  </div>
+                  <div className="pm-card bk p-4 bg-cream border-black/7">
+                    <div className="pm-head flex items-center gap-2">
+                      <span className="pm-head-ic text-brand-teal">🏦</span>
+                      <span className="pm-head-name font-semibold text-brand-navy">Bank Transfer</span>
+                    </div>
+                    <div className="pm-num font-bold text-brand-navy mt-1">Details shared after enrollment</div>
+                    <div className="pm-hint text-sm text-brand-muted mt-1">WhatsApp us to receive account details</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Right: Enrollment Form (Sample Image) */}
+            <div className="rounded-xl border border-brand-gold/20 bg-brand-navy p-8 shadow-[0_12px_40px_rgba(0,0,0,0.15)] sm:p-11">
+              <form onSubmit={handleSubmit} className="w-full">
+                <h2 className="font-display text-[1.6rem] font-bold text-white">Apply for Admission</h2>
             <p className="mb-7 text-[0.85rem] text-white/50">Fill in your details below and submit your enrollment request.</p>
 
             <div className="mb-4 grid gap-4 sm:grid-cols-2">
@@ -110,7 +155,9 @@ export default function Admissions() {
             )}
           </form>
         </div>
-      </section>
-    </>
+      </div>
+    </div>
+  </section>
+</>
   )
 }

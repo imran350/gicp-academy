@@ -19,8 +19,8 @@ export default {
         },
       },
       fontFamily: {
-        display: ['Cormorant Garamond', 'Georgia', 'serif'],
-        body: ['DM Sans', 'system-ui', 'sans-serif'],
+        display: ['Playfair Display SC', 'serif'],
+        body: ['Libre Baskerville', 'serif'],
       },
       letterSpacing: {
         tightest: '-0.03em',

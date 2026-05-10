@@ -78,6 +78,46 @@ export default function Contact() {
                   </div>
                 </a>
               </div>
+
+              {/* Session Booking Options */}
+              <div className="mt-8">
+                <h2 className="font-display text-[1.6rem] font-bold text-brand-navy mb-4">Book a Therapy Session</h2>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {/* Online Session */}
+                  <a
+                    href="https://wa.me/923019753393?text=I%20want%20to%20book%20an%20ONLINE%20therapy%20session.%20Please%20share%20details."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-4 rounded-lg border border-brand-teal/20 bg-white/80 p-5 transition-colors duration-200 hover:bg-brand-teal/5"
+                  >
+                    <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded bg-brand-teal text-[1.1rem]">
+                      <span className="text-white">💻</span>
+                    </div>
+                    <div>
+                      <div className="text-[0.72rem] font-semibold uppercase tracking-[2px] text-brand-muted">Online Session</div>
+                      <div className="text-[1rem] font-semibold text-brand-navy">Virtual Therapy</div>
+                      <div className="text-[0.8rem] text-brand-muted">Click to book via WhatsApp</div>
+                    </div>
+                  </a>
+
+                  {/* Physical Session */}
+                  <a
+                    href="https://wa.me/923019753393?text=I%20want%20to%20book%20a%20PHYSICAL%20therapy%20session.%20Please%20share%20details."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-4 rounded-lg border border-brand-navy/20 bg-white/80 p-5 transition-colors duration-200 hover:bg-brand-navy/5"
+                  >
+                    <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded bg-brand-navy text-[1.1rem]">
+                      <span className="text-white">🏥</span>
+                    </div>
+                    <div>
+                      <div className="text-[0.72rem] font-semibold uppercase tracking-[2px] text-brand-muted">Physical Session</div>
+                      <div className="text-[1rem] font-semibold text-brand-navy">In-Person Therapy</div>
+                      <div className="text-[0.8rem] text-brand-muted">Click to book via WhatsApp</div>
+                    </div>
+                  </a>
+                </div>
+              </div>
             </div>
 
             {/* Right: Quick Apply */}

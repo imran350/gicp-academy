@@ -9,7 +9,7 @@ const courses = [
     schedule: '2 Days / Week',
     description:
       'Master clinical assessment, diagnosis, and therapeutic techniques. Gain hands-on experience with real case studies and supervised practice sessions.',
-    badge: 'Flagship Program',
+    badge: null,
   },
   {
     id: 'child-psychology',
@@ -59,7 +59,7 @@ const courses = [
     schedule: '2 Days / Week',
     description:
       'Learn practical techniques to support children with autism and communication challenges. Become a Certified PECS Communication Specialist.',
-    badge: 'New Program',
+    badge: null,
     imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+Nonverbal+Comm',
   },
   {

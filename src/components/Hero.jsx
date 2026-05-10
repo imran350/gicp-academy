@@ -24,7 +24,7 @@ export default function Hero() {
             </div>
 
             {/* Heading */}
-            <h1 className="mb-7 font-display text-[clamp(2.8rem,6vw,5.2rem)] font-bold leading-[1.12] text-white animate-slide-up">
+            <h1 className="mb-7 font-display text-[clamp(2.8rem,6vw,4.2rem)] font-bold leading-[1.12] text-white animate-slide-up">
               Empowering Future
               <br />
               Professionals in
