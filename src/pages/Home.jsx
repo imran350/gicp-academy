@@ -26,6 +26,7 @@ export default function Home() {
       <Hero />
 
       {/* Courses Section */}
+      <RevealSection>
       <section className="py-24 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mb-16 flex flex-wrap items-end justify-between gap-6">
@@ -33,7 +34,7 @@ export default function Home() {
               <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-sky-blue">
                 Our Diploma Courses
               </div>
-              <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.5rem)] font-bold leading-tight bg-gradient-to-r from-white via-brand-light-sky to-brand-sky-blue bg-clip-text text-transparent">
+              <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.5rem)] font-bold leading-tight text-brand-text-dark">
                 Choose Your
                 <br />
                 Specialization
@@ -46,12 +47,13 @@ export default function Home() {
 
           {/* Grid */}
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {courses.slice(0, 6).map((course) => (
+            {courses.map((course) => (
               <CourseCard key={course.id} course={course} />
             ))}
           </div>
         </div>
       </section>
+      </RevealSection>
 
       <RevealSection>
         <FeeSection />

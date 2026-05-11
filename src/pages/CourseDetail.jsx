@@ -119,7 +119,7 @@ export default function CourseDetail() {
                   <CalendarDays className="h-3.5 w-3.5" /> {course.schedule}
                 </span>
                 {course.badge && (
-                  <span className="inline-flex items-center rounded-sm border border-brand-gold/40 bg-brand-gold/10 px-3 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[1px] text-brand-gold">
+                  <span className="inline-flex items-center rounded-sm border border-brand-gold/40 bg-brand-gold/10 px-3 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[1px] text-brand-light-sky">
                     {course.badge}
                   </span>
                 )}
@@ -177,7 +177,7 @@ export default function CourseDetail() {
                   <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">⏱</div>
                   <div>
                     <p className="text-[0.85rem] font-semibold text-white">Online Exam</p>
-                    <p className="text-[0.75rem] text-white/90">30-minute timed paper — auto-submitted, instant results</p>
+                    <p className="text-[0.75rem] text-white/90">45-minute timed paper — auto-submitted, instant results</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -193,7 +193,7 @@ export default function CourseDetail() {
             {/* Therapy Options Section */}
             <div className="mt-6 border border-white/10 bg-brand-cream p-8">
               <h2 className="mb-4 font-display text-xl font-bold text-white">Therapy Options</h2>
-              <div className="grid gap-6 sm:grid-cols-2">
+              <div className="grid gap-6 bg-brand-dark-navy/90 backdrop-blur-sm sm:grid-cols-2">
                 <div className="border border-white/10 bg-brand-cream p-5">
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-2xl">💻</span>
@@ -244,37 +244,37 @@ export default function CourseDetail() {
             <div className="sticky top-24 z-20">
               {/* Price card */}
               <div className="overflow-hidden rounded-lg border border-white/20 bg-brand-dark-navy shadow-[0_8px_32px_rgba(0,0,0,0.15)]">
-                <div className="bg-brand-navy p-6 text-white">
+                <div className="bg-brand-navy p-6 bg-brand-dark-navy/90 backdrop-blur-sm text-white">
                   {/* Standard Fee */}
                   <div className="mb-4">
-                    <p className="text-[0.85rem] text-white/60">Standard Fee</p>
+                    <p className="text-[0.85rem] text-white/80">Standard Fee</p>
                     <div className="flex items-baseline gap-2">
                       <span className="font-display text-3xl font-bold text-white">PKR 55,000</span>
                     </div>
-                    <p className="mt-1 text-[0.75rem] text-white/40">Available for all applicants</p>
+                    <p className="mt-1 text-[0.75rem] text-white/60">Available for all applicants</p>
                   </div>
 
                   {/* Scholarship Fee */}
                   <div className="mb-4">
-                    <p className="text-[0.85rem] text-white/60">Scholarship Fee (Limited Seats)</p>
+                    <p className="text-[0.85rem] text-white/80">Scholarship Fee (Limited Seats)</p>
                     <div className="flex items-baseline gap-2">
-                      <span className="font-display text-3xl font-bold text-brand-gold">PKR 35,000</span>
+                      <span className="font-display text-3xl font-bold text-brand-light-sky">PKR 35,000</span>
                       <span className="text-[0.85rem] line-through text-white/50">PKR 55,000</span>
                     </div>
-                    <p className="mt-1 text-[0.75rem] text-white/40">Save PKR 20,000 — apply fast</p>
+                    <p className="mt-1 text-[0.75rem] text-white/60">Save PKR 20,000 — apply fast</p>
                   </div>
 
                   {/* Payment Options */}
                   <div className="mt-3 flex gap-2">
-                    <span className="rounded-sm border border-brand-gold/40 bg-brand-gold/10 px-2.5 py-1 text-[0.72rem] font-bold uppercase tracking-[1px] text-brand-gold">
+                    <span className="rounded-sm border border-brand-gold/40 bg-brand-gold/10 px-2.5 py-1 text-[0.72rem] font-bold uppercase tracking-[1px] text-brand-light-sky">
                       Full Payment
                     </span>
-                    <span className="rounded-sm border border-brand-gold/40 bg-brand-gold/10 px-2.5 py-1 text-[0.72rem] font-bold uppercase tracking-[1px] text-brand-gold">
+                    <span className="rounded-sm border border-brand-gold/40 bg-brand-gold/10 px-2.5 py-1 text-[0.72rem] font-bold uppercase tracking-[1px] text-brand-light-sky">
                       Monthly (PKR 5,883 x 6)
                     </span>
                   </div>
                 </div>
-                <div className="p-6">
+                <div className="p-6 bg-brand-dark-navy/90 backdrop-blur-sm">
                   <ul className="mb-6 space-y-3">
                     {[
                       '6 Months Course',

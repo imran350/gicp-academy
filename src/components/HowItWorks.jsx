@@ -17,7 +17,7 @@ const steps = [
   {
     icon: '\uD83D\uDCCB',
     title: 'Online Timed Exam',
-    desc: '30-minute paper — auto-ends on time. Instant results shown immediately.',
+    desc: '45-minute paper — auto-ends on time. Instant results shown immediately.',
   },
   {
     icon: '\uD83C\uDF93',
@@ -50,7 +50,7 @@ export default function HowItWorks() {
                 <h3 className="mb-2 text-[0.88rem] font-semibold text-brand-navy">
                   {step.title}
                 </h3>
-                <p className="text-[0.78rem] font-light leading-[1.6] text-brand-muted">
+                <p className="text-[0.78rem] font-light leading-[1.6] text-brand-text-dark">
                   {step.desc}
                 </p>
               </div>

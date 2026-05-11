@@ -23,7 +23,9 @@
       "Bash(C:/Windows/System32/taskkill /PID 11648 /F)",
       "Bash(C:/Windows/System32/taskkill /PID 8280 /F)",
       "Bash(C:/Windows/System32/taskkill /PID 15560 /F)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(git reset *)",
+      "Bash(npx serve *)"
     ]
   }
 }

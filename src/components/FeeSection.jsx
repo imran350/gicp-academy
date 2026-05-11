@@ -15,7 +15,7 @@ export default function FeeSection() {
               <br />
               Transparent Pricing
             </h2>
-            <p className="mt-4 mb-10 max-w-md text-[1rem] font-light leading-[1.7] text-white/90">
+            <p className="mt-4 mb-10 max-w-md text-[1rem] font-light leading-[1.7] text-brand-text-dark">
               We believe quality education should be accessible. Easy installment plans are available for all programs.
             </p>
 
@@ -24,7 +24,7 @@ export default function FeeSection() {
                 'Live interactive classes via Zoom & Google Meet with experienced faculty',
                 'Full access to recorded lectures anytime, anywhere',
                 'Real-world assignments & clinical case studies',
-                'Timed online exams — 30-minute paper, auto-submitted & instant results',
+                'Timed online exams — 45-minute paper, auto-submitted & instant results',
                 'Internationally inspired certification on completion',
                 'Easy installment payment plans',
               ].map((item, i) => (
@@ -41,16 +41,16 @@ export default function FeeSection() {
           </div>
 
           {/* Right: Fee cards */}
-          <div className="flex flex-col gap-5">
-            {/* Standard */}
-            <div className="border border-white/10 bg-brand-cream p-9 shadow-md">
-              <div className="mb-2 text-[0.78rem] font-semibold uppercase tracking-[2px] text-white/90">
+          <div className="flex flex-col gap-5 items-center justify-center">
+            {/* Centralized Standard Fee Box */}
+            <div className="w-full max-w-md border border-white/10 bg-brand-cream p-9 shadow-md text-center">
+              <div className="mb-2 text-[0.78rem] font-semibold uppercase tracking-[2px] text-brand-text-dark">
                 Standard Fee
               </div>
               <div className="font-display text-[3rem] font-bold leading-none text-white">
-                55,000 <span className="text-[1rem] font-normal text-white/90">PKR</span>
+                55,000 <span className="text-[1rem] font-normal text-brand-text-dark">PKR</span>
               </div>
-              <p className="mt-3 text-[0.82rem] text-white/90">
+              <p className="mt-3 text-[0.82rem] text-brand-text-dark">
                 Full program access &middot; Easy installments available
               </p>
             </div>

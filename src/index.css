@@ -1,9 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Reference theme font imports */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
 
 * {
   margin: 0;
@@ -87,8 +87,8 @@ body::before {
 /* Reference theme button styles */
 @layer components {
   .btn-primary {
-    @apply bg-gradient-to-r from-brand-sky-blue to-sky-400 text-white rounded-full px-6 py-3 font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300;
-    box-shadow: 0 8px 25px rgba(14, 165, 233, 0.4);
+    @apply bg-gradient-to-r from-brand-sky-blue/90 to-sky-400/90 text-white rounded-full px-6 py-3 font-semibold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300;
+    box-shadow: 0 6px 18px rgba(14, 165, 233, 0.25);
   }
 
   .btn-primary:hover {
@@ -152,7 +152,88 @@ body::before {
   animation: pulse-urgent 1s infinite;
 }
 
-/* Grain texture overlay (preserved but disabled for reference theme consistency) */
+/* Luxury geometric pattern overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(14, 165, 233, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(30, 58, 138, 0.03) 0%, transparent 50%);
+  background-size: 100px 100px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Custom animation delays for staggered reveals */
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+
+/* Subtle attractive enhancements */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+.btn-primary:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Refined card hover effect */
+.group:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(14, 165, 233, 0.15);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Subtle stat reveal animation */
+.stat-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.stat-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Visible scrollbar (fixed for navy theme) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--brand-dark-navy);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--brand-sky-blue/70); /* Increased opacity for visibility */
+  border-radius: 4px;
+  border: 1px solid var(--brand-dark-navy);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-sky-blue); /* Full opacity on hover */
+}
+
+/* Firefox scrollbar support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--brand-sky-blue/70) var(--brand-dark-navy);
+}
+
+/* Grain texture overlay (preserved but disabled for luxury theme) */
 .grain::before {
   display: none;
 }

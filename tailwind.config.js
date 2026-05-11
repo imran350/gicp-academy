@@ -19,8 +19,8 @@ export default {
         },
       },
       fontFamily: {
-        display: ['Playfair Display SC', 'serif'],
-        body: ['Libre Baskerville', 'serif'],
+        display: ['Cormorant Garamond', 'serif'], // Distinctive luxury display font
+        body: ['Lora', 'serif'], // Refined body font (non-generic alternative)
       },
       letterSpacing: {
         tightest: '-0.03em',

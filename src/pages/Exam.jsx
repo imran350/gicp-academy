@@ -86,7 +86,7 @@ export default function Exam() {
       </Link>
     </div>
   )
-  const TOTAL_SECS = 30 * 60
+  const TOTAL_SECS = 45 * 60
   const [remaining, setRemaining] = useState(TOTAL_SECS)
   const [currentQ, setCurrentQ] = useState(0)
   const [answers, setAnswers] = useState({})

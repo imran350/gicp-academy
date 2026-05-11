@@ -25,7 +25,7 @@ const features = [
   {
     icon: ClipboardCheck,
     title: 'Online Exams',
-    desc: '30-minute timed exam, auto-submitted with instant results displayed on screen.',
+    desc: '45-minute timed exam, auto-submitted with instant results displayed on screen.',
   },
   {
     icon: Award,
