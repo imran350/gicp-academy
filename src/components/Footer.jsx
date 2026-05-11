@@ -4,12 +4,12 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-brand-gold/20 bg-brand-navy py-14 px-6 lg:px-8">
+    <footer className="border-t border-brand-sky-blue/20 bg-brand-dark-navy py-14 px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-12 md:grid-cols-[2fr_1fr_1fr]">
           {/* Academy info */}
           <div>
-            <div className="font-display text-[1.4rem] font-bold text-brand-gold mb-3">
+            <div className="font-display text-[1.4rem] font-bold text-brand-sky-blue mb-3">
               GICP Academy
             </div>
             <p className="max-w-[340px] text-[0.85rem] font-light leading-[1.7] text-white/40">
@@ -19,7 +19,7 @@ export default function Footer() {
 
           {/* Courses */}
           <div>
-            <div className="mb-5 text-[0.72rem] font-bold uppercase tracking-[2px] text-brand-gold">
+            <div className="mb-5 text-[0.72rem] font-bold uppercase tracking-[2px] text-brand-sky-blue">
               Courses
             </div>
             <ul className="flex flex-col gap-2.5">
@@ -34,7 +34,7 @@ export default function Footer() {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="text-[0.85rem] text-white/45 transition-colors duration-200 hover:text-white"
+                    className="text-[0.85rem] text-white/45 transition-colors duration-200 hover:text-brand-light-sky"
                   >
                     {link.label}
                   </Link>
@@ -45,7 +45,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <div className="mb-5 text-[0.72rem] font-bold uppercase tracking-[2px] text-brand-gold">
+            <div className="mb-5 text-[0.72rem] font-bold uppercase tracking-[2px] text-brand-sky-blue">
               Quick Links
             </div>
             <ul className="flex flex-col gap-2.5">
@@ -60,7 +60,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     to={link.to}
-                    className="text-[0.85rem] text-white/45 transition-colors duration-200 hover:text-white"
+                    className="text-[0.85rem] text-white/45 transition-colors duration-200 hover:text-brand-light-sky"
                   >
                     {link.label}
                   </Link>
@@ -76,7 +76,7 @@ export default function Footer() {
             &copy; {year} GICP Academy &middot; Global Institute of Clinical Psychology &middot; All rights reserved.
           </div>
           <div className="text-[0.78rem] text-white/25">
-            <a href="mailto:gicpacademy@gmail.com" className="transition-colors hover:text-white/50">
+            <a href="mailto:gicpacademy@gmail.com" className="transition-colors hover:text-brand-light-sky/50">
               gicpacademy@gmail.com
             </a>
           </div>

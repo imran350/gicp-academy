@@ -40,13 +40,13 @@ export default function FeaturesList() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div className="mb-16 max-w-lg">
-          <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-teal">
+          <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-white">
             Why GICP Academy
           </div>
-          <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-bold leading-tight text-brand-navy">
+          <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-bold leading-tight text-white">
             Everything You Need to Succeed
           </h2>
-          <p className="mt-4 text-[1rem] font-light leading-[1.7] text-brand-muted">
+          <p className="mt-4 text-[1rem] font-light leading-[1.7] text-white/90">
             A complete learning experience designed for working professionals and students.
           </p>
         </div>
@@ -58,13 +58,13 @@ export default function FeaturesList() {
             return (
               <div
                 key={f.title}
-                className="group rounded-lg border border-brand-teal/10 bg-white/80 p-8 transition-colors duration-200 hover:bg-white"
+                className="group border border-white/10 bg-brand-cream p-8 transition-colors duration-200"
               >
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded bg-brand-teal/10">
-                  <Icon className="h-5 w-5 text-brand-teal" />
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded bg-brand-sky-blue/10">
+                  <Icon className="h-5 w-5 text-white" />
                 </div>
-                <h3 className="mb-2 text-[0.95rem] font-semibold text-brand-navy">{f.title}</h3>
-                <p className="text-[0.85rem] font-light leading-[1.65] text-brand-muted">{f.desc}</p>
+                <h3 className="mb-2 text-[0.95rem] font-semibold text-white">{f.title}</h3>
+                <p className="text-[0.85rem] font-light leading-[1.65] text-white/90">{f.desc}</p>
               </div>
             )
           })}

@@ -1,4 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
+import { supabase } from '../lib/supabase'
+import { Link } from 'react-router-dom'
 
 const examQuestions = [
   {
@@ -60,6 +62,30 @@ function fmtTime(secs) {
 }
 
 export default function Exam() {
+  const [session, setSession] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const getSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession()
+      setSession(session)
+      setLoading(false)
+    }
+
+    getSession()
+    supabase.auth.onAuthStateChange((_event, session) => setSession(session))
+  }, [])
+
+  if (loading) return <div className="bg-brand-cream min-h-screen flex items-center justify-center text-brand-navy">Loading...</div>
+  if (!session) return (
+    <div className="bg-brand-cream min-h-screen flex flex-col items-center justify-center p-6 text-center">
+      <h2 className="font-display text-2xl font-bold text-brand-navy mb-4">Restricted Access</h2>
+      <p className="max-w-md text-brand-text-dark mb-6">The exam is only available to enrolled students. Please apply to access this page.</p>
+      <Link to="/admissions" className="rounded bg-brand-teal px-5 py-2.5 text-white font-semibold transition-colors hover:bg-brand-teal-light">
+        Apply Now
+      </Link>
+    </div>
+  )
   const TOTAL_SECS = 30 * 60
   const [remaining, setRemaining] = useState(TOTAL_SECS)
   const [currentQ, setCurrentQ] = useState(0)
@@ -90,15 +116,15 @@ export default function Exam() {
     : 0
   const pct = Math.round((score / examQuestions.length) * 100)
   const grade = pct >= 85 ? 'Distinction' : pct >= 70 ? 'Merit' : pct >= 50 ? 'Pass' : 'Fail'
-  const gradeColor = pct >= 85 ? 'text-brand-teal' : pct >= 70 ? 'text-brand-gold' : pct >= 50 ? 'text-brand-teal-light' : 'text-red-400'
+  const gradeColor = pct >= 85 ? 'text-brand-teal' : pct >= 70 ? 'text-brand-sky-blue' : pct >= 50 ? 'text-brand-teal-light' : 'text-red-400'
   const progress = ((TOTAL_SECS - remaining) / TOTAL_SECS) * 100
 
   if (!started) {
     return (
       <>
-        <section className="bg-brand-navy pt-28 pb-16">
+        <section className="bg-brand-dark-navy pt-28 pb-16">
           <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
-            <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-gold">
+            <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-sky-blue">
               Online Examination
             </div>
             <h1 className="font-display text-[clamp(2rem,4vw,3rem)] font-bold leading-tight text-white">
@@ -113,8 +139,8 @@ export default function Exam() {
 
         <section className="bg-brand-cream pb-20">
           <div className="mx-auto max-w-sm px-6 lg:px-8">
-            <div className="rounded-lg border border-brand-gold/20 bg-brand-navy p-8 text-white">
-              <h3 className="mb-5 text-[0.95rem] font-semibold text-brand-gold">Exam Details</h3>
+            <div className="rounded-lg border border-brand-gold/20 bg-brand-dark-navy p-8 text-white">
+              <h3 className="mb-5 text-[0.95rem] font-semibold text-brand-sky-blue">Exam Details</h3>
               <ul className="space-y-3 text-[0.85rem] text-white/70">
                 <li className="flex items-start gap-3"><span className="text-brand-teal-light">&#10003;</span>{examQuestions.length} MCQ Questions</li>
                 <li className="flex items-start gap-3"><span className="text-brand-teal-light">&#10003;</span>30-minute countdown timer</li>
@@ -136,9 +162,9 @@ export default function Exam() {
 
   return (
     <>
-      <section className="bg-brand-navy pt-28 pb-0">
+      <section className="bg-brand-dark-navy pt-28 pb-0">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
-          <div className="mb-6 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-gold">
+          <div className="mb-6 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-sky-blue">
             Online Examination
           </div>
         </div>
@@ -148,14 +174,14 @@ export default function Exam() {
         <div className="mx-auto max-w-3xl px-6 lg:px-8 -mt-2">
           {!submitted ? (
             <div className="overflow-hidden rounded-xl border border-black/8 bg-brand-cream shadow-[0_12px_40px_rgba(0,0,0,0.09)]">
-              <div className="bg-brand-navy px-6 pt-5 pb-0">
+              <div className="bg-brand-dark-navy px-6 pt-5 pb-0">
                 <div className="mb-4 flex items-start justify-between gap-3">
                   <span className="text-[0.78rem] font-medium leading-snug text-white/70">
                     ADCP — Clinical Psychology &middot; Paper 2
                   </span>
                   <div className="flex-shrink-0 text-right">
                     <div className="text-[0.65rem] uppercase tracking-[1px] text-white/45">Time Remaining</div>
-                    <div className={`font-display text-[2rem] font-bold leading-none text-brand-gold ${remaining <= 120 ? 'animate-pulse-urgent text-red-400' : ''}`}>
+                    <div className={`font-display text-[2rem] font-bold leading-none text-brand-sky-blue ${remaining <= 120 ? 'animate-pulse-urgent text-red-400' : ''}`}>
                       {fmtTime(remaining)}
                     </div>
                   </div>
@@ -213,7 +239,7 @@ export default function Exam() {
                 <p className="mt-3 text-[0.85rem] text-brand-muted">{pct >= 50 ? 'Congratulations! Your result has been recorded.' : 'Keep studying and try again. You can do better!'}</p>
                 <button
                   onClick={() => { setRemaining(TOTAL_SECS); setCurrentQ(0); setAnswers({}); setSubmitted(false) }}
-                  className="mt-6 rounded bg-brand-navy px-6 py-3 text-[0.85rem] font-semibold text-white transition-colors hover:bg-brand-teal"
+                  className="mt-6 rounded bg-brand-dark-navy px-6 py-3 text-[0.85rem] font-semibold text-white transition-colors hover:bg-brand-teal"
                 >&larr; Try Again</button>
               </div>
               <div className="border-t border-black/6 px-6 py-6">

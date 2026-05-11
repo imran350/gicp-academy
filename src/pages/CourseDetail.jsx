@@ -47,8 +47,8 @@ export default function CourseDetail() {
     return (
       <section className="bg-brand-cream pt-24 pb-20">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <h1 className="font-display text-3xl font-bold text-brand-navy">Course Not Found</h1>
-          <p className="mt-3 text-brand-muted">This course doesn't exist.</p>
+          <h1 className="font-display text-3xl font-bold text-white">Course Not Found</h1>
+          <p className="mt-3 text-white/90">This course doesn't exist.</p>
           <Link to="/courses" className="btn-primary mt-6 inline-block">
             <ArrowLeft className="mr-1 inline h-4 w-4" /> Back to Courses
           </Link>
@@ -89,7 +89,7 @@ export default function CourseDetail() {
         {/* Back link */}
         <Link
           to="/courses"
-          className="mb-6 inline-flex items-center gap-1 text-[0.9rem] font-medium text-brand-muted transition-colors hover:text-brand-teal"
+          className="mb-6 inline-flex items-center gap-1 text-[0.9rem] font-medium text-white/90 transition-colors hover:text-brand-teal"
         >
           <ArrowLeft className="h-4 w-4" /> Back to Courses
         </Link>
@@ -98,17 +98,17 @@ export default function CourseDetail() {
           {/* Left: Course info */}
           <div className="lg:col-span-2">
             {/* Course header */}
-            <div className="rounded-lg border border-brand-teal/10 bg-white/80 p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+            <div className="border border-white/10 bg-brand-cream p-8">
               <div className="mb-2 text-[0.72rem] font-semibold uppercase tracking-[2px] text-brand-teal">
                 Course {course.num}
               </div>
-              <h1 className="font-display text-xl font-bold text-brand-navy sm:text-2xl md:text-3xl leading-tight py-2">
+              <h1 className="font-display text-xl font-bold text-white sm:text-2xl md:text-3xl leading-tight py-2">
                 {course.title}
               </h1>
               {course.tagline && (
                 <p className="mt-2 text-[0.95rem] font-medium italic text-brand-teal">{course.tagline}</p>
               )}
-              <p className="mt-4 text-[0.95rem] font-light leading-[1.7] text-brand-muted">{course.description}</p>
+              <p className="mt-4 text-[0.95rem] font-light leading-[1.7] text-white/90">{course.description}</p>
 
               {/* Meta */}
               <div className="mt-6 flex flex-wrap gap-3">
@@ -127,8 +127,8 @@ export default function CourseDetail() {
             </div>
 
             {/* What you'll learn */}
-            <div className="mt-6 rounded-lg border border-brand-teal/10 bg-white/80 p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
-              <h2 className="mb-4 font-display text-xl font-bold text-brand-navy">What You'll Learn</h2>
+            <div className="mt-6 border border-white/10 bg-brand-cream p-8">
+              <h2 className="mb-4 font-display text-xl font-bold text-white">What You'll Learn</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {[
                   'Comprehensive theoretical knowledge',
@@ -142,73 +142,73 @@ export default function CourseDetail() {
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-2.5">
                     <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-teal" />
-                    <span className="text-[0.9rem] text-brand-muted">{item}</span>
+                    <span className="text-[0.9rem] text-white/90">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Learning Format */}
-            <div className="mt-6 rounded-lg border border-brand-teal/10 bg-white/80 p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
-              <h2 className="mb-4 font-display text-xl font-bold text-brand-navy">Learning Format</h2>
+            <div className="mt-6 border border-white/10 bg-brand-cream p-8">
+              <h2 className="mb-4 font-display text-xl font-bold text-white">Learning Format</h2>
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
                   <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">🎥</div>
                   <div>
-                    <p className="text-[0.85rem] font-semibold text-brand-navy">Live Classes</p>
-                    <p className="text-[0.75rem] text-brand-muted">Interactive sessions via Zoom & Google Meet, 2 days per week</p>
+                    <p className="text-[0.85rem] font-semibold text-white">Live Classes</p>
+                    <p className="text-[0.75rem] text-white/90">Interactive sessions via Zoom & Google Meet, 2 days per week</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">📼</div>
                   <div>
-                    <p className="text-[0.85rem] font-semibold text-brand-navy">Recorded Lectures</p>
-                    <p className="text-[0.75rem] text-brand-muted">Full access to all recorded sessions anytime, anywhere</p>
+                    <p className="text-[0.85rem] font-semibold text-white">Recorded Lectures</p>
+                    <p className="text-[0.75rem] text-white/90">Full access to all recorded sessions anytime, anywhere</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">📋</div>
                   <div>
-                    <p className="text-[0.85rem] font-semibold text-brand-navy">Assignments</p>
-                    <p className="text-[0.75rem] text-brand-muted">Real-world case studies and clinical assignments</p>
+                    <p className="text-[0.85rem] font-semibold text-white">Assignments</p>
+                    <p className="text-[0.75rem] text-white/90">Real-world case studies and clinical assignments</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">⏱</div>
                   <div>
-                    <p className="text-[0.85rem] font-semibold text-brand-navy">Online Exam</p>
-                    <p className="text-[0.75rem] text-brand-muted">30-minute timed paper — auto-submitted, instant results</p>
+                    <p className="text-[0.85rem] font-semibold text-white">Online Exam</p>
+                    <p className="text-[0.75rem] text-white/90">30-minute timed paper — auto-submitted, instant results</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">🎓</div>
                   <div>
-                    <p className="text-[0.85rem] font-semibold text-brand-navy">Certificate</p>
-                    <p className="text-[0.75rem] text-brand-muted">Professional diploma certificate on successful completion</p>
+                    <p className="text-[0.85rem] font-semibold text-white">Certificate</p>
+                    <p className="text-[0.75rem] text-white/90">Professional diploma certificate on successful completion</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Therapy Options Section */}
-            <div className="mt-6 rounded-lg border border-brand-teal/10 bg-white/80 p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
-              <h2 className="mb-4 font-display text-xl font-bold text-brand-navy">Therapy Options</h2>
+            <div className="mt-6 border border-white/10 bg-brand-cream p-8">
+              <h2 className="mb-4 font-display text-xl font-bold text-white">Therapy Options</h2>
               <div className="grid gap-6 sm:grid-cols-2">
-                <div className="rounded-md border border-brand-teal/20 p-5 bg-brand-cream/50">
+                <div className="border border-white/10 bg-brand-cream p-5">
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-2xl">💻</span>
                     <h3 className="font-display text-lg font-semibold text-brand-teal">Online Therapy</h3>
                   </div>
-                  <p className="text-[0.9rem] text-brand-muted leading-relaxed">
+                  <p className="text-[0.9rem] text-white/90 leading-relaxed">
                     Live interactive sessions via Zoom & Google Meet, flexible timing according to your convenience. Access recorded lectures anytime, anywhere.
                   </p>
                 </div>
-                <div className="rounded-md border border-brand-teal/20 p-5 bg-brand-cream/50">
+                <div className="border border-white/10 bg-brand-cream p-5">
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-2xl">🏥</span>
                     <h3 className="font-display text-lg font-semibold text-brand-teal">Physical Therapy</h3>
                   </div>
-                  <p className="text-[0.9rem] text-brand-muted leading-relaxed">
+                  <p className="text-[0.9rem] text-white/90 leading-relaxed">
                     In-person sessions at our academy facility with experienced trainers. Hands-on practical training and clinical practice.
                   </p>
                 </div>
@@ -216,21 +216,21 @@ export default function CourseDetail() {
             </div>
 
             {/* Payment Methods */}
-            <div className="mt-6 rounded-lg border border-brand-teal/10 bg-white/80 p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
-              <h2 className="mb-4 font-display text-xl font-bold text-brand-navy">Payment Methods</h2>
-              <p className="mb-4 text-[0.85rem] text-brand-muted">We accept the following payment methods:</p>
+            <div className="mt-6 border border-white/10 bg-brand-cream p-8">
+              <h2 className="mb-4 font-display text-xl font-bold text-white">Payment Methods</h2>
+              <p className="mb-4 text-[0.85rem] text-white/90">We accept the following payment methods:</p>
               <div className="grid gap-3 sm:grid-cols-3">
                 {paymentMethods.map((pm) => {
                   const PmIcon = pm.icon
                   return (
                     <div
                       key={pm.id}
-                      className="flex items-center gap-3 rounded-md border border-black/6 bg-brand-cream p-4"
+                      className="flex items-center gap-3 border border-white/10 bg-brand-cream p-4"
                     >
                       <PmIcon className="h-5 w-5 flex-shrink-0 text-brand-teal" />
                       <div>
-                        <p className="text-[0.85rem] font-semibold text-brand-navy">{pm.label}</p>
-                        <p className="text-[0.75rem] text-brand-muted">{pm.desc}</p>
+                        <p className="text-[0.85rem] font-semibold text-white">{pm.label}</p>
+                        <p className="text-[0.75rem] text-white/90">{pm.desc}</p>
                       </div>
                     </div>
                   )
@@ -243,7 +243,7 @@ export default function CourseDetail() {
           <div className="lg:col-span-1">
             <div className="sticky top-24 z-20">
               {/* Price card */}
-              <div className="overflow-hidden rounded-lg border border-brand-teal/10 bg-white shadow-[0_8px_32px_rgba(0,0,0,0.06)]">
+              <div className="overflow-hidden rounded-lg border border-white/20 bg-brand-dark-navy shadow-[0_8px_32px_rgba(0,0,0,0.15)]">
                 <div className="bg-brand-navy p-6 text-white">
                   {/* Standard Fee */}
                   <div className="mb-4">
@@ -284,7 +284,7 @@ export default function CourseDetail() {
                       'Digital Certification',
                       'Installment Plan Available',
                     ].map((item) => (
-                      <li key={item} className="flex items-center gap-2.5 text-[0.85rem] text-brand-muted">
+                      <li key={item} className="flex items-center gap-2.5 text-[0.85rem] text-white/90">
                         <CheckCircle className="h-4 w-4 flex-shrink-0 text-brand-teal" />
                         {item}
                       </li>
@@ -293,12 +293,12 @@ export default function CourseDetail() {
 
                   <button
                     onClick={() => document.getElementById('enroll-form')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="w-full rounded bg-brand-gold py-3.5 text-[0.95rem] font-bold text-brand-navy transition-colors hover:bg-brand-gold-light"
+                    className="w-full rounded bg-brand-gold py-3.5 text-[0.95rem] font-bold text-white transition-colors hover:bg-brand-gold-light"
                   >
                     <Send className="mr-1 inline h-4 w-4" /> Enroll Now
                   </button>
 
-                  <p className="mt-3 text-center text-[0.78rem] text-brand-muted">
+                  <p className="mt-3 text-center text-[0.78rem] text-white/90">
                     Questions?{' '}
                     <a href="https://wa.me/923019753393" target="_blank" rel="noopener noreferrer" className="text-brand-teal hover:underline">
                       Chat on WhatsApp
@@ -311,8 +311,8 @@ export default function CourseDetail() {
         </div>
 
         {/* Enrollment form — full width, below the grid */}
-        <div id="enroll-form" className="mt-10 rounded-lg border border-brand-teal/10 bg-white/80 p-8 shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
-          <h3 className="mb-6 font-display text-xl font-bold text-brand-navy">Quick Enrollment</h3>
+        <div id="enroll-form" className="mt-10 border border-white/10 bg-brand-cream p-8">
+          <h3 className="mb-6 font-display text-xl font-bold text-white">Quick Enrollment</h3>
 
           <form onSubmit={handleSubmit} className="mx-auto max-w-3xl space-y-4">
             <div className="grid grid-cols-2 gap-3">
@@ -338,7 +338,7 @@ export default function CourseDetail() {
 
             <div>
               <label className="mb-1 block text-[0.78rem] font-semibold text-brand-text">Course</label>
-              <input type="text" value={course.title} readOnly className={`${inputClass} bg-white text-brand-muted cursor-default`} />
+              <input type="text" value={course.title} readOnly className={`${inputClass} bg-white text-white/90 cursor-default`} />
             </div>
 
             {/* Payment */}
@@ -400,7 +400,7 @@ export default function CourseDetail() {
             )}
 
             {/* Supabase Status Indicator */}
-            <div className="mt-4 flex items-center justify-center gap-2 text-[0.75rem] text-brand-muted">
+            <div className="mt-4 flex items-center justify-center gap-2 text-[0.75rem] text-white/90">
               <span className="h-1.5 w-1.5 rounded-full bg-green-500"></span>
               <span>Powered by secure Supabase backend</span>
             </div>

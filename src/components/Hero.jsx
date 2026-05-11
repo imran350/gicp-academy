@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <>
       {/* HERO SECTION */}
-      <section className="grain relative flex min-h-screen flex-col justify-center overflow-hidden bg-brand-navy pt-16">
+      <section className="grain relative flex min-h-screen flex-col justify-center overflow-hidden bg-brand-dark-navy pt-16">
         {/* Layered radial gradients */}
         <div
           className="pointer-events-none absolute inset-0"
@@ -18,7 +18,7 @@ export default function Hero() {
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-20 lg:px-8">
           <div className="max-w-3xl">
             {/* Tag */}
-            <div className="mb-7 inline-flex items-center gap-2 rounded-sm border border-brand-gold bg-brand-gold/15 px-4 py-1.5 text-[0.75rem] font-semibold uppercase tracking-[2px] text-brand-gold animate-fade-in">
+            <div className="mb-7 inline-flex items-center gap-2 rounded-sm border border-brand-sky-blue bg-brand-sky-blue text-white px-4 py-1.5 text-[0.75rem] font-semibold uppercase tracking-[2px] text-white animate-fade-in">
               <BookOpen className="h-3.5 w-3.5" />
               Admissions Open — New Batch Starting Soon
             </div>
@@ -29,7 +29,7 @@ export default function Hero() {
               <br />
               Professionals in
               <br />
-              <em className="not-italic text-brand-gold">Psychology & Healthcare</em>
+              <em className="not-italic bg-gradient-to-r from-brand-light-sky to-brand-sky-blue bg-clip-text text-transparent">Psychology & Healthcare</em>
             </h1>
 
             {/* Subtext */}
@@ -49,7 +49,7 @@ export default function Hero() {
                   key={badge}
                   className="flex items-center gap-2 text-[0.85rem] font-normal text-white/70"
                 >
-                  <span className="font-bold text-brand-teal-light">&#10003;</span>
+                  <span className="font-bold text-white">&#10003;</span>
                   {badge}
                 </div>
               ))}
@@ -75,7 +75,7 @@ export default function Hero() {
       </section>
 
       {/* STATS STRIP */}
-      <div className="grid grid-cols-2 gap-0 bg-brand-navy lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-0 bg-brand-dark-navy/90 lg:grid-cols-4 backdrop-blur-sm">
         {[
           { number: '10+', label: 'Diploma Courses' },
           { number: '6', label: 'Months Duration' },
@@ -88,10 +88,10 @@ export default function Hero() {
               i >= 2 ? 'border-t border-white/5 lg:border-t-0' : ''
             }`}
           >
-            <div className="font-display text-[3rem] font-bold leading-none text-brand-gold">
+            <div className="font-display text-[3rem] font-bold leading-none text-white">
               {stat.number}
             </div>
-            <div className="mt-2 text-[0.82rem] text-white/50">{stat.label}</div>
+            <div className="mt-2 text-[0.82rem] text-brand-text-secondary">{stat.label}</div>
           </div>
         ))}
       </div>

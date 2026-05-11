@@ -26,27 +26,27 @@ export default function Home() {
       <Hero />
 
       {/* Courses Section */}
-      <section className="bg-brand-cream py-24 lg:py-28">
+      <section className="py-24 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mb-16 flex flex-wrap items-end justify-between gap-6">
             <div>
-              <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-teal">
+              <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-sky-blue">
                 Our Diploma Courses
               </div>
-              <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.5rem)] font-bold leading-tight text-brand-navy">
+              <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.5rem)] font-bold leading-tight bg-gradient-to-r from-white via-brand-light-sky to-brand-sky-blue bg-clip-text text-transparent">
                 Choose Your
                 <br />
                 Specialization
               </h2>
             </div>
-            <p className="max-w-sm text-[1rem] font-light leading-[1.7] text-brand-muted">
+            <p className="max-w-sm text-[1rem] font-light leading-[1.7] text-brand-text-dark">
               Each program is designed around practical outcomes, evidence-based methods, and career readiness.
             </p>
           </div>
 
           {/* Grid */}
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {courses.map((course) => (
+            {courses.slice(0, 6).map((course) => (
               <CourseCard key={course.id} course={course} />
             ))}
           </div>
@@ -67,16 +67,16 @@ export default function Home() {
 
       {/* Careers Section */}
       <RevealSection>
-        <section className="grain relative overflow-hidden bg-brand-navy py-24 lg:py-28">
+        <section className="grain relative overflow-hidden bg-brand-dark-navy py-24 lg:py-28">
           <div
             className="pointer-events-none absolute -right-24 -top-24 h-[500px] w-[500px] rounded-full"
-            style={{ background: 'radial-gradient(ellipse, rgba(26,122,110,0.15), transparent 70%)' }}
+            style={{ background: 'radial-gradient(ellipse, rgba(14, 165, 233, 0.15), transparent 70%)' }}
           />
 
           <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
             <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
               <div>
-                <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-gold">
+                <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-sky-blue">
                   Career Opportunities
                 </div>
                 <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.5rem)] font-bold leading-tight text-white">
@@ -86,7 +86,7 @@ export default function Home() {
                   <br />
                   Take You?
                 </h2>
-                <p className="mt-4 mb-8 max-w-md text-[1rem] font-light leading-[1.7] text-white/50">
+                <p className="mt-4 mb-8 max-w-md text-[1rem] font-light leading-[1.7] text-brand-text-light">
                   Our graduates are equipped to work across a wide range of clinical, educational, and community settings.
                 </p>
                 <Link to="/admissions" className="btn-primary">
@@ -105,7 +105,7 @@ export default function Home() {
                 ].map((c) => (
                   <div
                     key={c.label}
-                    className="rounded-md border border-white/8 bg-white/5 p-5 transition-colors duration-200 hover:border-brand-teal/40 hover:bg-brand-teal/15"
+                    className="border border-white/10 bg-brand-dark-navy p-5 transition-colors duration-200"
                   >
                     <div className="mb-2.5 text-[1.4rem]">{c.icon}</div>
                     <div className="text-[0.85rem] font-medium leading-snug text-white/85">
@@ -120,17 +120,17 @@ export default function Home() {
       </RevealSection>
 
       {/* CTA Strip */}
-      <section className="bg-brand-teal py-20 px-6 lg:px-8">
+      <section className="bg-brand-navy-blue py-20 px-6 lg:px-8 shadow-lg">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-8">
           <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold leading-[1.25] text-white max-w-lg">
             Limited Scholarship Seats Available —{' '}
-            <em className="not-italic text-brand-gold-light">Enroll Today</em>
+            <em className="not-italic text-white">Enroll Today</em>
           </h2>
           <div className="flex flex-col items-end gap-3">
             <Link to="/admissions" className="btn-white">
               Apply Now &rarr;
             </Link>
-            <span className="text-[0.8rem] text-white/65">
+            <span className="text-[0.8rem] text-brand-text-secondary">
               &#128197; New batch starting soon &middot; Seats filling fast
             </span>
           </div>
