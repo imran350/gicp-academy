@@ -30,7 +30,7 @@ Client Link: ${clientLink}`
     } catch { setStatus('error') }
   }
 
-  const inputClass = 'w-full rounded border border-black/10 bg-brand-cream px-3.5 py-3 text-[0.9rem] text-brand-text outline-none transition-colors duration-200 focus:border-brand-teal'
+  const inputClass = 'w-full rounded border border-white/20 bg-brand-dark-navy/20 px-3.5 py-3 text-[0.9rem] text-white outline-none transition-colors duration-200 focus:border-brand-gold'
 
   return (
     <>
@@ -50,30 +50,23 @@ Client Link: ${clientLink}`
       </section>
 
       {/* Form + Fee Plan (Sample Image Layout) */}
-      <section className="bg-brand-cream pb-20">
+      <section className="bg-brand-dark-navy/20 pb-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left: Fee Plan + Payment Methods (Sample Image) */}
-            <div className="border border-brand-sky-blue/10 bg-brand-cream p-8 sm:p-11">
+            <div className="border border-brand-sky-blue/10 bg-brand-dark-navy/20 p-8 sm:p-11">
               <div className="section-label text-brand-teal">FEE & PAYMENT</div>
-              <h2 className="font-display text-[1.75rem] font-bold text-white mt-2">Choose Your Plan</h2>
               <div className="mt-4 flex flex-col sm:flex-row gap-4">
-                <div className="fee-card std flex-1 bg-brand-cream p-4 border border-brand-sky-blue/10 shadow-sm">
+                <div className="fee-card std w-full sm:w-auto bg-brand-dark-navy/20 p-4 border border-brand-sky-blue/10 shadow-sm">
                   <div className="fee-lbl text-white/90 text-sm font-semibold uppercase">STANDARD FEE</div>
                   <div className="fee-amt font-display text-2xl font-bold text-white mt-1">PKR 55,000</div>
                   <div className="fee-note text-white/90 text-sm mt-1">Easy 2–3 installment plan available</div>
-                </div>
-                <div className="fee-card sch flex-1 bg-brand-navy-blue p-4 border border-brand-sky-blue/20 shadow-md">
-                  <div className="fee-ribbon text-brand-gold text-xs font-bold uppercase bg-brand-gold/10 inline-block px-2 py-1 mb-1">★ LIMITED</div>
-                  <div className="fee-lbl text-white/70 text-sm font-semibold uppercase">SCHOLARSHIP FEE</div>
-                  <div className="fee-amt font-display text-2xl font-bold text-brand-gold mt-1">PKR 35,000</div>
-                  <div className="fee-note text-white/50 text-sm mt-1">Apply fast — seats filling up</div>
                 </div>
               </div>
               <div className="mt-6">
                 <div className="pm-title text-white/90 text-sm font-semibold uppercase">PAYMENT METHODS</div>
                 <div className="pm-cards mt-3 space-y-3">
-                  <div className="pm-card jz p-4 bg-brand-cream border-brand-sky-blue/10 shadow-sm">
+                  <div className="pm-card jz p-4 bg-brand-dark-navy/20 border-brand-sky-blue/10 shadow-sm">
                     <div className="pm-head flex items-center gap-2">
                       <span className="pm-head-ic text-red-600">📱</span>
                       <span className="pm-head-name font-semibold text-white">JazzCash / EasyPaisa</span>
@@ -81,13 +74,13 @@ Client Link: ${clientLink}`
                     <div className="pm-num font-bold text-white mt-1">0301-9753393</div>
                     <div className="pm-hint text-sm text-white/90 mt-1">Send payment screenshot on WhatsApp for confirmation</div>
                   </div>
-                  <div className="pm-card bk p-4 bg-brand-cream border-brand-sky-blue/10 shadow-sm">
+                  <div className="pm-card bk p-4 bg-brand-dark-navy/20 border-brand-sky-blue/10 shadow-sm">
                     <div className="pm-head flex items-center gap-2">
                       <span className="pm-head-ic text-brand-teal">🏦</span>
                       <span className="pm-head-name font-semibold text-white">Bank Transfer</span>
                     </div>
                     <div className="pm-num font-bold text-white mt-1">Details shared after enrollment</div>
-                    <div className="pm-hint text-sm text-white/90 mt-1">WhatsApp us to receive account details</div>
+                    <div className="pm-hint text-sm text-white/90 mt-1">Details shared on whats up</div>
                   </div>
                 </div>
               </div>
@@ -100,37 +93,37 @@ Client Link: ${clientLink}`
 
             <div className="mb-4 grid gap-4 sm:grid-cols-2">
               <div>
-                <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">First Name <span className="text-red-400">*</span></label>
+                <label className="mb-1.5 block text-[0.78rem] font-semibold text-brand-gold">First Name <span className="text-red-400">*</span></label>
                 <input type="text" name="first_name" required value={form.first_name} onChange={handleChange} className={inputClass} placeholder="e.g. Ayesha" />
               </div>
               <div>
-                <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Last Name</label>
+                <label className="mb-1.5 block text-[0.78rem] font-semibold text-brand-gold">Last Name</label>
                 <input type="text" name="last_name" value={form.last_name} onChange={handleChange} className={inputClass} placeholder="e.g. Khan" />
               </div>
             </div>
 
             <div className="mb-4 grid gap-4 sm:grid-cols-2">
               <div>
-                <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">WhatsApp Number <span className="text-red-400">*</span></label>
+                <label className="mb-1.5 block text-[0.78rem] font-semibold text-brand-gold">WhatsApp Number <span className="text-red-400">*</span></label>
                 <input type="tel" name="whatsapp" required value={form.whatsapp} onChange={handleChange} className={inputClass} placeholder="0300-0000000" />
               </div>
               <div>
-                <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Email Address <span className="text-red-400">*</span></label>
+                <label className="mb-1.5 block text-[0.78rem] font-semibold text-brand-gold">Email Address <span className="text-red-400">*</span></label>
                 <input type="email" name="email" required value={form.email} onChange={handleChange} className={inputClass} placeholder="your@email.com" />
               </div>
             </div>
 
             <div className="mb-4">
-              <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Course of Interest <span className="text-red-400">*</span></label>
-              <select name="program" required value={form.program} onChange={handleChange} className={`${inputClass} bg-brand-cream`}>
+              <label className="mb-1.5 block text-[0.78rem] font-semibold text-brand-gold">Course of Interest <span className="text-red-400">*</span></label>
+              <select name="program" required value={form.program} onChange={handleChange} className={`${inputClass} bg-brand-dark-navy/20`}>
                 <option value="">Select a program...</option>
                 {courses.map((c) => <option key={c.id} value={c.title}>{c.title}</option>)}
               </select>
             </div>
 
             <div className="mb-4">
-              <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Payment Method</label>
-              <select name="payment_method" value={form.payment_method} onChange={handleChange} className={`${inputClass} bg-brand-cream`}>
+              <label className="mb-1.5 block text-[0.78rem] font-semibold text-brand-gold">Payment Method</label>
+              <select name="payment_method" value={form.payment_method} onChange={handleChange} className={`${inputClass} bg-brand-dark-navy/20`}>
                 <option value="">Select payment method...</option>
                 <option value="jazzcash">JazzCash</option>
                 <option value="easypaisa">EasyPaisa</option>
@@ -139,7 +132,7 @@ Client Link: ${clientLink}`
             </div>
 
             <div className="mb-6">
-              <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Message (Optional)</label>
+              <label className="mb-1.5 block text-[0.78rem] font-semibold text-brand-gold">Message (Optional)</label>
               <textarea name="message" rows={4} value={form.message} onChange={handleChange} className={`${inputClass} resize-none`} placeholder="Any questions or additional info..." />
             </div>
 

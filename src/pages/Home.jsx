@@ -26,23 +26,42 @@ export default function Home() {
       <Hero />
 
       {/* Courses Section */}
-      <RevealSection>
       <section className="py-24 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mb-16 flex flex-wrap items-end justify-between gap-6">
+          <div className="mb-20 flex flex-col gap-8 px-4">
             <div>
-              <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-sky-blue">
+              <div className="mb-4 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-sky-blue">
                 Our Diploma Courses
               </div>
-              <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.5rem)] font-bold leading-tight text-brand-text-dark">
+              <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.5rem)] font-bold leading-tight text-brand-gold mb-2">
                 Choose Your
                 <br />
                 Specialization
               </h2>
             </div>
-            <p className="max-w-sm text-[1rem] font-light leading-[1.7] text-brand-text-dark">
+            <p className="max-w-sm text-[1rem] font-light leading-[1.7] text-brand-gold">
               Each program is designed around practical outcomes, evidence-based methods, and career readiness.
             </p>
+
+            {/* CPD Accreditation Claims */}
+            <div className="flex flex-wrap gap-4 p-5 bg-brand-cream/50 rounded-lg text-left shadow-sm">
+              {[
+                "CPD Accredited Training Provider (CPD Group Approved)",
+                "Verifiable Certificates through Open CPD",
+                "Professional Diploma Programmes",
+                "Verified CPD Training",
+                "Digital Certificate Included",
+                "UK CPD Standard Aligned"
+              ].map((claim) => (
+                <div
+                  key={claim}
+                  className="flex items-center gap-2 text-[0.85rem] font-light leading-[1.7] text-brand-gold justify-start"
+                >
+                  <span className="font-bold text-brand-sky-blue">✔️</span>
+                  {claim}
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Grid */}
@@ -53,7 +72,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      </RevealSection>
 
       <RevealSection>
         <FeeSection />
@@ -132,7 +150,7 @@ export default function Home() {
             <Link to="/admissions" className="btn-white">
               Apply Now &rarr;
             </Link>
-            <span className="text-[0.8rem] text-brand-text-secondary">
+            <span className="text-[0.8rem] font-light leading-[1.7] text-brand-text-secondary">
               &#128197; New batch starting soon &middot; Seats filling fast
             </span>
           </div>

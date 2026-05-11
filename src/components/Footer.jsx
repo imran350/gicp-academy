@@ -52,7 +52,7 @@ export default function Footer() {
               {[
                 { to: '/', label: 'Home' },
                 { to: '/courses', label: 'All Courses' },
-                { to: '/admissions', label: 'Fees & Scholarships' },
+                { to: '/admissions', label: 'Fee Detail' },
                 { to: '/about', label: 'About' },
                 { to: '/contact', label: 'Contact Us' },
                 { to: '/admissions', label: 'Apply Now' },

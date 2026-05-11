@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, BookOpen } from 'lucide-react'
 
+// Organic brain-wave gradient overlay for psychology theme
+const organicGradientStyle = {
+  background: 'radial-gradient(circle at 20% 30%, rgba(16, 142, 132, 0.15) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(201, 168, 76, 0.1) 0%, transparent 40%), linear-gradient(135deg, rgba(13, 27, 42, 0.95) 0%, rgba(13, 27, 42, 0.85) 100%)'
+}
+
 export default function Hero() {
   return (
     <>
@@ -9,31 +14,30 @@ export default function Hero() {
         {/* Layered radial gradients */}
         <div
           className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(ellipse 80% 70% at 80% 50%, rgba(14, 165, 233, 0.25), transparent 70%), radial-gradient(ellipse 50% 50% at 10% 80%, rgba(30, 58, 138, 0.15), transparent 60%), linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.85) 100%)',
-          }}
+          style={organicGradientStyle}
         />
 
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-20 lg:px-8">
           <div className="max-w-3xl">
             {/* Tag */}
-            <div className="mb-7 inline-flex items-center gap-2 rounded-sm border border-brand-sky-blue bg-brand-sky-blue text-white px-4 py-1.5 text-[0.75rem] font-semibold uppercase tracking-[2px] text-white animate-fade-in">
-              <BookOpen className="h-3.5 w-3.5" />
+            <div className="mb-7 inline-flex items-center gap-2 rounded-sm border border-brand-gold/30 bg-brand-gold/10 text-white px-4 py-1.5 text-[0.75rem] font-semibold uppercase tracking-[2px] text-white animate-fade-in animate-delay-50">
+              <BookOpen className="h-3.5 w-3.5 text-brand-gold" />
               Admissions Open — New Batch Starting Soon
             </div>
 
             {/* Heading */}
-            <h1 className="mb-7 font-display text-[clamp(2.8rem,6vw,4.2rem)] font-bold leading-[1.12] text-white animate-slide-up animate-delay-100">
+            <h1 className="mb-7 font-display text-[clamp(2.8rem,6vw,4.2rem)] font-bold leading-[1.08] text-white animate-slide-up animate-delay-100 tracking-[-0.04em]">
               Empowering Future
               <br />
               Professionals in
               <br />
-              <em className="not-italic bg-gradient-to-r from-brand-light-sky to-brand-sky-blue bg-clip-text text-transparent">Psychology & Healthcare</em>
+              <em className="not-italic bg-gradient-to-r from-brand-light-sky to-brand-sky-blue bg-clip-text text-transparent tracking-[-0.02em]">
+                Psychology & Healthcare
+              </em>
             </h1>
 
             {/* Subtext */}
-            <p className="mb-11 max-w-xl text-[1.1rem] font-light leading-[1.7] text-white/75 animate-slide-up animate-delay-200">
+            <p className="mb-11 max-w-xl text-[1.1rem] font-body leading-[1.75] text-white/75 animate-slide-up animate-delay-250 tracking-[0.01em]">
               An internationally inspired platform offering diploma programs in psychology, therapy, and healthcare — designed for flexible, career-focused online learning.
             </p>
 
@@ -74,15 +78,15 @@ export default function Hero() {
       </section>
 
       {/* STATS STRIP */}
-      <div className="grid grid-cols-2 gap-0 bg-gradient-to-r from-brand-dark-navy/95 to-brand-navy-blue/95 lg:grid-cols-3 backdrop-blur-md border-t border-white/10 stat-container justify-items-center justify-items-center">
+      <div className="grid grid-cols-3 bg-gradient-to-r from-brand-dark-navy/95 to-brand-navy-blue/95 backdrop-blur-md border-t border-white/10 stat-container">
         {[
           { number: '10+', label: 'Diploma Courses' },
           { number: '6', label: 'Months Duration' },
-                    { number: '100%', label: 'Online & Flexible' },
-        ].map((stat, i) => (
+          { number: '100%', label: 'Online & Flexible' },
+        ].map((stat) => (
           <div
             key={stat.label}
-            className={`border-r border-white/8 px-6 py-10 text-center last:border-r-0 stat-item visible ${i >= 2 ? 'border-t border-white/5 lg:border-t-0' : ''}`}
+            className="px-4 py-10 text-center border-r border-white/8 last:border-r-0 stat-item visible"
           >
             <div className="font-display text-[3rem] font-bold leading-none text-white">
               {stat.number}

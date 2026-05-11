@@ -7,7 +7,7 @@ export default function Contact() {
       {/* Navy Header */}
       <section className="bg-brand-dark-navy pt-28 pb-16">
         <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
-          <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-gold">
+          <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-white/70">
             Get In Touch
           </div>
           <h1 className="font-display text-[clamp(2rem,4vw,3rem)] font-bold leading-tight text-white">
@@ -91,7 +91,7 @@ export default function Contact() {
                     className="flex items-start gap-4 rounded-lg border border-white/10 bg-brand-cream p-5 transition-colors duration-200 hover:bg-brand-sky-blue/5"
                   >
                     <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded bg-brand-sky-blue text-[1.1rem]">
-                      <span className="text-white">💻</span>
+                      <span className="text-white bg-brand-dark-navy/20">💻</span>
                     </div>
                     <div>
                       <div className="text-[0.72rem] font-semibold uppercase tracking-[2px] text-white/90">Online Session</div>
@@ -108,7 +108,7 @@ export default function Contact() {
                     className="flex items-start gap-4 rounded-lg border border-white/10 bg-brand-cream p-5 transition-colors duration-200 hover:bg-brand-dark-navy/5"
                   >
                     <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded bg-brand-dark-navy text-[1.1rem]">
-                      <span className="text-white">🏥</span>
+                      <span className="text-white bg-brand-dark-navy/20">🏥</span>
                     </div>
                     <div>
                       <div className="text-[0.72rem] font-semibold uppercase tracking-[2px] text-white/90">Physical Session</div>
@@ -127,39 +127,39 @@ export default function Contact() {
 
               <div className="mb-4 grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">First Name</label>
+                  <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">First Name <span className="text-white/70">*</span></label>
                   <input type="text" className="w-full rounded border border-white/10 bg-white/10 px-3.5 py-3 text-[0.9rem] text-white outline-none focus:border-brand-gold placeholder:text-white/30" placeholder="e.g. Ayesha" />
                 </div>
                 <div>
-                  <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Last Name</label>
+                  <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Last Name <span className="text-white/70">*</span></label>
                   <input type="text" className="w-full rounded border border-white/10 bg-white/10 px-3.5 py-3 text-[0.9rem] text-white outline-none focus:border-brand-gold placeholder:text-white/30" placeholder="e.g. Khan" />
                 </div>
               </div>
 
               <div className="mb-4">
-                <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">WhatsApp Number</label>
+                <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">WhatsApp Number <span className="text-white/70">*</span></label>
                 <input type="tel" className="w-full rounded border border-white/10 bg-white/10 px-3.5 py-3 text-[0.9rem] text-white outline-none focus:border-brand-gold placeholder:text-white/30" placeholder="0300-0000000" />
               </div>
 
               <div className="mb-4">
-                <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Email Address</label>
+                <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Email Address <span className="text-white/70">*</span></label>
                 <input type="email" className="w-full rounded border border-white/10 bg-white/10 px-3.5 py-3 text-[0.9rem] text-white outline-none focus:border-brand-gold placeholder:text-white/30" placeholder="your@email.com" />
               </div>
 
               <div className="mb-4">
                 <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Course of Interest</label>
-                <select className="w-full rounded border border-white/10 bg-white/10 px-3.5 py-3 text-[0.9rem] text-white outline-none focus:border-brand-gold">
-                  <option className="text-white">Select a program...</option>
-                  <option className="text-white">ADCP — Advanced Diploma in Clinical Psychology</option>
-                  <option className="text-white">Diploma in Child Psychology</option>
-                  <option className="text-white">International Diploma in Autism (ASD)</option>
-                  <option className="text-white">Diploma in Speech & Language Therapy</option>
-                  <option className="text-white">Diploma in PECS</option>
-                  <option className="text-white">International Diploma in Physiotherapy</option>
-                  <option className="text-white">Diploma in Sensory Integration & Reflexes</option>
-                  <option className="text-white">International Diploma in CBT</option>
-                  <option className="text-white">Diploma in Nutrition & Dietetics</option>
-                  <option className="text-white">International Diploma in Public Health</option>
+                <select className="w-full rounded border border-white/20 bg-brand-dark-navy/20 px-3.5 py-3 text-[0.9rem] text-white outline-none focus:border-brand-gold">
+                  <option className="text-white bg-brand-dark-navy/20">Select a program...</option>
+                  <option className="text-white bg-brand-dark-navy/20">ADCP — Advanced Diploma in Clinical Psychology</option>
+                  <option className="text-white bg-brand-dark-navy/20">Diploma in Child Psychology</option>
+                  <option className="text-white bg-brand-dark-navy/20">International Diploma in Autism (ASD)</option>
+                  <option className="text-white bg-brand-dark-navy/20">Diploma in Speech & Language Therapy</option>
+                  <option className="text-white bg-brand-dark-navy/20">Diploma in PECS</option>
+                  <option className="text-white bg-brand-dark-navy/20">International Diploma in Physiotherapy</option>
+                  <option className="text-white bg-brand-dark-navy/20">Diploma in Sensory Integration & Reflexes</option>
+                  <option className="text-white bg-brand-dark-navy/20">International Diploma in CBT</option>
+                  <option className="text-white bg-brand-dark-navy/20">Diploma in Nutrition & Dietetics</option>
+                  <option className="text-white bg-brand-dark-navy/20">International Diploma in Public Health</option>
                 </select>
               </div>
 

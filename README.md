@@ -91,6 +91,7 @@ Upload the `dist/` folder to any hosting (Netlify, Vercel, cPanel).
 ---
 
 ## 📝 Recent Updates
+- **v3.2.1**: Home page (evenly distributed stats strip, 10 course cards visible via scroll reveal removal, CPD claims in horizontal layout, standardized hero subtext font style); Programs page (increased top text opacity to 80% for visibility); Course Detail page (removed scholarship fee/Therapy Options, enlarged standard fee to text-5xl font-extrabold, added full course list dropdown, marked all required fields with asterisks, fixed payment method selection via cursor/padding/shadow/gold color enhancements, disabled WhatsApp auto-open with pre-filled link option, updated form input styles for visibility)
 - **v3.2**: Fixed all WhatsApp notification links to correct number (+92 301 9753393), removed therapy session field from CourseDetail form, reduced homepage/hero heading sizes, removed Flagship/New Program badges from course cards, added direct WhatsApp session booking cards to Contact page, optimized Claude Code token usage
 
 ## 📝 Version History

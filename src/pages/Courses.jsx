@@ -16,7 +16,7 @@ export default function Courses() {
                 Choose Your<br />Specialization
               </h1>
             </div>
-            <p className="max-w-sm text-[1rem] font-light leading-[1.7] text-white/50">
+            <p className="max-w-sm text-[1rem] font-light leading-[1.7] text-brand-gold">
               Choose from 10 internationally recognized diploma programs. All programs are 6 months, 2 days per week, delivered online.
             </p>
           </div>

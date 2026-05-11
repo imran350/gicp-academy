@@ -10,7 +10,7 @@ export default function CourseCard({ course }) {
       {/* Top accent bar */}
       <div className="h-1.5 bg-gradient-to-r from-brand-sky-blue to-brand-light-sky" />
 
-      <div className="p-6 flex-1 flex flex-col">
+      <div className="p-6 flex-1 flex flex-col bg-brand-navy-blue/10 relative z-10">
         {/* Number + Badge row */}
         <div className="mb-3 flex items-center justify-between">
           <span className="flex h-9 w-9 items-center justify-center rounded-md bg-brand-sky-blue font-display text-[1rem] font-bold text-brand-text-dark">
@@ -24,19 +24,19 @@ export default function CourseCard({ course }) {
         </div>
 
         {/* Title */}
-        <h3 className="mb-2 text-[1.05rem] font-bold leading-tight text-brand-text-dark group-hover:text-brand-light-sky transition-colors duration-300 tracking-[-0.02em]">
+        <h3 className="mb-2 text-[1.05rem] font-display font-bold leading-tight text-brand-text-dark group-hover:text-brand-light-sky transition-colors duration-300 tracking-[-0.02em]">
           {course.title}
         </h3>
 
         {/* Tagline */}
         {course.tagline && (
-          <p className="mb-2 text-[0.8rem] font-medium leading-[1.5] text-brand-text-dark">
+          <p className="mb-2 text-[0.8rem] font-body font-light leading-[1.7] text-brand-text-dark">
             {course.tagline}
           </p>
         )}
 
         {/* Description */}
-        <p className="flex-1 text-[0.82rem] font-light leading-[1.6] text-brand-text-dark">
+        <p className="flex-1 text-[0.82rem] font-body font-light leading-[1.7] text-brand-text-dark">
           {course.description}
         </p>
 
