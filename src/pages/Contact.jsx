@@ -57,6 +57,9 @@ export default function Contact() {
       if (error) throw error
 
       setStatus('success')
+      // WhatsApp notification
+      const whatsappMsg = `📋 New Application Received!\nName: ${formData.first_name} ${formData.last_name}\nWhatsApp: ${formData.whatsapp}\nEmail: ${formData.email || 'N/A'}\nCourse: ${formData.program || 'Not Selected'}\nMessage: ${formData.message || 'None'}`
+      window.open(`https://wa.me/923019753393?text=${encodeURIComponent(whatsappMsg)}`, '_blank')
       setFormData({ first_name: '', last_name: '', whatsapp: '', email: '', program: '', message: '' })
     } catch {
       setStatus('error')

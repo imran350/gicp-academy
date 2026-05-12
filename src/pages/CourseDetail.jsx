@@ -71,13 +71,10 @@ export default function CourseDetail() {
       const { error } = await supabase.from('applications').insert([form])
       if (error) throw error
       setStatus('success')
+      // WhatsApp notification
+      const whatsappMsg = `📋 New Application Received!\nName: ${form.first_name} ${form.last_name}\nWhatsApp: ${form.whatsapp}\nEmail: ${form.email || 'N/A'}\nCourse: ${form.program}\nPayment Method: ${form.payment_method || 'N/A'}\nMessage: ${form.message || 'None'}`
+      window.open(`https://wa.me/923019753393?text=${encodeURIComponent(whatsappMsg)}`, '_blank')
       setForm({ first_name: '', last_name: '', whatsapp: '', email: '', program: course.title, payment_method: '', message: '' })
-      // Send WhatsApp notification to academy
-      const whatsappMsg = `📋 New Application Received!\nName: ${form.first_name} ${form.last_name}\nWhatsApp: ${form.whatsapp}\nEmail: ${form.email || 'N/A'}\nCourse: ${form.program}
-\nPayment Method: ${form.payment_method}\nMessage: ${form.message || 'None'}`;
-      // Pre-filled WhatsApp message - user can send via the link in success message
-const whatsappLink = `https://wa.me/923019753393?text=${encodeURIComponent(whatsappMsg)}`
-console.log('WhatsApp message ready to send:', whatsappLink)
     } catch {
       setStatus('error')
     }
