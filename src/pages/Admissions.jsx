@@ -71,13 +71,13 @@ Client Link: ${clientLink}`
 
   return (
     <>
-      {/* Navy Header */}
+      {/* Navy Header — EXPLICIT White for Admissions heading */}
       <section className="bg-brand-navy pt-28 pb-16">
         <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
           <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-gold">
             Admissions
           </div>
-          <h1 className="font-display text-[clamp(2rem,4vw,3rem)] font-extrabold leading-tight text-white">
+          <h1 className="font-display text-[clamp(2rem,4vw,3rem)] font-extrabold leading-tight">
             Apply for Admission
           </h1>
           <p className="mt-3 text-[1rem] font-light text-slate-300">
@@ -86,11 +86,11 @@ Client Link: ${clientLink}`
         </div>
       </section>
 
-      {/* Form + Fee Plan (matches global navy gradient) */}
+      {/* Form + Fee Plan (EXPLICIT White for Fee & Payment section title) */}
       <section className="pb-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Left: Fee Plan + Payment Methods (FORCE white labels + light icons) */}
+            {/* Left: Fee Plan + Payment Methods */}
             <div className="glass-card p-8 sm:p-11">
               <div className="section-label text-brand-teal">FEE & PAYMENT</div>
               <div className="mt-4 flex flex-col sm:flex-row gap-4">
@@ -105,9 +105,7 @@ Client Link: ${clientLink}`
                 <div className="pm-cards mt-3 space-y-3">
                   <div className="pm-card jz p-4 bg-brand-dark-navy/20 border-brand-sky-blue/10 shadow-sm">
                     <div className="pm-head flex items-center gap-2">
-                      {/* FORCED light icon */}
                       <span className="pm-head-ic">📱</span>
-                      {/* FORCED pure white label */}
                       <span className="pm-head-name font-semibold">JazzCash / EasyPaisa</span>
                     </div>
                     <div className="pm-num font-bold text-white mt-1">0301-9753393</div>
@@ -115,9 +113,7 @@ Client Link: ${clientLink}`
                   </div>
                   <div className="pm-card bk p-4 bg-brand-dark-navy/20 border-brand-sky-blue/10 shadow-sm">
                     <div className="pm-head flex items-center gap-2">
-                      {/* FORCED light icon */}
                       <span className="pm-head-ic">🏦</span>
-                      {/* FORCED pure white label */}
                       <span className="pm-head-name font-semibold">Bank Transfer</span>
                     </div>
                     <div className="pm-num font-bold text-white mt-1">Details shared after enrollment</div>

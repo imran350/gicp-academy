@@ -32,13 +32,13 @@ const careers = [
 export default function About() {
   return (
     <>
-      {/* Navy Header */}
+      {/* Navy Header — EXPLICIT White for About Us heading */}
       <section className="bg-brand-navy pt-28 pb-16">
         <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
           <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-gold">
             About Us
           </div>
-          <h1 className="font-display text-[clamp(2rem,4vw,3rem)] font-extrabold leading-tight text-white">
+          <h1 className="font-display text-[clamp(2rem,4vw,3rem)] font-extrabold leading-tight">
             About GICP Academy
           </h1>
           <p className="mt-3 text-[1rem] font-light text-slate-300">
@@ -121,7 +121,7 @@ export default function About() {
               </div>
             ))}
           </div>
-          <Link to="/admissions" className="inline-flex items-center gap-2 rounded-full bg-brand-sky-blue px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-transform duration-200 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/50 mt-10">
+          <Link to="/admissions" className="inline-flex items-center gap-2 rounded-full bg-brand-sky-blue px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-sky-blue/25 transition-transform duration-200 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/50 mt-10">
             Start Your Journey
           </Link>
         </div>

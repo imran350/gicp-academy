@@ -12,7 +12,7 @@ export default function Courses() {
               <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-gold">
                 Our Diploma Courses
               </div>
-              <h1 className="font-display text-[clamp(2rem,4vw,3rem)] font-extrabold leading-tight text-white">
+              <h1 className="font-display text-[clamp(2rem,4vw,3rem)] font-extrabold leading-tight">
                 Choose Your<br />Specialization
               </h1>
             </div>

@@ -43,7 +43,7 @@ export default function Navbar() {
           </span> */}
         </Link>
 
-        {/* Desktop nav — FORCED White text + Sky Blue border for Apply Now */}
+        {/* Desktop nav — FORCED Sky Blue (#0ea5e9) + bold for Apply Now */}
         <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <Link
@@ -62,7 +62,7 @@ export default function Navbar() {
           <Link
             to="/admissions"
             onClick={handleNavClick}
-            className="inline-flex items-center gap-2 rounded-full border-2 border-brand-sky-blue bg-brand-sky-blue/30 text-white px-5 py-2 text-sm font-semibold transition-all duration-200 hover:bg-brand-sky-blue/50 hover:scale-105"
+            className="inline-flex items-center gap-2 rounded-full border-2 border-brand-sky-blue bg-brand-sky-blue/30 text-[#0ea5e9] font-bold px-5 py-2 text-sm transition-all duration-200 hover:bg-brand-sky-blue/50 hover:scale-105"
           >
             Apply Now
           </Link>
@@ -99,7 +99,7 @@ export default function Navbar() {
             <Link
               to="/admissions"
               onClick={handleNavClick}
-              className="mt-3 block rounded-full bg-gradient-to-r from-brand-sky-blue to-sky-400 hover:from-brand-sky-blue/90 hover:to-sky-400/90 text-white px-4 py-3 text-center text-sm font-semibold"
+              className="mt-3 block rounded-full bg-gradient-to-r from-brand-sky-blue to-sky-400 hover:from-brand-sky-blue/90 hover:to-sky-400/90 text-[#0ea5e9] font-bold px-4 py-3 text-center text-sm"
             >
               Apply Now
             </Link>

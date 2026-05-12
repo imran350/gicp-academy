@@ -196,3 +196,6 @@ p {
 .checkmark {
   color: #fbbf24;
 }
+
+/* ── FORCEFUL GLOBAL HEADING FIX (added at very bottom per request) ── */
+h1, h2, h3, h4, h5, h6 { color: #ffffff !important; }
