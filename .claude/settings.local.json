@@ -25,7 +25,10 @@
       "Bash(C:/Windows/System32/taskkill /PID 15560 /F)",
       "Bash(git commit *)",
       "Bash(git reset *)",
-      "Bash(npx serve *)"
+      "Bash(npx serve *)",
+      "Bash(git fetch *)",
+      "Bash(git log *)",
+      "Bash(timeout 8 bash -c 'while ! curl -s http://localhost:5173 > /dev/null 2>&1; do sleep 1; done; echo \"Server ready\"')"
     ]
   }
 }
