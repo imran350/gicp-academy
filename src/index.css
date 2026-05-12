@@ -141,8 +141,8 @@ body::before {
   .btn-primary {
     @apply bg-gradient-to-r from-brand-sky-blue/90 to-sky-400/90 text-white rounded-full px-6 py-3 font-semibold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300;
     box-shadow: 0 6px 18px rgba(14, 165, 233, 0.25);
-  position: relative;
-  overflow: hidden;
+    position: relative;
+    overflow: hidden;
   }
 
   .btn-primary:hover {
@@ -231,10 +231,6 @@ body::after {
 .animate-delay-400 { animation-delay: 400ms; }
 
 /* Subtle attractive enhancements */
-.btn-primary {
-  position: relative;
-  overflow: hidden;
-}
 .btn-primary::after {
   content: '';
   position: absolute;
@@ -249,10 +245,6 @@ body::after {
 }
 
 /* Global shimmer effect for all Apply Now buttons (consistent across pages) */
-.btn-primary {
-  @apply relative overflow-hidden;
-}
-
 .btn-primary::before {
   content: '';
   position: absolute;
@@ -265,11 +257,6 @@ body::after {
   animation: button-shimmer 6s ease-in-out infinite;
 }
 
-@keyframes button-shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
 /* Global class for Navbar Apply Now button */
 .btn-navbar-apply {
   @apply ml-2 rounded-full bg-gradient-to-r from-brand-sky-blue to-sky-400 hover:from-brand-sky-blue/90 hover:to-sky-400/90 text-white px-6 py-3 text-sm font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300;
@@ -277,7 +264,7 @@ body::after {
 
 /* Unified Global Form Style (Dark Navy + Light Blue Border) */
 .form-control {
-  @apply bg-[#0d1b2a] border border-brand-sky-blue/30 px-4 py-2 rounded-lg text-white placeholder-white/50 transition-all duration-300 focus:outline-none focus:border-white;
+  @apply bg-[#0d1b2a] border border-brand-sky-blue/30 px-4 py-2 rounded-lg text-white placeholder-white/50 transition-colors transition-border-color duration-300 focus:outline-none focus:border-white;
 }
 
 /* Dropdown Fix: Force dark navy background + white text (removes browser defaults) */
@@ -300,7 +287,7 @@ select, option {
 
 /* Payment Selection Fix: Active state styling (3px white border + bright blue glow) */
 .pm-card.active {
-  @apply border-[3px] border-white bg-[#1e3a8a] shadow-[0_0_15px_rgba(14,165,233,0.8)] transition-all duration-200;
+  @apply border-[3px] border-white bg-[#1e3a8a] shadow-[0_0_15px_rgba(14,165,233,0.8)] transition-border-color transition-shadow duration-200;
 }
 
 /* Focus State Fix: Instant border color change */
@@ -321,7 +308,7 @@ select, option {
 .group:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 24px rgba(14, 165, 233, 0.15);
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* Subtle stat reveal animation */
