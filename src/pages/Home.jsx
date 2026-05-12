@@ -26,7 +26,7 @@ export default function Home() {
       <Hero />
 
       {/* Courses Section */}
-      <section className="py-24 lg:py-28">
+      <section className="bg-brand-cream py-24 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mb-20 flex flex-col gap-8 px-4">
             <div>
@@ -43,25 +43,6 @@ export default function Home() {
               Each program is designed around practical outcomes, evidence-based methods, and career readiness.
             </p>
 
-            {/* CPD Accreditation Claims */}
-            <div className="flex flex-wrap gap-4 p-5 bg-brand-cream/50 rounded-lg text-left shadow-sm">
-              {[
-                "CPD Accredited Training Provider (CPD Group Approved)",
-                "Verifiable Certificates through Open CPD",
-                "Professional Diploma Programmes",
-                "Verified CPD Training",
-                "Digital Certificate Included",
-                "UK CPD Standard Aligned"
-              ].map((claim) => (
-                <div
-                  key={claim}
-                  className="flex items-center gap-2 text-[0.85rem] font-light leading-[1.7] text-brand-gold justify-start"
-                >
-                  <span className="font-bold text-brand-sky-blue">✔️</span>
-                  {claim}
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Grid */}
@@ -87,7 +68,7 @@ export default function Home() {
 
       {/* Careers Section */}
       <RevealSection>
-        <section className="grain relative overflow-hidden bg-brand-dark-navy py-24 lg:py-28">
+        <section className="grain relative overflow-hidden bg-brand-navy py-24 lg:py-28">
           <div
             className="pointer-events-none absolute -right-24 -top-24 h-[500px] w-[500px] rounded-full"
             style={{ background: 'radial-gradient(ellipse, rgba(14, 165, 233, 0.15), transparent 70%)' }}
@@ -140,7 +121,7 @@ export default function Home() {
       </RevealSection>
 
       {/* CTA Strip */}
-      <section className="bg-brand-navy-blue py-20 px-6 lg:px-8 shadow-lg">
+      <section className="bg-brand-navy py-20 px-6 lg:px-8 shadow-lg">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-8">
           <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold leading-[1.25] text-white max-w-lg">
             Limited Scholarship Seats Available —{' '}

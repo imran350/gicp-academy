@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <>
       {/* Navy Header */}
-      <section className="bg-brand-dark-navy pt-28 pb-16">
+      <section className="bg-brand-navy pt-28 pb-16">
         <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
           <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-white/70">
             Get In Touch
@@ -128,27 +128,27 @@ export default function Contact() {
               <div className="mb-4 grid gap-4 sm:grid-cols-2">
                 <div>
                   <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">First Name <span className="text-white/70">*</span></label>
-                  <input type="text" className="w-full rounded border border-white/10 bg-white/10 px-3.5 py-3 text-[0.9rem] text-white outline-none focus:border-brand-gold placeholder:text-white/30" placeholder="e.g. Ayesha" />
+                  <input type="text" className="form-control" placeholder="e.g. Ayesha" />
                 </div>
                 <div>
                   <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Last Name <span className="text-white/70">*</span></label>
-                  <input type="text" className="w-full rounded border border-white/10 bg-white/10 px-3.5 py-3 text-[0.9rem] text-white outline-none focus:border-brand-gold placeholder:text-white/30" placeholder="e.g. Khan" />
+                  <input type="text" className="form-control" placeholder="e.g. Khan" />
                 </div>
               </div>
 
               <div className="mb-4">
                 <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">WhatsApp Number <span className="text-white/70">*</span></label>
-                <input type="tel" className="w-full rounded border border-white/10 bg-white/10 px-3.5 py-3 text-[0.9rem] text-white outline-none focus:border-brand-gold placeholder:text-white/30" placeholder="0300-0000000" />
+                <input type="tel" className="form-control" placeholder="0300-0000000" />
               </div>
 
               <div className="mb-4">
                 <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Email Address <span className="text-white/70">*</span></label>
-                <input type="email" className="w-full rounded border border-white/10 bg-white/10 px-3.5 py-3 text-[0.9rem] text-white outline-none focus:border-brand-gold placeholder:text-white/30" placeholder="your@email.com" />
+                <input type="email" className="form-control" placeholder="your@email.com" />
               </div>
 
               <div className="mb-4">
                 <label className="mb-1.5 block text-[0.78rem] font-semibold text-white/70">Course of Interest</label>
-                <select className="w-full rounded border border-white/20 bg-brand-dark-navy/20 px-3.5 py-3 text-[0.9rem] text-white outline-none focus:border-brand-gold">
+                <select className="form-control select">
                   <option className="text-white bg-brand-dark-navy/20">Select a program...</option>
                   <option className="text-white bg-brand-dark-navy/20">ADCP — Advanced Diploma in Clinical Psychology</option>
                   <option className="text-white bg-brand-dark-navy/20">Diploma in Child Psychology</option>

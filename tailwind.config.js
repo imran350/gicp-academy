@@ -19,9 +19,15 @@ export default {
         },
       },
       fontFamily: {
-        display: ['Cormorant Garamond', 'serif'], // Distinctive luxury display font
-        body: ['Lora', 'serif'], // Refined body font (non-generic alternative)
+        display: ['Inter', 'sans-serif'], // Consistent modern sans-serif for headings
+        body: ['Inter', 'sans-serif'], // Clean sans-serif for body text
       },
+      lineHeight: {
+        'body-loose': '1.8', // Spacious readability
+      },
+      letterSpacing: {
+        'body-wide': '0.01em', // Avoid tight spacing
+      }
       letterSpacing: {
         tightest: '-0.03em',
       },

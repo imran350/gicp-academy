@@ -1,5 +1,18 @@
 import { Award, Users, Globe } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useScrollReveal } from '../hooks/useScrollReveal'
+
+function RevealSection({ children, className = '' }) {
+  const [ref, isVisible] = useScrollReveal(0.1)
+  return (
+    <div
+      ref={ref}
+      className={`reveal ${isVisible ? 'visible' : ''} ${className}`}
+    >
+      {children}
+    </div>
+  )
+}
 
 const highlights = [
   { icon: Award, title: 'Recognized Certification', desc: 'Our diplomas are recognized internationally, opening doors to career opportunities worldwide.' },
@@ -35,7 +48,7 @@ export default function About() {
       </section>
 
       {/* Mission */}
-      <section className="bg-brand-cream py-16">
+      <RevealSection className="bg-brand-dark-navy py-16">
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <div className="rounded-lg border border-brand-gold/20 bg-brand-navy p-8 text-white">
             <h2 className="mb-4 font-display text-2xl font-bold text-brand-gold">Our Mission</h2>
@@ -52,16 +65,16 @@ export default function About() {
             </p>
           </div>
         </div>
-      </section>
+      </RevealSection>
 
       {/* Highlights */}
-      <section className="bg-brand-cream py-16">
+      <RevealSection className="bg-brand-dark-navy py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {highlights.map((h) => {
               const Icon = h.icon
               return (
-                <div key={h.title} className="rounded-lg border border-black/6 bg-brand-cream p-6">
+                <div key={h.title} className="rounded-lg border border-white/20 bg-brand-dark-navy p-6">
                   <div className="mb-4 flex h-11 w-11 items-center justify-center rounded bg-brand-teal">
                     <Icon className="h-5 w-5 text-white" />
                   </div>
@@ -72,32 +85,11 @@ export default function About() {
             })}
           </div>
         </div>
-      </section>
+      </RevealSection>
 
-      {/* Client CPD Claims */}
-      <section className="bg-brand-navy py-12">
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
-          <h2 className="mb-5 font-display text-xl font-bold text-brand-gold">Our Credentials</h2>
-          <div className="flex flex-wrap justify-center gap-4 mb-0">
-            {[
-              "CPD Accredited Training Provider (CPD Group Approved)",
-              "Verifiable Certificates through Open CPD",
-              "Professional Diploma Programmes",
-              "Verified CPD Training",
-              "Digital Certificate Included",
-              "UK CPD Standard Aligned"
-            ].map((claim) => (
-              <div key={claim} className="flex items-center gap-2 text-[0.85rem] font-medium text-white/90">
-                <span className="font-bold text-brand-gold">✔️</span>
-                {claim}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Careers */}
-      <section className="bg-brand-navy py-16">
+      <RevealSection className="bg-brand-navy py-16">
         <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
           <h2 className="mb-3 font-display text-2xl font-bold text-white">Career Opportunities</h2>
           <p className="mb-8 text-[1rem] font-light text-white/50">Our graduates go on to work in a variety of professional settings:</p>
@@ -110,7 +102,7 @@ export default function About() {
           </div>
           <Link to="/admissions" className="btn-primary mt-10 inline-flex">Start Your Journey</Link>
         </div>
-      </section>
+      </RevealSection>
     </>
   )
 }

@@ -30,7 +30,9 @@ Client Link: ${clientLink}`
     } catch { setStatus('error') }
   }
 
-  const inputClass = 'w-full rounded border border-white/20 bg-brand-dark-navy/20 px-3.5 py-3 text-[0.9rem] text-white outline-none transition-colors duration-200 focus:border-brand-gold'
+  // Unified course list form class (used for both Admissions and Contact pages)
+  const courseListFormClass = 'w-full rounded border border-white/20 bg-brand-dark-navy/20 px-3.5 py-3 text-[0.9rem] text-white outline-none transition-colors duration-200 focus:border-brand-gold'
+  const inputClass = 'form-control'
 
   return (
     <>
@@ -50,7 +52,7 @@ Client Link: ${clientLink}`
       </section>
 
       {/* Form + Fee Plan (Sample Image Layout) */}
-      <section className="bg-brand-dark-navy/20 pb-20">
+      <section className="bg-brand-cream pb-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left: Fee Plan + Payment Methods (Sample Image) */}
@@ -115,7 +117,7 @@ Client Link: ${clientLink}`
 
             <div className="mb-4">
               <label className="mb-1.5 block text-[0.78rem] font-semibold text-brand-gold">Course of Interest <span className="text-red-400">*</span></label>
-              <select name="program" required value={form.program} onChange={handleChange} className={`${inputClass} bg-brand-dark-navy/20`}>
+              <select name="program" required value={form.program} onChange={handleChange} className="form-control select">
                 <option value="">Select a program...</option>
                 {courses.map((c) => <option key={c.id} value={c.title}>{c.title}</option>)}
               </select>
@@ -123,7 +125,7 @@ Client Link: ${clientLink}`
 
             <div className="mb-4">
               <label className="mb-1.5 block text-[0.78rem] font-semibold text-brand-gold">Payment Method</label>
-              <select name="payment_method" value={form.payment_method} onChange={handleChange} className={`${inputClass} bg-brand-dark-navy/20`}>
+              <select name="payment_method" value={form.payment_method} onChange={handleChange} className="form-control select">
                 <option value="">Select payment method...</option>
                 <option value="jazzcash">JazzCash</option>
                 <option value="easypaisa">EasyPaisa</option>
@@ -133,7 +135,7 @@ Client Link: ${clientLink}`
 
             <div className="mb-6">
               <label className="mb-1.5 block text-[0.78rem] font-semibold text-brand-gold">Message (Optional)</label>
-              <textarea name="message" rows={4} value={form.message} onChange={handleChange} className={`${inputClass} resize-none`} placeholder="Any questions or additional info..." />
+              <textarea name="message" rows={4} value={form.message} onChange={handleChange} className="form-control resize-none" placeholder="Any questions or additional info..." />
             </div>
 
             <button type="submit" disabled={status === 'submitting'} className="w-full rounded bg-brand-gold py-4 text-[0.95rem] font-bold text-white transition-colors duration-200 hover:bg-brand-gold-light disabled:opacity-60">

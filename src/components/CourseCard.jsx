@@ -1,21 +1,28 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Star } from 'lucide-react'
 
 export default function CourseCard({ course }) {
   return (
     <Link
       to={`/course/${course.id}`}
-      className="group relative flex flex-col overflow-hidden border border-brand-sky-blue/15 bg-brand-cream relative overflow-hidden transition duration-300 hover:shadow-[0_8px_24px_rgba(14,165,233,0.15)]"
+      className="group relative flex flex-col overflow-hidden border border-white/20 bg-brand-dark-navy/30 backdrop-blur-sm transition-all duration-500 hover:shadow-[0_0_20px_rgba(14,165,233,0.5),0_8px_24px_rgba(14,165,233,0.15)] animate-slowFloat"
+  style={{ backgroundImage: `url(${course.backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       {/* Top accent bar */}
       <div className="h-1.5 bg-gradient-to-r from-brand-sky-blue to-brand-light-sky" />
 
-      <div className="p-6 flex-1 flex flex-col bg-brand-navy-blue/10 relative z-10">
+      {/* Dark text overlay for readability */}
+      <div className="absolute inset-0 bg-brand-dark-navy/60 z-5" />
+
+      <div className="p-6 flex-1 flex flex-col backdrop-blur-sm relative z-10">
         {/* Number + Badge row */}
         <div className="mb-3 flex items-center justify-between">
-          <span className="flex h-9 w-9 items-center justify-center rounded-md bg-brand-sky-blue font-display text-[1rem] font-bold text-brand-text-dark">
-            {course.num}
-          </span>
+          <div className="flex items-center gap-1">
+            <span className="flex h-9 w-9 items-center justify-center rounded-md bg-brand-sky-blue font-display text-[1rem] font-bold text-brand-text-dark">
+              {course.num}
+            </span>
+            <Star className="h-4 w-4 text-yellow-400 animate-pulse-glow" />
+          </div>
           {course.badge && (
             <span className="rounded-sm bg-brand-gold/15 px-2.5 py-1 text-[0.68rem] font-bold uppercase tracking-[1px] text-brand-gold">
               {course.badge}
@@ -24,9 +31,13 @@ export default function CourseCard({ course }) {
         </div>
 
         {/* Title */}
-        <h3 className="mb-2 text-[1.05rem] font-display font-bold leading-tight text-brand-text-dark group-hover:text-brand-light-sky transition-colors duration-300 tracking-[-0.02em]">
+        <h3 className="mb-1 text-[1.05rem] font-display font-bold leading-tight text-brand-text-dark group-hover:text-brand-light-sky transition-colors duration-300 tracking-[-0.02em]">
           {course.title}
         </h3>
+        {/* Expanding loading-style line (triggers on card reveal) */}
+        <div className="w-full h-0.5 bg-gradient-to-r from-brand-sky-blue to-brand-light-sky overflow-hidden">
+          <div className="h-full w-0 bg-brand-sky-blue transition-all duration-1s ease-out reveal-line" />
+        </div>
 
         {/* Tagline */}
         {course.tagline && (

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
+import GICPLogo from '../../GICP logo.jpeg'
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -23,10 +24,23 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           to="/"
-          className="font-display text-2xl font-bold tracking-wide bg-gradient-to-r from-brand-sky-blue via-brand-light-sky to-white bg-clip-text text-transparent animate-glow"
+          className="flex items-center gap-2"
           onClick={handleNavClick}
         >
-          GICP Academy
+          <img src={GICPLogo} alt="GICP Academy" className="h-10 w-auto rounded-full object-cover" />
+          {/* GICP Academy + CPD vertical stack (CPD below GICP) */}
+          <div className="flex flex-col gap-0.5">
+            <span className="font-display text-xl font-bold tracking-wide text-white">
+              GICP Academy
+            </span>
+            <div className="hidden md:block text-xs font-semibold text-yellow-400 tracking-wide">
+              CPD Accredited
+            </div>
+          </div>
+          {/* Option 2: Short text (uncomment to use) */}
+          {/* <span className="font-display text-xl font-bold tracking-wide bg-gradient-to-r from-brand-sky-blue via-brand-light-sky to-white bg-clip-text text-transparent">
+            GICP
+          </span> */}
         </Link>
 
         {/* Desktop nav */}
@@ -48,7 +62,7 @@ export default function Navbar() {
           <Link
             to="/admissions"
             onClick={handleNavClick}
-            className="ml-2 rounded-full bg-gradient-to-r from-brand-sky-blue to-sky-400 hover:from-brand-sky-blue/90 hover:to-sky-400/90 text-white px-6 py-3 text-sm font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
+            className="btn-navbar-apply"
           >
             Apply Now
           </Link>

@@ -1,5 +1,9 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, BookOpen } from 'lucide-react'
+// Sample-style placeholder images (matches pda.ac.pk visual theme)
+const sampleImage1 = 'https://placehold.co/300x200/0d1b2a/ffffff?text=Student+Collaboration'
+const sampleImage2 = 'https://placehold.co/300x200/0d1b2a/ffffff?text=Professional+Training'
+const sampleImage3 = 'https://placehold.co/300x200/0d1b2a/ffffff?text=Global+Standards'
 
 // Organic brain-wave gradient overlay for psychology theme
 const organicGradientStyle = {
@@ -10,7 +14,7 @@ export default function Hero() {
   return (
     <>
       {/* HERO SECTION */}
-      <section className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-brand-dark-navy pt-16">
+      <section className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-brand-dark-navy pt-16" style={{ backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
         {/* Layered radial gradients */}
         <div
           className="pointer-events-none absolute inset-0"
@@ -26,12 +30,12 @@ export default function Hero() {
             </div>
 
             {/* Heading */}
-            <h1 className="mb-7 font-display text-[clamp(2.8rem,6vw,4.2rem)] font-bold leading-[1.08] text-white animate-slide-up animate-delay-100 tracking-[-0.04em]">
+            <h1 className="mb-7 font-display text-[clamp(2.8rem,6vw,4.2rem)] font-bold leading-[1.08] text-white animate-slide-up animate-delay-100 tracking-[0.01em] text-shadow">
               Empowering Future
               <br />
               Professionals in
               <br />
-              <em className="not-italic bg-gradient-to-r from-brand-light-sky to-brand-sky-blue bg-clip-text text-transparent tracking-[-0.02em]">
+              <em className="not-italic text-white">
                 Psychology & Healthcare
               </em>
             </h1>
@@ -60,13 +64,14 @@ export default function Hero() {
 
             {/* CTAs */}
             <div className="flex flex-wrap gap-4 items-center animate-slide-up animate-delay-200-3">
-              <Link to="/admissions" className="btn-primary">
+              <Link to="/admissions" className="rounded-full bg-brand-sky-blue/70 hover:bg-brand-sky-blue/80 text-white px-6 py-3 text-sm font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
                 Apply for Admission
               </Link>
               <Link to="/courses" className="btn-secondary">
                 View Courses
               </Link>
             </div>
+
           </div>
         </div>
 

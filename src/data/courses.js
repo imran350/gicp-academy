@@ -10,6 +10,7 @@ const courses = [
     description:
       'Master clinical assessment, diagnosis, and therapeutic techniques. Gain hands-on experience with real case studies and supervised practice sessions.',
     badge: null,
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
   },
   {
     id: 'child-psychology',
@@ -22,6 +23,7 @@ const courses = [
     description:
       'Explore cognitive, emotional, and social development in children. Learn evidence-based interventions for behavioural and developmental challenges.',
     badge: null,
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
   },
   {
     id: 'autism',
@@ -34,7 +36,7 @@ const courses = [
     description:
       'Develop expertise in autism assessment, intervention strategies, and inclusive education practices for individuals across the autism spectrum.',
     badge: null,
-    imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+ASD+Support',
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
   },
   {
     id: 'speech-therapy',
@@ -47,7 +49,7 @@ const courses = [
     description:
       'Learn to assess and treat speech, language, and communication disorders. Cover articulation, fluency, voice, and language-based learning disabilities.',
     badge: null,
-    imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+Speech+Tools',
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
   },
   {
     id: 'pecs',
@@ -60,7 +62,7 @@ const courses = [
     description:
       'Learn practical techniques to support children with autism and communication challenges. Become a Certified PECS Communication Specialist.',
     badge: null,
-    imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+Nonverbal+Comm',
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
   },
   {
     id: 'physiotherapy',
@@ -73,7 +75,7 @@ const courses = [
     description:
       'Study musculoskeletal assessment, therapeutic exercises, electrotherapy, and rehabilitation techniques for diverse patient populations.',
     badge: null,
-    imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+Rehabilitation',
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
   },
   {
     id: 'sensory-integration',
@@ -86,7 +88,7 @@ const courses = [
     description:
       'Understand sensory processing, integration techniques, and primitive reflex integration. Learn to design effective sensory diets and therapeutic programs.',
     badge: null,
-    imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+Sensory+Therapy',
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
   },
   {
     id: 'cbt',
@@ -99,7 +101,7 @@ const courses = [
     description:
       'Master CBT techniques for treating anxiety, depression, PTSD, and more. Learn structured therapy sessions with practical case formulations.',
     badge: null,
-    imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+CBT+Sessions',
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
   },
   {
     id: 'nutrition',
@@ -112,7 +114,7 @@ const courses = [
     description:
       'Study clinical nutrition, therapeutic diets, and nutritional assessment. Learn to create diet plans for various health conditions and populations.',
     badge: null,
-    imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+Diet+Planning',
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
   },
   {
     id: 'public-health',
@@ -125,7 +127,7 @@ const courses = [
     description:
       'Explore epidemiology, health policy, environmental health, and community health promotion. Develop skills in health program planning and evaluation.',
     badge: null,
-    imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+Community+Health',
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
   },
 ]
 
