@@ -5,14 +5,14 @@ export default function CourseCard({ course }) {
   return (
     <Link
       to={`/course/${course.id}`}
-      className="group relative flex flex-col overflow-hidden border border-white/20 bg-brand-dark-navy/30 backdrop-blur-sm transition-all duration-500 hover:shadow-[0_0_20px_rgba(14,165,233,0.5),0_8px_24px_rgba(14,165,233,0.15)] animate-slowFloat"
+      className="group course-card relative flex flex-col overflow-hidden animate-slowFloat"
   style={{ backgroundImage: `url(${course.backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       {/* Top accent bar */}
       <div className="h-1.5 bg-gradient-to-r from-brand-sky-blue to-brand-light-sky" />
 
       {/* Dark text overlay for readability */}
-      <div className="absolute inset-0 bg-brand-dark-navy/60 z-5" />
+      <div className="absolute inset-0 bg-brand-dark-navy/40 z-5" />
 
       <div className="p-6 flex-1 flex flex-col backdrop-blur-sm relative z-10">
         {/* Number + Badge row */}
@@ -31,7 +31,7 @@ export default function CourseCard({ course }) {
         </div>
 
         {/* Title */}
-        <h3 className="mb-1 text-[1.05rem] font-display font-bold leading-tight text-brand-text-dark group-hover:text-brand-light-sky transition-colors duration-300 tracking-[-0.02em]">
+        <h3 className="mb-1 text-[1.05rem] font-display course-title leading-tight tracking-[-0.02em]">
           {course.title}
         </h3>
         {/* Expanding loading-style line (triggers on card reveal) */}
@@ -41,20 +41,20 @@ export default function CourseCard({ course }) {
 
         {/* Tagline */}
         {course.tagline && (
-          <p className="mb-2 text-[0.8rem] font-body font-light leading-[1.7] text-brand-text-dark">
+          <p className="mb-2 text-[0.8rem] font-body font-light leading-[1.7] course-description">
             {course.tagline}
           </p>
         )}
 
         {/* Description */}
-        <p className="flex-1 text-[0.82rem] font-body font-light leading-[1.7] text-brand-text-dark">
+        <p className="flex-1 text-[0.82rem] font-body font-light leading-[1.7] course-description">
           {course.description}
         </p>
 
         {/* Duration + CTA */}
         <div className="mt-4 flex items-center justify-between border-t border-black/6 pt-3">
-          <span className="text-[0.75rem] font-medium text-brand-text-dark">{course.duration} &middot; {course.schedule}</span>
-          <span className="flex items-center gap-1 text-[0.78rem] font-semibold text-brand-text-dark opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+          <span className="text-[0.75rem] font-medium course-details">{course.duration} &middot; {course.schedule}</span>
+          <span className="flex items-center gap-1 text-[0.78rem] font-semibold text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100">
             Details <ArrowRight className="h-3 w-3" />
           </span>
         </div>

@@ -56,7 +56,7 @@ export default function Hero() {
                   key={badge}
                   className="flex items-center gap-2 text-[0.85rem] font-normal text-white/70"
                 >
-                  <span className="font-bold text-white">&#10003;</span>
+                  <span className="font-bold text-white checkmark">&#10003;</span>
                   {badge}
                 </div>
               ))}
@@ -93,7 +93,7 @@ export default function Hero() {
             key={stat.label}
             className="px-4 py-10 text-center border-r border-white/8 last:border-r-0 stat-item visible"
           >
-            <div className="font-display text-[3rem] font-bold leading-none text-white">
+            <div className="font-display text-[3rem] font-bold leading-none text-white ${stat.number === '10+' || stat.number === '6' ? 'stat-number' : ''}">
               {stat.number}
             </div>
             <div className="mt-2 text-[0.82rem] text-white/95">{stat.label}</div>
