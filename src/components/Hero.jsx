@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, BookOpen, Award } from 'lucide-react'
+import { ArrowRight, BookOpen } from 'lucide-react'
 
 export default function Hero() {
   return (
@@ -23,16 +23,8 @@ export default function Hero() {
 
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-20 lg:px-8">
           <div className="max-w-3xl">
-            {/* CPD Accredited Badge — Golden-Yellow gradient */}
-            <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-amber-400/30 bg-amber-400/10 px-5 py-2 animate-fade-in animate-delay-50">
-              <Award className="h-4 w-4 text-amber-400" />
-              <span className="text-[0.8rem] font-bold uppercase tracking-[2px] text-gold-gradient">
-                CPD Accredited
-              </span>
-            </div>
-
             {/* Admissions Open Tag */}
-            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 backdrop-blur-sm px-5 py-2 text-[0.75rem] font-semibold uppercase tracking-[2px] text-white/80 animate-fade-in animate-delay-100">
+            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 backdrop-blur-sm px-5 py-2 text-[0.75rem] font-semibold uppercase tracking-[2px] text-white/80 animate-fade-in animate-delay-100">
               <BookOpen className="h-3.5 w-3.5 text-brand-sky-blue" />
               Admissions Open — New Batch Starting Soon
             </div>
@@ -56,7 +48,6 @@ export default function Hero() {
             {/* Badges */}
             <div className="mb-14 flex flex-wrap gap-4 animate-slide-up animate-delay-300">
               {[
-                'UK-Standard Curriculum',
                 'Live on Zoom & Google Meet',
                 '45-Min Online Exams',
               ].map((badge) => (

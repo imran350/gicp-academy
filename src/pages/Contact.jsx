@@ -261,14 +261,14 @@ export default function Contact() {
                     <option value="">Select a program...</option>
                     <option value="ADCP — Advanced Diploma in Clinical Psychology">ADCP — Advanced Diploma in Clinical Psychology</option>
                     <option value="Diploma in Child Psychology">Diploma in Child Psychology</option>
-                    <option value="International Diploma in Autism (ASD)">International Diploma in Autism (ASD)</option>
+                    <option value="Diploma in Autism (ASD)">Diploma in Autism (ASD)</option>
                     <option value="Diploma in Speech & Language Therapy">Diploma in Speech & Language Therapy</option>
                     <option value="Diploma in PECS">Diploma in PECS</option>
-                    <option value="International Diploma in Physiotherapy">International Diploma in Physiotherapy</option>
+                    <option value="Diploma in Physiotherapy">Diploma in Physiotherapy</option>
                     <option value="Diploma in Sensory Integration & Reflexes">Diploma in Sensory Integration & Reflexes</option>
-                    <option value="International Diploma in CBT">International Diploma in CBT</option>
+                    <option value="Diploma in CBT">Diploma in CBT</option>
                     <option value="Diploma in Nutrition & Dietetics">Diploma in Nutrition & Dietetics</option>
-                    <option value="International Diploma in Public Health">International Diploma in Public Health</option>
+                    <option value="Diploma in Public Health">Diploma in Public Health</option>
                   </select>
                 </div>
 

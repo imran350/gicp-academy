@@ -33,9 +33,6 @@ export default function Navbar() {
             <span className="font-display text-xl font-bold tracking-wide text-white">
               GICP Academy
             </span>
-            <div className="hidden md:block text-xs font-semibold text-yellow-400 tracking-wide">
-              CPD Accredited
-            </div>
           </div>
           {/* Option 2: Short text (uncomment to use) */}
           {/* <span className="font-display text-xl font-bold tracking-wide bg-gradient-to-r from-brand-sky-blue via-brand-light-sky to-white bg-clip-text text-transparent">

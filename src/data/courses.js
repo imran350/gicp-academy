@@ -28,7 +28,7 @@ const courses = [
   {
     id: 'autism',
     num: '03',
-    title: 'International Diploma in Autism (ASD)',
+    title: 'Diploma in Autism (ASD)',
     tagline: null,
     subtitle: 'Autism assessment tools and comprehensive intervention planning.',
     duration: '6 Months',
@@ -41,7 +41,7 @@ const courses = [
   {
     id: 'speech-therapy',
     num: '04',
-    title: 'International Diploma in Speech & Language Therapy',
+    title: 'Diploma in Speech & Language Therapy',
     tagline: 'Develop expert skills in communication disorders and become a certified therapy professional.',
     subtitle: 'Speech disorders, language delays, and evidence-based therapy techniques.',
     duration: '6 Months',
@@ -67,7 +67,7 @@ const courses = [
   {
     id: 'physiotherapy',
     num: '06',
-    title: 'International Diploma in Physiotherapy',
+    title: 'Diploma in Physiotherapy',
     tagline: 'Restore Movement, Transform Lives — build hands-on clinical expertise.',
     subtitle: 'Physical rehabilitation, injury management, and hands-on therapy techniques.',
     duration: '6 Months',
@@ -93,7 +93,7 @@ const courses = [
   {
     id: 'cbt',
     num: '08',
-    title: 'International Diploma in CBT',
+    title: 'Diploma in CBT',
     tagline: null,
     subtitle: 'Cognitive Behavioural Therapy for anxiety, depression, and mood disorders.',
     duration: '6 Months',
@@ -119,7 +119,7 @@ const courses = [
   {
     id: 'public-health',
     num: '10',
-    title: 'International Diploma in Public Health',
+    title: 'Diploma in Public Health',
     tagline: null,
     subtitle: 'Disease prevention, community health strategy, and global health systems.',
     duration: '6 Months',
