@@ -26,23 +26,22 @@ export default function Home() {
       <Hero />
 
       {/* Courses Section */}
-      <section className="bg-brand-cream py-24 lg:py-28">
+      <section className="py-24 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mb-20 flex flex-col gap-8 px-4">
             <div>
               <div className="mb-4 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-sky-blue">
                 Our Diploma Courses
               </div>
-              <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.5rem)] font-bold leading-tight text-brand-gold mb-2">
+              <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.5rem)] font-extrabold leading-tight text-white mb-2">
                 Choose Your
                 <br />
                 Specialization
               </h2>
             </div>
-            <p className="max-w-sm text-[1rem] font-light leading-[1.7] text-brand-gold">
+            <p className="max-w-sm text-[1rem] font-light leading-[1.7] text-slate-300">
               Each program is designed around practical outcomes, evidence-based methods, and career readiness.
             </p>
-
           </div>
 
           {/* Grid */}
@@ -68,10 +67,11 @@ export default function Home() {
 
       {/* Careers Section */}
       <RevealSection>
-        <section className="grain relative overflow-hidden bg-brand-navy py-24 lg:py-28">
+        <section className="grain relative overflow-hidden py-24 lg:py-28">
+          {/* Accent glow */}
           <div
             className="pointer-events-none absolute -right-24 -top-24 h-[500px] w-[500px] rounded-full"
-            style={{ background: 'radial-gradient(ellipse, rgba(14, 165, 233, 0.15), transparent 70%)' }}
+            style={{ background: 'radial-gradient(ellipse, rgba(14, 165, 233, 0.12), transparent 70%)' }}
           />
 
           <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
@@ -80,36 +80,36 @@ export default function Home() {
                 <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-sky-blue">
                   Career Opportunities
                 </div>
-                <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.5rem)] font-bold leading-tight text-white">
+                <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.5rem)] font-extrabold leading-tight text-white">
                   Where Will
                   <br />
                   Your Diploma
                   <br />
                   Take You?
                 </h2>
-                <p className="mt-4 mb-8 max-w-md text-[1rem] font-light leading-[1.7] text-brand-text-light">
+                <p className="mt-4 mb-8 max-w-md text-[1rem] font-light leading-[1.7] text-slate-300">
                   Our graduates are equipped to work across a wide range of clinical, educational, and community settings.
                 </p>
-                <Link to="/admissions" className="btn-primary">
-                  Start Your Journey
+                <Link to="/admissions" className="inline-flex items-center gap-2 rounded-full bg-brand-sky-blue px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-transform duration-200 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/50">
+                  Start Your Journey <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: '\uD83C\uDFE5', label: 'Clinics & Hospitals' },
-                  { icon: '\u267F', label: 'Rehabilitation Centers' },
-                  { icon: '\uD83C\uDFEB', label: 'Schools & Special Education' },
-                  { icon: '\uD83D\uDCBC', label: 'Private Practice' },
-                  { icon: '\uD83C\uDF0D', label: 'NGOs & Public Health' },
-                  { icon: '\uD83E\uDDE0', label: 'Mental Health Organizations' },
+                  { icon: '🏥', label: 'Clinics & Hospitals' },
+                  { icon: '♿', label: 'Rehabilitation Centers' },
+                  { icon: '🏫', label: 'Schools & Special Education' },
+                  { icon: '💼', label: 'Private Practice' },
+                  { icon: '🌍', label: 'NGOs & Public Health' },
+                  { icon: '🧠', label: 'Mental Health Organizations' },
                 ].map((c) => (
                   <div
                     key={c.label}
-                    className="border border-white/10 bg-brand-dark-navy p-5 transition-colors duration-200"
+                    className="glass-card p-5 transition-transform duration-200 hover:scale-[1.03]"
                   >
                     <div className="mb-2.5 text-[1.4rem]">{c.icon}</div>
-                    <div className="text-[0.85rem] font-medium leading-snug text-white/85">
+                    <div className="text-[0.85rem] font-medium leading-snug text-white/90">
                       {c.label}
                     </div>
                   </div>
@@ -121,17 +121,17 @@ export default function Home() {
       </RevealSection>
 
       {/* CTA Strip */}
-      <section className="bg-brand-navy py-20 px-6 lg:px-8 shadow-lg">
+      <section className="py-20 px-6 lg:px-8" style={{ background: 'rgba(30, 58, 138, 0.25)' }}>
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-8">
-          <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold leading-[1.25] text-white max-w-lg">
+          <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.8rem)] font-extrabold leading-[1.25] text-white max-w-lg">
             Limited Scholarship Seats Available —{' '}
-            <em className="not-italic text-white">Enroll Today</em>
+            <span className="bg-gradient-to-r from-amber-400 to-amber-500 bg-clip-text text-transparent">Enroll Today</span>
           </h2>
           <div className="flex flex-col items-end gap-3">
-            <Link to="/admissions" className="btn-white">
+            <Link to="/admissions" className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-brand-dark-navy shadow-lg transition-transform duration-200 hover:scale-105 hover:shadow-xl">
               Apply Now &rarr;
             </Link>
-            <span className="text-[0.8rem] font-light leading-[1.7] text-brand-text-secondary">
+            <span className="text-[0.8rem] font-light leading-[1.7] text-slate-400">
               &#128197; New batch starting soon &middot; Seats filling fast
             </span>
           </div>

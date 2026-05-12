@@ -2,6 +2,158 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Global Background ── */
 body {
-  background: #0f172a;
+  background: radial-gradient(circle at 50% 0%, #1e3a8a 0%, #0f172a 80%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* ── Typography ── */
+h1, h2 {
+  color: #ffffff !important;
+  font-weight: 800;
+}
+
+p {
+  color: #cbd5e1;
+}
+
+/* ── Mobile Optimization Styles ── */
+@media (max-width: 640px) {
+  /* Prevent card overlap */
+  .glass-card {
+    margin-bottom: 1rem;
+  }
+  /* Ensure readable text sizes */
+  h1 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem) !important;
+  }
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem) !important;
+  }
+  p {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+  }
+  /* Increase padding on small screens */
+  section {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  /* Adjust nav bar padding */
+  header {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* ── Custom Button Classes ── */
+.btn-primary {
+  @apply inline-flex items-center gap-2 rounded-full bg-brand-sky-blue px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-sky-blue/25 transition-transform duration-200 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/50;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm px-7 py-3.5 text-sm font-semibold text-white transition-transform duration-200 hover:scale-105 hover:bg-white/10;
+}
+
+.btn-white {
+  @apply inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-brand-dark-navy shadow-lg transition-transform duration-200 hover:scale-105 hover:shadow-xl;
+}
+
+/* ── Glassmorphism Card ── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+}
+
+/* ── Grain Texture ── */
+.grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 128px 128px;
+  z-index: 1;
+}
+
+/* ── Scroll Reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Animations ── */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slowFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-fade-in { animation: fade-in 0.8s ease-out both; }
+.animate-slide-up { animation: slide-up 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.animate-slowFloat { animation: slowFloat 6s ease-in-out infinite; }
+.animate-delay-50 { animation-delay: 50ms; }
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-150 { animation-delay: 150ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-250 { animation-delay: 250ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+
+/* ── Stat counter ── */
+.stat-number {
+  background: linear-gradient(135deg, #7dd3fc, #0ea5e9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── CPD gold gradient text ── */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Course card title ── */
+.course-title {
+  color: #ffffff;
+}
+.course-description {
+  color: #93c5fd;
+}
+.course-details {
+  color: #93c5fd;
+}
+
+/* ── Pulse glow ── */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; filter: drop-shadow(0 0 4px rgba(250, 204, 21, 0.4)); }
+  50% { opacity: 0.7; filter: drop-shadow(0 0 8px rgba(250, 204, 21, 0.6)); }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ── Checkmark ── */
+.checkmark {
+  color: #fbbf24;
 }

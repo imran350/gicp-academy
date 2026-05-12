@@ -2,63 +2,75 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Star } from 'lucide-react'
 
 export default function CourseCard({ course }) {
+  // Standard fee for all 6-month programs
+  const standardFee = '55,000 PKR'
+
   return (
     <Link
       to={`/course/${course.id}`}
-      className="group course-card relative flex flex-col overflow-hidden animate-slowFloat"
-  style={{ backgroundImage: `url(${course.backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+      className="group glass-card relative flex flex-col overflow-hidden animate-slowFloat transition-transform duration-200 hover:scale-[1.03]"
     >
       {/* Top accent bar */}
-      <div className="h-1.5 bg-gradient-to-r from-brand-sky-blue to-brand-light-sky" />
+      <div className="h-1.5 rounded-t-2xl bg-gradient-to-r from-brand-sky-blue to-brand-light-sky" />
 
-      {/* Dark text overlay for readability */}
-      <div className="absolute inset-0 bg-brand-dark-navy/40 z-5" />
-
-      <div className="p-6 flex-1 flex flex-col backdrop-blur-sm relative z-10">
-        {/* Number + Badge row */}
-        <div className="mb-3 flex items-center justify-between">
-          <div className="flex items-center gap-1">
-            <span className="flex h-9 w-9 items-center justify-center rounded-md bg-brand-sky-blue font-display text-[1rem] font-bold text-brand-text-dark">
+      <div className="p-6 flex-1 flex flex-col relative z-10">
+        {/* Number + Badge + Duration/Fee tags row */}
+        <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+          <div className="flex items-center gap-1.5">
+            <span className="flex h-9 w-9 items-center justify-center rounded-md bg-brand-sky-blue/20 text-[1rem] font-bold text-brand-sky-blue">
               {course.num}
             </span>
-            <Star className="h-4 w-4 text-yellow-400 animate-pulse-glow" />
+            <Star className="h-4 w-4 text-amber-400 animate-pulse-glow" />
           </div>
+
+          {/* Bright Sky Blue Duration/Fee tags */}
+          <div className="flex flex-wrap gap-2">
+            <span className="rounded-full bg-brand-sky-blue/20 px-2.5 py-1 text-[0.65rem] font-bold text-brand-sky-blue">
+              {course.duration}
+            </span>
+            <span className="rounded-full bg-brand-sky-blue/20 px-2.5 py-1 text-[0.65rem] font-bold text-brand-sky-blue">
+              {standardFee}
+            </span>
+          </div>
+
           {course.badge && (
-            <span className="rounded-sm bg-brand-gold/15 px-2.5 py-1 text-[0.68rem] font-bold uppercase tracking-[1px] text-brand-gold">
+            <span className="rounded-full bg-amber-400/15 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[1px] text-gold-gradient">
               {course.badge}
             </span>
           )}
         </div>
 
-        {/* Title */}
-        <h3 className="mb-1 text-[1.05rem] font-display course-title leading-tight tracking-[-0.02em]">
+        {/* Title — White */}
+        <h3 className="mb-1.5 text-[1.08rem] font-display font-bold leading-tight tracking-[-0.02em] text-white course-title">
           {course.title}
         </h3>
-        {/* Expanding loading-style line (triggers on card reveal) */}
-        <div className="w-full h-0.5 bg-gradient-to-r from-brand-sky-blue to-brand-light-sky overflow-hidden">
-          <div className="h-full w-0 bg-brand-sky-blue transition-all duration-1s ease-out reveal-line" />
-        </div>
 
-        {/* Tagline */}
+        {/* Accent line */}
+        <div className="w-full h-0.5 bg-gradient-to-r from-brand-sky-blue/60 to-brand-light-sky/60 rounded-full mb-3" />
+
+        {/* Tagline — Light Blue */}
         {course.tagline && (
-          <p className="mb-2 text-[0.8rem] font-body font-light leading-[1.7] course-description">
+          <p className="mb-2 text-[0.82rem] font-body font-medium leading-[1.6] text-blue-300">
             {course.tagline}
           </p>
         )}
 
-        {/* Description */}
+        {/* Description — Light Blue */}
         <p className="flex-1 text-[0.82rem] font-body font-light leading-[1.7] course-description">
           {course.description}
         </p>
 
         {/* Duration + CTA */}
-        <div className="mt-4 flex items-center justify-between border-t border-black/6 pt-3">
-          <span className="text-[0.75rem] font-medium course-details">{course.duration} &middot; {course.schedule}</span>
-          <span className="flex items-center gap-1 text-[0.78rem] font-semibold text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+        <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-3">
+          <span className="text-[0.75rem] font-medium course-details">{course.schedule}</span>
+          <span className="flex items-center gap-1 text-[0.78rem] font-semibold text-brand-sky-blue opacity-0 transition-opacity duration-200 group-hover:opacity-100">
             Details <ArrowRight className="h-3 w-3" />
           </span>
         </div>
       </div>
-    <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-brand-sky-blue/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div></Link>
+
+      {/* Hover glow */}
+      <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-brand-sky-blue/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+    </Link>
   )
 }

@@ -21,12 +21,12 @@ const highlights = [
 ]
 
 const careers = [
-  { icon: '\uD83C\uDFE5', label: 'Clinics & Hospitals' },
-  { icon: '\u267F', label: 'Rehabilitation Centers' },
-  { icon: '\uD83C\uDFEB', label: 'Schools & Special Education' },
-  { icon: '\uD83D\uDCBC', label: 'Private Practice' },
-  { icon: '\uD83C\uDF0D', label: 'NGOs & Public Health' },
-  { icon: '\uD83E\uDDE0', label: 'Mental Health Organizations' },
+  { icon: '🏥', label: 'Clinics & Hospitals' },
+  { icon: '♿', label: 'Rehabilitation Centers' },
+  { icon: '🏫', label: 'Schools & Special Education' },
+  { icon: '💼', label: 'Private Practice' },
+  { icon: '🌍', label: 'NGOs & Public Health' },
+  { icon: '🧠', label: 'Mental Health Organizations' },
 ]
 
 export default function About() {
@@ -38,48 +38,70 @@ export default function About() {
           <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-gold">
             About Us
           </div>
-          <h1 className="font-display text-[clamp(2rem,4vw,3rem)] font-bold leading-tight text-white">
+          <h1 className="font-display text-[clamp(2rem,4vw,3rem)] font-extrabold leading-tight text-white">
             About GICP Academy
           </h1>
-          <p className="mt-3 text-[1rem] font-light text-white/50">
+          <p className="mt-3 text-[1rem] font-light text-slate-300">
             Empowering the next generation of mental health and rehabilitation professionals.
           </p>
         </div>
       </section>
 
-      {/* Mission */}
-      <RevealSection className="bg-brand-dark-navy py-16">
-        <div className="mx-auto max-w-3xl px-6 lg:px-8">
-          <div className="rounded-lg border border-brand-gold/20 bg-brand-navy p-8 text-white">
-            <h2 className="mb-4 font-display text-2xl font-bold text-brand-gold">Our Mission</h2>
-            <p className="leading-relaxed text-white/70">
-              GICP Academy is dedicated to providing accessible, high-quality education in psychology,
-              therapy, and health sciences. We believe every student in Pakistan deserves the opportunity
-              to build a meaningful career in these critical fields — without the burden of prohibitive costs
-              or geographic barriers.
-            </p>
-            <p className="mt-4 leading-relaxed text-white/70">
-              Our programs combine rigorous academic content with practical, hands-on training. Each diploma
-              is designed to equip graduates with the knowledge, skills, and confidence to enter the workforce
-              immediately upon completion.
-            </p>
+      {/* Mission & Vision Grid — mobile-optimized */}
+      <RevealSection className="py-16">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid gap-8 sm:grid-cols-2">
+            {/* Mission */}
+            <div className="glass-card p-8">
+              <h2 className="mb-4 font-display text-2xl font-extrabold text-white">Our Mission</h2>
+              <p className="leading-relaxed text-slate-300">
+                GICP Academy is dedicated to providing accessible, high-quality education in psychology,
+                therapy, and health sciences. We believe every student in Pakistan deserves the opportunity
+                to build a meaningful career in these critical fields — without the burden of prohibitive costs
+                or geographic barriers.
+              </p>
+              <p className="mt-4 leading-relaxed text-slate-300">
+                Our programs combine rigorous academic content with practical, hands-on training. Each diploma
+                is designed to equip graduates with the knowledge, skills, and confidence to enter the workforce
+                immediately upon completion.
+              </p>
+            </div>
+
+            {/* Vision */}
+            <div className="glass-card p-8">
+              <h2 className="mb-4 font-display text-2xl font-extrabold text-white">Our Vision</h2>
+              <p className="leading-relaxed text-slate-300">
+                To become the leading provider of mental health and rehabilitation education in South Asia,
+                recognized for our innovative curriculum, expert faculty, and commitment to student success.
+              </p>
+              <p className="mt-4 leading-relaxed text-slate-300">
+                We aim to create a community of professionals who transform lives through evidence-based practice,
+                compassion, and a dedication to improving mental health outcomes for individuals and communities.
+              </p>
+            </div>
           </div>
         </div>
       </RevealSection>
 
-      {/* Highlights */}
-      <RevealSection className="bg-brand-dark-navy py-16">
+      {/* Highlights — Expert Faculty enhanced */}
+      <RevealSection className="py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {highlights.map((h) => {
               const Icon = h.icon
+              // Enhanced style for Expert Faculty section
+              const isExpertFaculty = h.title === 'Expert Faculty'
+              const cardClasses = isExpertFaculty
+                ? 'glass-card border-white/20 bg-brand-sky-blue/5 p-6 transition-transform duration-200 hover:scale-[1.03]'
+                : 'glass-card border-white/10 p-6'
+
               return (
-                <div key={h.title} className="rounded-lg border border-white/20 bg-brand-dark-navy p-6">
-                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded bg-brand-teal">
-                    <Icon className="h-5 w-5 text-white" />
+                <div key={h.title} className={cardClasses}>
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded bg-brand-sky-blue/20">
+                    <Icon className="h-5 w-5 text-brand-sky-blue" />
                   </div>
-                  <h3 className="mb-2 text-[0.95rem] font-semibold text-brand-navy">{h.title}</h3>
-                  <p className="text-[0.85rem] font-light leading-[1.65] text-brand-muted">{h.desc}</p>
+                  <h3 className="mb-2 text-[0.95rem] font-semibold text-white">{h.title}</h3>
+                  <p className="text-[0.85rem] font-light leading-[1.65] text-slate-300">{h.desc}</p>
                 </div>
               )
             })}
@@ -87,20 +109,21 @@ export default function About() {
         </div>
       </RevealSection>
 
-
-      {/* Careers */}
-      <RevealSection className="bg-brand-navy py-16">
+      {/* Careers — mobile-optimized grid */}
+      <RevealSection className="py-16" style={{ background: 'rgba(30, 58, 138, 0.25)' }}>
         <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
-          <h2 className="mb-3 font-display text-2xl font-bold text-white">Career Opportunities</h2>
-          <p className="mb-8 text-[1rem] font-light text-white/50">Our graduates go on to work in a variety of professional settings:</p>
+          <h2 className="mb-3 font-display text-2xl font-extrabold text-white">Career Opportunities</h2>
+          <p className="mb-8 text-[1rem] font-light text-slate-300">Our graduates go on to work in a variety of professional settings:</p>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
             {careers.map((c) => (
-              <div key={c.label} className="rounded-md border border-white/10 bg-white/5 px-4 py-4 text-[0.85rem] font-medium text-white/85 transition-colors hover:bg-brand-teal/15 hover:border-brand-teal/30">
+              <div key={c.label} className="glass-card px-4 py-4 text-[0.85rem] font-medium text-white/85 transition-colors hover:bg-brand-sky-blue/10">
                 <span className="mr-2">{c.icon}</span>{c.label}
               </div>
             ))}
           </div>
-          <Link to="/admissions" className="btn-primary mt-10 inline-flex">Start Your Journey</Link>
+          <Link to="/admissions" className="inline-flex items-center gap-2 rounded-full bg-brand-sky-blue px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-transform duration-200 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/50 mt-10">
+            Start Your Journey
+          </Link>
         </div>
       </RevealSection>
     </>
