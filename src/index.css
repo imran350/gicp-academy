@@ -264,7 +264,7 @@ body::after {
 
 /* Unified Global Form Style (Dark Navy + Light Blue Border) */
 .form-control {
-  @apply bg-[#0d1b2a] border border-brand-sky-blue/30 px-4 py-2 rounded-lg text-white placeholder-white/50 transition-colors transition-border-color duration-300 focus:outline-none focus:border-white;
+  @apply bg-[#0d1b2a] border border-brand-sky-blue/30 px-4 py-2 rounded-lg text-white placeholder-white/50 transition-colors duration-300 focus:outline-none focus:border-white;
 }
 
 /* Dropdown Fix: Force dark navy background + white text (removes browser defaults) */
