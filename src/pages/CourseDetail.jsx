@@ -273,6 +273,14 @@ console.log('WhatsApp message ready to send:', whatsappLink)
 
         {/* Enrollment form — full width, below the grid */}
         <div id="enroll-form" className="mt-10 border border-white/10 bg-brand-cream p-8">
+          {status === 'success' ? (
+            <div className="bg-green-500/20 border-2 border-green-500 p-8 rounded-xl text-center animate-fade-in">
+              <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
+              <p className="text-xl font-bold text-white">Application Submitted Successfully!</p>
+              <p className="mt-2 text-white/90">Our team will contact you within 24 hours.</p>
+            </div>
+          ) : (
+          <>
           <h3 className="mb-6 font-display text-xl font-bold text-white">Quick Enrollment</h3>
 
           <form onSubmit={handleSubmit} className="mx-auto max-w-3xl space-y-4">
@@ -352,26 +360,20 @@ console.log('WhatsApp message ready to send:', whatsappLink)
               {status === 'submitting' ? 'Submitting...' : <>Submit Application <Send className="ml-1 inline h-4 w-4" /></>}
             </button>
 
-            {status === 'success' && (
-              <div className="flex flex-col items-start gap-2 rounded bg-brand-teal/10 p-3 text-[0.85rem] {form.payment_method === pm.id ? 'text-brand-gold' : 'text-brand-teal'}">
-                <CheckCircle className="h-4 w-4 flex-shrink-0" />
-                <span>Application submitted successfully! Data saved to Supabase.</span>
-                <span className="mt-1">Send WhatsApp notification: <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="text-brand-gold hover:underline">Click here</a></span>
-              </div>
-            )}
             {status === 'error' && (
-              <div className="flex items-center gap-2 rounded bg-red-50 p-3 text-[0.85rem] text-red-700">
-                <AlertCircle className="h-4 w-4 flex-shrink-0" />
+              <div className="flex items-center gap-2 rounded bg-red-500/20 border-2 border-red-500 p-4 text-[0.85rem] text-white">
+                <AlertCircle className="h-5 w-5 flex-shrink-0" />
                 Something went wrong. Try again or WhatsApp us.
               </div>
             )}
 
-            {/* Supabase Status Indicator */}
             <div className="mt-4 flex items-center justify-center gap-2 text-[0.75rem] text-white/90">
               <span className="h-1.5 w-1.5 rounded-full bg-green-500"></span>
               <span>Powered by secure Supabase backend</span>
             </div>
           </form>
+          </>
+          )}
         </div>
       </div>
     </section>

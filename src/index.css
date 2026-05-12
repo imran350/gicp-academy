@@ -199,3 +199,12 @@ p {
 
 /* ── FORCEFUL GLOBAL HEADING FIX (added at very bottom per request) ── */
 h1, h2, h3, h4, h5, h6 { color: #ffffff !important; }
+
+/* ── NUCLEAR FONT VISIBILITY: Force all text white ── */
+* { color: inherit; }
+body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, label, input, select, textarea {
+  color: #ffffff !important;
+}
+input::placeholder, textarea::placeholder {
+  color: #94a3b8 !important;
+}

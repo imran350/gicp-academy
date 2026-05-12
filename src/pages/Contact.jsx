@@ -1,58 +1,65 @@
 import { useState, useEffect } from 'react'
-import { Mail, Globe, MessageCircle } from 'lucide-react'
+import { Mail, Globe, MessageCircle, CheckCircle, Send } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { supabase } from '../lib/supabase'
 
 // Email validation regex
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-// Phone validation regex (Pakistan format)
-const PHONE_REGEX = /^03[0-9]{9}$/
+// Phone validation regex (Pakistan format — flexible with dashes/spaces)
+const PHONE_REGEX = /^0?3[0-9]{9}$/
 
 export default function Contact() {
-  // Form state with validation
+  // Form state — matches Supabase 'applications' table columns
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    phone: '',
+    first_name: '',
+    last_name: '',
+    whatsapp: '',
     email: '',
-    course: '',
+    program: '',
     message: ''
   })
   const [errors, setErrors] = useState({})
   const [isValid, setIsValid] = useState(false)
   const [showSuccess, setShowSuccess] = useState(false)
+  const [status, setStatus] = useState('idle')
 
-  // Validate form on change (no 'Required' text, only red border)
+  // Validate form on change
   useEffect(() => {
     const newErrors = {}
+    const cleanPhone = formData.whatsapp.trim().replace(/[\s\-]/g, '')
 
-    // Check required fields without showing text
-    if (!formData.firstName.trim()) newErrors.firstName = 'required'
-    if (!formData.lastName.trim()) newErrors.lastName = 'required'
-    if (!formData.phone.trim()) newErrors.phone = 'required'
-    else if (!PHONE_REGEX.test(formData.phone)) newErrors.phone = 'invalid'
+    if (!formData.first_name.trim()) newErrors.first_name = 'required'
+    if (!formData.last_name.trim()) newErrors.last_name = 'required'
+    if (!formData.whatsapp.trim()) newErrors.whatsapp = 'required'
+    else if (!PHONE_REGEX.test(cleanPhone)) newErrors.whatsapp = 'invalid'
     if (!formData.email.trim()) newErrors.email = 'required'
-    else if (!EMAIL_REGEX.test(formData.email)) newErrors.email = 'invalid'
+    else if (!EMAIL_REGEX.test(formData.email.trim())) newErrors.email = 'invalid'
 
     setErrors(newErrors)
-    setIsValid(Object.keys(newErrors).length === 0)
+    setIsValid(
+      EMAIL_REGEX.test(formData.email.trim()) &&
+      PHONE_REGEX.test(cleanPhone) &&
+      formData.first_name.trim() &&
+      formData.last_name.trim()
+    )
   }, [formData])
 
-  // Handle form submission
-  const handleSubmit = (e) => {
+  // Handle form submission — sends to Supabase
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    if (isValid) {
-      // Show specified success message
-      setShowSuccess(true)
-      // Reset form after 3 seconds
-      setTimeout(() => setShowSuccess(false), 3000)
-      setFormData({
-        firstName: '',
-        lastName: '',
-        phone: '',
-        email: '',
-        course: '',
-        message: ''
-      })
+    if (!isValid) return
+
+    setStatus('submitting')
+    try {
+      if (!supabase) throw new Error('Supabase not configured')
+      const cleanForm = { ...formData, whatsapp: formData.whatsapp.replace(/[\s\-]/g, '') }
+      const { error } = await supabase.from('applications').insert([cleanForm])
+      if (error) throw error
+
+      setStatus('success')
+      setFormData({ first_name: '', last_name: '', whatsapp: '', email: '', program: '', message: '' })
+    } catch {
+      setStatus('error')
     }
   }
 
@@ -182,16 +189,16 @@ export default function Contact() {
 
             {/* Right: Quick Apply Form — updated styling */}
             <div className="glass-card p-8 shadow-[0_12px_40px_rgba(0,0,0,0.15)]">
+              {status === 'success' ? (
+                <div className="bg-green-500/20 border-2 border-green-500 p-8 rounded-xl text-center animate-fade-in">
+                  <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
+                  <p className="text-xl font-bold text-white">Application Submitted Successfully!</p>
+                  <p className="mt-2 text-white/90">Our team will contact you within 24 hours.</p>
+                </div>
+              ) : (
+              <>
               <h2 className="font-display text-[1.6rem] font-extrabold text-white">Apply for Admission</h2>
               <p className="mb-7 text-[0.85rem] text-slate-300">Fill in your details and we'll contact you within 24 hours.</p>
-
-              {/* Specified success message */}
-              {showSuccess && (
-                <div className="mb-6 glass-success-message animate-fade-in">
-                  <CheckCircle className="h-5 w-5 text-green-400" />
-                  <span className="text-green-400">Thank you! We will contact you soon</span>
-                </div>
-              )}
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid gap-4 sm:grid-cols-2 form-section">
@@ -199,10 +206,10 @@ export default function Contact() {
                     <label className="mb-1.5 block text-[0.78rem] font-semibold text-white">First Name <span className="text-red-400">*</span></label>
                     <input
                       type="text"
-                      name="firstName"
-                      value={formData.firstName}
+                      name="first_name"
+                      value={formData.first_name}
                       onChange={handleChange}
-                      className={`form-input ${errors.firstName ? 'form-error-input' : ''}`}
+                      className={`form-input ${errors.first_name ? 'form-error-input' : ''}`}
                       placeholder="e.g. Ayesha"
                     />
                   </div>
@@ -210,10 +217,10 @@ export default function Contact() {
                     <label className="mb-1.5 block text-[0.78rem] font-semibold text-white">Last Name <span className="text-red-400">*</span></label>
                     <input
                       type="text"
-                      name="lastName"
-                      value={formData.lastName}
+                      name="last_name"
+                      value={formData.last_name}
                       onChange={handleChange}
-                      className={`form-input ${errors.lastName ? 'form-error-input' : ''}`}
+                      className={`form-input ${errors.last_name ? 'form-error-input' : ''}`}
                       placeholder="e.g. Khan"
                     />
                   </div>
@@ -223,10 +230,10 @@ export default function Contact() {
                   <label className="mb-1.5 block text-[0.78rem] font-semibold text-white">WhatsApp Number <span className="text-red-400">*</span></label>
                   <input
                     type="tel"
-                    name="phone"
-                    value={formData.phone}
+                    name="whatsapp"
+                    value={formData.whatsapp}
                     onChange={handleChange}
-                    className={`form-input ${errors.phone ? 'form-error-input' : ''}`}
+                    className={`form-input ${errors.whatsapp ? 'form-error-input' : ''}`}
                     placeholder="0300-0000000"
                   />
                 </div>
@@ -246,22 +253,22 @@ export default function Contact() {
                 <div className="form-section">
                   <label className="mb-1.5 block text-[0.78rem] font-semibold text-white">Course of Interest</label>
                   <select
-                    name="course"
-                    value={formData.course}
+                    name="program"
+                    value={formData.program}
                     onChange={handleChange}
                     className="form-input"
                   >
                     <option value="">Select a program...</option>
-                    <option value="adcp">ADCP — Advanced Diploma in Clinical Psychology</option>
-                    <option value="child-psychology">Diploma in Child Psychology</option>
-                    <option value="autism">International Diploma in Autism (ASD)</option>
-                    <option value="speech-therapy">Diploma in Speech & Language Therapy</option>
-                    <option value="pecs">Diploma in PECS</option>
-                    <option value="physiotherapy">International Diploma in Physiotherapy</option>
-                    <option value="sensory-integration">Diploma in Sensory Integration & Reflexes</option>
-                    <option value="cbt">International Diploma in CBT</option>
-                    <option value="nutrition">Diploma in Nutrition & Dietetics</option>
-                    <option value="public-health">International Diploma in Public Health</option>
+                    <option value="ADCP — Advanced Diploma in Clinical Psychology">ADCP — Advanced Diploma in Clinical Psychology</option>
+                    <option value="Diploma in Child Psychology">Diploma in Child Psychology</option>
+                    <option value="International Diploma in Autism (ASD)">International Diploma in Autism (ASD)</option>
+                    <option value="Diploma in Speech & Language Therapy">Diploma in Speech & Language Therapy</option>
+                    <option value="Diploma in PECS">Diploma in PECS</option>
+                    <option value="International Diploma in Physiotherapy">International Diploma in Physiotherapy</option>
+                    <option value="Diploma in Sensory Integration & Reflexes">Diploma in Sensory Integration & Reflexes</option>
+                    <option value="International Diploma in CBT">International Diploma in CBT</option>
+                    <option value="Diploma in Nutrition & Dietetics">Diploma in Nutrition & Dietetics</option>
+                    <option value="International Diploma in Public Health">International Diploma in Public Health</option>
                   </select>
                 </div>
 
@@ -280,10 +287,10 @@ export default function Contact() {
                 {/* Glowing submit button */}
                 <button
                   type="submit"
-                  disabled={!isValid}
-                  className={`glowing-submit-button ${!isValid ? 'disabled-button' : ''}`}
+                  disabled={!isValid || status === 'submitting'}
+                  className={`high-end-glowing-button ${(!isValid || status === 'submitting') ? 'disabled-button' : ''}`}
                 >
-                  Submit Application
+                  {status === 'submitting' ? 'Submitting...' : <>Submit Application <Send className="ml-2 inline h-4 w-4" /></>}
                 </button>
               </form>
 
@@ -292,6 +299,8 @@ export default function Contact() {
                   View full admission details
                 </Link>
               </div>
+              </>
+              )}
             </div>
           </div>
         </div>

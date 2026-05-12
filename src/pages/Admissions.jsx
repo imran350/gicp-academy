@@ -5,7 +5,7 @@ import courses from '../data/courses'
 
 // Validation regex
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-const PHONE_REGEX = /^03[0-9]{9}$/
+const PHONE_REGEX = /^0?3[0-9]{9}$/
 
 export default function Admissions() {
   const [form, setForm] = useState({
@@ -23,7 +23,7 @@ export default function Admissions() {
     if (!form.first_name.trim()) newErrors.first_name = 'required'
     if (!form.last_name.trim()) newErrors.last_name = 'required'
     if (!form.whatsapp.trim()) newErrors.whatsapp = 'required'
-    else if (!PHONE_REGEX.test(form.whatsapp.trim())) newErrors.whatsapp = 'invalid'
+    else if (!PHONE_REGEX.test(form.whatsapp.trim().replace(/[\s\-]/g, ''))) newErrors.whatsapp = 'invalid'
     if (!form.email.trim()) newErrors.email = 'required'
     else if (!EMAIL_REGEX.test(form.email.trim())) newErrors.email = 'invalid'
     if (!form.program.trim()) newErrors.program = 'required'
@@ -31,7 +31,7 @@ export default function Admissions() {
     setErrors(newErrors)
     setIsFormValid(
       EMAIL_REGEX.test(form.email.trim()) &&
-      PHONE_REGEX.test(form.whatsapp.trim()) &&
+      PHONE_REGEX.test(form.whatsapp.trim().replace(/[\s\-]/g, '')) &&
       form.first_name.trim() &&
       form.program.trim()
     )
@@ -46,7 +46,8 @@ export default function Admissions() {
     setStatus('submitting')
     try {
       if (!supabase) throw new Error('Supabase not configured')
-      const { data, error } = await supabase.from('applications').insert([form]).select('id')
+      const cleanForm = { ...form, whatsapp: form.whatsapp.replace(/[\s\-]/g, '') }
+      const { data, error } = await supabase.from('applications').insert([cleanForm]).select('id')
       if (error) throw error
       setStatus('success')
       setShowSuccess(true)
@@ -122,19 +123,18 @@ Client Link: ${clientLink}`
                 </div>
               </div>
             </div>
-            {/* Right: Enrollment Form (100% pure white text/labels) */}
+            {/* Right: Enrollment Form */}
             <div className="glass-card p-8 sm:p-11">
+              {status === 'success' ? (
+                <div className="bg-green-500/20 border-2 border-green-500 p-8 rounded-xl text-center animate-fade-in">
+                  <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
+                  <p className="text-xl font-bold text-white">Application Submitted Successfully!</p>
+                  <p className="mt-2 text-white/90">Our team will contact you within 24 hours.</p>
+                </div>
+              ) : (
               <form onSubmit={handleSubmit} className="w-full space-y-6">
                 <h2 className="font-display text-[1.6rem] font-extrabold text-white">Apply for Admission</h2>
                 <p className="mb-7 text-[0.85rem] text-slate-300">Fill in your details below and submit your enrollment request.</p>
-
-                {/* Glassmorphism Success Message with CheckCircle */}
-                {showSuccess && (
-                  <div className="mb-6 glass-success-message animate-fade-in">
-                    <CheckCircle className="h-5 w-5 text-green-400" />
-                    <span className="text-green-400">Thank you! We will contact you soon</span>
-                  </div>
-                )}
 
                 <div className="grid gap-4 sm:grid-cols-2 form-section">
                   <div>
@@ -219,7 +219,6 @@ Client Link: ${clientLink}`
                   <textarea name="message" rows={4} value={form.message} onChange={handleChange} className="form-input resize-none" placeholder="Any questions or additional info..." />
                 </div>
 
-                {/* High-End Glowing Submit Button (disabled until valid email/phone) */}
                 <button
                   type="submit"
                   disabled={!isFormValid || status === 'submitting'}
@@ -228,12 +227,12 @@ Client Link: ${clientLink}`
                   {status === 'submitting' ? 'Submitting...' : <>Submit Application <Send className="ml-2 inline h-4 w-4" /></>}
                 </button>
 
-                {/* Supabase Status Indicator */}
                 <div className="mt-4 flex items-center justify-center gap-2 text-[0.75rem] text-white/90">
                   <span className="h-1.5 w-1.5 rounded-full bg-green-500"></span>
                   <span>Powered by secure Supabase backend</span>
                 </div>
               </form>
+              )}
             </div>
           </div>
         </div>
