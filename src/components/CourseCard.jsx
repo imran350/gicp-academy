@@ -17,7 +17,8 @@ export default function CourseCard({ course }) {
         {/* Number + Badge + Duration/Fee tags row */}
         <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-1.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-md bg-brand-sky-blue/20 text-[1rem] font-bold text-brand-sky-blue">
+            {/* FORCED pure white course number */}
+            <span className="flex h-9 w-9 items-center justify-center rounded-md bg-brand-sky-blue/20 text-[1rem] font-bold course-number">
               {course.num}
             </span>
             <Star className="h-4 w-4 text-amber-400 animate-pulse-glow" />
@@ -60,7 +61,7 @@ export default function CourseCard({ course }) {
           {course.description}
         </p>
 
-        {/* Duration + CTA */}
+        {/* Duration + CTA — FORCED pure white */}
         <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-3">
           <span className="text-[0.75rem] font-medium course-details">{course.schedule}</span>
           <span className="flex items-center gap-1 text-[0.78rem] font-semibold text-brand-sky-blue opacity-0 transition-opacity duration-200 group-hover:opacity-100">

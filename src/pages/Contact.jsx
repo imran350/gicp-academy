@@ -21,17 +21,17 @@ export default function Contact() {
   const [isValid, setIsValid] = useState(false)
   const [showSuccess, setShowSuccess] = useState(false)
 
-  // Validate form on change
+  // Validate form on change (no 'Required' text, only red border)
   useEffect(() => {
     const newErrors = {}
 
-    // Required fields validation
-    if (!formData.firstName.trim()) newErrors.firstName = 'Required'
-    if (!formData.lastName.trim()) newErrors.lastName = 'Required'
-    if (!formData.phone.trim()) newErrors.phone = 'Required'
-    else if (!PHONE_REGEX.test(formData.phone)) newErrors.phone = 'Invalid Pakistan number (03XX-XXXXXXX)'
-    if (!formData.email.trim()) newErrors.email = 'Required'
-    else if (!EMAIL_REGEX.test(formData.email)) newErrors.email = 'Invalid email format'
+    // Check required fields without showing text
+    if (!formData.firstName.trim()) newErrors.firstName = 'required'
+    if (!formData.lastName.trim()) newErrors.lastName = 'required'
+    if (!formData.phone.trim()) newErrors.phone = 'required'
+    else if (!PHONE_REGEX.test(formData.phone)) newErrors.phone = 'invalid'
+    if (!formData.email.trim()) newErrors.email = 'required'
+    else if (!EMAIL_REGEX.test(formData.email)) newErrors.email = 'invalid'
 
     setErrors(newErrors)
     setIsValid(Object.keys(newErrors).length === 0)
@@ -41,7 +41,7 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (isValid) {
-      // Simulate submission
+      // Show specified success message
       setShowSuccess(true)
       // Reset form after 3 seconds
       setTimeout(() => setShowSuccess(false), 3000)
@@ -180,94 +180,76 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Right: Quick Apply Form — dark fields with validation */}
+            {/* Right: Quick Apply Form — updated styling */}
             <div className="glass-card p-8 shadow-[0_12px_40px_rgba(0,0,0,0.15)]">
               <h2 className="font-display text-[1.6rem] font-extrabold text-white">Apply for Admission</h2>
               <p className="mb-7 text-[0.85rem] text-slate-300">Fill in your details and we'll contact you within 24 hours.</p>
 
+              {/* Specified success message */}
               {showSuccess && (
-                <div className="mb-6 p-4 bg-green-500/10 border border-green-500/30 rounded-lg text-green-400 text-center">
-                  Application submitted successfully! We'll contact you soon.
+                <div className="mb-6 glass-success-message animate-fade-in">
+                  <CheckCircle className="h-5 w-5 text-green-400" />
+                  <span className="text-green-400">Thank you! We will contact you soon</span>
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid gap-4 sm:grid-cols-2">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid gap-4 sm:grid-cols-2 form-section">
                   <div>
-                    <label className="mb-1.5 block text-[0.78rem] font-semibold text-slate-300">First Name <span className="text-red-400">*</span></label>
+                    <label className="mb-1.5 block text-[0.78rem] font-semibold text-white">First Name <span className="text-red-400">*</span></label>
                     <input
                       type="text"
                       name="firstName"
                       value={formData.firstName}
                       onChange={handleChange}
-                      className={`w-full rounded border px-3.5 py-3 text-[0.9rem] outline-none transition-all duration-200 ${
-                        errors.firstName
-                          ? 'border-red-400 bg-slate-900/50 text-white placeholder:text-white/30 focus:border-red-400'
-                          : 'border-white/20 bg-slate-900/50 text-white placeholder:text-white/30 focus:border-brand-sky-blue'
-                      }`}
+                      className={`form-input ${errors.firstName ? 'form-error-input' : ''}`}
                       placeholder="e.g. Ayesha"
                     />
-                    {errors.firstName && <p className="mt-1 text-xs text-red-400">{errors.firstName}</p>}
                   </div>
                   <div>
-                    <label className="mb-1.5 block text-[0.78rem] font-semibold text-slate-300">Last Name <span className="text-red-400">*</span></label>
+                    <label className="mb-1.5 block text-[0.78rem] font-semibold text-white">Last Name <span className="text-red-400">*</span></label>
                     <input
                       type="text"
                       name="lastName"
                       value={formData.lastName}
                       onChange={handleChange}
-                      className={`w-full rounded border px-3.5 py-3 text-[0.9rem] outline-none transition-all duration-200 ${
-                        errors.lastName
-                          ? 'border-red-400 bg-slate-900/50 text-white placeholder:text-white/30 focus:border-red-400'
-                          : 'border-white/20 bg-slate-900/50 text-white placeholder:text-white/30 focus:border-brand-sky-blue'
-                      }`}
+                      className={`form-input ${errors.lastName ? 'form-error-input' : ''}`}
                       placeholder="e.g. Khan"
                     />
-                    {errors.lastName && <p className="mt-1 text-xs text-red-400">{errors.lastName}</p>}
                   </div>
                 </div>
 
-                <div>
-                  <label className="mb-1.5 block text-[0.78rem] font-semibold text-slate-300">WhatsApp Number <span className="text-red-400">*</span></label>
+                <div className="form-section">
+                  <label className="mb-1.5 block text-[0.78rem] font-semibold text-white">WhatsApp Number <span className="text-red-400">*</span></label>
                   <input
                     type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className={`w-full rounded border px-3.5 py-3 text-[0.9rem] outline-none transition-all duration-200 ${
-                      errors.phone
-                        ? 'border-red-400 bg-slate-900/50 text-white placeholder:text-white/30 focus:border-red-400'
-                        : 'border-white/20 bg-slate-900/50 text-white placeholder:text-white/30 focus:border-brand-sky-blue'
-                    }`}
+                    className={`form-input ${errors.phone ? 'form-error-input' : ''}`}
                     placeholder="0300-0000000"
                   />
-                  {errors.phone && <p className="mt-1 text-xs text-red-400">{errors.phone}</p>}
                 </div>
 
-                <div>
-                  <label className="mb-1.5 block text-[0.78rem] font-semibold text-slate-300">Email Address <span className="text-red-400">*</span></label>
+                <div className="form-section">
+                  <label className="mb-1.5 block text-[0.78rem] font-semibold text-white">Email Address <span className="text-red-400">*</span></label>
                     <input
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className={`w-full rounded border px-3.5 py-3 text-[0.9rem] outline-none transition-all duration-200 ${
-                        errors.email
-                          ? 'border-red-400 bg-slate-900/50 text-white placeholder:text-white/30 focus:border-red-400'
-                        : 'border-white/20 bg-slate-900/50 text-white placeholder:text-white/30 focus:border-brand-sky-blue'
-                      }`}
+                      className={`form-input ${errors.email ? 'form-error-input' : ''}`}
                       placeholder="your@email.com"
                     />
-                    {errors.email && <p className="mt-1 text-xs text-red-400">{errors.email}</p>}
                 </div>
 
-                <div>
-                  <label className="mb-1.5 block text-[0.78rem] font-semibold text-slate-300">Course of Interest</label>
+                <div className="form-section">
+                  <label className="mb-1.5 block text-[0.78rem] font-semibold text-white">Course of Interest</label>
                   <select
                     name="course"
                     value={formData.course}
                     onChange={handleChange}
-                    className="w-full rounded border border-white/20 bg-slate-900/50 px-3.5 py-3 text-[0.9rem] text-white outline-none focus:border-brand-sky-blue"
+                    className="form-input"
                   >
                     <option value="">Select a program...</option>
                     <option value="adcp">ADCP — Advanced Diploma in Clinical Psychology</option>
@@ -283,26 +265,23 @@ export default function Contact() {
                   </select>
                 </div>
 
-                <div>
-                  <label className="mb-1.5 block text-[0.78rem] font-semibold text-slate-300">Message (Optional)</label>
+                <div className="form-section">
+                  <label className="mb-1.5 block text-[0.78rem] font-semibold text-white">Message (Optional)</label>
                   <textarea
                     rows={3}
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full resize-none rounded border border-white/20 bg-slate-900/50 px-3.5 py-3 text-[0.9rem] text-white outline-none focus:border-brand-sky-blue placeholder:text-white/30"
+                    className="form-input resize-none"
                     placeholder="Any questions or additional info..."
                   ></textarea>
                 </div>
 
+                {/* Glowing submit button */}
                 <button
                   type="submit"
                   disabled={!isValid}
-                  className={`w-full rounded py-4 text-center text-[0.95rem] font-bold transition-all duration-200 ${
-                    isValid
-                      ? 'bg-brand-sky-blue text-white hover:bg-brand-sky-blue/90 shadow-lg shadow-blue-500/25 hover:scale-105'
-                      : 'bg-slate-700/50 text-slate-400 cursor-not-allowed'
-                  }`}
+                  className={`glowing-submit-button ${!isValid ? 'disabled-button' : ''}`}
                 >
                   Submit Application
                 </button>

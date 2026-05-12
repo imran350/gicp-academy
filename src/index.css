@@ -45,6 +45,34 @@ p {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
   }
+  /* Form section spacing for mobile */
+  .form-section {
+    padding-y: 1rem !important;
+  }
+}
+
+/* ── Custom Form Styles (contrast fixes) ── */
+.form-input {
+  @apply w-full rounded border border-white/10 bg-slate-900/40 px-3.5 py-3 text-[0.9rem] text-white outline-none transition-all duration-200 placeholder:text-[#94a3b8] focus:border-sky-500 focus:shadow-[0_0_10px_rgba(56,189,248,0.3)];
+}
+
+.form-error-input {
+  @apply border-red-400 focus:border-red-400 focus:shadow-[0_0_10px_rgba(248,56,56,0.3)];
+}
+
+/* ── High-End Glowing Submit Button (fixed class) ── */
+@layer components {
+  .high-end-glowing-button {
+    @apply w-full rounded py-4 text-center text-[0.95rem] font-bold text-white transition-all duration-300 bg-gradient-to-r from-sky-500 to-blue-700 shadow-[0_0_20px_rgba(56,189,248,0.4)] hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(56,189,248,0.5)];
+  }
+
+  .glass-success-message {
+    @apply p-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-lg text-center flex items-center justify-center gap-2;
+  }
+}
+
+.disabled-button {
+  @apply bg-slate-700/50 text-slate-400 cursor-not-allowed shadow-none hover:scale-100;
 }
 
 /* ── Custom Button Classes ── */
@@ -133,7 +161,7 @@ p {
   background-clip: text;
 }
 
-/* ── Course card title ── */
+/* ── Course card styles (FORCE pure white text for all badges/details) ── */
 .course-title {
   color: #ffffff;
 }
@@ -141,7 +169,18 @@ p {
   color: #93c5fd;
 }
 .course-details {
-  color: #93c5fd;
+  color: #ffffff !important; /* FORCED pure white for 6 Months/2 Days/Week */
+}
+.course-number {
+  color: #ffffff !important; /* FORCED pure white for Course 01 */
+}
+
+/* ── Payment Method styles (FORCE pure white labels + light icons) ── */
+.pm-head-name {
+  color: #ffffff !important; /* FORCED pure white for JazzCash/EasyPaisa/Bank Transfer */
+}
+.pm-head-ic {
+  color: #93c5fd !important; /* FORCED light color for payment icons */
 }
 
 /* ── Pulse glow ── */

@@ -43,7 +43,7 @@ export default function Navbar() {
           </span> */}
         </Link>
 
-        {/* Desktop nav */}
+        {/* Desktop nav — FORCED White text + Sky Blue border for Apply Now */}
         <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <Link
@@ -62,7 +62,7 @@ export default function Navbar() {
           <Link
             to="/admissions"
             onClick={handleNavClick}
-            className="btn-navbar-apply"
+            className="inline-flex items-center gap-2 rounded-full border-2 border-brand-sky-blue bg-brand-sky-blue/30 text-white px-5 py-2 text-sm font-semibold transition-all duration-200 hover:bg-brand-sky-blue/50 hover:scale-105"
           >
             Apply Now
           </Link>
