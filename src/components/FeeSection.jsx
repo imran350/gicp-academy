@@ -25,7 +25,7 @@ export default function FeeSection() {
                 'Full access to recorded lectures anytime, anywhere',
                 'Real-world assignments & clinical case studies',
                 'Timed online exams — 45-minute paper, auto-submitted & instant results',
-                'Internationally inspired certification on completion',
+                'Professional certification on completion',
                 'Easy installment payment plans',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3.5 text-[0.95rem] leading-[1.5] text-slate-300">

@@ -58,8 +58,8 @@ export default function Contact() {
 
       setStatus('success')
       // WhatsApp notification
-      const whatsappMsg = `📋 New Application Received!\nName: ${formData.first_name} ${formData.last_name}\nWhatsApp: ${formData.whatsapp}\nEmail: ${formData.email || 'N/A'}\nCourse: ${formData.program || 'Not Selected'}\nMessage: ${formData.message || 'None'}`
-      window.open(`https://wa.me/923019753393?text=${encodeURIComponent(whatsappMsg)}`, '_blank')
+      const whatsappMsg = `New Application Received!%0A%0A*Name:*%20${formData.first_name}%20${formData.last_name}%0A*Course:*%20${formData.program || 'Not Selected'}%0A*Phone:*%20${formData.whatsapp}`
+      window.open(`https://wa.me/923019753393?text=${whatsappMsg}`, '_blank')
       setFormData({ first_name: '', last_name: '', whatsapp: '', email: '', program: '', message: '' })
     } catch {
       setStatus('error')
@@ -193,10 +193,10 @@ export default function Contact() {
             {/* Right: Quick Apply Form — updated styling */}
             <div className="glass-card p-8 shadow-[0_12px_40px_rgba(0,0,0,0.15)]">
               {status === 'success' ? (
-                <div className="bg-green-500/20 border-2 border-green-500 p-8 rounded-xl text-center animate-fade-in">
+                <div className="bg-green-600/20 border-2 border-green-500 p-8 rounded-2xl text-center animate-fade-in">
                   <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
                   <p className="text-xl font-bold text-white">Application Submitted Successfully!</p>
-                  <p className="mt-2 text-white/90">Our team will contact you within 24 hours.</p>
+                  <p className="mt-2 text-white/90">Opening WhatsApp for final confirmation...</p>
                 </div>
               ) : (
               <>

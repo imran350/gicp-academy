@@ -65,6 +65,31 @@ export default function Home() {
         <FeaturesList />
       </RevealSection>
 
+      {/* Expert Trainer Highlight */}
+      <RevealSection className="py-16">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="glass-card p-6 rounded-2xl bg-[rgba(255,255,255,0.05)] backdrop-blur-md border border-white/20 flex flex-col sm:flex-row justify-center items-center">
+            {/* Rounded Square Image Placeholder */}
+            <div className="h-24 w-24 rounded-lg bg-brand-teal/20 flex items-center justify-center flex-shrink-0 p-2">
+                          </div>
+
+            <div className="text-center sm:text-left">
+              <div className="mb-1 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-gold">
+                Expert Trainer
+              </div>
+              <h3 className="text-xl font-bold text-white !important">Tuba Shahid</h3>
+              <p className="mt-1 text-white !important">Child Psychologist & Senior Trainer</p>
+              <p className="mt-2 text-sm leading-relaxed text-white !important max-w-md">
+                Specializes in CBT, ASD assessments, and pediatric mental health. Learn from her extensive industry experience.
+              </p>
+              <Link to="/about" className="mt-4 inline-flex items-center gap-1 text-brand-sky-blue hover:underline text-sm font-semibold">
+                Meet Our Trainers <ArrowRight className="h-3 w-3" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </RevealSection>
+
       {/* Careers Section */}
       <RevealSection>
         <section className="grain relative overflow-hidden py-24 lg:py-28">

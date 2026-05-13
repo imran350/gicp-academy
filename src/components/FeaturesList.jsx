@@ -30,7 +30,7 @@ const features = [
   {
     icon: Award,
     title: 'Certification',
-    desc: 'Receive an internationally inspired diploma certificate upon successful completion.',
+    desc: 'Receive a professional diploma certificate upon successful completion.',
   },
 ]
 

@@ -53,20 +53,8 @@ export default function Admissions() {
       setShowSuccess(true)
       setForm({ first_name: '', last_name: '', whatsapp: '', email: '', program: '', payment_method: '', message: '' })
       // Send WhatsApp notification to academy
-      const whatsappMsg = `📋 New Application Received!
-Name: ${form.first_name} ${form.last_name}
-WhatsApp: ${form.whatsapp}
-Email: ${form.email || 'N/A'}
-Course: ${form.program}
-Payment Method: ${form.payment_method}
-Message: ${form.message || 'None'}`;
-      const applicationId = data[0].id
-      const clientLink = `https://www.gicpacademy.com/application/${applicationId}`
-      const fullWhatsappMsg = `${whatsappMsg}
-Client Link: ${clientLink}`
-      window.open(`https://wa.me/923019753393?text=${encodeURIComponent(fullWhatsappMsg)}`, '_blank')
-      // Hide success message after 3 seconds
-      setTimeout(() => setShowSuccess(false), 3000)
+      const whatsappMsg = `New Application Received!%0A%0A*Name:*%20${form.first_name}%20${form.last_name}%0A*Course:*%20${form.program}%0A*Phone:*%20${form.whatsapp}`;
+      window.open(`https://wa.me/923019753393?text=${whatsappMsg}`, '_blank')
     } catch { setStatus('error') }
   }
 
@@ -126,10 +114,10 @@ Client Link: ${clientLink}`
             {/* Right: Enrollment Form */}
             <div className="glass-card p-8 sm:p-11">
               {status === 'success' ? (
-                <div className="bg-green-500/20 border-2 border-green-500 p-8 rounded-xl text-center animate-fade-in">
+                <div className="bg-green-600/20 border-2 border-green-500 p-8 rounded-2xl text-center animate-fade-in">
                   <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
                   <p className="text-xl font-bold text-white">Application Submitted Successfully!</p>
-                  <p className="mt-2 text-white/90">Our team will contact you within 24 hours.</p>
+                  <p className="mt-2 text-white/90">Opening WhatsApp for final confirmation...</p>
                 </div>
               ) : (
               <form onSubmit={handleSubmit} className="w-full space-y-6">

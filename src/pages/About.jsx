@@ -109,6 +109,52 @@ export default function About() {
         </div>
       </RevealSection>
 
+      {/* Our Expert Trainers Section */}
+      <RevealSection className="py-16">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mb-12 text-center">
+            <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-gold">
+              Expert Faculty
+            </div>
+            <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.5rem)] font-extrabold leading-tight text-white">
+              Our Expert Trainers
+            </h2>
+            <p className="mt-3 text-[1rem] font-light text-slate-300 max-w-2xl mx-auto">
+              Learn from industry professionals with real-world experience
+            </p>
+          </div>
+
+          <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-2">
+            {/* Tuba Shahid Profile Card */}
+            <div className="glass-card p-6 rounded-2xl bg-[rgba(255,255,255,0.05)] backdrop-blur-md border border-white/20 flex flex-col justify-center">
+              {/* Centered Name Section */}
+              <div className="text-center mb-4">
+                <h3 className="text-2xl font-bold text-white !important">Tuba Shahid</h3>
+                <p className="mt-2 text-lg font-semibold text-white !important">Child Psychologist & Senior Trainer</p>
+              </div>
+
+              {/* Left-Aligned Bio & Skills */}
+              <div className="text-left">
+                <p className="text-sm leading-relaxed text-white !important">
+                  A dedicated professional with expertise in Clinical Psychology, CBT, and Speech & Language Therapy. Tuba has extensive experience training at DXN KINDAN and Healing Hub, specializing in behavioral issues, ASD, and psychological assessments.
+                </p>
+
+                <div className="mt-4 w-full">
+                  <h4 className="text-sm font-semibold uppercase tracking-[2px] text-white mb-3">Key Skills</h4>
+                  <div className="flex flex-wrap gap-2.5">
+                    {['CBT', 'ABA', 'ASD Psychology', 'Behavioral Assessment', 'Clinical Development'].map((skill) => (
+                      <span key={skill} className="px-3 py-1 rounded-full bg-brand-sky-blue/10 text-white text-sm">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </RevealSection>
+
       {/* Careers — mobile-optimized grid */}
       <RevealSection className="py-16" style={{ background: 'rgba(30, 58, 138, 0.25)' }}>
         <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
