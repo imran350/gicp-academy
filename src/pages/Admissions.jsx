@@ -230,7 +230,7 @@ export default function Admissions() {
                 <button
                   type="submit"
                   disabled={!isFormValid || status === 'submitting'}
-                  className={`high-end-glowing-button ${(!isFormValid || status === 'submitting') ? 'disabled-button' : ''}`}
+                  className={`high-end-glowing-button bg-gradient-to-r from-purple-600 to-magenta-600 shadow-[0_0_20px_rgba(192,38,211,0.5)] text-bold ${(!isFormValid || status === 'submitting') ? 'disabled-button' : ''}`}
                 >
                   {status === 'submitting' ? 'Submitting...' : <>Submit Application <Send className="ml-2 inline h-4 w-4" /></>}
                 </button>

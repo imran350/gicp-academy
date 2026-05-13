@@ -13,7 +13,7 @@ export default function Footer() {
               GICP Academy
             </div>
             <p className="max-w-[340px] text-[0.85rem] font-light leading-[1.7] text-slate-400">
-              Global Institute of Clinical Psychology — empowering future professionals through internationally inspired, practical, and career-focused diploma education in psychology, therapy, and healthcare.
+              Global Institute of Clinical Psychology — empowering future professionals through professionally inspired, practical, and career-focused diploma education in psychology, therapy, and healthcare.
             </p>
           </div>
 

@@ -42,7 +42,7 @@ export default function Hero() {
 
             {/* Subtext */}
             <p className="mb-12 max-w-xl text-[1.15rem] font-body leading-[1.8] text-slate-300 animate-slide-up animate-delay-250 tracking-[0.01em]">
-              An internationally inspired platform offering diploma programs in psychology, therapy, and healthcare — designed for flexible, career-focused online learning.
+              Professionally inspired platform offering diploma programs in psychology, therapy, and healthcare — designed for flexible, career-focused online learning.
             </p>
 
             {/* Badges */}
