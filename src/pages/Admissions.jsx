@@ -12,7 +12,7 @@ export default function Admissions() {
     first_name: '', last_name: '', whatsapp: '', email: '', program: '', payment_method: '', message: '',
   })
   const [status, setStatus] = useState('idle')
-  const [showSuccess, setShowSuccess] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
   const [isFormValid, setIsFormValid] = useState(false)
   const [errors, setErrors] = useState({})
 
@@ -33,6 +33,7 @@ export default function Admissions() {
       EMAIL_REGEX.test(form.email.trim()) &&
       PHONE_REGEX.test(form.whatsapp.trim().replace(/[\s\-]/g, '')) &&
       form.first_name.trim() &&
+      form.last_name.trim() &&
       form.program.trim()
     )
   }, [form])
@@ -40,22 +41,50 @@ export default function Admissions() {
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (!isFormValid) return
+    e.preventDefault(); // Ensure default behavior is prevented
+    if (!isFormValid) {
+      console.error('Form submission blocked: Invalid fields detected'); // Log validation failure
+      alert('Please fill all required fields correctly (valid email and WhatsApp number are required)'); // User-facing error
+      return
+    }
 
     setStatus('submitting')
     try {
-      if (!supabase) throw new Error('Supabase not configured')
+      console.log('Submitting form data:', form); // Debug log for form data
+      console.log('Supabase client status:', !!supabase); // Debug log for Supabase connection
+      if (!supabase) {
+        const supabaseError = new Error('Supabase not configured — check .env file for valid credentials');
+        console.error(supabaseError);
+        alert('Form submission failed: Supabase connection not found. Check your .env file for valid VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY');
+        setStatus('error');
+        return;
+      }
       const cleanForm = { ...form, whatsapp: form.whatsapp.replace(/[\s\-]/g, '') }
-      const { data, error } = await supabase.from('applications').insert([cleanForm]).select('id')
-      if (error) throw error
+      // Verify required fields exist before submission
+      const requiredFields = ['first_name', 'last_name', 'whatsapp', 'email', 'program']
+      const missingFields = requiredFields.filter(field => !cleanForm[field]?.trim())
+      if (missingFields.length > 0) {
+        console.error('Missing required fields:', missingFields);
+        setStatus('error');
+        return;
+      }
+
+      const { error } = await supabase.from('applications').insert([cleanForm])
+      if (error) {
+        console.error('Supabase insertion error:', error); // Debug log for Supabase errors
+        throw error;
+      }
+      console.log('Supabase insertion successful:', data); // Debug log for successful insertion
+      setIsSubmitted(true)
+      // Trigger WhatsApp redirect immediately after success state update
+      window.open(`https://wa.me/923019753393?text=I%20have%20submitted%20my%20admission%20form%20on%20GICP%20Academy.`, '_blank')
       setStatus('success')
-      setShowSuccess(true)
       setForm({ first_name: '', last_name: '', whatsapp: '', email: '', program: '', payment_method: '', message: '' })
-      // Send WhatsApp notification to academy
-      const whatsappMsg = `New Application Received!%0A%0A*Name:*%20${form.first_name}%20${form.last_name}%0A*Course:*%20${form.program}%0A*Phone:*%20${form.whatsapp}`;
-      window.open(`https://wa.me/923019753393?text=${whatsappMsg}`, '_blank')
-    } catch { setStatus('error') }
+    } catch (err) {
+      console.error('Form submission error:', err); // Debug log for general errors
+      setStatus('error');
+      setIsSubmitted(false); // Reset success state on failure
+    }
   }
 
   return (
@@ -113,11 +142,11 @@ export default function Admissions() {
             </div>
             {/* Right: Enrollment Form */}
             <div className="glass-card p-8 sm:p-11">
-              {status === 'success' ? (
+              {isSubmitted ? (
                 <div className="bg-green-600/20 border-2 border-green-500 p-8 rounded-2xl text-center animate-fade-in">
                   <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
                   <p className="text-xl font-bold text-white">Application Submitted Successfully!</p>
-                  <p className="mt-2 text-white/90">Opening WhatsApp for final confirmation...</p>
+                  <p className="mt-2 text-white/90">We will contact you soon.</p>
                 </div>
               ) : (
               <form onSubmit={handleSubmit} className="w-full space-y-6">
@@ -133,7 +162,7 @@ export default function Admissions() {
                       required
                       value={form.first_name}
                       onChange={handleChange}
-                      className={`form-input ${errors.first_name ? 'form-error-input' : ''}`}
+                      className={`form-input text-white !important ${errors.first_name ? 'form-error-input' : ''}`}
                       placeholder="e.g. Ayesha"
                     />
                   </div>
@@ -145,7 +174,7 @@ export default function Admissions() {
                       required
                       value={form.last_name}
                       onChange={handleChange}
-                      className={`form-input ${errors.last_name ? 'form-error-input' : ''}`}
+                      className={`form-input text-white !important ${errors.last_name ? 'form-error-input' : ''}`}
                       placeholder="e.g. Khan"
                     />
                   </div>
@@ -160,7 +189,7 @@ export default function Admissions() {
                       required
                       value={form.whatsapp}
                       onChange={handleChange}
-                      className={`form-input ${errors.whatsapp ? 'form-error-input' : ''}`}
+                      className={`form-input text-white !important ${errors.whatsapp ? 'form-error-input' : ''}`}
                       placeholder="0300-0000000"
                     />
                   </div>
@@ -172,7 +201,7 @@ export default function Admissions() {
                       required
                       value={form.email}
                       onChange={handleChange}
-                      className={`form-input ${errors.email ? 'form-error-input' : ''}`}
+                      className={`form-input text-white !important ${errors.email ? 'form-error-input' : ''}`}
                       placeholder="your@email.com"
                     />
                   </div>
@@ -185,26 +214,17 @@ export default function Admissions() {
                     required
                     value={form.program}
                     onChange={handleChange}
-                    className={`form-input ${errors.program ? 'form-error-input' : ''}`}
+                    className={`form-input text-white !important ${errors.program ? 'form-error-input' : ''}`}
                   >
                     <option value="">Select a program...</option>
                     {courses.map((c) => <option key={c.id} value={c.title}>{c.title}</option>)}
                   </select>
                 </div>
 
-                <div className="form-section">
-                  <label className="mb-1.5 block text-[0.78rem] font-semibold text-white">Payment Method</label>
-                  <select name="payment_method" value={form.payment_method} onChange={handleChange} className="form-input">
-                    <option value="">Select payment method...</option>
-                    <option value="jazzcash">JazzCash</option>
-                    <option value="easypaisa">EasyPaisa</option>
-                    <option value="bank-transfer">Bank Transfer</option>
-                  </select>
-                </div>
 
                 <div className="form-section">
                   <label className="mb-1.5 block text-[0.78rem] font-semibold text-white">Message (Optional)</label>
-                  <textarea name="message" rows={4} value={form.message} onChange={handleChange} className="form-input resize-none" placeholder="Any questions or additional info..." />
+                  <textarea name="message" rows={4} value={form.message} onChange={handleChange} className="form-input text-white !important resize-none" placeholder="Any questions or additional info..." />
                 </div>
 
                 <button

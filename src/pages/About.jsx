@@ -124,7 +124,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-2">
+          <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-3">
             {/* Tuba Shahid Profile Card */}
             <div className="glass-card p-6 rounded-2xl bg-[rgba(255,255,255,0.05)] backdrop-blur-md border border-white/20 flex flex-col justify-center">
               {/* Centered Name Section */}
@@ -143,6 +143,60 @@ export default function About() {
                   <h4 className="text-sm font-semibold uppercase tracking-[2px] text-white mb-3">Key Skills</h4>
                   <div className="flex flex-wrap gap-2.5">
                     {['CBT', 'ABA', 'ASD Psychology', 'Behavioral Assessment', 'Clinical Development'].map((skill) => (
+                      <span key={skill} className="px-3 py-1 rounded-full bg-brand-sky-blue/10 text-white text-sm">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Sumaira Profile Card */}
+            <div className="glass-card p-6 rounded-2xl bg-[rgba(255,255,255,0.05)] backdrop-blur-md border border-white/20 flex flex-col justify-center">
+              {/* Centered Name Section */}
+              <div className="text-center mb-4">
+                <h3 className="text-2xl font-bold text-white !important">Sumaira</h3>
+                <p className="mt-2 text-lg font-semibold text-white !important">Senior Instructor & Tech Expert</p>
+              </div>
+
+              {/* Left-Aligned Bio & Skills */}
+              <div className="text-left">
+                <p className="text-sm leading-relaxed text-white !important">
+                  A multidisciplinary professional with a Master's in Applied Psychology and PGD in Computer Sciences. Sumaira specializes in Clinical Psychology and tech-driven fields like Web Development and Content Strategy.
+                </p>
+
+                <div className="mt-4 w-full">
+                  <h4 className="text-sm font-semibold uppercase tracking-[2px] text-white mb-3">Key Skills</h4>
+                  <div className="flex flex-wrap gap-2.5">
+                    {['Clinical Psychology', 'Web Development', 'E-commerce', 'Content Writing'].map((skill) => (
+                      <span key={skill} className="px-3 py-1 rounded-full bg-brand-sky-blue/10 text-white text-sm">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Dr. Nida Profile Card */}
+            <div className="glass-card p-6 rounded-2xl bg-[rgba(255,255,255,0.05)] backdrop-blur-md border border-white/20 flex flex-col justify-center">
+              {/* Centered Name Section */}
+              <div className="text-center mb-4">
+                <h3 className="text-2xl font-bold text-white !important">Dr. Nida</h3>
+                <p className="mt-2 text-lg font-semibold text-white !important">Lead Clinical Psychologist & Speech Therapist</p>
+              </div>
+
+              {/* Left-Aligned Bio & Skills */}
+              <div className="text-left">
+                <p className="text-sm leading-relaxed text-white !important">
+                  Dr. Nida brings 8 years of professional experience in Child Development and Speech Therapy. She is dedicated to empowering students through practical, evidence-based clinical training and neurodevelopmental interventions.
+                </p>
+
+                <div className="mt-4 w-full">
+                  <h4 className="text-sm font-semibold uppercase tracking-[2px] text-white mb-3">Key Skills</h4>
+                  <div className="flex flex-wrap gap-2.5">
+                    {['Speech Therapy', 'Behavioral Management', 'Clinical Training', 'Neurodevelopment'].map((skill) => (
                       <span key={skill} className="px-3 py-1 rounded-full bg-brand-sky-blue/10 text-white text-sm">
                         {skill}
                       </span>
