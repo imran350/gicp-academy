@@ -342,6 +342,36 @@ export default function CourseDetail() {
                   )
                 })}
               </div>
+
+              {/* Bank Transfer Details Box — Shows only when Bank Transfer is selected */}
+              {form.payment_method === 'bank' && (
+                <div className="mt-4 p-4 rounded-xl bg-gradient-to-br from-brand-navy/40 to-brand-dark-navy/60 border border-brand-sky-blue/30 backdrop-blur-sm shadow-lg">
+                  <div className="mb-3 text-[0.72rem] font-bold uppercase tracking-[2px] text-brand-gold">Bank Account Details</div>
+                  <div className="space-y-3">
+                    <div>
+                      <p className="text-[0.75rem] font-semibold text-white/70 uppercase tracking-wide mb-1">Account Title</p>
+                      <p className="text-[0.95rem] font-bold text-white">GLOBAL INSTITUTE OF CLINICAL PSYCHOLOGY</p>
+                    </div>
+                    <div>
+                      <p className="text-[0.75rem] font-semibold text-white/70 uppercase tracking-wide mb-1">Account Number</p>
+                      <div className="flex items-center gap-2">
+                        <p className="text-[1rem] font-mono font-bold text-brand-gold">02230900007246</p>
+                        <button
+                          type="button"
+                          onClick={() => navigator.clipboard.writeText('02230900007246')}
+                          className="px-2 py-1 text-[0.7rem] bg-brand-sky-blue/30 hover:bg-brand-sky-blue/50 text-white rounded transition-all duration-200"
+                        >
+                          Copy
+                        </button>
+                      </div>
+                    </div>
+                    <div>
+                      <p className="text-[0.75rem] font-semibold text-white/70 uppercase tracking-wide mb-1">Branch</p>
+                      <p className="text-[0.95rem] font-semibold text-white">Valencia Town Branch (0223)</p>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
             <div>
