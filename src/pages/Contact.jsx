@@ -118,7 +118,7 @@ export default function Contact() {
 
                 {/* Email — bright icon */}
                 <a
-                  href="mailto:gicpacademy@gmail.com"
+                  href="mailto:globalinstituteofpsychology@gmail.com"
                   className="flex items-start gap-4 glass-card p-5 transition-transform duration-200 hover:scale-[1.02]"
                 >
                   <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-brand-sky-blue text-[1.1rem] shadow-lg shadow-brand-sky-blue/20">
@@ -126,7 +126,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-[0.72rem] font-semibold uppercase tracking-[2px] text-slate-300">Email</div>
-                    <div className="text-[1rem] font-semibold text-white">gicpacademy@gmail.com</div>
+                    <div className="text-[1rem] font-semibold text-white">globalinstituteofpsychology@gmail.com</div>
                     <div className="text-[0.8rem] text-slate-300">Send us a detailed message anytime</div>
                   </div>
                 </a>

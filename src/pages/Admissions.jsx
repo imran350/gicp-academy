@@ -145,10 +145,19 @@ export default function Admissions() {
                     <input type="radio" name="payment_method" value="jazzcash" className="sr-only" />
                     <div className="pm-head flex items-center gap-2">
                       <span className="pm-head-ic">📱</span>
-                      <span className="pm-head-name font-semibold text-white">JazzCash / EasyPaisa</span>
+                      <span className="pm-head-name font-semibold text-white">JazzCash</span>
                     </div>
-                    <div className="pm-num font-bold text-white mt-1">0301-9753393</div>
-                    <div className="pm-hint text-sm text-white/90 mt-1">Send payment screenshot on WhatsApp for confirmation</div>
+                    <div className="pm-num font-bold text-brand-gold mt-1">03010000305</div>
+                    <div className="pm-hint text-sm text-white/90 mt-1">Account Title: Shamila Irshad</div>
+                  </label>
+                  <label className="pm-card np p-4 bg-brand-dark-navy/20 border border-brand-sky-blue/10 shadow-sm cursor-pointer transition-all duration-200 hover:border-brand-gold/50 hover:bg-brand-dark-navy/40">
+                    <input type="radio" name="payment_method" value="nayapay" className="sr-only" />
+                    <div className="pm-head flex items-center gap-2">
+                      <span className="pm-head-ic">💳</span>
+                      <span className="pm-head-name font-semibold text-white">NayaPay</span>
+                    </div>
+                    <div className="pm-num font-bold text-brand-gold mt-1">03010000305</div>
+                    <div className="pm-hint text-sm text-white/90 mt-1">Account Title: Shamila Irshad</div>
                   </label>
                   <label className="pm-card bk p-4 bg-brand-dark-navy/20 border border-brand-sky-blue/10 shadow-sm cursor-pointer transition-all duration-200 hover:border-brand-gold/50 hover:bg-brand-dark-navy/40">
                     <input type="radio" name="payment_method" value="bank" className="sr-only" />
@@ -157,7 +166,7 @@ export default function Admissions() {
                       <span className="pm-head-name font-semibold text-white">Bank Transfer</span>
                     </div>
                     <div className="pm-num font-bold text-white mt-1">Details shared after enrollment</div>
-                    <div className="pm-hint text-sm text-white/90 mt-1">Details shared on whats up</div>
+                    <div className="pm-hint text-sm text-white/90 mt-1">Details shared via WhatsApp</div>
                   </label>
                 </div>
               </div>

@@ -20,11 +20,29 @@ export default function Footer() {
             {/* Social Icons */}
             <div className="flex gap-3">
               <a
-                href="mailto:gicpacademy@gmail.com"
+                href="mailto:globalinstituteofpsychology@gmail.com"
                 className="group flex h-9 w-9 items-center justify-center rounded-full bg-brand-sky-blue/20 transition-all duration-300 hover:bg-brand-sky-blue/50 hover:scale-110"
                 aria-label="Email"
               >
                 <Mail className="h-4 w-4 text-white group-hover:text-brand-gold transition-colors" />
+              </a>
+              <a
+                href="https://www.facebook.com/share/p/1Dq8k1UzQd/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex h-9 w-9 items-center justify-center rounded-full bg-brand-sky-blue/20 transition-all duration-300 hover:bg-blue-600/40 hover:scale-110"
+                aria-label="Facebook"
+              >
+                <span className="text-white group-hover:text-blue-300 transition-colors">f</span>
+              </a>
+              <a
+                href="https://www.instagram.com/p/DX34Thsjc7p/?igsh=emUxd3B0MGR4dHE="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex h-9 w-9 items-center justify-center rounded-full bg-brand-sky-blue/20 transition-all duration-300 hover:bg-pink-500/40 hover:scale-110"
+                aria-label="Instagram"
+              >
+                <span className="text-white text-sm group-hover:text-pink-300 transition-colors">📷</span>
               </a>
               <a
                 href="https://wa.me/923019753393"
@@ -96,12 +114,12 @@ export default function Footer() {
             <div className="space-y-4">
               {/* Email */}
               <a
-                href="mailto:gicpacademy@gmail.com"
+                href="mailto:globalinstituteofpsychology@gmail.com"
                 className="group flex items-start gap-2.5 transition-colors duration-200"
               >
                 <Mail className="h-4 w-4 text-brand-sky-blue flex-shrink-0 mt-0.5" />
                 <div className="text-[0.85rem] text-slate-300 group-hover:text-brand-gold transition-colors">
-                  gicpacademy@gmail.com
+                  globalinstituteofpsychology@gmail.com
                 </div>
               </a>
 

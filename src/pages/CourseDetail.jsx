@@ -12,19 +12,19 @@ const paymentMethods = [
     id: 'jazzcash',
     label: 'JazzCash',
     icon: Smartphone,
-    desc: 'Pay via JazzCash mobile wallet',
+    desc: '03010000305 (Shamila Irshad)',
   },
   {
-    id: 'easypaisa',
-    label: 'EasyPaisa',
+    id: 'nayapay',
+    label: 'NayaPay',
     icon: Smartphone,
-    desc: 'Pay via EasyPaisa mobile wallet',
+    desc: '03010000305 (Shamila Irshad)',
   },
   {
     id: 'bank',
     label: 'Bank Transfer',
     icon: Building,
-    desc: 'Direct bank deposit / wire transfer',
+    desc: 'Details shared after enrollment',
   },
 ]
 
