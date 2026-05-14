@@ -40,50 +40,70 @@ export default function Admissions() {
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
+  // Redirect to WhatsApp after success message appears
+  useEffect(() => {
+    if (isSubmitted) {
+      const timer = setTimeout(() => {
+        window.open('https://wa.me/923019753393', '_blank')
+      }, 2000) // Wait 2 seconds to show success message before redirect
+      return () => clearTimeout(timer)
+    }
+  }, [isSubmitted])
+
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Ensure default behavior is prevented
+    e.preventDefault()
     if (!isFormValid) {
-      console.error('Form submission blocked: Invalid fields detected'); // Log validation failure
-      alert('Please fill all required fields correctly (valid email and WhatsApp number are required)'); // User-facing error
+      console.error('Form submission blocked: Invalid fields detected')
+      alert('Please fill all required fields correctly (valid email and WhatsApp number are required)')
       return
     }
 
     setStatus('submitting')
     try {
-      console.log('Submitting form data:', form); // Debug log for form data
-      console.log('Supabase client status:', !!supabase); // Debug log for Supabase connection
+      console.log('Submitting form data:', form)
+      console.log('Supabase client status:', !!supabase)
       if (!supabase) {
-        const supabaseError = new Error('Supabase not configured — check .env file for valid credentials');
-        console.error(supabaseError);
-        alert('Form submission failed: Supabase connection not found. Check your .env file for valid VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY');
-        setStatus('error');
-        return;
+        const supabaseError = new Error('Supabase not configured — check .env file for valid credentials')
+        console.error(supabaseError)
+        alert('Form submission failed: Supabase connection not found. Check your .env file for valid VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY')
+        setStatus('error')
+        return
       }
+
       const cleanForm = { ...form, whatsapp: form.whatsapp.replace(/[\s\-]/g, '') }
+      
       // Verify required fields exist before submission
       const requiredFields = ['first_name', 'last_name', 'whatsapp', 'email', 'program']
       const missingFields = requiredFields.filter(field => !cleanForm[field]?.trim())
       if (missingFields.length > 0) {
-        console.error('Missing required fields:', missingFields);
-        setStatus('error');
-        return;
+        console.error('Missing required fields:', missingFields)
+        setStatus('error')
+        return
       }
 
-      const { error } = await supabase.from('applications').insert([cleanForm])
+      // Insert only specific fields to Supabase
+      const { error } = await supabase.from('applications').insert([{
+        first_name: cleanForm.first_name,
+        last_name: cleanForm.last_name,
+        email: cleanForm.email,
+        whatsapp: cleanForm.whatsapp,
+        program: cleanForm.program,
+        payment_method: cleanForm.payment_method
+      }])
+
       if (error) {
-        console.error('Supabase insertion error:', error); // Debug log for Supabase errors
-        throw error;
+        console.error('Supabase Error:', error)
+        throw error
       }
-      console.log('Supabase insertion successful:', data); // Debug log for successful insertion
+
+      console.log('Supabase insertion successful')
       setIsSubmitted(true)
-      // Trigger WhatsApp redirect immediately after success state update
-      window.open(`https://wa.me/923019753393?text=I%20have%20submitted%20my%20admission%20form%20on%20GICP%20Academy.`, '_blank')
       setStatus('success')
       setForm({ first_name: '', last_name: '', whatsapp: '', email: '', program: '', payment_method: '', message: '' })
     } catch (err) {
-      console.error('Form submission error:', err); // Debug log for general errors
-      setStatus('error');
-      setIsSubmitted(false); // Reset success state on failure
+      console.error('Supabase Error:', err)
+      setStatus('error')
+      setIsSubmitted(false)
     }
   }
 
