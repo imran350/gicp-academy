@@ -165,7 +165,7 @@ export default function Admissions() {
                       <span className="pm-head-ic">🏦</span>
                       <span className="pm-head-name font-semibold text-white">Bank Transfer</span>
                     </div>
-                    <div className="pm-num font-bold text-white mt-1">HBL / Habib Bank Limited</div>
+                    <div className="pm-num font-bold text-white mt-1">Askari Bank</div>
                     <div className="pm-hint text-sm text-white/90 mt-1">Fast and secure bank transfer</div>
                   </label>
                 </div>
@@ -173,8 +173,12 @@ export default function Admissions() {
                 {/* Bank Details Box — Shows when Bank Transfer is selected */}
                 {form.payment_method === 'bank' && (
                   <div className="mt-4 p-4 rounded-xl bg-gradient-to-br from-brand-navy/40 to-brand-dark-navy/60 border border-brand-sky-blue/30 backdrop-blur-sm shadow-lg">
-                    <div className="mb-3 text-[0.72rem] font-bold uppercase tracking-[2px] text-brand-gold">Bank Account Details</div>
+                    <div className="mb-4 text-[0.72rem] font-bold uppercase tracking-[2px] text-brand-gold">Bank Account Details</div>
                     <div className="space-y-3">
+                      <div>
+                        <p className="text-[0.75rem] font-semibold text-white/70 uppercase tracking-wide mb-1">Bank Name</p>
+                        <p className="text-[0.95rem] font-bold text-white">Askari Bank</p>
+                      </div>
                       <div>
                         <p className="text-[0.75rem] font-semibold text-white/70 uppercase tracking-wide mb-1">Account Title</p>
                         <p className="text-[0.95rem] font-bold text-white">GLOBAL INSTITUTE OF CLINICAL PSYCHOLOGY</p>
