@@ -292,6 +292,156 @@ export default function Admissions() {
                   <textarea name="message" rows={4} value={form.message} onChange={handleChange} className="form-input text-white !important resize-none" placeholder="Any questions or additional info..." />
                 </div>
 
+                {/* Payment Method Selection */}
+                <div className="form-section">
+                  <label className="mb-3 block text-[0.78rem] font-semibold text-white">Preferred Payment Method</label>
+                  <div className="space-y-2.5">
+                    {/* Bank Transfer Option */}
+                    <label className={`flex cursor-pointer items-center gap-3 rounded-lg border p-4 transition-all duration-200 ${
+                      form.payment_method === 'bank'
+                        ? 'border-brand-gold bg-brand-gold/20 shadow-[0_4px_8px_rgba(201,168,76,0.25)]'
+                        : 'border-brand-sky-blue/20 bg-brand-dark-navy/20 hover:border-brand-sky-blue/40'
+                    }`}>
+                      <input
+                        type="radio"
+                        name="payment_method"
+                        value="bank"
+                        checked={form.payment_method === 'bank'}
+                        onChange={handleChange}
+                        className="h-4 w-4 cursor-pointer"
+                      />
+                      <div className="flex-1">
+                        <span className="text-[0.9rem] font-semibold text-white">Bank Transfer</span>
+                        <p className="text-[0.75rem] text-white/70">Askari Bank</p>
+                      </div>
+                    </label>
+
+                    {/* NayaPay Option */}
+                    <label className={`flex cursor-pointer items-center gap-3 rounded-lg border p-4 transition-all duration-200 ${
+                      form.payment_method === 'nayapay'
+                        ? 'border-brand-gold bg-brand-gold/20 shadow-[0_4px_8px_rgba(201,168,76,0.25)]'
+                        : 'border-brand-sky-blue/20 bg-brand-dark-navy/20 hover:border-brand-sky-blue/40'
+                    }`}>
+                      <input
+                        type="radio"
+                        name="payment_method"
+                        value="nayapay"
+                        checked={form.payment_method === 'nayapay'}
+                        onChange={handleChange}
+                        className="h-4 w-4 cursor-pointer"
+                      />
+                      <div className="flex-1">
+                        <span className="text-[0.9rem] font-semibold text-white">NayaPay</span>
+                        <p className="text-[0.75rem] text-white/70">Mobile Wallet</p>
+                      </div>
+                    </label>
+
+                    {/* JazzCash Option */}
+                    <label className={`flex cursor-pointer items-center gap-3 rounded-lg border p-4 transition-all duration-200 ${
+                      form.payment_method === 'jazzcash'
+                        ? 'border-brand-gold bg-brand-gold/20 shadow-[0_4px_8px_rgba(201,168,76,0.25)]'
+                        : 'border-brand-sky-blue/20 bg-brand-dark-navy/20 hover:border-brand-sky-blue/40'
+                    }`}>
+                      <input
+                        type="radio"
+                        name="payment_method"
+                        value="jazzcash"
+                        checked={form.payment_method === 'jazzcash'}
+                        onChange={handleChange}
+                        className="h-4 w-4 cursor-pointer"
+                      />
+                      <div className="flex-1">
+                        <span className="text-[0.9rem] font-semibold text-white">JazzCash</span>
+                        <p className="text-[0.75rem] text-white/70">Mobile Wallet</p>
+                      </div>
+                    </label>
+                  </div>
+
+                  {/* Conditional Payment Details Display */}
+                  {form.payment_method === 'bank' && (
+                    <div className="mt-4 p-4 rounded-xl bg-gradient-to-br from-brand-navy/40 to-brand-dark-navy/60 border border-brand-sky-blue/30 backdrop-blur-sm shadow-lg">
+                      <div className="mb-3 text-[0.72rem] font-bold uppercase tracking-[2px] text-brand-gold">Bank Details</div>
+                      <div className="space-y-2.5">
+                        <div>
+                          <p className="text-[0.7rem] font-semibold text-white/60 uppercase tracking-wide mb-0.5">Bank Name</p>
+                          <p className="text-[0.9rem] font-bold text-white">Askari Bank</p>
+                        </div>
+                        <div>
+                          <p className="text-[0.7rem] font-semibold text-white/60 uppercase tracking-wide mb-0.5">Account Title</p>
+                          <p className="text-[0.9rem] font-bold text-white">GLOBAL INSTITUTE OF CLINICAL PSYCHOLOGY</p>
+                        </div>
+                        <div>
+                          <p className="text-[0.7rem] font-semibold text-white/60 uppercase tracking-wide mb-0.5">Account Number</p>
+                          <div className="flex items-center gap-2">
+                            <p className="text-[0.95rem] font-mono font-bold text-brand-gold">02230900007246</p>
+                            <button
+                              type="button"
+                              onClick={() => navigator.clipboard.writeText('02230900007246')}
+                              className="px-2 py-0.5 text-[0.65rem] bg-brand-sky-blue/30 hover:bg-brand-sky-blue/50 text-white rounded transition-all duration-200"
+                            >
+                              Copy
+                            </button>
+                          </div>
+                        </div>
+                        <div>
+                          <p className="text-[0.7rem] font-semibold text-white/60 uppercase tracking-wide mb-0.5">Branch</p>
+                          <p className="text-[0.9rem] font-bold text-white">Valencia Town Branch (0223)</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {form.payment_method === 'nayapay' && (
+                    <div className="mt-4 p-4 rounded-xl bg-gradient-to-br from-brand-navy/40 to-brand-dark-navy/60 border border-brand-sky-blue/30 backdrop-blur-sm shadow-lg">
+                      <div className="mb-3 text-[0.72rem] font-bold uppercase tracking-[2px] text-brand-gold">NayaPay Details</div>
+                      <div className="space-y-2.5">
+                        <div>
+                          <p className="text-[0.7rem] font-semibold text-white/60 uppercase tracking-wide mb-0.5">Account Number</p>
+                          <div className="flex items-center gap-2">
+                            <p className="text-[0.95rem] font-mono font-bold text-brand-gold">03010000305</p>
+                            <button
+                              type="button"
+                              onClick={() => navigator.clipboard.writeText('03010000305')}
+                              className="px-2 py-0.5 text-[0.65rem] bg-brand-sky-blue/30 hover:bg-brand-sky-blue/50 text-white rounded transition-all duration-200"
+                            >
+                              Copy
+                            </button>
+                          </div>
+                        </div>
+                        <div>
+                          <p className="text-[0.7rem] font-semibold text-white/60 uppercase tracking-wide mb-0.5">Account Title</p>
+                          <p className="text-[0.9rem] font-bold text-white">Shamila Irshad</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {form.payment_method === 'jazzcash' && (
+                    <div className="mt-4 p-4 rounded-xl bg-gradient-to-br from-brand-navy/40 to-brand-dark-navy/60 border border-brand-sky-blue/30 backdrop-blur-sm shadow-lg">
+                      <div className="mb-3 text-[0.72rem] font-bold uppercase tracking-[2px] text-brand-gold">JazzCash Details</div>
+                      <div className="space-y-2.5">
+                        <div>
+                          <p className="text-[0.7rem] font-semibold text-white/60 uppercase tracking-wide mb-0.5">Account Number</p>
+                          <div className="flex items-center gap-2">
+                            <p className="text-[0.95rem] font-mono font-bold text-brand-gold">03010000305</p>
+                            <button
+                              type="button"
+                              onClick={() => navigator.clipboard.writeText('03010000305')}
+                              className="px-2 py-0.5 text-[0.65rem] bg-brand-sky-blue/30 hover:bg-brand-sky-blue/50 text-white rounded transition-all duration-200"
+                            >
+                              Copy
+                            </button>
+                          </div>
+                        </div>
+                        <div>
+                          <p className="text-[0.7rem] font-semibold text-white/60 uppercase tracking-wide mb-0.5">Account Title</p>
+                          <p className="text-[0.9rem] font-bold text-white">Shamila Irshad</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
                 <button
                   type="submit"
                   disabled={!isFormValid || status === 'submitting'}
