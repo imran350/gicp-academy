@@ -28,23 +28,19 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 z-50 w-full border-b border-brand-sky-blue/30 bg-brand-dark-navy/90 backdrop-blur-sm shadow-lg">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
-        {/* Logo */}
+        {/* Logo with Gradient and Glow */}
         <Link
           to="/"
-          className="flex items-center gap-2"
+          className="flex items-center gap-2 transition-transform duration-300 hover:scale-105"
           onClick={handleNavClick}
         >
-          <img src={GICPLogo} alt="GICP Academy" className="h-10 w-auto rounded-full object-cover" />
-          {/* GICP Academy + CPD vertical stack (CPD below GICP) */}
+          <img src={GICPLogo} alt="GICP Academy" className="h-10 w-auto rounded-full object-cover shadow-[0_0_12px_rgba(14,165,233,0.4)]" />
+          {/* GICP Academy with Gradient */}
           <div className="flex flex-col gap-0.5">
-            <span className="font-display text-xl font-bold tracking-wide text-white">
+            <span className="font-display text-xl font-black tracking-wide bg-gradient-to-r from-cyan-400 via-brand-sky-blue to-blue-500 bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(6,182,212,0.5)]">
               GICP Academy
             </span>
           </div>
-          {/* Option 2: Short text (uncomment to use) */}
-          {/* <span className="font-display text-xl font-bold tracking-wide bg-gradient-to-r from-brand-sky-blue via-brand-light-sky to-white bg-clip-text text-transparent">
-            GICP
-          </span> */}
         </Link>
 
         {/* Desktop nav — Gold active state with underline + hover effects */}
