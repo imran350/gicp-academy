@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Mail, Globe, MessageCircle, CheckCircle, Send } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 
 // Email validation regex
@@ -287,11 +287,11 @@ export default function Contact() {
                   ></textarea>
                 </div>
 
-                {/* Glowing submit button */}
+                {/* Glowing submit button — matches Admissions page */}
                 <button
                   type="submit"
                   disabled={!isValid || status === 'submitting'}
-                  className={`high-end-glowing-button ${(!isValid || status === 'submitting') ? 'disabled-button' : ''}`}
+                  className={`w-full rounded-full bg-gradient-to-r from-purple-600 to-magenta-600 px-7 py-3.5 text-sm font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-[0_0_20px_rgba(192,38,211,0.5)] hover:shadow-[0_0_30px_rgba(192,38,211,0.8)] disabled:opacity-60 disabled:cursor-not-allowed ${(!isValid || status === 'submitting') ? 'disabled:hover:scale-100' : ''}`}
                 >
                   {status === 'submitting' ? 'Submitting...' : <>Submit Application <Send className="ml-2 inline h-4 w-4" /></>}
                 </button>

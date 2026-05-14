@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import GICPLogo from '../../GICP logo.jpeg'
 
@@ -12,11 +12,18 @@ const navLinks = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
-  const location = useLocation()
 
   const handleNavClick = () => {
     setOpen(false)
   }
+
+  const navLinkClass = ({ isActive }) => `
+    text-[0.85rem] font-medium uppercase tracking-wide transition-all duration-300 relative py-1 pb-2
+    ${isActive
+      ? 'text-brand-gold border-b-2 border-brand-gold font-bold shadow-[0_2px_8px_rgba(201,168,76,0.3)]'
+      : 'text-white/75 hover:text-brand-gold border-b-2 border-transparent hover:border-brand-gold'
+    }
+  `
 
   return (
     <header className="fixed top-0 z-50 w-full border-b border-brand-sky-blue/30 bg-brand-dark-navy/90 backdrop-blur-sm shadow-lg">
@@ -40,21 +47,17 @@ export default function Navbar() {
           </span> */}
         </Link>
 
-        {/* Desktop nav — FORCED Sky Blue (#0ea5e9) + bold for Apply Now */}
+        {/* Desktop nav — Gold active state with underline + hover effects */}
         <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
-            <Link
+            <NavLink
               key={link.to}
               to={link.to}
               onClick={handleNavClick}
-              className={`text-[0.85rem] font-medium uppercase tracking-wide transition-colors duration-200 ${
-                location.pathname === link.to
-                  ? 'text-white'
-                  : 'text-white/75 hover:text-white transition-all duration-300 relative py-1'
-              }`}
+              className={navLinkClass}
             >
               {link.label}
-            </Link>
+            </NavLink>
           ))}
           <Link
             to="/admissions"
@@ -80,18 +83,20 @@ export default function Navbar() {
         <div className="border-t border-brand-sky-blue/10 bg-brand-dark-navy/95 backdrop-blur-sm md:hidden">
           <div className="space-y-1 px-6 py-4">
             {navLinks.map((link) => (
-              <Link
+              <NavLink
                 key={link.to}
                 to={link.to}
                 onClick={handleNavClick}
-                className={`block rounded px-3 py-2.5 text-[0.85rem] font-medium uppercase tracking-wide transition-colors ${
-                  location.pathname === link.to
-                    ? 'text-white'
-                    : 'text-white/75 hover:text-white transition-all duration-300 relative py-1'
-                }`}
+                className={({ isActive }) => `
+                  block rounded px-3 py-2.5 text-[0.85rem] font-medium uppercase tracking-wide transition-all duration-300
+                  ${isActive
+                    ? 'bg-brand-gold/20 text-brand-gold font-bold border-l-4 border-brand-gold'
+                    : 'text-white/75 hover:text-brand-gold hover:bg-brand-gold/10 border-l-4 border-transparent'
+                  }
+                `}
               >
                 {link.label}
-              </Link>
+              </NavLink>
             ))}
             <Link
               to="/admissions"
