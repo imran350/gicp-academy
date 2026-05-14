@@ -2,13 +2,10 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Star } from 'lucide-react'
 
 export default function CourseCard({ course }) {
-  // Standard fee for all 6-month programs
-  const standardFee = '55,000 PKR'
-
   return (
     <Link
       to={`/course/${course.id}`}
-      className="group glass-card relative flex flex-col overflow-hidden animate-slowFloat transition-transform duration-200 hover:scale-[1.03]"
+      className="group glass-card relative flex flex-col overflow-hidden animate-slowFloat transition-all duration-300 hover:scale-[1.03] hover:-translate-y-2 cursor-pointer"
     >
       {/* Top accent bar */}
       <div className="h-1.5 rounded-t-2xl bg-gradient-to-r from-brand-sky-blue to-brand-light-sky" />
@@ -24,13 +21,10 @@ export default function CourseCard({ course }) {
             <Star className="h-4 w-4 text-amber-400 animate-pulse-glow" />
           </div>
 
-          {/* Bright Sky Blue Duration/Fee tags */}
+          {/* Duration tag */}
           <div className="flex flex-wrap gap-2">
             <span className="rounded-full bg-brand-sky-blue/20 px-2.5 py-1 text-[0.65rem] font-bold text-brand-sky-blue">
               {course.duration}
-            </span>
-            <span className="rounded-full bg-brand-sky-blue/20 px-2.5 py-1 text-[0.65rem] font-bold text-brand-sky-blue">
-              {standardFee}
             </span>
           </div>
 

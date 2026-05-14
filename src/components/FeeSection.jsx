@@ -40,13 +40,13 @@ export default function FeeSection() {
           <div className="flex flex-col gap-5 items-center justify-center">
             <div className="glass-card w-full max-w-md p-10 text-center">
               <div className="mb-2 text-[0.78rem] font-semibold uppercase tracking-[2px] text-slate-300">
-                Standard Fee
+                Program Investment
               </div>
               <div className="font-display text-[3.2rem] font-extrabold leading-none text-white">
-                55,000 <span className="text-[1rem] font-normal text-slate-300">PKR</span>
+                Affordable Excellence
               </div>
               <p className="mt-4 text-[0.82rem] text-slate-300">
-                Full program access &middot; Easy installments available
+                World-class education with flexible payment plans and scholarship opportunities available
               </p>
               <Link to="/admissions" className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand-sky-blue px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-transform duration-200 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/50">
                 Enroll Now

@@ -129,6 +129,58 @@ const courses = [
     badge: null,
     backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
   },
+  {
+    id: 'asd-intervention',
+    num: '11',
+    title: 'ASD and Intervention Plan',
+    tagline: null,
+    subtitle: 'Comprehensive autism assessment and personalized intervention strategies.',
+    duration: '3 Months',
+    schedule: '2 Days / Week',
+    description:
+      'Short-course focused on advanced ASD assessment tools and designing individualized intervention plans for children on the autism spectrum.',
+    badge: 'Short Course',
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
+  },
+  {
+    id: 'cbt-strategy',
+    num: '12',
+    title: 'CBT Therapy Strategy',
+    tagline: null,
+    subtitle: 'Practical cognitive-behavioral therapy techniques for mental health conditions.',
+    duration: '3 Months',
+    schedule: '2 Days / Week',
+    description:
+      'Intensive short-course in CBT methodology. Master evidence-based strategies for anxiety, depression, and behavioral disorders with real-world practice.',
+    badge: 'Short Course',
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
+  },
+  {
+    id: 'speech-assistant',
+    num: '13',
+    title: 'Speech Therapist Assistant Course',
+    tagline: null,
+    subtitle: 'Support role in speech and language therapy delivery.',
+    duration: '3 Months',
+    schedule: '2 Days / Week',
+    description:
+      'Equip yourself as a speech therapy assistant. Learn to support therapists in assessments, therapy delivery, and patient care in clinical and educational settings.',
+    badge: 'Short Course',
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
+  },
+  {
+    id: 'adhd-intervention',
+    num: '14',
+    title: 'ADHD Course and Intervention Plan',
+    tagline: null,
+    subtitle: 'Understanding ADHD diagnosis and evidence-based intervention strategies.',
+    duration: '3 Months',
+    schedule: '2 Days / Week',
+    description:
+      'Specialized short-course on ADHD assessment, diagnosis, and multi-modal intervention planning. Learn behavioral, pharmacological, and educational approaches.',
+    badge: 'Short Course',
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
+  },
 ]
 
 export default courses

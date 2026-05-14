@@ -130,33 +130,35 @@ export default function Admissions() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left: Fee Plan + Payment Methods */}
             <div className="glass-card p-8 sm:p-11">
-              <div className="section-label text-brand-teal">FEE & PAYMENT</div>
+              <div className="section-label text-brand-teal">PROGRAM INVESTMENT</div>
               <div className="mt-4 flex flex-col sm:flex-row gap-4">
                 <div className="fee-card std w-full sm:w-auto bg-brand-dark-navy/20 p-4 border border-brand-sky-blue/10 shadow-sm">
-                  <div className="fee-lbl text-white/90 text-sm font-semibold uppercase">STANDARD FEE</div>
-                  <div className="fee-amt font-display text-2xl font-bold text-white mt-1">PKR 55,000</div>
-                  <div className="fee-note text-white/90 text-sm mt-1">Easy 2–3 installment plan available</div>
+                  <div className="fee-lbl text-white/90 text-sm font-semibold uppercase">Affordable Excellence</div>
+                  <div className="fee-amt font-display text-xl font-bold text-white mt-1 bg-gradient-to-r from-amber-400 to-amber-300 bg-clip-text text-transparent">Flexible Payment Plans</div>
+                  <div className="fee-note text-white/90 text-sm mt-1">Easy installment plans & scholarships available</div>
                 </div>
               </div>
               <div className="mt-6">
                 <div className="pm-title text-white/90 text-sm font-semibold uppercase">PAYMENT METHODS</div>
                 <div className="pm-cards mt-3 space-y-3">
-                  <div className="pm-card jz p-4 bg-brand-dark-navy/20 border-brand-sky-blue/10 shadow-sm">
+                  <label className="pm-card jz p-4 bg-brand-dark-navy/20 border border-brand-sky-blue/10 shadow-sm cursor-pointer transition-all duration-200 hover:border-brand-gold/50 hover:bg-brand-dark-navy/40">
+                    <input type="radio" name="payment_method" value="jazzcash" className="sr-only" />
                     <div className="pm-head flex items-center gap-2">
                       <span className="pm-head-ic">📱</span>
-                      <span className="pm-head-name font-semibold">JazzCash / EasyPaisa</span>
+                      <span className="pm-head-name font-semibold text-white">JazzCash / EasyPaisa</span>
                     </div>
                     <div className="pm-num font-bold text-white mt-1">0301-9753393</div>
                     <div className="pm-hint text-sm text-white/90 mt-1">Send payment screenshot on WhatsApp for confirmation</div>
-                  </div>
-                  <div className="pm-card bk p-4 bg-brand-dark-navy/20 border-brand-sky-blue/10 shadow-sm">
+                  </label>
+                  <label className="pm-card bk p-4 bg-brand-dark-navy/20 border border-brand-sky-blue/10 shadow-sm cursor-pointer transition-all duration-200 hover:border-brand-gold/50 hover:bg-brand-dark-navy/40">
+                    <input type="radio" name="payment_method" value="bank" className="sr-only" />
                     <div className="pm-head flex items-center gap-2">
                       <span className="pm-head-ic">🏦</span>
-                      <span className="pm-head-name font-semibold">Bank Transfer</span>
+                      <span className="pm-head-name font-semibold text-white">Bank Transfer</span>
                     </div>
                     <div className="pm-num font-bold text-white mt-1">Details shared after enrollment</div>
                     <div className="pm-hint text-sm text-white/90 mt-1">Details shared on whats up</div>
-                  </div>
+                  </label>
                 </div>
               </div>
             </div>
@@ -250,7 +252,7 @@ export default function Admissions() {
                 <button
                   type="submit"
                   disabled={!isFormValid || status === 'submitting'}
-                  className={`high-end-glowing-button bg-gradient-to-r from-purple-600 to-magenta-600 shadow-[0_0_20px_rgba(192,38,211,0.5)] text-bold ${(!isFormValid || status === 'submitting') ? 'disabled-button' : ''}`}
+                  className={`w-full rounded-full bg-gradient-to-r from-purple-600 to-magenta-600 px-7 py-3.5 text-sm font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-[0_0_20px_rgba(192,38,211,0.5)] hover:shadow-[0_0_30px_rgba(192,38,211,0.8)] disabled:opacity-60 disabled:cursor-not-allowed ${(!isFormValid || status === 'submitting') ? 'disabled:hover:scale-100' : ''}`}
                 >
                   {status === 'submitting' ? 'Submitting...' : <>Submit Application <Send className="ml-2 inline h-4 w-4" /></>}
                 </button>

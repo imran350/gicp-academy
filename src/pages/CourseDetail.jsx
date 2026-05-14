@@ -221,13 +221,13 @@ export default function CourseDetail() {
               {/* Price card */}
               <div className="overflow-hidden rounded-lg border border-white/20 bg-brand-dark-navy shadow-[0_8px_32px_rgba(0,0,0,0.15)]">
                 <div className="bg-brand-navy p-6 bg-brand-dark-navy/90 backdrop-blur-sm text-white">
-                  {/* Standard Fee */}
+                  {/* Investment Card */}
                   <div className="mb-4">
-                    <p className="text-[0.85rem] text-white/80">Standard Fee</p>
+                    <p className="text-[0.85rem] text-white/80">Program Investment</p>
                     <div className="flex items-baseline gap-2">
-                      <span className="font-display text-5xl font-extrabold text-white">PKR 55,000</span>
+                      <span className="font-display text-4xl font-extrabold bg-gradient-to-r from-amber-400 to-amber-300 bg-clip-text text-transparent">Investment in Excellence</span>
                     </div>
-                    <p className="mt-1 text-[0.75rem] text-white/60">Available for all applicants</p>
+                    <p className="mt-1 text-[0.75rem] text-white/60">Flexible payment plans & scholarships available</p>
                   </div>
 
 
@@ -251,7 +251,7 @@ export default function CourseDetail() {
 
                   <button
                     onClick={() => document.getElementById('enroll-form')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="w-full rounded bg-brand-gold py-3.5 text-[0.95rem] font-bold text-white transition-colors hover:bg-brand-gold-light"
+                    className="w-full rounded bg-gradient-to-r from-amber-400 to-amber-500 py-3.5 text-[0.95rem] font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-xl animate-glow shadow-[0_0_20px_rgba(217,119,6,0.6)] hover:shadow-[0_0_30px_rgba(217,119,6,0.8)]"
                   >
                     <Send className="mr-1 inline h-4 w-4" /> Enroll Now
                   </button>
@@ -352,7 +352,7 @@ export default function CourseDetail() {
             <button
               type="submit"
               disabled={status === 'submitting'}
-              className="w-full rounded bg-brand-navy py-3.5 text-[0.95rem] font-semibold text-white transition-colors hover:bg-brand-teal disabled:opacity-60"
+              className="w-full rounded bg-gradient-to-r from-purple-600 to-magenta-600 py-3.5 text-[0.95rem] font-bold text-white transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(192,38,211,0.5)] hover:shadow-[0_0_30px_rgba(192,38,211,0.8)] disabled:opacity-60"
             >
               {status === 'submitting' ? 'Submitting...' : <>Submit Application <Send className="ml-1 inline h-4 w-4" /></>}
             </button>
