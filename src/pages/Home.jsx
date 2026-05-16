@@ -22,7 +22,7 @@ function RevealSection({ children, className = '' }) {
 
 export default function Home() {
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Hero />
 
       {/* Courses Section */}
@@ -82,7 +82,7 @@ export default function Home() {
 
           <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-3">
             {/* Tuba Shahid Profile Card */}
-            <Link to="/about" className="group glass-card p-6 rounded-2xl bg-[rgba(255,255,255,0.05)] backdrop-blur-md border border-white/20 flex flex-col justify-center relative overflow-hidden transition-all duration-300 hover:scale-[1.03] hover:-translate-y-2 cursor-pointer">
+            <Link to="/about" className="group glass-card p-6 rounded-2xl bg-[rgba(255,255,255,0.05)] backdrop-blur-md border border-white/20 flex flex-col justify-center relative overflow-hidden transition-all duration-300 hover:scale-[1.03] hover:-translate-y-2 cursor-pointer will-change-transform">
               {/* Hover glow */}
               <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-brand-sky-blue/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -112,7 +112,7 @@ export default function Home() {
             </Link>
 
             {/* Sumaira Profile Card */}
-            <Link to="/about" className="group glass-card p-6 rounded-2xl bg-[rgba(255,255,255,0.05)] backdrop-blur-md border border-white/20 flex flex-col justify-center relative overflow-hidden transition-all duration-300 hover:scale-[1.03] hover:-translate-y-2 cursor-pointer">
+            <Link to="/about" className="group glass-card p-6 rounded-2xl bg-[rgba(255,255,255,0.05)] backdrop-blur-md border border-white/20 flex flex-col justify-center relative overflow-hidden transition-all duration-300 hover:scale-[1.03] hover:-translate-y-2 cursor-pointer will-change-transform">
               {/* Hover glow */}
               <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-brand-sky-blue/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -142,7 +142,7 @@ export default function Home() {
             </Link>
 
             {/* Dr. Nida Profile Card */}
-            <Link to="/about" className="group glass-card p-6 rounded-2xl bg-[rgba(255,255,255,0.05)] backdrop-blur-md border border-white/20 flex flex-col justify-center relative overflow-hidden transition-all duration-300 hover:scale-[1.03] hover:-translate-y-2 cursor-pointer">
+            <Link to="/about" className="group glass-card p-6 rounded-2xl bg-[rgba(255,255,255,0.05)] backdrop-blur-md border border-white/20 flex flex-col justify-center relative overflow-hidden transition-all duration-300 hover:scale-[1.03] hover:-translate-y-2 cursor-pointer will-change-transform">
               {/* Hover glow */}
               <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-brand-sky-blue/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -215,7 +215,7 @@ export default function Home() {
                 ].map((c) => (
                   <div
                     key={c.label}
-                    className="glass-card p-5 transition-transform duration-200 hover:scale-[1.03]"
+                    className="glass-card p-5 transition-transform duration-200 hover:scale-[1.03] will-change-transform"
                   >
                     <div className="mb-2.5 text-[1.4rem]">{c.icon}</div>
                     <div className="text-[0.85rem] font-medium leading-snug text-white/90">
@@ -229,6 +229,6 @@ export default function Home() {
         </section>
       </RevealSection>
 
-    </>
+    </div>
   )
 }

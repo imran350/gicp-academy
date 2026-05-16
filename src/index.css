@@ -63,7 +63,7 @@ p {
 /* ── High-End Glowing Submit Button (fixed class) ── */
 @layer components {
   .high-end-glowing-button {
-    @apply w-full rounded py-4 text-center text-[0.95rem] font-bold text-white transition-all duration-300 bg-gradient-to-r from-sky-500 to-blue-700 shadow-[0_0_20px_rgba(56,189,248,0.4)] hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(56,189,248,0.5)];
+    @apply w-full rounded py-4 text-center text-[0.95rem] font-bold text-white transition-transform duration-300 bg-gradient-to-r from-sky-500 to-blue-700 shadow-[0_0_20px_rgba(56,189,248,0.4)] hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(56,189,248,0.5)] will-change-transform;
   }
 
   .glass-success-message {
@@ -77,7 +77,7 @@ p {
 
 /* ── Custom Button Classes ── */
 .btn-primary {
-  @apply inline-flex items-center gap-2 rounded-full bg-brand-sky-blue px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-sky-blue/25 transition-transform duration-200 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/50;
+  @apply inline-flex items-center gap-2 rounded-full bg-brand-sky-blue px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-sky-blue/25 transition-transform duration-200 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/50 will-change-transform;
 }
 
 .btn-secondary {
@@ -95,6 +95,7 @@ p {
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
+  transform: translateZ(0);
 }
 
 /* ── Grain Texture ── */
@@ -112,31 +113,32 @@ p {
 /* ── Scroll Reveal ── */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(28px) translateZ(0);
   transition: opacity 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: opacity, transform;
 }
 .reveal.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) translateZ(0);
 }
 
-/* ── Animations ── */
+/* ── Animations (GPU-accelerated) ── */
 @keyframes fade-in {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(12px) translateZ(0); }
+  to { opacity: 1; transform: translateY(0) translateZ(0); }
 }
 @keyframes slide-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(24px) translateZ(0); }
+  to { opacity: 1; transform: translateY(0) translateZ(0); }
 }
 @keyframes slowFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  0%, 100% { transform: translateY(0) translateZ(0); }
+  50% { transform: translateY(-6px) translateZ(0); }
 }
 
-.animate-fade-in { animation: fade-in 0.8s ease-out both; }
-.animate-slide-up { animation: slide-up 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
-.animate-slowFloat { animation: slowFloat 6s ease-in-out infinite; }
+.animate-fade-in { animation: fade-in 0.8s ease-out both; will-change: opacity, transform; }
+.animate-slide-up { animation: slide-up 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both; will-change: opacity, transform; }
+.animate-slowFloat { animation: slowFloat 6s ease-in-out infinite; will-change: transform; }
 .animate-delay-50 { animation-delay: 50ms; }
 .animate-delay-100 { animation-delay: 100ms; }
 .animate-delay-150 { animation-delay: 150ms; }

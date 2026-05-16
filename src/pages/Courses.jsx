@@ -3,7 +3,7 @@ import courses from '../data/courses'
 
 export default function Courses() {
   return (
-    <>
+    <div className="overflow-x-hidden">
       {/* Navy Header Banner */}
       <section className="bg-brand-navy pt-28 pb-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -33,6 +33,6 @@ export default function Courses() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   )
 }

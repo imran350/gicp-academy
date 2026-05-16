@@ -5,7 +5,7 @@ export default function CourseCard({ course }) {
   return (
     <Link
       to={`/course/${course.id}`}
-      className="group glass-card relative flex flex-col overflow-hidden animate-slowFloat transition-all duration-300 hover:scale-[1.03] hover:-translate-y-2 cursor-pointer"
+      className="group glass-card relative flex flex-col overflow-hidden animate-slowFloat transition-all duration-300 hover:scale-[1.03] hover:-translate-y-2 cursor-pointer will-change-transform"
     >
       {/* Top accent bar */}
       <div className="h-1.5 rounded-t-2xl bg-gradient-to-r from-brand-sky-blue to-brand-light-sky" />
