@@ -3,10 +3,19 @@
 @tailwind utilities;
 
 /* ── Global Background ── */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
 body {
   background: radial-gradient(circle at 50% 0%, #1e3a8a 0%, #0f172a 80%);
   background-attachment: fixed;
   min-height: 100vh;
+  position: relative;
+}
+#root {
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* ── Typography ── */

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Star } from 'lucide-react'
+import { ArrowRight, Star, ShieldCheck } from 'lucide-react'
 
 export default function CourseCard({ course }) {
   return (
@@ -60,6 +60,14 @@ export default function CourseCard({ course }) {
           <span className="text-[0.75rem] font-medium course-details">{course.schedule}</span>
           <span className="flex items-center gap-1 text-[0.78rem] font-semibold text-brand-sky-blue opacity-0 transition-opacity duration-200 group-hover:opacity-100">
             Details <ArrowRight className="h-3 w-3" />
+          </span>
+        </div>
+
+        {/* CPD Accreditation Sub-text */}
+        <div className="mt-3 flex items-center gap-1.5 rounded-md bg-amber-400/10 px-2.5 py-1.5 border border-amber-400/20">
+          <ShieldCheck className="h-3 w-3 text-amber-300 flex-shrink-0" />
+          <span className="text-[0.65rem] font-medium leading-snug text-amber-200/90 tracking-[0.02em]">
+            This course is delivered under CPD-accredited learning standards.
           </span>
         </div>
       </div>

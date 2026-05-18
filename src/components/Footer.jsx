@@ -157,11 +157,13 @@ export default function Footer() {
 
         {/* Copyright — Clean and Centered */}
         <div className="text-center">
-          <p className="text-[0.78rem] text-slate-400">
-            &copy; {year} <span className="font-semibold text-brand-gold">GICP Academy</span>. All rights reserved.
+          <p className="text-[0.78rem] tracking-[0.04em] text-slate-300">
+            &copy; <span className="font-semibold text-gold-gradient">GLOBAL INSTITUTE OF CLINICAL PSYCHOLOGY</span>
+            <span className="mx-2 text-slate-500">|</span>
+            <span className="font-medium text-slate-200">CPD-Aligned Training Provider</span>
           </p>
-          <p className="text-[0.75rem] text-slate-500 mt-2">
-            Global Institute of Clinical Psychology | Empowering Healthcare Professionals
+          <p className="text-[0.7rem] text-slate-500 mt-2">
+            &copy; {year}. All rights reserved.
           </p>
         </div>
       </div>
