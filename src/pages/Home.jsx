@@ -28,7 +28,7 @@ export default function Home() {
       {/* Courses Section */}
       <section className="py-24 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mb-20 flex flex-col gap-8 px-4">
+          <div className="mb-20 flex flex-col gap-8 px-4 sm:px-6 lg:px-8">
             <div>
               <div className="mb-4 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-sky-blue">
                 Our Diploma Courses
@@ -45,7 +45,7 @@ export default function Home() {
           </div>
 
           {/* Grid */}
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 mx-auto max-w-full">
             {courses.map((course) => (
               <CourseCard key={course.id} course={course} />
             ))}
@@ -80,7 +80,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-3 mx-auto max-w-full">
             {/* Tuba Shahid Profile Card */}
             <Link to="/about" className="group glass-card p-6 rounded-2xl bg-[rgba(255,255,255,0.05)] backdrop-blur-md border border-white/20 flex flex-col justify-center relative overflow-hidden transition-all duration-300 hover:scale-[1.03] hover:-translate-y-2 cursor-pointer will-change-transform">
               {/* Hover glow */}
@@ -176,10 +176,10 @@ export default function Home() {
 
       {/* Careers Section */}
       <RevealSection>
-        <section className="grain relative overflow-hidden py-24 lg:py-28">
+        <section className="grain relative overflow-hidden py-24 lg:py-28 w-full max-w-full">
           {/* Accent glow */}
           <div
-            className="pointer-events-none absolute -right-24 -top-24 h-[500px] w-[500px] rounded-full"
+            className="pointer-events-none absolute -right-24 -top-24 h-[500px] w-[500px] rounded-full max-w-full"
             style={{ background: 'radial-gradient(ellipse, rgba(14, 165, 233, 0.12), transparent 70%)' }}
           />
 
