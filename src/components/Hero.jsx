@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <>
       {/* HERO SECTION */}
-      <section className="relative flex min-h-screen flex-col justify-center overflow-hidden pt-16">
+      <section className="relative flex flex-col justify-center overflow-hidden pt-16">
         {/* Spotlight gradient — matches body */}
         <div
           className="pointer-events-none absolute inset-0"
@@ -26,7 +26,7 @@ export default function Hero() {
             {/* Admissions Open Tag */}
             <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 backdrop-blur-sm px-5 py-2 text-[0.75rem] font-semibold uppercase tracking-[2px] text-white/80 animate-fade-in animate-delay-100">
               <BookOpen className="h-3.5 w-3.5 text-brand-sky-blue" />
-              Admissions Open — New Batch Starting Soon
+              Admissions Open for CPD-Accredited Professional Diploma Programs
             </div>
 
             {/* Heading — larger, bolder */}
@@ -87,7 +87,7 @@ export default function Hero() {
       </section>
 
       {/* STATS STRIP — glassmorphism */}
-      <div className="grid grid-cols-3" style={{ background: 'rgba(15, 23, 42, 0.6)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}>
+      <div className="grid grid-cols-3 max-w-7xl mx-auto" style={{ background: 'rgba(15, 23, 42, 0.6)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}>
         {[
           { number: '10+', label: 'Diploma Courses' },
           { number: '6', label: 'Months Duration' },

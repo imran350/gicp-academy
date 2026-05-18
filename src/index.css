@@ -109,6 +109,8 @@ p {
 
 /* ── Grain Texture ── */
 .grain::before {
+  box-sizing: border-box;
+  clip-path: inset(0);
   content: '';
   position: absolute;
   inset: 0;
@@ -219,3 +221,26 @@ body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, label, input, select,
 input::placeholder, textarea::placeholder {
   color: #94a3b8 !important;
 }
+
+/* ── Custom Scrollbar (Frontend-Design Skill) ── */
+/* Dark theme-matching sleek scrollbar with depth */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(8px);
+  border-left: 1px solid rgba(26, 122, 110, 0.15);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #1a7a6e, #22a898);
+  border-radius: 4px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #22a898, #1a7a6e);
+  transform: scaleX(1.1);
+}
+/* Standard scrollbar support */
+scrollbar-width: thin;
+scrollbar-color: #1a7a6e rgba(15, 23, 42, 0.5);

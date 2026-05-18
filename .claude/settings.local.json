@@ -30,7 +30,11 @@
       "Bash(git log *)",
       "Bash(timeout 8 bash -c 'while ! curl -s http://localhost:5173 > /dev/null 2>&1; do sleep 1; done; echo \"Server ready\"')",
       "Bash(Start-Sleep -Seconds 3)",
-      "Bash(Write-Host \"Server should be starting...\")"
+      "Bash(Write-Host \"Server should be starting...\")",
+      "Bash(pkill -f \"npm run dev\")",
+      "Bash(Get-Process node *)",
+      "Bash(Select-Object Id, MainWindowTitle, CommandLine)",
+      "Bash(timeout 10 bash -c 'until curl -s http://localhost:5173 > /dev/null 2>&1; do sleep 1; done')"
     ]
   }
 }

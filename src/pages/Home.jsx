@@ -22,7 +22,7 @@ function RevealSection({ children, className = '' }) {
 
 export default function Home() {
   return (
-    <div className="overflow-x-hidden">
+    <>
       <Hero />
 
       {/* Courses Section */}
@@ -176,7 +176,7 @@ export default function Home() {
 
       {/* Careers Section */}
       <RevealSection>
-        <section className="grain relative overflow-hidden py-24 lg:py-28 w-full max-w-full">
+        <section className="grain relative overflow-hidden py-24 lg:py-28">
           {/* Accent glow */}
           <div
             className="pointer-events-none absolute -right-24 -top-24 h-[500px] w-[500px] rounded-full max-w-full"
@@ -229,6 +229,6 @@ export default function Home() {
         </section>
       </RevealSection>
 
-    </div>
+    </>
   )
 }
