@@ -220,7 +220,7 @@ export default function Admissions() {
 
                 <div className="grid gap-4 sm:grid-cols-2 form-section">
                   <div>
-                    <label className="mb-1.5 block text-[0.78rem] font-semibold text-white">First Name <span className="text-red-400">*</span></label>
+                    <label className="mb-1.5 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-white">First Name <span className="text-red-400">*</span></label>
                     <input
                       type="text"
                       name="first_name"
@@ -232,7 +232,7 @@ export default function Admissions() {
                     />
                   </div>
                   <div>
-                    <label className="mb-1.5 block text-[0.78rem] font-semibold text-white">Last Name <span className="text-red-400">*</span></label>
+                    <label className="mb-1.5 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-white">Last Name <span className="text-red-400">*</span></label>
                     <input
                       type="text"
                       name="last_name"
@@ -247,7 +247,7 @@ export default function Admissions() {
 
                 <div className="grid gap-4 sm:grid-cols-2 form-section">
                   <div>
-                    <label className="mb-1.5 block text-[0.78rem] font-semibold text-white">WhatsApp Number <span className="text-red-400">*</span></label>
+                    <label className="mb-1.5 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-white">WhatsApp Number <span className="text-red-400">*</span></label>
                     <input
                       type="tel"
                       name="whatsapp"
@@ -259,7 +259,7 @@ export default function Admissions() {
                     />
                   </div>
                   <div>
-                    <label className="mb-1.5 block text-[0.78rem] font-semibold text-white">Email Address <span className="text-red-400">*</span></label>
+                    <label className="mb-1.5 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-white">Email Address <span className="text-red-400">*</span></label>
                     <input
                       type="email"
                       name="email"
@@ -273,7 +273,7 @@ export default function Admissions() {
                 </div>
 
                 <div className="form-section">
-                  <label className="mb-1.5 block text-[0.78rem] font-semibold text-white">Course of Interest <span className="text-red-400">*</span></label>
+                  <label className="mb-1.5 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-white">Course of Interest <span className="text-red-400">*</span></label>
                   <select
                     name="program"
                     required
@@ -288,7 +288,7 @@ export default function Admissions() {
 
 
                 <div className="form-section">
-                  <label className="mb-1.5 block text-[0.78rem] font-semibold text-white">Message (Optional)</label>
+                  <label className="mb-1.5 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-white">Message (Optional)</label>
                   <textarea name="message" rows={4} value={form.message} onChange={handleChange} className="form-input text-white !important resize-none" placeholder="Any questions or additional info..." />
                 </div>
 

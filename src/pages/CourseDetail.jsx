@@ -89,7 +89,7 @@ export default function CourseDetail() {
         {/* Back link */}
         <Link
           to="/courses"
-          className="mb-6 inline-flex items-center gap-1 text-[0.9rem] font-medium text-white/90 transition-colors hover:{form.payment_method === pm.id ? 'text-brand-gold' : 'text-brand-teal'}"
+          className="mb-6 inline-flex items-center gap-1 text-[0.9rem] font-medium text-white/90 transition-colors hover:text-brand-gold"
         >
           <ArrowLeft className="h-4 w-4" /> Back to Courses
         </Link>
@@ -99,23 +99,23 @@ export default function CourseDetail() {
           <div className="lg:col-span-2">
             {/* Course header */}
             <div className="border border-white/10 bg-brand-cream p-8">
-              <div className="mb-2 text-[0.72rem] font-semibold uppercase tracking-[2px] {form.payment_method === pm.id ? 'text-brand-gold' : 'text-brand-teal'}">
+              <div className="mb-2 text-[0.72rem] font-semibold uppercase tracking-[2px] text-brand-teal">
                 Course {course.num}
               </div>
               <h1 className="font-display text-xl font-bold text-white sm:text-2xl md:text-3xl leading-tight py-2">
                 {course.title}
               </h1>
               {course.tagline && (
-                <p className="mt-2 text-[0.95rem] font-medium italic {form.payment_method === pm.id ? 'text-brand-gold' : 'text-brand-teal'}">{course.tagline}</p>
+                <p className="mt-2 text-[0.95rem] font-medium italic text-brand-teal">{course.tagline}</p>
               )}
               <p className="mt-4 text-[0.95rem] font-light leading-[1.7] text-white/90">{course.description}</p>
 
               {/* Meta */}
               <div className="mt-6 flex flex-wrap gap-3">
-                <span className="inline-flex items-center gap-1.5 rounded-sm border border-brand-teal/30 px-3 py-1.5 text-[0.85rem] font-medium {form.payment_method === pm.id ? 'text-brand-gold' : 'text-brand-teal'}">
+                <span className="inline-flex items-center gap-1.5 rounded-sm border border-brand-teal/30 px-3 py-1.5 text-[0.85rem] font-medium text-brand-teal">
                   <Clock className="h-3.5 w-3.5" /> {course.duration}
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-sm border border-brand-teal/30 px-3 py-1.5 text-[0.85rem] font-medium {form.payment_method === pm.id ? 'text-brand-gold' : 'text-brand-teal'}">
+                <span className="inline-flex items-center gap-1.5 rounded-sm border border-brand-teal/30 px-3 py-1.5 text-[0.85rem] font-medium text-brand-teal">
                   <CalendarDays className="h-3.5 w-3.5" /> {course.schedule}
                 </span>
                 {course.badge && (
@@ -141,7 +141,7 @@ export default function CourseDetail() {
                   'Ethical practice guidelines',
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-2.5">
-                    <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 {form.payment_method === pm.id ? 'text-brand-gold' : 'text-brand-teal'}" />
+                    <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand-teal" />
                     <span className="text-[0.9rem] text-white/90">{item}</span>
                   </div>
                 ))}
@@ -153,35 +153,35 @@ export default function CourseDetail() {
               <h2 className="mb-4 font-display text-xl font-bold text-white">Learning Format</h2>
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
-                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 {form.payment_method === pm.id ? 'text-brand-gold' : 'text-brand-teal'}">🎥</div>
+                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">🎥</div>
                   <div>
                     <p className="text-[0.85rem] font-semibold text-white">Live Classes</p>
                     <p className="text-[0.75rem] text-white/90">Interactive sessions via Zoom & Google Meet, 2 days per week</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 {form.payment_method === pm.id ? 'text-brand-gold' : 'text-brand-teal'}">📼</div>
+                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">📼</div>
                   <div>
                     <p className="text-[0.85rem] font-semibold text-white">Recorded Lectures</p>
                     <p className="text-[0.75rem] text-white/90">Full access to all recorded sessions anytime, anywhere</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 {form.payment_method === pm.id ? 'text-brand-gold' : 'text-brand-teal'}">📋</div>
+                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">📋</div>
                   <div>
                     <p className="text-[0.85rem] font-semibold text-white">Assignments</p>
                     <p className="text-[0.75rem] text-white/90">Real-world case studies and clinical assignments</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 {form.payment_method === pm.id ? 'text-brand-gold' : 'text-brand-teal'}">⏱</div>
+                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">⏱</div>
                   <div>
                     <p className="text-[0.85rem] font-semibold text-white">Online Exam</p>
                     <p className="text-[0.75rem] text-white/90">45-minute timed paper — auto-submitted, instant results</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 {form.payment_method === pm.id ? 'text-brand-gold' : 'text-brand-teal'}">🎓</div>
+                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">🎓</div>
                   <div>
                     <p className="text-[0.85rem] font-semibold text-white">Certificate</p>
                     <p className="text-[0.75rem] text-white/90">Professional diploma certificate on successful completion</p>
@@ -203,7 +203,7 @@ export default function CourseDetail() {
                       key={pm.id}
                       className="flex items-center gap-3 border border-white/10 bg-brand-cream p-4"
                     >
-                      <PmIcon className="h-5 w-5 flex-shrink-0 {form.payment_method === pm.id ? 'text-brand-gold' : 'text-brand-teal'}" />
+                      <PmIcon className="h-5 w-5 flex-shrink-0 text-brand-teal" />
                       <div>
                         <p className="text-[0.85rem] font-semibold text-white">{pm.label}</p>
                         <p className="text-[0.75rem] text-white/90">{pm.desc}</p>
@@ -281,29 +281,29 @@ export default function CourseDetail() {
           <h3 className="mb-6 font-display text-xl font-bold text-white">Quick Enrollment</h3>
 
           <form onSubmit={handleSubmit} className="mx-auto max-w-3xl space-y-4">
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="mb-1 block text-[0.78rem] font-semibold {form.payment_method === pm.id ? 'text-brand-gold font-bold' : 'text-brand-gold'}">First Name *</label>
+                <label className="mb-1 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-brand-gold">First Name *</label>
                 <input type="text" name="first_name" required value={form.first_name} onChange={handleChange} className={inputClass} placeholder="Ayesha" />
               </div>
               <div>
-                <label className="mb-1 block text-[0.78rem] font-semibold {form.payment_method === pm.id ? 'text-brand-gold font-bold' : 'text-brand-gold'}">Last Name *</label>
+                <label className="mb-1 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-brand-gold">Last Name *</label>
                 <input type="text" name="last_name" value={form.last_name} onChange={handleChange} className={inputClass} placeholder="Khan" />
               </div>
             </div>
 
             <div>
-              <label className="mb-1 block text-[0.78rem] font-semibold {form.payment_method === pm.id ? 'text-brand-gold font-bold' : 'text-brand-gold'}">WhatsApp *</label>
+              <label className="mb-1 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-brand-gold">WhatsApp *</label>
               <input type="tel" name="whatsapp" required value={form.whatsapp} onChange={handleChange} className={inputClass} placeholder="0300-0000000" />
             </div>
 
             <div>
-              <label className="mb-1 block text-[0.78rem] font-semibold {form.payment_method === pm.id ? 'text-brand-gold font-bold' : 'text-brand-gold'}">Email *</label>
+              <label className="mb-1 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-brand-gold">Email *</label>
               <input type="email" name="email" required value={form.email} onChange={handleChange} className={inputClass} placeholder="you@email.com" />
             </div>
 
             <div>
-              <label className="mb-1 block text-[0.78rem] font-semibold {form.payment_method === pm.id ? 'text-brand-gold font-bold' : 'text-brand-gold'}">Course *</label>
+              <label className="mb-1 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-brand-gold">Course *</label>
               <select name="program" required value={form.program} onChange={handleChange} className={inputClass}>
                   <option value="">Select a Course</option>
                   {courses.map((c) => (
@@ -314,7 +314,7 @@ export default function CourseDetail() {
 
             {/* Payment */}
             <div>
-              <label className="mb-1.5 block text-[0.78rem] font-semibold {form.payment_method === pm.id ? 'text-brand-gold font-bold' : 'text-brand-gold'}">Payment Method *</label>
+              <label className="mb-1.5 block text-[0.78rem] font-semibold text-brand-gold">Payment Method *</label>
               <div className="grid gap-2 sm:grid-cols-3">
                 {paymentMethods.map((pm) => {
                   const PmIcon = pm.icon
@@ -379,7 +379,7 @@ export default function CourseDetail() {
             </div>
 
             <div>
-              <label className="mb-1 block text-[0.78rem] font-semibold {form.payment_method === pm.id ? 'text-brand-gold font-bold' : 'text-brand-gold'}">Message (optional)</label>
+              <label className="mb-1 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-brand-gold">Message (optional)</label>
               <textarea name="message" rows={3} value={form.message} onChange={handleChange} className={`${inputClass} resize-none`} placeholder="Any questions..." />
             </div>
 

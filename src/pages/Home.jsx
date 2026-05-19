@@ -179,7 +179,7 @@ export default function Home() {
         <section className="grain relative overflow-hidden py-24 lg:py-28">
           {/* Accent glow */}
           <div
-            className="pointer-events-none absolute -right-24 -top-24 h-[500px] w-[500px] rounded-full max-w-full"
+            className="pointer-events-none absolute -right-12 -top-12 h-[200px] w-[200px] sm:h-[300px] sm:w-[300px] lg:h-[500px] lg:w-[500px] rounded-full max-w-full"
             style={{ background: 'radial-gradient(ellipse, rgba(14, 165, 233, 0.12), transparent 70%)' }}
           />
 
@@ -204,7 +204,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   { icon: '🏥', label: 'Clinics & Hospitals' },
                   { icon: '♿', label: 'Rehabilitation Centers' },
