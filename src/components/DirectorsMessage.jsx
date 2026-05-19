@@ -1,6 +1,6 @@
 import { Quote } from 'lucide-react'
 
-export default function DirectorsMessage() {
+export default function GICP Academy Director - 10+ Years of Experience in Clinical Psychology EducationsMessage() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-white via-brand-primary-50/30 to-brand-accent-50/20 py-20">
       {/* Decorative circles */}
@@ -14,8 +14,8 @@ export default function DirectorsMessage() {
             <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-brand-primary/20 to-brand-accent/20 blur-2xl" />
             <div className="relative overflow-hidden rounded-2xl shadow-float">
               <img
-                src="https://placehold.co/480x560/4F46E5/ffffff?text=Director"
-                alt="Director"
+                src="https://placehold.co/480x560/4F46E5/ffffff?text=GICP Academy Director - 10+ Years of Experience in Clinical Psychology Education"
+                alt="GICP Academy Director - 10+ Years of Experience in Clinical Psychology Education"
                 className="h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-primary-dark/40 to-transparent" />
@@ -30,7 +30,7 @@ export default function DirectorsMessage() {
           {/* Content */}
           <div>
             <span className="mb-3 inline-block rounded-full bg-brand-accent-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-accent">
-              Director's Message
+              GICP Academy Director - 10+ Years of Experience in Clinical Psychology Education's Message
             </span>
             <div className="relative mt-4">
               <Quote className="absolute -top-4 -left-2 h-12 w-12 text-brand-primary/10 rotate-180" />
@@ -41,8 +41,8 @@ export default function DirectorsMessage() {
               </blockquote>
             </div>
             <div className="mt-6 pl-6">
-              <p className="font-display text-lg font-bold text-slate-900">Director Name</p>
-              <p className="text-sm font-medium text-brand-primary">Founder &amp; Director, GICP Academy</p>
+              <p className="font-display text-lg font-bold text-slate-900">GICP Academy Director - 10+ Years of Experience in Clinical Psychology Education Name</p>
+              <p className="text-sm font-medium text-brand-primary">Founder &amp; GICP Academy Director - 10+ Years of Experience in Clinical Psychology Education, GICP Academy</p>
             </div>
           </div>
         </div>

@@ -10,6 +10,7 @@ const courses = [
     description:
       'Master clinical assessment, diagnosis, and therapeutic techniques. Gain hands-on experience with real case studies and supervised practice sessions.',
     badge: null,
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
   },
   {
     id: 'child-psychology',
@@ -22,11 +23,12 @@ const courses = [
     description:
       'Explore cognitive, emotional, and social development in children. Learn evidence-based interventions for behavioural and developmental challenges.',
     badge: null,
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
   },
   {
     id: 'autism',
     num: '03',
-    title: 'International Diploma in Autism (ASD)',
+    title: 'Diploma in Autism (ASD)',
     tagline: null,
     subtitle: 'Autism assessment tools and comprehensive intervention planning.',
     duration: '6 Months',
@@ -34,12 +36,12 @@ const courses = [
     description:
       'Develop expertise in autism assessment, intervention strategies, and inclusive education practices for individuals across the autism spectrum.',
     badge: null,
-    imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+ASD+Support',
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
   },
   {
     id: 'speech-therapy',
     num: '04',
-    title: 'International Diploma in Speech & Language Therapy',
+    title: 'Diploma in Speech & Language Therapy',
     tagline: 'Develop expert skills in communication disorders and become a certified therapy professional.',
     subtitle: 'Speech disorders, language delays, and evidence-based therapy techniques.',
     duration: '6 Months',
@@ -47,7 +49,7 @@ const courses = [
     description:
       'Learn to assess and treat speech, language, and communication disorders. Cover articulation, fluency, voice, and language-based learning disabilities.',
     badge: null,
-    imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+Speech+Tools',
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
   },
   {
     id: 'pecs',
@@ -60,12 +62,12 @@ const courses = [
     description:
       'Learn practical techniques to support children with autism and communication challenges. Become a Certified PECS Communication Specialist.',
     badge: null,
-    imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+Nonverbal+Comm',
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
   },
   {
     id: 'physiotherapy',
     num: '06',
-    title: 'International Diploma in Physiotherapy',
+    title: 'Diploma in Physiotherapy',
     tagline: 'Restore Movement, Transform Lives — build hands-on clinical expertise.',
     subtitle: 'Physical rehabilitation, injury management, and hands-on therapy techniques.',
     duration: '6 Months',
@@ -73,7 +75,7 @@ const courses = [
     description:
       'Study musculoskeletal assessment, therapeutic exercises, electrotherapy, and rehabilitation techniques for diverse patient populations.',
     badge: null,
-    imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+Rehabilitation',
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
   },
   {
     id: 'sensory-integration',
@@ -86,12 +88,12 @@ const courses = [
     description:
       'Understand sensory processing, integration techniques, and primitive reflex integration. Learn to design effective sensory diets and therapeutic programs.',
     badge: null,
-    imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+Sensory+Therapy',
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
   },
   {
     id: 'cbt',
     num: '08',
-    title: 'International Diploma in CBT',
+    title: 'Diploma in CBT',
     tagline: null,
     subtitle: 'Cognitive Behavioural Therapy for anxiety, depression, and mood disorders.',
     duration: '6 Months',
@@ -99,7 +101,7 @@ const courses = [
     description:
       'Master CBT techniques for treating anxiety, depression, PTSD, and more. Learn structured therapy sessions with practical case formulations.',
     badge: null,
-    imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+CBT+Sessions',
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
   },
   {
     id: 'nutrition',
@@ -112,12 +114,12 @@ const courses = [
     description:
       'Study clinical nutrition, therapeutic diets, and nutritional assessment. Learn to create diet plans for various health conditions and populations.',
     badge: null,
-    imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+Diet+Planning',
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
   },
   {
     id: 'public-health',
     num: '10',
-    title: 'International Diploma in Public Health',
+    title: 'Diploma in Public Health',
     tagline: null,
     subtitle: 'Disease prevention, community health strategy, and global health systems.',
     duration: '6 Months',
@@ -125,7 +127,59 @@ const courses = [
     description:
       'Explore epidemiology, health policy, environmental health, and community health promotion. Develop skills in health program planning and evaluation.',
     badge: null,
-    imageUrl: 'https://placehold.co/400x200/1a7a6e/ffffff?text=UX+for+Community+Health',
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
+  },
+  {
+    id: 'asd-intervention',
+    num: '11',
+    title: 'ASD and Intervention Plan',
+    tagline: null,
+    subtitle: 'Comprehensive autism assessment and personalized intervention strategies.',
+    duration: '3 Months',
+    schedule: '2 Days / Week',
+    description:
+      'Short-course focused on advanced ASD assessment tools and designing individualized intervention plans for children on the autism spectrum.',
+    badge: 'Short Course',
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
+  },
+  {
+    id: 'cbt-strategy',
+    num: '12',
+    title: 'CBT Therapy Strategy',
+    tagline: null,
+    subtitle: 'Practical cognitive-behavioral therapy techniques for mental health conditions.',
+    duration: '3 Months',
+    schedule: '2 Days / Week',
+    description:
+      'Intensive short-course in CBT methodology. Master evidence-based strategies for anxiety, depression, and behavioral disorders with real-world practice.',
+    badge: 'Short Course',
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
+  },
+  {
+    id: 'speech-assistant',
+    num: '13',
+    title: 'Speech Therapist Assistant Course',
+    tagline: null,
+    subtitle: 'Support role in speech and language therapy delivery.',
+    duration: '3 Months',
+    schedule: '2 Days / Week',
+    description:
+      'Equip yourself as a speech therapy assistant. Learn to support therapists in assessments, therapy delivery, and patient care in clinical and educational settings.',
+    badge: 'Short Course',
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
+  },
+  {
+    id: 'adhd-intervention',
+    num: '14',
+    title: 'ADHD Course and Intervention Plan',
+    tagline: null,
+    subtitle: 'Understanding ADHD diagnosis and evidence-based intervention strategies.',
+    duration: '3 Months',
+    schedule: '2 Days / Week',
+    description:
+      'Specialized short-course on ADHD assessment, diagnosis, and multi-modal intervention planning. Learn behavioral, pharmacological, and educational approaches.',
+    badge: 'Short Course',
+    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
   },
 ]
 

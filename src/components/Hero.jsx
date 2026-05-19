@@ -5,62 +5,74 @@ export default function Hero() {
   return (
     <>
       {/* HERO SECTION */}
-      <section className="grain relative flex min-h-screen flex-col justify-center overflow-hidden bg-brand-navy pt-16">
-        {/* Layered radial gradients */}
+      <section className="relative flex flex-col justify-center overflow-hidden pt-16">
+        {/* Spotlight gradient — matches body */}
         <div
           className="pointer-events-none absolute inset-0"
           style={{
-            background:
-              'radial-gradient(ellipse 70% 60% at 80% 50%, rgba(26,122,110,0.18), transparent 70%), radial-gradient(ellipse 40% 40% at 10% 80%, rgba(201,168,76,0.08), transparent 60%)',
+            background: 'radial-gradient(ellipse 80% 60% at 50% 10%, rgba(30, 58, 138, 0.6) 0%, transparent 70%)',
+          }}
+        />
+        {/* Secondary accent glow */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background: 'radial-gradient(circle at 20% 80%, rgba(14, 165, 233, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(251, 191, 36, 0.06) 0%, transparent 50%)',
           }}
         />
 
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-20 lg:px-8">
           <div className="max-w-3xl">
-            {/* Tag */}
-            <div className="mb-7 inline-flex items-center gap-2 rounded-sm border border-brand-gold bg-brand-gold/15 px-4 py-1.5 text-[0.75rem] font-semibold uppercase tracking-[2px] text-brand-gold animate-fade-in">
-              <BookOpen className="h-3.5 w-3.5" />
-              Admissions Open — New Batch Starting Soon
+            {/* Admissions Open Tag */}
+            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 backdrop-blur-sm px-5 py-2 text-[0.75rem] font-semibold uppercase tracking-[2px] text-white/80 animate-fade-in animate-delay-100">
+              <BookOpen className="h-3.5 w-3.5 text-brand-sky-blue" />
+              Admissions Open for CPD-Accredited Professional Diploma Programs
             </div>
 
-            {/* Heading */}
-            <h1 className="mb-7 font-display text-[clamp(2.8rem,6vw,4.2rem)] font-bold leading-[1.12] text-white animate-slide-up">
+            {/* Heading — larger, bolder */}
+            <h1 className="mb-8 font-display text-[clamp(3rem,7vw,5rem)] font-extrabold leading-[1.05] text-white animate-slide-up animate-delay-150 tracking-[-0.02em]">
               Empowering Future
               <br />
               Professionals in
               <br />
-              <em className="not-italic text-brand-gold">Psychology & Healthcare</em>
+              <span className="bg-gradient-to-r from-brand-light-sky via-brand-sky-blue to-blue-400 bg-clip-text text-transparent">
+                Psychology & Healthcare
+              </span>
             </h1>
 
             {/* Subtext */}
-            <p className="mb-11 max-w-xl text-[1.1rem] font-light leading-[1.7] text-white/65 animate-slide-up-delay">
-              An internationally inspired platform offering diploma programs in psychology, therapy, and healthcare — designed for flexible, career-focused online learning.
+            <p className="mb-12 max-w-xl text-[1.15rem] font-body leading-[1.8] text-slate-300 animate-slide-up animate-delay-250 tracking-[0.01em]">
+              Professionally inspired platform offering diploma programs in psychology, therapy, and healthcare — designed for flexible, career-focused online learning.
             </p>
 
             {/* Badges */}
-            <div className="mb-12 flex flex-wrap gap-3 animate-slide-up-delay-2">
+            <div className="mb-14 flex flex-wrap gap-4 animate-slide-up animate-delay-300">
               {[
-                'UK-Standard Curriculum',
                 'Live on Zoom & Google Meet',
-                '30-Min Online Exams',
-                'International Scholarship Available',
+                '45-Min Online Exams',
               ].map((badge) => (
                 <div
                   key={badge}
-                  className="flex items-center gap-2 text-[0.85rem] font-normal text-white/70"
+                  className="flex items-center gap-2.5 text-[0.88rem] font-medium text-slate-300"
                 >
-                  <span className="font-bold text-brand-teal-light">&#10003;</span>
+                  <span className="font-bold text-amber-400 checkmark">&#10003;</span>
                   {badge}
                 </div>
               ))}
             </div>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap gap-4 animate-slide-up-delay-3">
-              <Link to="/admissions" className="btn-primary">
-                Apply for Admission
+            {/* CTAs — hover:scale-105 + shadow-blue-500/50 glow */}
+            <div className="flex flex-wrap gap-4 items-center animate-slide-up animate-delay-300">
+              <Link
+                to="/admissions"
+                className="inline-flex items-center gap-2 rounded-full bg-brand-sky-blue px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-transform duration-200 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/50"
+              >
+                Apply for Admission <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link to="/courses" className="btn-outline">
+              <Link
+                to="/courses"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm px-7 py-3.5 text-sm font-semibold text-white transition-transform duration-200 hover:scale-105 hover:bg-white/10"
+              >
                 View Courses
               </Link>
             </div>
@@ -68,30 +80,27 @@ export default function Hero() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-6 flex items-center gap-3 text-[0.75rem] uppercase tracking-[3px] text-white/30 lg:left-8 animate-fade-in">
+        <div className="absolute bottom-8 left-6 flex items-center gap-3 text-[0.75rem] uppercase tracking-[3px] text-white/30 lg:left-8 animate-fade-in animate-delay-500">
           Scroll to explore
           <span className="block h-px w-10 bg-white/20" />
         </div>
       </section>
 
-      {/* STATS STRIP */}
-      <div className="grid grid-cols-2 gap-0 bg-brand-navy lg:grid-cols-4">
+      {/* STATS STRIP — glassmorphism */}
+      <div className="grid grid-cols-3 max-w-7xl mx-auto" style={{ background: 'rgba(15, 23, 42, 0.6)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}>
         {[
           { number: '10+', label: 'Diploma Courses' },
           { number: '6', label: 'Months Duration' },
-          { number: '35K', label: 'Scholarship Fee (PKR)' },
           { number: '100%', label: 'Online & Flexible' },
-        ].map((stat, i) => (
+        ].map((stat) => (
           <div
             key={stat.label}
-            className={`border-r border-white/8 px-6 py-10 text-center last:border-r-0 ${
-              i >= 2 ? 'border-t border-white/5 lg:border-t-0' : ''
-            }`}
+            className="px-4 py-12 text-center border-r border-white/8 last:border-r-0"
           >
-            <div className="font-display text-[3rem] font-bold leading-none text-brand-gold">
+            <div className="font-display text-[3.2rem] font-extrabold leading-none stat-number">
               {stat.number}
             </div>
-            <div className="mt-2 text-[0.82rem] text-white/50">{stat.label}</div>
+            <div className="mt-2 text-[0.85rem] font-medium text-slate-300">{stat.label}</div>
           </div>
         ))}
       </div>

@@ -2,121 +2,245 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
+/* ── Global Background ── */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+body {
+  background: radial-gradient(circle at 50% 0%, #1e3a8a 0%, #0f172a 80%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: relative;
+}
+#root {
+  overflow-x: hidden;
+  width: 100%;
+}
 
-  body {
-    background-color: #f7f3ed;
-    color: #1e2d3a;
-    font-family: 'DM Sans', system-ui, sans-serif;
-  }
+/* ── Typography ── */
+h1, h2 {
+  color: #ffffff !important;
+  font-weight: 800;
+}
 
-  h1, h2, h3, h4 {
-    @apply font-display;
+p {
+  color: #cbd5e1;
+}
+
+/* ── Mobile Optimization Styles ── */
+@media (max-width: 640px) {
+  /* Prevent card overlap */
+  .glass-card {
+    margin-bottom: 1rem;
+  }
+  /* Ensure readable text sizes */
+  h1 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem) !important;
+  }
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem) !important;
+  }
+  p {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+  }
+  /* Increase padding on small screens */
+  section {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  /* Adjust nav bar padding */
+  header {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  /* Form section spacing for mobile */
+  .form-section {
+    padding-y: 1rem !important;
   }
 }
 
+/* ── Custom Form Styles (contrast fixes) ── */
+.form-input {
+  @apply w-full rounded border border-white/10 bg-slate-900/40 px-3.5 py-3 text-[0.9rem] text-white outline-none transition-all duration-200 placeholder:text-[#94a3b8] focus:border-sky-500 focus:shadow-[0_0_10px_rgba(56,189,248,0.3)];
+}
+
+.form-error-input {
+  @apply border-red-400 focus:border-red-400 focus:shadow-[0_0_10px_rgba(248,56,56,0.3)];
+}
+
+/* ── High-End Glowing Submit Button (fixed class) ── */
 @layer components {
-  .btn-primary {
-    @apply inline-flex items-center gap-2 rounded bg-brand-teal px-9 py-4 font-body text-[0.95rem] font-semibold text-white
-           transition-[background-color,transform] duration-200
-           hover:bg-brand-teal-light hover:-translate-y-px
-           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-teal
-           active:scale-[0.98];
+  .high-end-glowing-button {
+    @apply w-full rounded py-4 text-center text-[0.95rem] font-bold text-white transition-transform duration-300 bg-gradient-to-r from-sky-500 to-blue-700 shadow-[0_0_20px_rgba(56,189,248,0.4)] hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(56,189,248,0.5)] will-change-transform;
   }
 
-  .btn-accent {
-    @apply inline-flex items-center gap-2 rounded bg-brand-gold px-6 py-3 font-body text-sm font-semibold text-brand-navy
-           transition-[background-color,transform] duration-200
-           hover:bg-brand-gold-light hover:-translate-y-px
-           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-gold
-           active:scale-[0.98];
-  }
-
-  .btn-outline {
-    @apply inline-flex items-center gap-2 rounded border border-white/30 bg-transparent px-9 py-4 font-body text-[0.95rem] font-medium text-white
-           transition-[border-color,color] duration-200
-           hover:border-brand-gold hover:text-brand-gold
-           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-gold
-           active:scale-[0.98];
-  }
-
-  .btn-white {
-    @apply inline-flex items-center gap-2 rounded bg-white px-9 py-4 font-body text-[0.95rem] font-bold text-brand-teal
-           transition-[background-color] duration-200
-           hover:bg-brand-cream
-           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white
-           active:scale-[0.98];
+  .glass-success-message {
+    @apply p-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-lg text-center flex items-center justify-center gap-2;
   }
 }
 
-/* Grain texture overlay */
+.disabled-button {
+  @apply bg-slate-700/50 text-slate-400 cursor-not-allowed shadow-none hover:scale-100;
+}
+
+/* ── Custom Button Classes ── */
+.btn-primary {
+  @apply inline-flex items-center gap-2 rounded-full bg-brand-sky-blue px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-sky-blue/25 transition-transform duration-200 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/50 will-change-transform;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm px-7 py-3.5 text-sm font-semibold text-white transition-transform duration-200 hover:scale-105 hover:bg-white/10;
+}
+
+.btn-white {
+  @apply inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-brand-dark-navy shadow-lg transition-transform duration-200 hover:scale-105 hover:shadow-xl;
+}
+
+/* ── Glassmorphism Card ── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  transform: translateZ(0);
+}
+
+/* ── Grain Texture ── */
 .grain::before {
+  box-sizing: border-box;
+  clip-path: inset(0);
   content: '';
   position: absolute;
   inset: 0;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
   pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 128px 128px;
   z-index: 1;
 }
 
-/* Hero animations */
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slide-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.animate-fade-in {
-  animation: fade-in 0.8s ease-out both;
-}
-
-.animate-slide-up {
-  animation: slide-up 0.8s ease-out both;
-}
-
-.animate-slide-up-delay {
-  animation: slide-up 0.8s ease-out 0.1s both;
-}
-
-.animate-slide-up-delay-2 {
-  animation: slide-up 0.8s ease-out 0.2s both;
-}
-
-.animate-slide-up-delay-3 {
-  animation: slide-up 0.8s ease-out 0.3s both;
-}
-
-.animate-slide-up-delay-4 {
-  animation: slide-up 0.8s ease-out 0.4s both;
-}
-
-/* Scroll reveal */
+/* ── Scroll Reveal ── */
 .reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(28px) translateZ(0);
+  transition: opacity 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: opacity, transform;
 }
-
 .reveal.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) translateZ(0);
 }
 
-/* Exam timer pulse */
-@keyframes pulse-urgent {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
+/* ── Animations (GPU-accelerated) ── */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(12px) translateZ(0); }
+  to { opacity: 1; transform: translateY(0) translateZ(0); }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(24px) translateZ(0); }
+  to { opacity: 1; transform: translateY(0) translateZ(0); }
+}
+@keyframes slowFloat {
+  0%, 100% { transform: translateY(0) translateZ(0); }
+  50% { transform: translateY(-6px) translateZ(0); }
 }
 
-.animate-pulse-urgent {
-  animation: pulse-urgent 1s infinite;
+.animate-fade-in { animation: fade-in 0.8s ease-out both; will-change: opacity, transform; }
+.animate-slide-up { animation: slide-up 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both; will-change: opacity, transform; }
+.animate-slowFloat { animation: slowFloat 6s ease-in-out infinite; will-change: transform; }
+.animate-delay-50 { animation-delay: 50ms; }
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-150 { animation-delay: 150ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-250 { animation-delay: 250ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+
+/* ── Stat counter ── */
+.stat-number {
+  background: linear-gradient(135deg, #7dd3fc, #0ea5e9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
+
+/* ── CPD gold gradient text ── */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Course card styles (FORCE pure white text for all badges/details) ── */
+.course-title {
+  color: #ffffff;
+}
+.course-description {
+  color: #93c5fd;
+}
+.course-details {
+  color: #ffffff !important; /* FORCED pure white for 6 Months/2 Days/Week */
+}
+.course-number {
+  color: #ffffff !important; /* FORCED pure white for Course 01 */
+}
+
+/* ── Payment Method styles (FORCE pure white labels + light icons) ── */
+.pm-head-name {
+  color: #ffffff !important; /* FORCED pure white for JazzCash/EasyPaisa/Bank Transfer */
+}
+.pm-head-ic {
+  color: #93c5fd !important; /* FORCED light color for payment icons */
+}
+
+/* ── Pulse glow ── */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; filter: drop-shadow(0 0 4px rgba(250, 204, 21, 0.4)); }
+  50% { opacity: 0.7; filter: drop-shadow(0 0 8px rgba(250, 204, 21, 0.6)); }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ── Checkmark ── */
+.checkmark {
+  color: #fbbf24;
+}
+
+/* ── FORCEFUL GLOBAL HEADING FIX (added at very bottom per request) ── */
+h1, h2, h3, h4, h5, h6 { color: #ffffff !important; }
+
+/* ── NUCLEAR FONT VISIBILITY: Force all text white ── */
+* { color: #ffffff !important; }
+body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, label, input, select, textarea {
+  color: #ffffff !important;
+}
+input::placeholder, textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* ── Custom Scrollbar (Frontend-Design Skill) ── */
+/* Dark theme-matching sleek scrollbar with depth */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(8px);
+  border-left: 1px solid rgba(26, 122, 110, 0.15);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #1a7a6e, #22a898);
+  border-radius: 4px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #22a898, #1a7a6e);
+  transform: scaleX(1.1);
+}
+/* Standard scrollbar support */
+scrollbar-width: thin;
+scrollbar-color: #1a7a6e rgba(15, 23, 42, 0.5);

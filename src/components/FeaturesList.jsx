@@ -25,46 +25,46 @@ const features = [
   {
     icon: ClipboardCheck,
     title: 'Online Exams',
-    desc: '30-minute timed exam, auto-submitted with instant results displayed on screen.',
+    desc: '45-minute timed exam, auto-submitted with instant results displayed on screen.',
   },
   {
     icon: Award,
     title: 'Certification',
-    desc: 'Receive an internationally inspired diploma certificate upon successful completion.',
+    desc: 'Receive a professional diploma certificate upon successful completion.',
   },
 ]
 
 export default function FeaturesList() {
   return (
-    <section className="bg-brand-cream py-24 lg:py-28">
+    <section className="py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div className="mb-16 max-w-lg">
-          <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-teal">
+          <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-sky-blue">
             Why GICP Academy
           </div>
-          <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-bold leading-tight text-brand-navy">
+          <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-extrabold leading-tight text-white">
             Everything You Need to Succeed
           </h2>
-          <p className="mt-4 text-[1rem] font-light leading-[1.7] text-brand-muted">
+          <p className="mt-4 text-[1rem] font-light leading-[1.7] text-slate-300">
             A complete learning experience designed for working professionals and students.
           </p>
         </div>
 
-        {/* Grid */}
+        {/* Grid — glassmorphism cards */}
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((f) => {
             const Icon = f.icon
             return (
               <div
                 key={f.title}
-                className="group rounded-lg border border-brand-teal/10 bg-white/80 p-8 transition-colors duration-200 hover:bg-white"
+                className="glass-card group p-8 transition-transform duration-200 hover:scale-[1.03]"
               >
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded bg-brand-teal/10">
-                  <Icon className="h-5 w-5 text-brand-teal" />
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-brand-sky-blue/15">
+                  <Icon className="h-5 w-5 text-brand-sky-blue" />
                 </div>
-                <h3 className="mb-2 text-[0.95rem] font-semibold text-brand-navy">{f.title}</h3>
-                <p className="text-[0.85rem] font-light leading-[1.65] text-brand-muted">{f.desc}</p>
+                <h3 className="mb-2 text-[0.95rem] font-semibold text-white">{f.title}</h3>
+                <p className="text-[0.85rem] font-light leading-[1.65] text-slate-300">{f.desc}</p>
               </div>
             )
           })}

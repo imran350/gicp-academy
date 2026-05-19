@@ -118,6 +118,13 @@ gicp-academy/
 - [x] Fixed CourseCard.jsx invalid Tailwind classes
 - [x] Updated WhoWeServe.jsx to use current brand color system (navy/teal/gold/cream)
 - [x] Softened white card backgrounds with bg-white/80 for better cream page alignment
+- [x] Home page: Evenly distributed stats strip, 10 course cards visible (scroll reveal removed, CPD claims in horizontal layout, standardized hero subtext font style)
+- [x] Programs page: Increased top text opacity to 80% for visibility
+- [x] Course Detail page: Removed scholarship fee/Therapy Options, enlarged standard fee, added full course list dropdown, marked all required fields with asterisks, fixed payment method selection (cursor/padding/shadow/gold color), disabled WhatsApp auto-open (pre-filled link provided), updated form input styles for visibility
+- [x] Fixed Home page double scrollbar issue (removed redundant layout wrappers/classes)
+- [x] Standardized Home page layout to match About/Programs page structure
+- [x] Updated Home page admissions banner text to 'Admissions Open for CPD-Accredited Professional Diploma Programs'
+- [x] Production SEO updates (meta tags, Open Graph tags, image alt tags, public/sitemap.xml creation)
 
 ## Pending (Next Session)
 - [ ] **Supabase setup** — User needs to:

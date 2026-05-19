@@ -8,19 +8,25 @@ export default {
     extend: {
       colors: {
         brand: {
-          navy: '#0d1b2a',
-          teal: '#1a7a6e',
-          'teal-light': '#22a898',
-          gold: '#c9a84c',
-          'gold-light': '#e8c96a',
-          cream: '#f7f3ed',
-          text: '#1e2d3a',
-          muted: '#6b7f8e',
+          'sky-blue': '#0ea5e9', // Primary accent
+          'light-sky': '#7dd3fc', // Light sky highlights
+          'navy-blue': '#1e3a8a', // Deep navy background
+          'dark-navy': '#0f172a', // Darkest navy
+          'text-primary': '#ffffff', // Primary text for dark backgrounds
+          'text-secondary': '#7dd3fc', // Secondary text for dark backgrounds
+          'text-accent': '#0ea5e9', // Accent text
+          'text-muted': '#bfdbfe', // Muted text
         },
       },
       fontFamily: {
-        display: ['Playfair Display SC', 'serif'],
-        body: ['Libre Baskerville', 'serif'],
+        display: ['Inter', 'sans-serif'], // Consistent modern sans-serif for headings
+        body: ['Inter', 'sans-serif'], // Clean sans-serif for body text
+      },
+      lineHeight: {
+        'body-loose': '1.8', // Spacious readability
+      },
+      letterSpacing: {
+        'body-wide': '0.01em', // Avoid tight spacing
       },
       letterSpacing: {
         tightest: '-0.03em',

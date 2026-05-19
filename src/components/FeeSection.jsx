@@ -2,20 +2,20 @@ import { Link } from 'react-router-dom'
 
 export default function FeeSection() {
   return (
-    <section className="bg-brand-cream py-24 lg:py-28">
+    <section className="py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
           {/* Left: Info */}
           <div>
-            <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-teal">
+            <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-sky-blue">
               Fee Structure
             </div>
-            <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-bold leading-tight text-brand-navy">
+            <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-extrabold leading-tight text-white">
               Affordable,
               <br />
               Transparent Pricing
             </h2>
-            <p className="mt-4 mb-10 max-w-md text-[1rem] font-light leading-[1.7] text-brand-muted">
+            <p className="mt-4 mb-10 max-w-md text-[1rem] font-light leading-[1.7] text-slate-300">
               We believe quality education should be accessible. Easy installment plans are available for all programs.
             </p>
 
@@ -24,59 +24,32 @@ export default function FeeSection() {
                 'Live interactive classes via Zoom & Google Meet with experienced faculty',
                 'Full access to recorded lectures anytime, anywhere',
                 'Real-world assignments & clinical case studies',
-                'Timed online exams — 30-minute paper, auto-submitted & instant results',
-                'Internationally inspired certification on completion',
+                'Timed online exams — 45-minute paper, auto-submitted & instant results',
+                'Professional certification on completion',
                 'Easy installment payment plans',
               ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3.5 text-[0.95rem] leading-[1.5] text-brand-text">
-                  <span className="mt-0.5 flex-shrink-0 font-bold text-brand-teal">&#10003;</span>
-                  {item.includes('**') ? (
-                    <span dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
-                  ) : (
-                    item
-                  )}
+                <li key={i} className="flex items-start gap-3.5 text-[0.95rem] leading-[1.5] text-slate-300">
+                  <span className="mt-0.5 flex-shrink-0 font-bold text-brand-sky-blue">&#10003;</span>
+                  {item}
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Right: Fee cards */}
-          <div className="flex flex-col gap-5">
-            {/* Standard */}
-            <div className="rounded-lg border border-brand-teal/10 bg-white/80 p-9">
-              <div className="mb-2 text-[0.78rem] font-semibold uppercase tracking-[2px] text-brand-muted">
-                Standard Fee
+          {/* Right: Fee card — glassmorphism */}
+          <div className="flex flex-col gap-5 items-center justify-center">
+            <div className="glass-card w-full max-w-md p-10 text-center">
+              <div className="mb-2 text-[0.78rem] font-semibold uppercase tracking-[2px] text-slate-300">
+                Program Investment
               </div>
-              <div className="font-display text-[3rem] font-bold leading-none text-brand-navy">
-                55,000 <span className="text-[1rem] font-normal text-brand-muted">PKR</span>
+              <div className="font-display text-[3.2rem] font-extrabold leading-none text-white">
+                Affordable Excellence
               </div>
-              <p className="mt-3 text-[0.82rem] text-brand-muted">
-                Full program access &middot; Easy installments available
+              <p className="mt-4 text-[0.82rem] text-slate-300">
+                World-class education with flexible payment plans and scholarship opportunities available
               </p>
-            </div>
-
-            {/* Scholarship — featured */}
-            <div className="relative overflow-hidden rounded-lg border border-brand-teal bg-brand-navy p-9">
-              {/* Badge */}
-              <div className="absolute top-5 right-5 rounded-sm border border-brand-gold bg-brand-gold/10 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-[1.5px] text-brand-gold">
-                &#9733; SCHOLARSHIP
-              </div>
-
-              <div className="mb-2 text-[0.78rem] font-semibold uppercase tracking-[2px] text-white/50">
-                Scholarship Fee
-              </div>
-              <div className="font-display text-[3rem] font-bold leading-none text-brand-gold">
-                35,000 <span className="text-[1rem] font-normal text-white/50">PKR</span>
-              </div>
-              <p className="mt-3 text-[0.82rem] text-white/45">
-                Limited seats — Apply now to secure your spot
-              </p>
-
-              <Link
-                to="/admissions"
-                className="mt-6 inline-block rounded bg-brand-teal px-8 py-3 text-[0.9rem] font-semibold text-white transition-colors duration-200 hover:bg-brand-teal-light"
-              >
-                Apply for Scholarship
+              <Link to="/admissions" className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand-sky-blue px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-transform duration-200 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/50">
+                Enroll Now
               </Link>
             </div>
           </div>
