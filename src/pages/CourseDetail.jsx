@@ -71,9 +71,13 @@ export default function CourseDetail() {
       const { error } = await supabase.from('applications').insert([form])
       if (error) throw error
       setStatus('success')
+      // Scroll to success alert container
+      document.getElementById('success-alert')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
       // WhatsApp notification
       const whatsappMsg = `New Application Received!%0A%0A*Name:*%20${form.first_name}%20${form.last_name}%0A*Course:*%20${form.program}%0A*Phone:*%20${form.whatsapp}`
-      window.open(`https://wa.me/923019753393?text=${whatsappMsg}`, '_blank')
+      setTimeout(() => {
+        window.open(`https://wa.me/923019753393?text=${whatsappMsg}`, '_blank')
+      }, 2000)
       setForm({ first_name: '', last_name: '', whatsapp: '', email: '', program: course.title, payment_method: '', message: '' })
     } catch {
       setStatus('error')
@@ -271,7 +275,7 @@ export default function CourseDetail() {
         {/* Enrollment form — full width, below the grid */}
         <div id="enroll-form" className="mt-10 border border-white/10 bg-brand-cream p-8">
           {status === 'success' ? (
-            <div className="bg-green-600/20 border-2 border-green-500 p-8 rounded-2xl text-center animate-fade-in">
+            <div id="success-alert" className="bg-green-600/20 border-2 border-green-500 p-8 rounded-2xl text-center animate-fade-in transform translateZ(0)">
               <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
               <p className="text-xl font-bold text-white">Application Submitted Successfully!</p>
               <p className="mt-2 text-white/90">Opening WhatsApp for final confirmation...</p>

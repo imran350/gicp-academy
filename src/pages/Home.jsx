@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Sparkles, Globe, TrendingUp, BookOpenCheck, Layers, BadgeCheck, ShieldCheck, Award, CheckCircle2 } from 'lucide-react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import Hero from '../components/Hero'
 import CourseCard from '../components/CourseCard'
@@ -24,6 +24,109 @@ export default function Home() {
   return (
     <>
       <Hero />
+
+      <RevealSection className="py-20">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          {/* Eyebrow + headline */}
+          <div className="mb-12 text-center max-w-3xl mx-auto">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-amber-400/25 bg-amber-400/10 px-4 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[3px] text-amber-300">
+              <Sparkles className="h-3 w-3" />
+              CPD-Aligned Excellence
+            </div>
+            <h2 className="font-display text-[clamp(1.9rem,3.6vw,2.75rem)] font-extrabold leading-[1.15] tracking-[-0.02em] text-white">
+              Why CPD Accreditation Matters
+            </h2>
+            <p className="mt-4 text-[1rem] font-light leading-[1.8] text-slate-300">
+              Our certifications are built on internationally recognized Continuing Professional Development standards — giving every graduate a structured, verifiable, career-ready credential.
+            </p>
+          </div>
+
+          {/* Top: 5 benefits grid */}
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5 mb-16">
+            {[
+              { icon: Globe, label: 'Internationally recognized learning structure' },
+              { icon: TrendingUp, label: 'Professional skill development' },
+              { icon: BookOpenCheck, label: 'Evidence-based training programs' },
+              { icon: Layers, label: 'Continuous professional growth' },
+              { icon: BadgeCheck, label: 'Verified certification system' },
+            ].map(({ icon: Icon, label }) => (
+              <div
+                key={label}
+                className="group glass-card relative overflow-hidden p-5 transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 will-change-transform"
+              >
+                <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-amber-400/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10 mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-amber-400/15 border border-amber-400/25">
+                  <Icon className="h-5 w-5 text-amber-300" />
+                </div>
+                <p className="relative z-10 text-[0.85rem] font-medium leading-[1.55] text-slate-200">
+                  {label}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom: Two-column premium block */}
+          <div className="grid gap-8 lg:grid-cols-2">
+            {/* Left: CPD Accreditation */}
+            <div className="group glass-card relative overflow-hidden p-8 lg:p-10 transition-all duration-300 hover:-translate-y-1">
+              <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-amber-400/10 blur-3xl" />
+              <div className="absolute -left-10 -bottom-10 h-40 w-40 rounded-full bg-brand-sky-blue/10 blur-3xl" />
+
+              <div className="relative z-10">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-amber-400/15 border border-amber-400/25">
+                  <ShieldCheck className="h-6 w-6 text-amber-300" />
+                </div>
+                <h3 className="mb-2 font-display text-[1.6rem] font-extrabold tracking-[-0.02em] text-white">
+                  CPD Accreditation
+                </h3>
+                <div className="mb-5 h-0.5 w-12 rounded-full bg-gradient-to-r from-amber-400 to-amber-300/40" />
+
+                <p className="mb-4 text-[0.95rem] font-light leading-[1.8] text-slate-300">
+                  Our training programs are designed in line with international Continuing Professional Development (CPD) standards and delivered under Open CPD-aligned guidelines.
+                </p>
+                <p className="mb-4 text-[0.95rem] font-light leading-[1.8] text-slate-300">
+                  We ensure high-quality, structured learning with verifiable certification for all participants.
+                </p>
+                <p className="text-[0.95rem] font-light leading-[1.8] text-slate-300">
+                  Each certificate includes a unique ID for online verification, ensuring authenticity and professional credibility.
+                </p>
+              </div>
+            </div>
+
+            {/* Right: Why Choose Us */}
+            <div className="group glass-card relative overflow-hidden p-8 lg:p-10 transition-all duration-300 hover:-translate-y-1">
+              <div className="absolute -left-10 -top-10 h-40 w-40 rounded-full bg-brand-sky-blue/10 blur-3xl" />
+              <div className="absolute -right-10 -bottom-10 h-40 w-40 rounded-full bg-amber-400/10 blur-3xl" />
+
+              <div className="relative z-10">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-sky-blue/15 border border-brand-sky-blue/30">
+                  <Award className="h-6 w-6 text-brand-sky-blue" />
+                </div>
+                <h3 className="mb-2 font-display text-[1.6rem] font-extrabold tracking-[-0.02em] text-white">
+                  Why Choose Us?
+                </h3>
+                <div className="mb-6 h-0.5 w-12 rounded-full bg-gradient-to-r from-brand-sky-blue to-brand-light-sky/40" />
+
+                <ul className="space-y-4">
+                  {[
+                    'CPD-based structured training',
+                    'Professional skill development',
+                    'Verified digital certificates',
+                    'International learning standards',
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-amber-300" />
+                      <span className="text-[0.95rem] font-light leading-[1.65] text-slate-200">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </RevealSection>
 
       {/* Courses Section */}
       <section className="py-24 lg:py-28">

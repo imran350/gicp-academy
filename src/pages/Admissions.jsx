@@ -40,16 +40,6 @@ export default function Admissions() {
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
-  // Redirect to WhatsApp after success message appears
-  useEffect(() => {
-    if (isSubmitted) {
-      const timer = setTimeout(() => {
-        window.open('https://wa.me/923019753393', '_blank')
-      }, 2000) // Wait 2 seconds to show success message before redirect
-      return () => clearTimeout(timer)
-    }
-  }, [isSubmitted])
-
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!isFormValid) {
@@ -99,6 +89,12 @@ export default function Admissions() {
       console.log('Supabase insertion successful')
       setIsSubmitted(true)
       setStatus('success')
+      // Scroll to top for success alert
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      // WhatsApp redirect with 2s delay
+      setTimeout(() => {
+        window.open('https://wa.me/923019753393', '_blank')
+      }, 2000)
       setForm({ first_name: '', last_name: '', whatsapp: '', email: '', program: '', payment_method: '', message: '' })
     } catch (err) {
       console.error('Supabase Error:', err)

@@ -20,7 +20,7 @@ export default function Contact() {
   })
   const [errors, setErrors] = useState({})
   const [isValid, setIsValid] = useState(false)
-  const [showSuccess, setShowSuccess] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
   const [status, setStatus] = useState('idle')
 
   // Validate form on change
@@ -56,10 +56,16 @@ export default function Contact() {
       const { error } = await supabase.from('applications').insert([cleanForm])
       if (error) throw error
 
+      console.log('Supabase insertion successful')
+      setIsSubmitted(true)
       setStatus('success')
-      // WhatsApp notification
+      // Scroll to top to reveal feedback layer (matches Admissions framework)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      // WhatsApp notification with standard 2-second delay (matches Admissions framework)
       const whatsappMsg = `New Application Received!%0A%0A*Name:*%20${formData.first_name}%20${formData.last_name}%0A*Course:*%20${formData.program || 'Not Selected'}%0A*Phone:*%20${formData.whatsapp}`
-      window.open(`https://wa.me/923019753393?text=${whatsappMsg}`, '_blank')
+      setTimeout(() => {
+        window.open(`https://wa.me/923019753393?text=${whatsappMsg}`, '_blank')
+      }, 2000)
       setFormData({ first_name: '', last_name: '', whatsapp: '', email: '', program: '', message: '' })
     } catch {
       setStatus('error')
@@ -92,7 +98,7 @@ export default function Contact() {
       {/* Content — matches global navy gradient */}
       <section className="pb-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left: Contact Info — bright clickable icons */}
             <div>
               <h2 className="font-display text-[1.6rem] font-extrabold text-white mb-2">Contact Information</h2>
@@ -191,8 +197,8 @@ export default function Contact() {
             </div>
 
             {/* Right: Quick Apply Form — updated styling */}
-            <div className="glass-card p-8 shadow-[0_12px_40px_rgba(0,0,0,0.15)]">
-              {status === 'success' ? (
+            <div className="glass-card p-8 sm:p-11">
+              {isSubmitted ? (
                 <div className="bg-green-600/20 border-2 border-green-500 p-8 rounded-2xl text-center animate-fade-in">
                   <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
                   <p className="text-xl font-bold text-white">Application Submitted Successfully!</p>
@@ -203,16 +209,17 @@ export default function Contact() {
               <h2 className="font-display text-[1.6rem] font-extrabold text-white">Apply for Admission</h2>
               <p className="mb-7 text-[0.85rem] text-slate-300">Fill in your details and we'll contact you within 24 hours.</p>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="w-full space-y-6">
                 <div className="grid gap-4 sm:grid-cols-2 form-section">
                   <div>
                     <label className="mb-1.5 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-white">First Name <span className="text-red-400">*</span></label>
                     <input
                       type="text"
                       name="first_name"
+                      required
                       value={formData.first_name}
                       onChange={handleChange}
-                      className={`form-input ${errors.first_name ? 'form-error-input' : ''}`}
+                      className={`form-input box-border w-full text-white !important ${errors.first_name ? 'form-error-input' : ''}`}
                       placeholder="e.g. Ayesha"
                     />
                   </div>
@@ -221,9 +228,10 @@ export default function Contact() {
                     <input
                       type="text"
                       name="last_name"
+                      required
                       value={formData.last_name}
                       onChange={handleChange}
-                      className={`form-input ${errors.last_name ? 'form-error-input' : ''}`}
+                      className={`form-input box-border w-full text-white !important ${errors.last_name ? 'form-error-input' : ''}`}
                       placeholder="e.g. Khan"
                     />
                   </div>
@@ -234,9 +242,10 @@ export default function Contact() {
                   <input
                     type="tel"
                     name="whatsapp"
+                    required
                     value={formData.whatsapp}
                     onChange={handleChange}
-                    className={`form-input ${errors.whatsapp ? 'form-error-input' : ''}`}
+                    className={`form-input box-border w-full text-white !important ${errors.whatsapp ? 'form-error-input' : ''}`}
                     placeholder="0300-0000000"
                   />
                 </div>
@@ -246,9 +255,10 @@ export default function Contact() {
                     <input
                       type="email"
                       name="email"
+                      required
                       value={formData.email}
                       onChange={handleChange}
-                      className={`form-input ${errors.email ? 'form-error-input' : ''}`}
+                      className={`form-input box-border w-full text-white !important break-all ${errors.email ? 'form-error-input' : ''}`}
                       placeholder="your@email.com"
                     />
                 </div>
@@ -259,7 +269,7 @@ export default function Contact() {
                     name="program"
                     value={formData.program}
                     onChange={handleChange}
-                    className="form-input"
+                    className="form-input box-border w-full text-white !important"
                   >
                     <option value="">Select a program...</option>
                     <option value="ADCP — Advanced Diploma in Clinical Psychology">ADCP — Advanced Diploma in Clinical Psychology</option>
@@ -282,7 +292,7 @@ export default function Contact() {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    className="form-input resize-none"
+                    className="form-input box-border w-full text-white !important resize-none"
                     placeholder="Any questions or additional info..."
                   ></textarea>
                 </div>
