@@ -35,7 +35,8 @@
       "Bash(Get-Process node *)",
       "Bash(Select-Object Id, MainWindowTitle, CommandLine)",
       "Bash(timeout 10 bash -c 'until curl -s http://localhost:5173 > /dev/null 2>&1; do sleep 1; done')",
-      "PowerShell(git add *)"
+      "PowerShell(git add *)",
+      "PowerShell(git push *)"
     ]
   }
 }

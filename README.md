@@ -1,111 +1,94 @@
-# GICP Academy — React Website
+# GICP Academy — Professional Diploma Programs
 
-Full multi-page React website with:
-- React Router (6 pages)
-- Supabase database (student applications)
-- JazzCash / EasyPaisa / Bank Transfer payment info
-- 30-minute online exam with auto-submit & instant results
-- Zoom / Google Meet live classes
+## Project Overview
+Full-stack React SPA for a clinical psychology academy offering CPD-accredited diploma programs. Features include online enrollment, 30-minute auto-submit exams, expert trainer profiles, and Supabase-backed application tracking.
 
----
+## Tech Stack
+- **Frontend:** React + Vite + Tailwind CSS v3 (PostCSS integration)
+- **Routing:** React Router v6 (6 pages)
+- **Icons:** Lucide React
+- **Backend:** Supabase (null-safe client)
+- **Dev Server:** `npx vite --host` (port 5173 by default)
+- **Deployment:** Vercel (connected to GitHub repo)
 
-## 📁 Pages
+## Brand Theme
+- Primary BG: Navy `#0d1b2a`
+- Accent 1: Teal `#1a7a6e`
+- Accent 2: Gold `#c9a84c`
+- Page BG: Cream `#f7f3ed`
+- Fonts: Cormorant Garamond (headings) + DM Sans (body) via Google Fonts
 
-| Route | Page |
-|-------|------|
-| `/` | Home |
-| `/courses` | All Programs |
-| `/course/:id` | Single Program Detail |
-| `/admissions` | Apply + Payment |
-| `/exam` | Online Exam Demo |
-| `/contact` | Contact |
+## Core Pages (6 Routes)
+| Route | Functionality |
+|-------|---------------|
+| `/` | Home (Hero → CPD Accreditation → Courses → Trainers → CTA) |
+| `/courses` | 10 diploma programs grid |
+| `/course/:id` | Single program details + enrollment form |
+| `/admissions` | Full application form + payment options |
+| `/exam` | 30-minute auto-submit online exam |
+| `/contact` | Contact cards + therapy booking |
 
----
-
-## ⚡ Quick Start
-
-### Step 1 — Install dependencies
+## Quick Start
+### 1. Install Dependencies
 ```bash
 npm install
 ```
 
-### Step 2 — Setup Supabase
-1. Go to [supabase.com](https://supabase.com) → Create free account
-2. New project → name: `gicp-academy`
-3. Go to **SQL Editor** and run:
-
+### 2. Supabase Setup
+1. Create a free Supabase project at [supabase.com](https://supabase.com)
+2. Run this SQL in the **SQL Editor** to create the applications table:
 ```sql
 create table applications (
   id uuid default gen_random_uuid() primary key,
   created_at timestamp default now(),
   first_name text not null,
-  last_name text,
+  last_name text not null,
   whatsapp text not null,
-  email text,
+  email text not null,
   program text not null,
   payment_method text,
   message text,
   status text default 'pending'
 );
 ```
+3. Copy **Project URL** and **anon public key** from **Settings → API**
+4. Paste into `.env` (replace placeholder values)
 
-4. Go to **Settings → API**
-5. Copy **Project URL** and **anon public key**
-
-### Step 3 — Add environment variables
-```bash
-cp .env.example .env
-```
-Open `.env` and paste your Supabase URL and key.
-
-### Step 4 — Run locally
+### 3. Run Locally
 ```bash
 npx vite --host
 ```
-Opens at [http://localhost:5173](http://localhost:5173)
+Access at [http://localhost:5173](http://localhost:5173)
 
-### Step 5 — Build for production
+### 4. Production Build
 ```bash
 npm run build
 ```
-Upload the `dist/` folder to any hosting (Netlify, Vercel, cPanel).
+Deploy the `dist/` folder to Vercel
 
----
+## Deployment Status
+- [x] Code pushed to GitHub (https://github.com/imran350/gicp-academy)
+- [x] Vercel project connected
+- [ ] Domain configuration (gicpacademy.com)
 
-## 🌐 Free Hosting (Netlify — Recommended)
+## Key Features
+- CPD-accredited program validation
+- Expert trainer profiles (Tuba Shahid, Sumaira, Dr. Nida)
+- 2-second delayed WhatsApp notifications for form submissions
+- Auto-scroll to success alerts
+- Mobile-responsive layouts (no horizontal overflow)
+- SEO-optimized meta tags & sitemap
 
-1. Go to [netlify.com](https://netlify.com) → Sign up free
-2. Drag & drop the `dist/` folder
-3. Add environment variables in **Site settings → Environment variables**
-4. Done! Your site is live.
+## Contact Info
+- WhatsApp: 0301-9753393 (wa.me/923019753393)
+- Email: gicpacademy@gmail.com
+- Website: www.gicpacademy.com
 
----
+## Recent Production Update (2026-05-19)
+- Final audit passed (100% stable)
+- CPD Accreditation section added to Home page
+- Email input overflow fixed with `break-all` class
+- All forms standardized with consistent submission logic
+- Project-compliant commit pushed to master branch
 
-## 🗄️ View Student Applications (Supabase Dashboard)
-
-1. Go to [supabase.com](https://supabase.com) → your project
-2. Click **Table Editor** → `applications`
-3. All student applications appear here in real-time
-4. You can export to CSV from here
-
----
-
-## 📝 Recent Updates
-- **v3.2.3**: Fixed Home page double scrollbar issue; standardized Home page layout; updated admissions banner text; production SEO enhancements (meta tags, Open Graph tags, image alt tags, public/sitemap.xml creation)
-- **v3.2.2**: Added Tuba Shahid instructor profile (compact layout without image, updated key skills list); standardized WhatsApp message format for all forms; fixed global CSS text color rule to force white text; styled success messages with green theme (bg-green-600/20, rounded-2xl); added 'Our Expert Trainers' section to About page and trainer highlight to Home page; compacted card spacing for better layout
-- **v3.2.1**: Home page (evenly distributed stats strip, 10 course cards visible via scroll reveal removal, CPD claims in horizontal layout, standardized hero subtext font style); Programs page (increased top text opacity to 80% for visibility); Course Detail page (removed scholarship fee/Therapy Options, enlarged standard fee to text-5xl font-extrabold, added full course list dropdown, marked all required fields with asterisks, fixed payment method selection via cursor/padding/shadow/gold color enhancements, disabled WhatsApp auto-open with pre-filled link option, updated form input styles for visibility)
-- **v3.2**: Fixed all WhatsApp notification links to correct number (+92 301 9753393), removed therapy session field from CourseDetail form, reduced homepage/hero heading sizes, removed Flagship/New Program badges from course cards, added direct WhatsApp session booking cards to Contact page, optimized Claude Code token usage
-
-## 📝 Version History
-- **v3.1**: GICP logo addition, fee split (standard/scholarship), payment options, Fees link removal, CourseDetail JSX error fix
-- **v3.0**: Navy/Teal/Gold redesign, Exam page, 10 courses
-- **v2.1**: Redesigned middle sections
-- **v2.0**: Indigo+Orange color scheme, Udemy-style course detail page
-- **v1.0**: Baseline (all 5 pages, Supabase form, WhatsApp button)
-
-## 📞 Contact Info (in code)
-- WhatsApp: `0301-9753393`
-- Email: `gicpacademy@gmail.com`
-- Website: `www.gicpacademy.com`
-
-To update contact details, search for `9753393` in the codebase.
+Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>

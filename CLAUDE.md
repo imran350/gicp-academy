@@ -1,7 +1,7 @@
 # CLAUDE.md — Frontend Website Rules
 
 ## Always Do First
-- **Invoke the `frontend-design` skill** before writing any frontend code, every session, no exceptions.
+- Verify production readiness with a non-destructive audit before committing changes
 
 ## Reference Images
 - If a reference image is provided: match layout, spacing, typography, and color exactly. Swap in placeholder content (images via `https://placehold.co/`, generic copy). Do not improve or add to the design.
@@ -60,15 +60,17 @@
 ## Tech Stack
 - **React + Vite** (not single HTML — this is a full SPA)
 - **Tailwind CSS v3** (PostCSS integration, NOT CDN)
-- **React Router v6** for 5 pages
+- **React Router v6** for 6 pages (Home, Courses, CourseDetail, Admissions, Exam, Contact)
 - **Lucide React** for icons
 - **Supabase** for admissions form backend
 - Dev server: `npx vite --host` (runs on port 5173 by default)
 
 ## Brand Theme
-- **Primary:** Deep Teal `#0F766E`
-- **Accent:** Warm Amber `#D97706`
-- **Fonts:** Inter (body) + Playfair Display (headings) via Google Fonts
+- **Primary BG:** Navy `#0d1b2a`
+- **Accent 1:** Teal `#1a7a6e`
+- **Accent 2:** Gold `#c9a84c`
+- **Page BG:** Cream `#f7f3ed`
+- **Fonts:** Cormorant Garamond (headings) + DM Sans (body) via Google Fonts
 - Tailwind config: `tailwind.config.js` with custom colors, shadows, spring easing
 
 ## File Structure
@@ -85,12 +87,14 @@ gicp-academy/
 │   │   ├── Footer.jsx          ✅ 3-column footer with contact info
 │   │   └── WhatsAppButton.jsx  ✅ Floating green button → wa.me/923019753393
 │   ├── pages/
-│   │   ├── Home.jsx            ✅ Hero → Featured → Fee → Features → CTA
-│   │   ├── Courses.jsx         ✅ All 9 diploma cards grid
-│   │   ├── Admissions.jsx      ✅ Form (name, father, phone, email, course, msg)
-│   │   ├── About.jsx           ✅ Mission, highlights, careers
-│   │   └── Contact.jsx         ✅ Contact cards + map placeholder
-│   ├── data/courses.js         ✅ All 9 courses structured data
+│   │   ├── Home.jsx            ✅ Hero → CPD Accreditation → Courses → Fee → Features → Trainers → CTA
+│   │   ├── Courses.jsx         ✅ All 10 diploma cards grid
+│   │   ├── CourseDetail.jsx    ✅ Single program info + enrollment form
+│   │   ├── Admissions.jsx      ✅ Form (name, last name, whatsapp, email, course, payment method)
+│   │   ├── About.jsx           ✅ Mission, highlights, expert trainers, careers
+│   │   ├── Exam.jsx            ✅ 30-minute online exam with auto-submit
+│   │   └── Contact.jsx         ✅ Contact cards + therapy booking + enrollment form
+│   ├── data/courses.js         ✅ All 10 courses structured data
 │   ├── lib/supabase.js         ✅ Supabase client (null-safe when no env vars)
 │   ├── App.jsx                 ✅ Router with 5 routes + ScrollToTop
 │   ├── main.jsx                ✅ Entry point
@@ -127,15 +131,10 @@ gicp-academy/
 - [x] Production SEO updates (meta tags, Open Graph tags, image alt tags, public/sitemap.xml creation)
 
 ## Pending (Next Session)
-- [ ] **Supabase setup** — User needs to:
-  1. Create free Supabase project at supabase.com
-  2. Run SQL to create `admissions` table (SQL provided in previous chat)
-  3. Paste `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` into `.env`
-  4. Test form submission
 - [ ] **Design comparison with MedicPro** — User shared reference: https://medicprointernationalacademy.co.uk/
   - Possible additions: Director's Message, Mission & Vision sections, "Who We Serve" section
   - Waiting for user direction on what to adopt
-- [ ] **Deploy to Vercel** — Push to GitHub, connect Vercel, configure domain
+- [ ] **Domain configuration** — Connect gicpacademy.com to Vercel deployment
 
 ## Key Notes
 - `.env` has placeholder values — Supabase won't work until real credentials are added
