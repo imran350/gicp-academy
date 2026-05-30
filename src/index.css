@@ -6,6 +6,7 @@
 html, body {
   overflow-x: hidden;
   max-width: 100%;
+  color: #e2e8f0;
 }
 body {
   background: radial-gradient(circle at 50% 0%, #1e3a8a 0%, #0f172a 80%);
@@ -210,14 +211,15 @@ p {
   color: #fbbf24;
 }
 
-/* ── FORCEFUL GLOBAL HEADING FIX (added at very bottom per request) ── */
-h1, h2, h3, h4, h5, h6 { color: #ffffff !important; }
+/* ── HEADING FIX: Allow gold color, default white ── */
+h1, h2, h3, h4, h5, h6 { color: #ffffff; }
+h1[class*="text-brand-gold"],
+h2[class*="text-brand-gold"],
+h3[class*="text-brand-gold"],
+h4[class*="text-brand-gold"],
+h5[class*="text-brand-gold"],
+h6[class*="text-brand-gold"] { color: #c9a84c !important; }
 
-/* ── NUCLEAR FONT VISIBILITY: Force all text white ── */
-* { color: #ffffff !important; }
-body, main, section, div, p, span, h1, h2, h3, h4, h5, h6, label, input, select, textarea {
-  color: #ffffff !important;
-}
 input::placeholder, textarea::placeholder {
   color: #94a3b8 !important;
 }
