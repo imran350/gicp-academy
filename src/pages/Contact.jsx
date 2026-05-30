@@ -84,7 +84,7 @@ export default function Contact() {
       {/* Navy Header */}
       <section className="pt-28 pb-16">
         <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
-          <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-white/70">
+          <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-gold">
             Get In Touch
           </div>
           <h1 className="font-display text-[clamp(2rem,4vw,3rem)] font-extrabold leading-tight text-brand-gold">
