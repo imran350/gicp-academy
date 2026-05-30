@@ -8,14 +8,20 @@ export default {
     extend: {
       colors: {
         brand: {
-          'sky-blue': '#0ea5e9', // Primary accent
-          'light-sky': '#7dd3fc', // Light sky highlights
-          'navy-blue': '#1e3a8a', // Deep navy background
-          'dark-navy': '#0f172a', // Darkest navy
-          'text-primary': '#ffffff', // Primary text for dark backgrounds
-          'text-secondary': '#7dd3fc', // Secondary text for dark backgrounds
-          'text-accent': '#0ea5e9', // Accent text
-          'text-muted': '#bfdbfe', // Muted text
+          'sky-blue': '#0ea5e9',
+          'light-sky': '#7dd3fc',
+          'navy-blue': '#1e3a8a',
+          'dark-navy': '#0f172a',
+          'text-primary': '#ffffff',
+          'text-secondary': '#7dd3fc',
+          'text-accent': '#0ea5e9',
+          'text-muted': '#bfdbfe',
+          navy: '#1e3a8a',
+          teal: '#1a7a6e',
+          gold: '#c9a84c',
+          cream: '#f7f3ed',
+          'teal-light': '#22a898',
+          'gold-light': '#e8c96a',
         },
       },
       fontFamily: {
