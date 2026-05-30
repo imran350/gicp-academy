@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Mail, Globe, MessageCircle, CheckCircle, Send } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
+import courses from '../data/courses'
 
 // Email validation regex
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
@@ -272,16 +273,9 @@ export default function Contact() {
                     className="form-input box-border w-full text-white !important"
                   >
                     <option value="">Select a program...</option>
-                    <option value="ADCP — Advanced Diploma in Clinical Psychology">ADCP — Advanced Diploma in Clinical Psychology</option>
-                    <option value="Diploma in Child Psychology">Diploma in Child Psychology</option>
-                    <option value="Diploma in Autism (ASD)">Diploma in Autism (ASD)</option>
-                    <option value="Diploma in Speech & Language Therapy">Diploma in Speech & Language Therapy</option>
-                    <option value="Diploma in PECS">Diploma in PECS</option>
-                    <option value="Diploma in Physiotherapy">Diploma in Physiotherapy</option>
-                    <option value="Diploma in Sensory Integration & Reflexes">Diploma in Sensory Integration & Reflexes</option>
-                    <option value="Diploma in CBT">Diploma in CBT</option>
-                    <option value="Diploma in Nutrition & Dietetics">Diploma in Nutrition & Dietetics</option>
-                    <option value="Diploma in Public Health">Diploma in Public Health</option>
+                    {courses.map((c) => (
+                      <option key={c.id} value={c.title}>{c.title}</option>
+                    ))}
                   </select>
                 </div>
 
