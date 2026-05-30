@@ -5,14 +5,14 @@ export default function Courses() {
   return (
     <div className="overflow-x-hidden">
       {/* Navy Header Banner */}
-      <section className="bg-brand-navy pt-28 pb-16">
+      <section className="pt-28 pb-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex flex-col gap-6">
             <div>
               <div className="mb-4 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-gold">
                 Professional Diplomas
               </div>
-              <h1 className="font-display text-[clamp(2.2rem,5vw,3.5rem)] font-extrabold leading-tight text-white mb-3">
+              <h1 className="font-display text-[clamp(2.2rem,5vw,3.5rem)] font-extrabold leading-tight text-brand-gold mb-3">
                 Select from 14+ Professionally<br />Certified Diploma Programs
               </h1>
               <p className="text-[1.05rem] font-light leading-[1.8] text-slate-200 max-w-2xl">

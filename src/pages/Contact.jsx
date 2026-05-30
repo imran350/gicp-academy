@@ -86,7 +86,7 @@ export default function Contact() {
           <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-white/70">
             Get In Touch
           </div>
-          <h1 className="font-display text-[clamp(2rem,4vw,3rem)] font-extrabold leading-tight text-white">
+          <h1 className="font-display text-[clamp(2rem,4vw,3rem)] font-extrabold leading-tight text-brand-gold">
             Ready to Begin?
           </h1>
           <p className="mt-3 text-[1rem] font-light text-slate-300">

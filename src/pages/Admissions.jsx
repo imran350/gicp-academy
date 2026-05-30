@@ -106,12 +106,12 @@ export default function Admissions() {
   return (
     <>
       {/* Navy Header — EXPLICIT White for Admissions heading */}
-      <section className="bg-brand-navy pt-28 pb-16">
+      <section className="pt-28 pb-16">
         <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
           <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-gold">
             Admissions
           </div>
-          <h1 className="font-display text-[clamp(2rem,4vw,3rem)] font-extrabold leading-tight">
+          <h1 className="font-display text-[clamp(2rem,4vw,3rem)] font-extrabold leading-tight text-brand-gold">
             Apply for Admission
           </h1>
           <p className="mt-3 text-[1rem] font-light text-slate-300">

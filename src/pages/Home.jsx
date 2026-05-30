@@ -33,7 +33,7 @@ export default function Home() {
               <Sparkles className="h-3 w-3" />
               CPD-Aligned Excellence
             </div>
-            <h2 className="font-display text-[clamp(1.9rem,3.6vw,2.75rem)] font-extrabold leading-[1.15] tracking-[-0.02em] text-white">
+            <h2 className="font-display text-[clamp(1.9rem,3.6vw,2.75rem)] font-extrabold leading-[1.15] tracking-[-0.02em] text-brand-gold">
               Why CPD Accreditation Matters
             </h2>
             <p className="mt-4 text-[1rem] font-light leading-[1.8] text-slate-300">

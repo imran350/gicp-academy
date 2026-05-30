@@ -108,7 +108,7 @@ export default function CourseDetail() {
               <div className="mb-2 text-[0.72rem] font-semibold uppercase tracking-[2px] text-brand-teal">
                 Course {course.num}
               </div>
-              <h1 className="font-display text-xl font-bold text-white sm:text-2xl md:text-3xl leading-tight py-2">
+              <h1 className="font-display text-xl font-bold text-brand-gold sm:text-2xl md:text-3xl leading-tight py-2">
                 {course.title}
               </h1>
               {course.tagline && (

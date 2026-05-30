@@ -33,12 +33,12 @@ export default function About() {
   return (
     <>
       {/* Navy Header — EXPLICIT White for About Us heading */}
-      <section className="bg-brand-navy pt-28 pb-16">
+      <section className="pt-28 pb-16">
         <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
           <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-gold">
             About Us
           </div>
-          <h1 className="font-display text-[clamp(2rem,4vw,3rem)] font-extrabold leading-tight mb-6">
+          <h1 className="font-display text-[clamp(2rem,4vw,3rem)] font-extrabold leading-tight text-brand-gold mb-6">
             About GICP Academy
           </h1>
           <p className="text-[1.05rem] font-light leading-[1.8] text-slate-200 mb-6">
