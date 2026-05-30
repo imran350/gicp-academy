@@ -81,7 +81,7 @@ export default function Contact() {
   return (
     <>
       {/* Navy Header */}
-      <section className="bg-brand-navy pt-28 pb-16">
+      <section className="pt-28 pb-16">
         <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
           <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-white/70">
             Get In Touch

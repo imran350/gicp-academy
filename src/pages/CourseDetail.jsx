@@ -46,7 +46,7 @@ export default function CourseDetail() {
 
   if (!course) {
     return (
-      <section className="bg-brand-cream pt-24 pb-20">
+      <section className="glass-card pt-24 pb-20">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <h1 className="font-display text-3xl font-bold text-white">Course Not Found</h1>
           <p className="mt-3 text-white/90">This course doesn't exist.</p>
@@ -71,8 +71,10 @@ export default function CourseDetail() {
       const { error } = await supabase.from('applications').insert([form])
       if (error) throw error
       setStatus('success')
-      // Scroll to success alert container
-      document.getElementById('success-alert')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      // Scroll to success message for visibility
+      setTimeout(() => {
+        document.getElementById('success-alert')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }, 100)
       // WhatsApp notification
       const whatsappMsg = `New Application Received!%0A%0A*Name:*%20${form.first_name}%20${form.last_name}%0A*Course:*%20${form.program}%0A*Phone:*%20${form.whatsapp}`
       setTimeout(() => {
@@ -88,7 +90,7 @@ export default function CourseDetail() {
     'w-full rounded border border-brand-text/40 bg-brand-navy-blue/80 px-3.5 py-2.5 text-[0.9rem] text-white outline-none transition-colors duration-200 focus:border-brand-gold'
 
   return (
-    <section className="bg-brand-cream pt-24 pb-20">
+    <section className="glass-card pt-24 pb-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Back link */}
         <Link
@@ -102,7 +104,7 @@ export default function CourseDetail() {
           {/* Left: Course info */}
           <div className="lg:col-span-2">
             {/* Course header */}
-            <div className="border border-white/10 bg-brand-cream p-8">
+            <div className="border border-white/10 glass-card p-8">
               <div className="mb-2 text-[0.72rem] font-semibold uppercase tracking-[2px] text-brand-teal">
                 Course {course.num}
               </div>
@@ -131,7 +133,7 @@ export default function CourseDetail() {
             </div>
 
             {/* What you'll learn */}
-            <div className="mt-6 border border-white/10 bg-brand-cream p-8">
+            <div className="mt-6 border border-white/10 glass-card p-8">
               <h2 className="mb-4 font-display text-xl font-bold text-white">What You'll Learn</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {[
@@ -153,7 +155,7 @@ export default function CourseDetail() {
             </div>
 
             {/* Learning Format */}
-            <div className="mt-6 border border-white/10 bg-brand-cream p-8">
+            <div className="mt-6 border border-white/10 glass-card p-8">
               <h2 className="mb-4 font-display text-xl font-bold text-white">Learning Format</h2>
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
@@ -196,7 +198,7 @@ export default function CourseDetail() {
 
 
             {/* Payment Methods */}
-            <div className="mt-6 border border-white/10 bg-brand-cream p-8">
+            <div className="mt-6 border border-white/10 glass-card p-8">
               <h2 className="mb-4 font-display text-xl font-bold text-white">Payment Methods</h2>
               <p className="mb-4 text-[0.85rem] text-white/90">We accept the following payment methods:</p>
               <div className="grid gap-3 sm:grid-cols-3">
@@ -205,7 +207,7 @@ export default function CourseDetail() {
                   return (
                     <div
                       key={pm.id}
-                      className="flex items-center gap-3 border border-white/10 bg-brand-cream p-4"
+                      className="flex items-center gap-3 border border-white/10 glass-card p-4"
                     >
                       <PmIcon className="h-5 w-5 flex-shrink-0 text-brand-teal" />
                       <div>
@@ -273,7 +275,7 @@ export default function CourseDetail() {
         </div>
 
         {/* Enrollment form — full width, below the grid */}
-        <div id="enroll-form" className="mt-10 border border-white/10 bg-brand-cream p-8">
+        <div id="enroll-form" className="mt-10 border border-white/10 glass-card p-8">
           {status === 'success' ? (
             <div id="success-alert" className="bg-green-600/20 border-2 border-green-500 p-8 rounded-2xl text-center animate-fade-in transform translateZ(0)">
               <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
