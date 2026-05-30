@@ -20,8 +20,8 @@ export default function Navbar() {
   const navLinkClass = ({ isActive }) => `
     text-[0.85rem] font-medium uppercase tracking-wide transition-all duration-300 relative py-1 pb-2
     ${isActive
-      ? 'text-brand-gold border-b-2 border-brand-gold font-bold shadow-[0_2px_8px_rgba(201,168,76,0.3)]'
-      : 'text-white/75 hover:text-brand-gold border-b-2 border-transparent hover:border-brand-gold'
+      ? 'border-b-2 border-brand-gold font-bold shadow-[0_2px_8px_rgba(201,168,76,0.3)]'
+      : 'text-white/75 border-b-2 border-transparent hover:border-brand-gold hover:text-brand-gold'
     }
   `
 
@@ -51,6 +51,7 @@ export default function Navbar() {
               to={link.to}
               onClick={handleNavClick}
               className={navLinkClass}
+              style={({ isActive }) => ({ color: isActive ? '#c9a84c' : '' })}
             >
               {link.label}
             </NavLink>
