@@ -87,7 +87,7 @@ export default function Hero() {
       </section>
 
       {/* STATS STRIP — glassmorphism */}
-      <div className="grid grid-cols-3 max-w-7xl mx-auto" style={{ background: 'rgba(15, 23, 42, 0.6)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}>
+      <div className="grid grid-cols-1 sm:grid-cols-3 max-w-7xl mx-auto" style={{ background: 'rgba(15, 23, 42, 0.6)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}>
         {[
           { number: '10+', label: 'Diploma Courses' },
           { number: '6', label: 'Months Duration' },

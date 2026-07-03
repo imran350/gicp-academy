@@ -57,13 +57,12 @@ export default function Contact() {
       const { error } = await supabase.from('applications').insert([cleanForm])
       if (error) throw error
 
-      console.log('Supabase insertion successful')
       setIsSubmitted(true)
       setStatus('success')
       // Scroll to top to reveal feedback layer (matches Admissions framework)
       window.scrollTo({ top: 0, behavior: 'smooth' })
       // WhatsApp notification with standard 2-second delay (matches Admissions framework)
-      const whatsappMsg = `New Application Received!%0A%0A*Name:*%20${formData.first_name}%20${formData.last_name}%0A*Course:*%20${formData.program || 'Not Selected'}%0A*Phone:*%20${formData.whatsapp}`
+      const whatsappMsg = encodeURIComponent(`New Application Received!\n\n*Name:* ${formData.first_name} ${formData.last_name}\n*Course:* ${formData.program || 'Not Selected'}\n*Phone:* ${formData.whatsapp}`)
       setTimeout(() => {
         window.open(`https://wa.me/923019753393?text=${whatsappMsg}`, '_blank')
       }, 2000)
@@ -133,7 +132,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-[0.72rem] font-semibold uppercase tracking-[2px] text-slate-300">Email</div>
-                    <div className="text-[1rem] font-semibold text-white">globalinstituteofpsychology@gmail.com</div>
+                    <div className="text-[1rem] font-semibold text-white break-all">globalinstituteofpsychology@gmail.com</div>
                     <div className="text-[0.8rem] text-slate-300">Send us a detailed message anytime</div>
                   </div>
                 </a>
@@ -168,7 +167,7 @@ export default function Contact() {
                     className="flex items-start gap-4 glass-card p-5 transition-transform duration-200 hover:scale-[1.02]"
                   >
                     <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-brand-sky-blue text-[1.1rem] shadow-lg shadow-brand-sky-blue/20">
-                      <span className="text-white">💻</span>
+                      <span className="text-white" aria-hidden="true">💻</span>
                     </div>
                     <div>
                       <div className="text-[0.72rem] font-semibold uppercase tracking-[2px] text-slate-300">Online Session</div>
@@ -185,7 +184,7 @@ export default function Contact() {
                     className="flex items-start gap-4 glass-card p-5 transition-transform duration-200 hover:scale-[1.02]"
                   >
                     <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-brand-navy text-[1.1rem] shadow-lg shadow-brand-navy/20">
-                      <span className="text-white">🏥</span>
+                      <span className="text-white" aria-hidden="true">🏥</span>
                     </div>
                     <div>
                       <div className="text-[0.72rem] font-semibold uppercase tracking-[2px] text-slate-300">Physical Session</div>
@@ -213,64 +212,64 @@ export default function Contact() {
               <form onSubmit={handleSubmit} className="w-full space-y-6">
                 <div className="grid gap-4 sm:grid-cols-2 form-section">
                   <div>
-                    <label className="mb-1.5 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-white">First Name <span className="text-red-400">*</span></label>
+                    <label className="mb-1.5 block text-[clamp(0.7rem,1.5vw,0.78rem)] font-semibold text-white">First Name <span className="text-red-400">*</span></label>
                     <input
                       type="text"
                       name="first_name"
                       required
                       value={formData.first_name}
                       onChange={handleChange}
-                      className={`form-input box-border w-full text-white !important ${errors.first_name ? 'form-error-input' : ''}`}
+                      className={`form-input box-border w-full !text-white ${errors.first_name ? 'form-error-input' : ''}`}
                       placeholder="e.g. Ayesha"
                     />
                   </div>
                   <div>
-                    <label className="mb-1.5 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-white">Last Name <span className="text-red-400">*</span></label>
+                    <label className="mb-1.5 block text-[clamp(0.7rem,1.5vw,0.78rem)] font-semibold text-white">Last Name <span className="text-red-400">*</span></label>
                     <input
                       type="text"
                       name="last_name"
                       required
                       value={formData.last_name}
                       onChange={handleChange}
-                      className={`form-input box-border w-full text-white !important ${errors.last_name ? 'form-error-input' : ''}`}
+                      className={`form-input box-border w-full !text-white ${errors.last_name ? 'form-error-input' : ''}`}
                       placeholder="e.g. Khan"
                     />
                   </div>
                 </div>
 
                 <div className="form-section">
-                  <label className="mb-1.5 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-white">WhatsApp Number <span className="text-red-400">*</span></label>
+                  <label className="mb-1.5 block text-[clamp(0.7rem,1.5vw,0.78rem)] font-semibold text-white">WhatsApp Number <span className="text-red-400">*</span></label>
                   <input
                     type="tel"
                     name="whatsapp"
                     required
                     value={formData.whatsapp}
                     onChange={handleChange}
-                    className={`form-input box-border w-full text-white !important ${errors.whatsapp ? 'form-error-input' : ''}`}
+                    className={`form-input box-border w-full !text-white ${errors.whatsapp ? 'form-error-input' : ''}`}
                     placeholder="0300-0000000"
                   />
                 </div>
 
                 <div className="form-section">
-                  <label className="mb-1.5 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-white">Email Address <span className="text-red-400">*</span></label>
+                  <label className="mb-1.5 block text-[clamp(0.7rem,1.5vw,0.78rem)] font-semibold text-white">Email Address <span className="text-red-400">*</span></label>
                     <input
                       type="email"
                       name="email"
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className={`form-input box-border w-full text-white !important break-all ${errors.email ? 'form-error-input' : ''}`}
+                      className={`form-input box-border w-full !text-white break-all ${errors.email ? 'form-error-input' : ''}`}
                       placeholder="your@email.com"
                     />
                 </div>
 
                 <div className="form-section">
-                  <label className="mb-1.5 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-white">Course of Interest</label>
+                  <label className="mb-1.5 block text-[clamp(0.7rem,1.5vw,0.78rem)] font-semibold text-white">Course of Interest</label>
                   <select
                     name="program"
                     value={formData.program}
                     onChange={handleChange}
-                    className="form-input box-border w-full text-white !important"
+                    className="form-input box-border w-full !text-white"
                   >
                     <option value="">Select a program...</option>
                     {courses.map((c) => (
@@ -280,13 +279,13 @@ export default function Contact() {
                 </div>
 
                 <div className="form-section">
-                  <label className="mb-1.5 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-white">Message (Optional)</label>
+                  <label className="mb-1.5 block text-[clamp(0.7rem,1.5vw,0.78rem)] font-semibold text-white">Message (Optional)</label>
                   <textarea
                     rows={3}
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    className="form-input box-border w-full text-white !important resize-none"
+                    className="form-input box-border w-full !text-white resize-none"
                     placeholder="Any questions or additional info..."
                   ></textarea>
                 </div>
@@ -295,7 +294,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={!isValid || status === 'submitting'}
-                  className={`w-full rounded-full bg-gradient-to-r from-purple-600 to-magenta-600 px-7 py-3.5 text-sm font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-[0_0_20px_rgba(192,38,211,0.5)] hover:shadow-[0_0_30px_rgba(192,38,211,0.8)] disabled:opacity-60 disabled:cursor-not-allowed ${(!isValid || status === 'submitting') ? 'disabled:hover:scale-100' : ''}`}
+                  className={`w-full rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-600 px-7 py-3.5 text-sm font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-[0_0_20px_rgba(192,38,211,0.5)] hover:shadow-[0_0_30px_rgba(192,38,211,0.8)] disabled:opacity-60 disabled:cursor-not-allowed ${(!isValid || status === 'submitting') ? 'disabled:hover:scale-100' : ''}`}
                 >
                   {status === 'submitting' ? 'Submitting...' : <>Submit Application <Send className="ml-2 inline h-4 w-4" /></>}
                 </button>

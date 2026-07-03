@@ -76,11 +76,11 @@ export default function CourseDetail() {
         document.getElementById('success-alert')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
       }, 100)
       // WhatsApp notification
-      const whatsappMsg = `New Application Received!%0A%0A*Name:*%20${form.first_name}%20${form.last_name}%0A*Course:*%20${form.program}%0A*Phone:*%20${form.whatsapp}`
+      const whatsappMsg = encodeURIComponent(`New Application Received!\n\n*Name:* ${form.first_name} ${form.last_name}\n*Course:* ${form.program}\n*Phone:* ${form.whatsapp}`)
       setTimeout(() => {
         window.open(`https://wa.me/923019753393?text=${whatsappMsg}`, '_blank')
       }, 2000)
-      setForm({ first_name: '', last_name: '', whatsapp: '', email: '', program: course.title, payment_method: '', message: '' })
+      setForm({ first_name: '', last_name: '', whatsapp: '', email: '', program: '', payment_method: '', message: '' })
     } catch {
       setStatus('error')
     }
@@ -159,35 +159,35 @@ export default function CourseDetail() {
               <h2 className="mb-4 font-display text-xl font-bold text-white">Learning Format</h2>
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
-                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">🎥</div>
+                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal" aria-hidden="true">🎥</div>
                   <div>
                     <p className="text-[0.85rem] font-semibold text-white">Live Classes</p>
                     <p className="text-[0.75rem] text-white/90">Interactive sessions via Zoom & Google Meet, 2 days per week</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">📼</div>
+                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal" aria-hidden="true">📼</div>
                   <div>
                     <p className="text-[0.85rem] font-semibold text-white">Recorded Lectures</p>
                     <p className="text-[0.75rem] text-white/90">Full access to all recorded sessions anytime, anywhere</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">📋</div>
+                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal" aria-hidden="true">📋</div>
                   <div>
                     <p className="text-[0.85rem] font-semibold text-white">Assignments</p>
                     <p className="text-[0.75rem] text-white/90">Real-world case studies and clinical assignments</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">⏱</div>
+                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal" aria-hidden="true">⏱</div>
                   <div>
                     <p className="text-[0.85rem] font-semibold text-white">Online Exam</p>
                     <p className="text-[0.75rem] text-white/90">45-minute timed paper — auto-submitted, instant results</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal">🎓</div>
+                  <div className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal" aria-hidden="true">🎓</div>
                   <div>
                     <p className="text-[0.85rem] font-semibold text-white">Certificate</p>
                     <p className="text-[0.75rem] text-white/90">Professional diploma certificate on successful completion</p>
@@ -249,7 +249,7 @@ export default function CourseDetail() {
                       'Installment Plan Available',
                     ].map((item) => (
                       <li key={item} className="flex items-center gap-2.5 text-[0.85rem] text-white/90">
-                        <CheckCircle className="h-4 w-4 flex-shrink-0 {form.payment_method === pm.id ? 'text-brand-gold' : 'text-brand-teal'}" />
+                        <CheckCircle className="h-4 w-4 flex-shrink-0 text-brand-teal" />
                         {item}
                       </li>
                     ))}
@@ -264,7 +264,7 @@ export default function CourseDetail() {
 
                   <p className="mt-3 text-center text-[0.78rem] text-white/90">
                     Questions?{' '}
-                    <a href="https://wa.me/923019753393" target="_blank" rel="noopener noreferrer" className="{form.payment_method === pm.id ? 'text-brand-gold' : 'text-brand-teal'} hover:underline">
+                    <a href="https://wa.me/923019753393" target="_blank" rel="noopener noreferrer" className="text-brand-teal hover:underline">
                       Chat on WhatsApp
                     </a>
                   </p>
@@ -289,27 +289,27 @@ export default function CourseDetail() {
           <form onSubmit={handleSubmit} className="mx-auto max-w-3xl space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="mb-1 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-brand-gold">First Name *</label>
+                <label className="mb-1 block text-[clamp(0.7rem,1.5vw,0.78rem)] font-semibold text-brand-gold">First Name *</label>
                 <input type="text" name="first_name" required value={form.first_name} onChange={handleChange} className={inputClass} placeholder="Ayesha" />
               </div>
               <div>
-                <label className="mb-1 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-brand-gold">Last Name *</label>
+                <label className="mb-1 block text-[clamp(0.7rem,1.5vw,0.78rem)] font-semibold text-brand-gold">Last Name *</label>
                 <input type="text" name="last_name" value={form.last_name} onChange={handleChange} className={inputClass} placeholder="Khan" />
               </div>
             </div>
 
             <div>
-              <label className="mb-1 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-brand-gold">WhatsApp *</label>
+              <label className="mb-1 block text-[clamp(0.7rem,1.5vw,0.78rem)] font-semibold text-brand-gold">WhatsApp *</label>
               <input type="tel" name="whatsapp" required value={form.whatsapp} onChange={handleChange} className={inputClass} placeholder="0300-0000000" />
             </div>
 
             <div>
-              <label className="mb-1 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-brand-gold">Email *</label>
+              <label className="mb-1 block text-[clamp(0.7rem,1.5vw,0.78rem)] font-semibold text-brand-gold">Email *</label>
               <input type="email" name="email" required value={form.email} onChange={handleChange} className={inputClass} placeholder="you@email.com" />
             </div>
 
             <div>
-              <label className="mb-1 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-brand-gold">Course *</label>
+              <label className="mb-1 block text-[clamp(0.7rem,1.5vw,0.78rem)] font-semibold text-brand-gold">Course *</label>
               <select name="program" required value={form.program} onChange={handleChange} className={inputClass}>
                   <option value="">Select a Course</option>
                   {courses.map((c) => (
@@ -327,7 +327,7 @@ export default function CourseDetail() {
                   return (
                     <label
                       key={pm.id}
-                      className={`flex cursor-pointer items-center gap-3 rounded-md border p-5 transition-colors duration-200 ${
+                      className={`flex cursor-pointer items-center gap-3 rounded-md border p-5 transition-colors duration-200 focus-within:ring-2 focus-within:ring-brand-gold ${
                         form.payment_method === pm.id
                           ? 'border-brand-gold bg-brand-gold/40 font-bold cursor-pointer hover:bg-brand-gold/50 shadow-[0_4px_8px_rgba(201,168,76,0.25)]'
                           : 'border-brand-text/20 hover:border-brand-gold bg-brand-dark-navy/10'
@@ -368,7 +368,7 @@ export default function CourseDetail() {
                         <p className="text-[1rem] font-mono font-bold text-brand-gold">02230900007246</p>
                         <button
                           type="button"
-                          onClick={() => navigator.clipboard.writeText('02230900007246')}
+                          onClick={() => navigator.clipboard?.writeText('02230900007246').catch(() => {})}
                           className="px-2 py-1 text-[0.7rem] bg-brand-sky-blue/30 hover:bg-brand-sky-blue/50 text-white rounded transition-all duration-200"
                         >
                           Copy
@@ -385,14 +385,14 @@ export default function CourseDetail() {
             </div>
 
             <div>
-              <label className="mb-1 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-brand-gold">Message (optional)</label>
+              <label className="mb-1 block text-[clamp(0.7rem,1.5vw,0.78rem)] font-semibold text-brand-gold">Message (optional)</label>
               <textarea name="message" rows={3} value={form.message} onChange={handleChange} className={`${inputClass} resize-none`} placeholder="Any questions..." />
             </div>
 
             <button
               type="submit"
               disabled={status === 'submitting'}
-              className="w-full rounded bg-gradient-to-r from-purple-600 to-magenta-600 py-3.5 text-[0.95rem] font-bold text-white transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(192,38,211,0.5)] hover:shadow-[0_0_30px_rgba(192,38,211,0.8)] disabled:opacity-60"
+              className="w-full rounded bg-gradient-to-r from-purple-600 to-fuchsia-600 py-3.5 text-[0.95rem] font-bold text-white transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(192,38,211,0.5)] hover:shadow-[0_0_30px_rgba(192,38,211,0.8)] disabled:opacity-60"
             >
               {status === 'submitting' ? 'Submitting...' : <>Submit Application <Send className="ml-1 inline h-4 w-4" /></>}
             </button>

@@ -55,10 +55,6 @@ p {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
   }
-  /* Form section spacing for mobile */
-  .form-section {
-    padding-y: 1rem !important;
-  }
 }
 
 /* ── Custom Form Styles (contrast fixes) ── */
@@ -150,7 +146,11 @@ p {
 
 .animate-fade-in { animation: fade-in 0.8s ease-out both; will-change: opacity, transform; }
 .animate-slide-up { animation: slide-up 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both; will-change: opacity, transform; }
-.animate-slowFloat { animation: slowFloat 6s ease-in-out infinite; will-change: transform; }
+.animate-slowFloat { will-change: transform; }
+/* Gate the perpetual float to hover-capable (desktop) devices to save mobile battery/GPU */
+@media (hover: hover) and (pointer: fine) {
+  .animate-slowFloat { animation: slowFloat 6s ease-in-out infinite; }
+}
 .animate-delay-50 { animation-delay: 50ms; }
 .animate-delay-100 { animation-delay: 100ms; }
 .animate-delay-150 { animation-delay: 150ms; }
@@ -246,6 +246,24 @@ input::placeholder, textarea::placeholder {
   background: linear-gradient(180deg, #22a898, #1a7a6e);
   transform: scaleX(1.1);
 }
-/* Standard scrollbar support */
-scrollbar-width: thin;
-scrollbar-color: #1a7a6e rgba(15, 23, 42, 0.5);
+/* Standard scrollbar support (Firefox) */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #1a7a6e rgba(15, 23, 42, 0.5);
+}
+
+/* ── Reduced Motion (accessibility + performance) ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

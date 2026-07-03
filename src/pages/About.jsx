@@ -1,18 +1,6 @@
 import { Award, Users, Globe, ShieldCheck, BadgeCheck, Layers, TrendingUp, BookOpenCheck, CheckCircle2, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import { useScrollReveal } from '../hooks/useScrollReveal'
-
-function RevealSection({ children, className = '' }) {
-  const [ref, isVisible] = useScrollReveal(0.1)
-  return (
-    <div
-      ref={ref}
-      className={`reveal ${isVisible ? 'visible' : ''} ${className}`}
-    >
-      {children}
-    </div>
-  )
-}
+import RevealSection from '../components/RevealSection'
 
 const highlights = [
   { icon: Award, title: 'Professionally Recognized Certification', desc: 'Our diplomas are professionally recognized and industry-standard, opening doors to career opportunities across multiple sectors.' },
@@ -241,13 +229,13 @@ export default function About() {
               <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-brand-sky-blue/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               {/* Centered Name Section */}
               <div className="text-center mb-4 relative z-10">
-                <h3 className="text-2xl font-bold text-white !important">Tuba Shahid</h3>
-                <p className="mt-2 text-lg font-semibold text-white !important">Child Psychologist & Senior Trainer</p>
+                <h3 className="text-2xl font-bold !text-white">Tuba Shahid</h3>
+                <p className="mt-2 text-lg font-semibold !text-white">Child Psychologist & Senior Trainer</p>
               </div>
 
               {/* Left-Aligned Bio & Skills */}
               <div className="text-left relative z-10">
-                <p className="text-sm leading-relaxed text-white !important">
+                <p className="text-sm leading-relaxed !text-white">
                   A dedicated professional with expertise in Clinical Psychology, CBT, and Speech & Language Therapy. Tuba has extensive experience training at DXN KINDAN and Healing Hub, specializing in behavioral issues, ASD, and psychological assessments.
                 </p>
 
@@ -270,13 +258,13 @@ export default function About() {
               <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-brand-sky-blue/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               {/* Centered Name Section */}
               <div className="text-center mb-4 relative z-10">
-                <h3 className="text-2xl font-bold text-white !important">Sumaira</h3>
-                <p className="mt-2 text-lg font-semibold text-white !important">Senior Instructor & Tech Expert</p>
+                <h3 className="text-2xl font-bold !text-white">Sumaira</h3>
+                <p className="mt-2 text-lg font-semibold !text-white">Senior Instructor & Tech Expert</p>
               </div>
 
               {/* Left-Aligned Bio & Skills */}
               <div className="text-left relative z-10">
-                <p className="text-sm leading-relaxed text-white !important">
+                <p className="text-sm leading-relaxed !text-white">
                   A multidisciplinary professional with a Master's in Applied Psychology and PGD in Computer Sciences. Sumaira specializes in Clinical Psychology and tech-driven fields like Web Development and Content Strategy.
                 </p>
 
@@ -299,13 +287,13 @@ export default function About() {
               <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-brand-sky-blue/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               {/* Centered Name Section */}
               <div className="text-center mb-4 relative z-10">
-                <h3 className="text-2xl font-bold text-white !important">Dr. Nida</h3>
-                <p className="mt-2 text-lg font-semibold text-white !important">Lead Clinical Psychologist & Speech Therapist</p>
+                <h3 className="text-2xl font-bold !text-white">Dr. Nida</h3>
+                <p className="mt-2 text-lg font-semibold !text-white">Lead Clinical Psychologist & Speech Therapist</p>
               </div>
 
               {/* Left-Aligned Bio & Skills */}
               <div className="text-left relative z-10">
-                <p className="text-sm leading-relaxed text-white !important">
+                <p className="text-sm leading-relaxed !text-white">
                   Dr. Nida brings 8 years of professional experience in Child Development and Speech Therapy. She is dedicated to empowering students through practical, evidence-based clinical training and neurodevelopmental interventions.
                 </p>
 

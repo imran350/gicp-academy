@@ -3,6 +3,7 @@ import { useEffect, lazy, Suspense } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
+import ErrorBoundary from './components/ErrorBoundary'
 import Home from './pages/Home'
 
 // Code-split heavy routes for faster mobile loading
@@ -39,6 +40,7 @@ export default function App() {
       <div className="flex min-h-screen flex-col overflow-x-hidden">
         <Navbar />
         <main className="flex-1">
+          <ErrorBoundary>
           <Suspense fallback={<LoadingFallback />}>
             <Routes>
               <Route path="/" element={<Home />} />
@@ -50,6 +52,7 @@ export default function App() {
               <Route path="/contact" element={<Contact />} />
             </Routes>
           </Suspense>
+          </ErrorBoundary>
         </main>
         <Footer />
         <WhatsAppButton />

@@ -50,8 +50,6 @@ export default function Admissions() {
 
     setStatus('submitting')
     try {
-      console.log('Submitting form data:', form)
-      console.log('Supabase client status:', !!supabase)
       if (!supabase) {
         const supabaseError = new Error('Supabase not configured — check .env file for valid credentials')
         console.error(supabaseError)
@@ -86,7 +84,6 @@ export default function Admissions() {
         throw error
       }
 
-      console.log('Supabase insertion successful')
       setIsSubmitted(true)
       setStatus('success')
       // Scroll to top for success alert
@@ -137,28 +134,28 @@ export default function Admissions() {
               <div className="mt-6">
                 <div className="pm-title text-white/90 text-sm font-semibold uppercase">PAYMENT METHODS</div>
                 <div className="pm-cards mt-3 space-y-3">
-                  <label className="pm-card jz p-4 bg-brand-dark-navy/20 border border-brand-sky-blue/10 shadow-sm cursor-pointer transition-all duration-200 hover:border-brand-gold/50 hover:bg-brand-dark-navy/40">
+                  <label className="pm-card jz p-4 bg-brand-dark-navy/20 border border-brand-sky-blue/10 shadow-sm cursor-pointer transition-all duration-200 hover:border-brand-gold/50 hover:bg-brand-dark-navy/40 focus-within:ring-2 focus-within:ring-brand-gold">
                     <input type="radio" name="payment_method" value="jazzcash" className="sr-only" />
                     <div className="pm-head flex items-center gap-2">
-                      <span className="pm-head-ic">📱</span>
+                      <span className="pm-head-ic" aria-hidden="true">📱</span>
                       <span className="pm-head-name font-semibold text-white">JazzCash</span>
                     </div>
                     <div className="pm-num font-bold text-brand-gold mt-1">03010000305</div>
                     <div className="pm-hint text-sm text-white/90 mt-1">Account Title: Shamila Irshad</div>
                   </label>
-                  <label className="pm-card np p-4 bg-brand-dark-navy/20 border border-brand-sky-blue/10 shadow-sm cursor-pointer transition-all duration-200 hover:border-brand-gold/50 hover:bg-brand-dark-navy/40">
+                  <label className="pm-card np p-4 bg-brand-dark-navy/20 border border-brand-sky-blue/10 shadow-sm cursor-pointer transition-all duration-200 hover:border-brand-gold/50 hover:bg-brand-dark-navy/40 focus-within:ring-2 focus-within:ring-brand-gold">
                     <input type="radio" name="payment_method" value="nayapay" className="sr-only" />
                     <div className="pm-head flex items-center gap-2">
-                      <span className="pm-head-ic">💳</span>
+                      <span className="pm-head-ic" aria-hidden="true">💳</span>
                       <span className="pm-head-name font-semibold text-white">NayaPay</span>
                     </div>
                     <div className="pm-num font-bold text-brand-gold mt-1">03010000305</div>
                     <div className="pm-hint text-sm text-white/90 mt-1">Account Title: Shamila Irshad</div>
                   </label>
-                  <label className="pm-card bk p-4 bg-brand-dark-navy/20 border border-brand-sky-blue/10 shadow-sm cursor-pointer transition-all duration-200 hover:border-brand-gold/50 hover:bg-brand-dark-navy/40">
+                  <label className="pm-card bk p-4 bg-brand-dark-navy/20 border border-brand-sky-blue/10 shadow-sm cursor-pointer transition-all duration-200 hover:border-brand-gold/50 hover:bg-brand-dark-navy/40 focus-within:ring-2 focus-within:ring-brand-gold">
                     <input type="radio" name="payment_method" value="bank" className="sr-only" />
                     <div className="pm-head flex items-center gap-2">
-                      <span className="pm-head-ic">🏦</span>
+                      <span className="pm-head-ic" aria-hidden="true">🏦</span>
                       <span className="pm-head-name font-semibold text-white">Bank Transfer</span>
                     </div>
                     <div className="pm-num font-bold text-white mt-1">Askari Bank</div>
@@ -185,7 +182,7 @@ export default function Admissions() {
                           <p className="text-[1rem] font-mono font-bold text-brand-gold">02230900007246</p>
                           <button
                             type="button"
-                            onClick={() => navigator.clipboard.writeText('02230900007246')}
+                            onClick={() => navigator.clipboard?.writeText('02230900007246').catch(() => {})}
                             className="px-2 py-1 text-[0.7rem] bg-brand-sky-blue/30 hover:bg-brand-sky-blue/50 text-white rounded transition-all duration-200"
                           >
                             Copy
@@ -216,26 +213,26 @@ export default function Admissions() {
 
                 <div className="grid gap-4 sm:grid-cols-2 form-section">
                   <div>
-                    <label className="mb-1.5 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-white">First Name <span className="text-red-400">*</span></label>
+                    <label className="mb-1.5 block text-[clamp(0.7rem,1.5vw,0.78rem)] font-semibold text-white">First Name <span className="text-red-400">*</span></label>
                     <input
                       type="text"
                       name="first_name"
                       required
                       value={form.first_name}
                       onChange={handleChange}
-                      className={`form-input text-white !important ${errors.first_name ? 'form-error-input' : ''}`}
+                      className={`form-input !text-white ${errors.first_name ? 'form-error-input' : ''}`}
                       placeholder="e.g. Ayesha"
                     />
                   </div>
                   <div>
-                    <label className="mb-1.5 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-white">Last Name <span className="text-red-400">*</span></label>
+                    <label className="mb-1.5 block text-[clamp(0.7rem,1.5vw,0.78rem)] font-semibold text-white">Last Name <span className="text-red-400">*</span></label>
                     <input
                       type="text"
                       name="last_name"
                       required
                       value={form.last_name}
                       onChange={handleChange}
-                      className={`form-input text-white !important ${errors.last_name ? 'form-error-input' : ''}`}
+                      className={`form-input !text-white ${errors.last_name ? 'form-error-input' : ''}`}
                       placeholder="e.g. Khan"
                     />
                   </div>
@@ -243,39 +240,39 @@ export default function Admissions() {
 
                 <div className="grid gap-4 sm:grid-cols-2 form-section">
                   <div>
-                    <label className="mb-1.5 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-white">WhatsApp Number <span className="text-red-400">*</span></label>
+                    <label className="mb-1.5 block text-[clamp(0.7rem,1.5vw,0.78rem)] font-semibold text-white">WhatsApp Number <span className="text-red-400">*</span></label>
                     <input
                       type="tel"
                       name="whatsapp"
                       required
                       value={form.whatsapp}
                       onChange={handleChange}
-                      className={`form-input text-white !important ${errors.whatsapp ? 'form-error-input' : ''}`}
+                      className={`form-input !text-white ${errors.whatsapp ? 'form-error-input' : ''}`}
                       placeholder="0300-0000000"
                     />
                   </div>
                   <div>
-                    <label className="mb-1.5 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-white">Email Address <span className="text-red-400">*</span></label>
+                    <label className="mb-1.5 block text-[clamp(0.7rem,1.5vw,0.78rem)] font-semibold text-white">Email Address <span className="text-red-400">*</span></label>
                     <input
                       type="email"
                       name="email"
                       required
                       value={form.email}
                       onChange={handleChange}
-                      className={`form-input text-white !important ${errors.email ? 'form-error-input' : ''}`}
+                      className={`form-input !text-white ${errors.email ? 'form-error-input' : ''}`}
                       placeholder="your@email.com"
                     />
                   </div>
                 </div>
 
                 <div className="form-section">
-                  <label className="mb-1.5 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-white">Course of Interest <span className="text-red-400">*</span></label>
+                  <label className="mb-1.5 block text-[clamp(0.7rem,1.5vw,0.78rem)] font-semibold text-white">Course of Interest <span className="text-red-400">*</span></label>
                   <select
                     name="program"
                     required
                     value={form.program}
                     onChange={handleChange}
-                    className={`form-input text-white !important ${errors.program ? 'form-error-input' : ''}`}
+                    className={`form-input !text-white ${errors.program ? 'form-error-input' : ''}`}
                   >
                     <option value="">Select a program...</option>
                     {courses.map((c) => <option key={c.id} value={c.title}>{c.title}</option>)}
@@ -284,8 +281,8 @@ export default function Admissions() {
 
 
                 <div className="form-section">
-                  <label className="mb-1.5 block text-clamp(0.7rem, 1.5vw, 0.78rem) font-semibold text-white">Message (Optional)</label>
-                  <textarea name="message" rows={4} value={form.message} onChange={handleChange} className="form-input text-white !important resize-none" placeholder="Any questions or additional info..." />
+                  <label className="mb-1.5 block text-[clamp(0.7rem,1.5vw,0.78rem)] font-semibold text-white">Message (Optional)</label>
+                  <textarea name="message" rows={4} value={form.message} onChange={handleChange} className="form-input !text-white resize-none" placeholder="Any questions or additional info..." />
                 </div>
 
                 {/* Payment Method Selection */}
@@ -372,7 +369,7 @@ export default function Admissions() {
                             <p className="text-[0.95rem] font-mono font-bold text-brand-gold">02230900007246</p>
                             <button
                               type="button"
-                              onClick={() => navigator.clipboard.writeText('02230900007246')}
+                              onClick={() => navigator.clipboard?.writeText('02230900007246').catch(() => {})}
                               className="px-2 py-0.5 text-[0.65rem] bg-brand-sky-blue/30 hover:bg-brand-sky-blue/50 text-white rounded transition-all duration-200"
                             >
                               Copy
@@ -397,7 +394,7 @@ export default function Admissions() {
                             <p className="text-[0.95rem] font-mono font-bold text-brand-gold">03010000305</p>
                             <button
                               type="button"
-                              onClick={() => navigator.clipboard.writeText('03010000305')}
+                              onClick={() => navigator.clipboard?.writeText('03010000305').catch(() => {})}
                               className="px-2 py-0.5 text-[0.65rem] bg-brand-sky-blue/30 hover:bg-brand-sky-blue/50 text-white rounded transition-all duration-200"
                             >
                               Copy
@@ -422,7 +419,7 @@ export default function Admissions() {
                             <p className="text-[0.95rem] font-mono font-bold text-brand-gold">03010000305</p>
                             <button
                               type="button"
-                              onClick={() => navigator.clipboard.writeText('03010000305')}
+                              onClick={() => navigator.clipboard?.writeText('03010000305').catch(() => {})}
                               className="px-2 py-0.5 text-[0.65rem] bg-brand-sky-blue/30 hover:bg-brand-sky-blue/50 text-white rounded transition-all duration-200"
                             >
                               Copy
@@ -441,7 +438,7 @@ export default function Admissions() {
                 <button
                   type="submit"
                   disabled={!isFormValid || status === 'submitting'}
-                  className={`w-full rounded-full bg-gradient-to-r from-purple-600 to-magenta-600 px-7 py-3.5 text-sm font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-[0_0_20px_rgba(192,38,211,0.5)] hover:shadow-[0_0_30px_rgba(192,38,211,0.8)] disabled:opacity-60 disabled:cursor-not-allowed ${(!isFormValid || status === 'submitting') ? 'disabled:hover:scale-100' : ''}`}
+                  className={`w-full rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-600 px-7 py-3.5 text-sm font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-[0_0_20px_rgba(192,38,211,0.5)] hover:shadow-[0_0_30px_rgba(192,38,211,0.8)] disabled:opacity-60 disabled:cursor-not-allowed ${(!isFormValid || status === 'submitting') ? 'disabled:hover:scale-100' : ''}`}
                 >
                   {status === 'submitting' ? 'Submitting...' : <>Submit Application <Send className="ml-2 inline h-4 w-4" /></>}
                 </button>

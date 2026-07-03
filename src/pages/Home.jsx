@@ -1,24 +1,12 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Sparkles, Globe, TrendingUp, BookOpenCheck, Layers, BadgeCheck, ShieldCheck, Award, CheckCircle2 } from 'lucide-react'
-import { useScrollReveal } from '../hooks/useScrollReveal'
+import { ArrowRight, Sparkles, Globe, TrendingUp, BookOpenCheck, Layers, BadgeCheck, ShieldCheck, Award, CheckCircle2, Star } from 'lucide-react'
+import RevealSection from '../components/RevealSection'
 import Hero from '../components/Hero'
 import CourseCard from '../components/CourseCard'
 import FeeSection from '../components/FeeSection'
 import FeaturesList from '../components/FeaturesList'
 import HowItWorks from '../components/HowItWorks'
 import courses from '../data/courses'
-
-function RevealSection({ children, className = '' }) {
-  const [ref, isVisible] = useScrollReveal(0.1)
-  return (
-    <div
-      ref={ref}
-      className={`reveal ${isVisible ? 'visible' : ''} ${className}`}
-    >
-      {children}
-    </div>
-  )
-}
 
 export default function Home() {
   return (
@@ -156,6 +144,81 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Student Feedback / Testimonials */}
+      <RevealSection className="py-24 lg:py-28">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mb-16 text-center max-w-2xl mx-auto">
+            <div className="mb-3 text-[0.72rem] font-semibold uppercase tracking-[3px] text-brand-gold">
+              Student Feedback
+            </div>
+            <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.5rem)] font-extrabold leading-tight text-white">
+              What Our Students Say
+            </h2>
+            <p className="mt-4 text-[1rem] font-light leading-[1.7] text-slate-300">
+              Real experiences from graduates who transformed their careers through our CPD-accredited diploma programs.
+            </p>
+          </div>
+
+          {/* Cards — stacks on mobile, 3-up on desktop */}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {[
+              {
+                name: 'Hina',
+                initials: 'H',
+                program: 'Diploma in Sensory Integration',
+                review:
+                  'Miss Nida is an incredibly knowledgeable and dedicated lecturer. Her greatest strength is making even the most complex concepts incredibly simple and practical to understand. She is not just a teacher, but a phenomenal mentor.',
+              },
+              {
+                name: 'Amna',
+                initials: 'A',
+                program: 'Diploma in Integration & Reflexes',
+                review:
+                  'Your teaching style is very clear, interactive, and easy to understand. Even complex topics become simple because you explain every concept with practical examples and real-life case discussions.',
+              },
+              {
+                name: 'Ms. Sumaira',
+                initials: 'MS',
+                program: 'Psychology Professional',
+                review:
+                  'I really appreciate the trainer’s teaching style. She places a strong emphasis on interactive discussions, which makes the learning process much more effective. Her sessions remain engaging and well-structured from start to finish.',
+              },
+            ].map((t) => (
+              <div
+                key={t.name}
+                className="group glass-card relative flex flex-col overflow-hidden p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] will-change-transform"
+              >
+                {/* Hover glow */}
+                <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-brand-sky-blue/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                {/* 5-star rating */}
+                <div className="relative z-10 mb-4 flex gap-1" role="img" aria-label="Rated 5 out of 5 stars">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+
+                {/* Review — flex-1 keeps the identity row aligned across cards */}
+                <p className="relative z-10 mb-6 flex-1 text-[0.9rem] font-light leading-[1.7] text-slate-300">
+                  &ldquo;{t.review}&rdquo;
+                </p>
+
+                {/* Student identity */}
+                <div className="relative z-10 flex items-center gap-3 border-t border-white/10 pt-4">
+                  <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-brand-sky-blue/20 text-[0.85rem] font-bold text-brand-sky-blue">
+                    {t.initials}
+                  </div>
+                  <div>
+                    <div className="text-[0.9rem] font-semibold text-white">{t.name}</div>
+                    <div className="text-[0.75rem] leading-snug text-slate-400">{t.program}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </RevealSection>
+
       <RevealSection>
         <FeeSection />
       </RevealSection>
@@ -191,13 +254,13 @@ export default function Home() {
 
               {/* Centered Name Section */}
               <div className="text-center mb-4 relative z-10">
-                <h3 className="text-2xl font-bold text-white !important">Tuba Shahid</h3>
-                <p className="mt-2 text-lg font-semibold text-white !important">Child Psychologist & Senior Trainer</p>
+                <h3 className="text-2xl font-bold !text-white">Tuba Shahid</h3>
+                <p className="mt-2 text-lg font-semibold !text-white">Child Psychologist & Senior Trainer</p>
               </div>
 
               {/* Left-Aligned Bio & Skills */}
               <div className="text-left relative z-10">
-                <p className="text-sm leading-relaxed text-white !important">
+                <p className="text-sm leading-relaxed !text-white">
                   A dedicated professional with expertise in Clinical Psychology, CBT, and Speech & Language Therapy. Tuba has extensive experience training at DXN KINDAN and Healing Hub, specializing in behavioral issues, ASD, and psychological assessments.
                 </p>
 
@@ -221,13 +284,13 @@ export default function Home() {
 
               {/* Centered Name Section */}
               <div className="text-center mb-4 relative z-10">
-                <h3 className="text-2xl font-bold text-white !important">Sumaira</h3>
-                <p className="mt-2 text-lg font-semibold text-white !important">Senior Instructor & Tech Expert</p>
+                <h3 className="text-2xl font-bold !text-white">Sumaira</h3>
+                <p className="mt-2 text-lg font-semibold !text-white">Senior Instructor & Tech Expert</p>
               </div>
 
               {/* Left-Aligned Bio & Skills */}
               <div className="text-left relative z-10">
-                <p className="text-sm leading-relaxed text-white !important">
+                <p className="text-sm leading-relaxed !text-white">
                   A multidisciplinary professional with a Master's in Applied Psychology and PGD in Computer Sciences. Sumaira specializes in Clinical Psychology and tech-driven fields like Web Development and Content Strategy.
                 </p>
 
@@ -251,13 +314,13 @@ export default function Home() {
 
               {/* Centered Name Section */}
               <div className="text-center mb-4 relative z-10">
-                <h3 className="text-2xl font-bold text-white !important">Dr. Nida</h3>
-                <p className="mt-2 text-lg font-semibold text-white !important">Lead Clinical Psychologist & Speech Therapist</p>
+                <h3 className="text-2xl font-bold !text-white">Dr. Nida</h3>
+                <p className="mt-2 text-lg font-semibold !text-white">Lead Clinical Psychologist & Speech Therapist</p>
               </div>
 
               {/* Left-Aligned Bio & Skills */}
               <div className="text-left relative z-10">
-                <p className="text-sm leading-relaxed text-white !important">
+                <p className="text-sm leading-relaxed !text-white">
                   Dr. Nida brings 8 years of professional experience in Child Development and Speech Therapy. She is dedicated to empowering students through practical, evidence-based clinical training and neurodevelopmental interventions.
                 </p>
 

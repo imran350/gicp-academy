@@ -9,9 +9,7 @@ const courses = [
     schedule: '2 Days / Week',
     description:
       'Master clinical assessment, diagnosis, and therapeutic techniques. Gain hands-on experience with real case studies and supervised practice sessions.',
-    badge: null,
-    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
-  },
+    badge: null,  },
   {
     id: 'child-psychology',
     num: '02',
@@ -22,9 +20,7 @@ const courses = [
     schedule: '2 Days / Week',
     description:
       'Explore cognitive, emotional, and social development in children. Learn evidence-based interventions for behavioural and developmental challenges.',
-    badge: null,
-    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
-  },
+    badge: null,  },
   {
     id: 'autism',
     num: '03',
@@ -35,9 +31,7 @@ const courses = [
     schedule: '2 Days / Week',
     description:
       'Develop expertise in autism assessment, intervention strategies, and inclusive education practices for individuals across the autism spectrum.',
-    badge: null,
-    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
-  },
+    badge: null,  },
   {
     id: 'speech-therapy',
     num: '04',
@@ -48,9 +42,7 @@ const courses = [
     schedule: '2 Days / Week',
     description:
       'Learn to assess and treat speech, language, and communication disorders. Cover articulation, fluency, voice, and language-based learning disabilities.',
-    badge: null,
-    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
-  },
+    badge: null,  },
   {
     id: 'pecs',
     num: '05',
@@ -61,9 +53,7 @@ const courses = [
     schedule: '2 Days / Week',
     description:
       'Learn practical techniques to support children with autism and communication challenges. Become a Certified PECS Communication Specialist.',
-    badge: null,
-    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
-  },
+    badge: null,  },
   {
     id: 'physiotherapy',
     num: '06',
@@ -74,9 +64,7 @@ const courses = [
     schedule: '2 Days / Week',
     description:
       'Study musculoskeletal assessment, therapeutic exercises, electrotherapy, and rehabilitation techniques for diverse patient populations.',
-    badge: null,
-    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
-  },
+    badge: null,  },
   {
     id: 'sensory-integration',
     num: '07',
@@ -87,9 +75,7 @@ const courses = [
     schedule: '2 Days / Week',
     description:
       'Understand sensory processing, integration techniques, and primitive reflex integration. Learn to design effective sensory diets and therapeutic programs.',
-    badge: null,
-    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
-  },
+    badge: null,  },
   {
     id: 'cbt',
     num: '08',
@@ -100,9 +86,7 @@ const courses = [
     schedule: '2 Days / Week',
     description:
       'Master CBT techniques for treating anxiety, depression, PTSD, and more. Learn structured therapy sessions with practical case formulations.',
-    badge: null,
-    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
-  },
+    badge: null,  },
   {
     id: 'nutrition',
     num: '09',
@@ -113,9 +97,7 @@ const courses = [
     schedule: '2 Days / Week',
     description:
       'Study clinical nutrition, therapeutic diets, and nutritional assessment. Learn to create diet plans for various health conditions and populations.',
-    badge: null,
-    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
-  },
+    badge: null,  },
   {
     id: 'public-health',
     num: '10',
@@ -126,9 +108,7 @@ const courses = [
     schedule: '2 Days / Week',
     description:
       'Explore epidemiology, health policy, environmental health, and community health promotion. Develop skills in health program planning and evaluation.',
-    badge: null,
-    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
-  },
+    badge: null,  },
   {
     id: 'asd-intervention',
     num: '11',
@@ -139,9 +119,7 @@ const courses = [
     schedule: '2 Days / Week',
     description:
       'Short-course focused on advanced ASD assessment tools and designing individualized intervention plans for children on the autism spectrum.',
-    badge: 'Short Course',
-    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
-  },
+    badge: 'Short Course',  },
   {
     id: 'cbt-strategy',
     num: '12',
@@ -152,9 +130,7 @@ const courses = [
     schedule: '2 Days / Week',
     description:
       'Intensive short-course in CBT methodology. Master evidence-based strategies for anxiety, depression, and behavioral disorders with real-world practice.',
-    badge: 'Short Course',
-    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
-  },
+    badge: 'Short Course',  },
   {
     id: 'speech-assistant',
     num: '13',
@@ -165,9 +141,7 @@ const courses = [
     schedule: '2 Days / Week',
     description:
       'Equip yourself as a speech therapy assistant. Learn to support therapists in assessments, therapy delivery, and patient care in clinical and educational settings.',
-    badge: 'Short Course',
-    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
-  },
+    badge: 'Short Course',  },
   {
     id: 'adhd-intervention',
     num: '14',
@@ -178,9 +152,7 @@ const courses = [
     schedule: '2 Days / Week',
     description:
       'Specialized short-course on ADHD assessment, diagnosis, and multi-modal intervention planning. Learn behavioral, pharmacological, and educational approaches.',
-    badge: 'Short Course',
-    backgroundImage: 'linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%)',
-  },
+    badge: 'Short Course',  },
 ]
 
 export default courses

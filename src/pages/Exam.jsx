@@ -65,7 +65,18 @@ export default function Exam() {
   const [session, setSession] = useState(null)
   const [loading, setLoading] = useState(true)
 
+  const TOTAL_SECS = 45 * 60
+  const [remaining, setRemaining] = useState(TOTAL_SECS)
+  const [currentQ, setCurrentQ] = useState(0)
+  const [answers, setAnswers] = useState({})
+  const [submitted, setSubmitted] = useState(false)
+  const [started, setStarted] = useState(false)
+
   useEffect(() => {
+    if (!supabase) {
+      setLoading(false)
+      return
+    }
     const getSession = async () => {
       const { data: { session } } = await supabase.auth.getSession()
       setSession(session)
@@ -75,23 +86,6 @@ export default function Exam() {
     getSession()
     supabase.auth.onAuthStateChange((_event, session) => setSession(session))
   }, [])
-
-  if (loading) return <div className="bg-brand-cream min-h-screen flex items-center justify-center text-brand-navy">Loading...</div>
-  if (!session) return (
-    <div className="bg-brand-cream min-h-screen flex flex-col items-center justify-center p-6 text-center">
-      <h2 className="font-display text-2xl font-bold text-brand-navy mb-4">Restricted Access</h2>
-      <p className="max-w-md text-brand-text-dark mb-6">The exam is only available to enrolled students. Please apply to access this page.</p>
-      <Link to="/admissions" className="rounded bg-brand-teal px-5 py-2.5 text-white font-semibold transition-colors hover:bg-brand-teal-light">
-        Apply Now
-      </Link>
-    </div>
-  )
-  const TOTAL_SECS = 45 * 60
-  const [remaining, setRemaining] = useState(TOTAL_SECS)
-  const [currentQ, setCurrentQ] = useState(0)
-  const [answers, setAnswers] = useState({})
-  const [submitted, setSubmitted] = useState(false)
-  const [started, setStarted] = useState(false)
 
   useEffect(() => {
     if (!started || submitted) return
@@ -110,6 +104,17 @@ export default function Exam() {
   }
 
   const handleSubmit = useCallback(() => { setSubmitted(true) }, [])
+
+  if (loading) return <div className="bg-brand-cream min-h-screen flex items-center justify-center text-brand-navy">Loading...</div>
+  if (!session) return (
+    <div className="bg-brand-cream min-h-screen flex flex-col items-center justify-center p-6 text-center">
+      <h2 className="font-display text-2xl font-bold text-brand-navy mb-4">Restricted Access</h2>
+      <p className="max-w-md text-brand-text-dark mb-6">The exam is only available to enrolled students. Please apply to access this page.</p>
+      <Link to="/admissions" className="rounded bg-brand-teal px-5 py-2.5 text-white font-semibold transition-colors hover:bg-brand-teal-light">
+        Apply Now
+      </Link>
+    </div>
+  )
 
   const score = submitted
     ? examQuestions.reduce((acc, q, i) => acc + (answers[i] === q.correct ? 1 : 0), 0)

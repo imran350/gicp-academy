@@ -60,17 +60,17 @@
 ## Tech Stack
 - **React + Vite** (not single HTML — this is a full SPA)
 - **Tailwind CSS v3** (PostCSS integration, NOT CDN)
-- **React Router v6** for 6 pages (Home, Courses, CourseDetail, Admissions, Exam, Contact)
+- **React Router v7** for 7 pages (Home, Courses, CourseDetail, Admissions, About, Exam, Contact)
 - **Lucide React** for icons
 - **Supabase** for admissions form backend
 - Dev server: `npx vite --host` (runs on port 5173 by default)
 
 ## Brand Theme
-- **Primary BG:** Navy `#0d1b2a`
-- **Accent 1:** Teal `#1a7a6e`
-- **Accent 2:** Gold `#c9a84c`
-- **Page BG:** Cream `#f7f3ed`
-- **Fonts:** Cormorant Garamond (headings) + DM Sans (body) via Google Fonts
+- **Page BG:** Dark navy radial gradient `#1e3a8a → #0f172a` (fixed), light slate text — dark glassmorphism theme
+- **Primary Accent:** Sky Blue `#0ea5e9` (with light-sky `#7dd3fc`)
+- **Secondary Accent:** Gold `#c9a84c` / amber-400 (star ratings, CPD badges)
+- **Legacy tokens:** teal `#1a7a6e`, gold, cream are still defined in `tailwind.config.js` and used by `Exam.jsx`'s light cream theme
+- **Fonts:** Inter (body + headings, mapped to Tailwind `display`/`body`) + Playfair Display, via Google Fonts
 - Tailwind config: `tailwind.config.js` with custom colors, shadows, spring easing
 
 ## File Structure
@@ -82,7 +82,7 @@ gicp-academy/
 │   │   ├── Navbar.jsx          ✅ Sticky nav + mobile hamburger
 │   │   ├── Hero.jsx            ✅ Full-width gradient hero with CTAs + stats
 │   │   ├── CourseCard.jsx      ✅ Reusable card with icon, badges, hover lift
-│   │   ├── FeeSection.jsx      ✅ Standard 55K vs Scholarship 35K cards
+│   │   ├── FeeSection.jsx      ✅ "Affordable Excellence" — flexible payment plans card
 │   │   ├── FeaturesList.jsx    ✅ 5 features grid
 │   │   ├── Footer.jsx          ✅ 3-column footer with contact info
 │   │   └── WhatsAppButton.jsx  ✅ Floating green button → wa.me/923019753393
@@ -94,7 +94,7 @@ gicp-academy/
 │   │   ├── About.jsx           ✅ Mission, highlights, expert trainers, careers
 │   │   ├── Exam.jsx            ✅ 30-minute online exam with auto-submit
 │   │   └── Contact.jsx         ✅ Contact cards + therapy booking + enrollment form
-│   ├── data/courses.js         ✅ All 10 courses structured data
+│   ├── data/courses.js         ✅ All 14 courses structured data
 │   ├── lib/supabase.js         ✅ Supabase client (null-safe when no env vars)
 │   ├── App.jsx                 ✅ Router with 5 routes + ScrollToTop
 │   ├── main.jsx                ✅ Entry point

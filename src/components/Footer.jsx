@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Mail, MessageCircle, Globe } from 'lucide-react'
+import { Mail, MessageCircle, Globe, Facebook, Instagram } from 'lucide-react'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -33,7 +33,7 @@ export default function Footer() {
                 className="group flex h-9 w-9 items-center justify-center rounded-full bg-brand-sky-blue/20 transition-all duration-300 hover:bg-blue-600/40 hover:scale-110"
                 aria-label="Facebook"
               >
-                <span className="text-white group-hover:text-blue-300 transition-colors">f</span>
+                <Facebook className="h-4 w-4 text-white group-hover:text-blue-300 transition-colors" />
               </a>
               <a
                 href="https://www.instagram.com/p/DX34Thsjc7p/?igsh=emUxd3B0MGR4dHE="
@@ -42,7 +42,7 @@ export default function Footer() {
                 className="group flex h-9 w-9 items-center justify-center rounded-full bg-brand-sky-blue/20 transition-all duration-300 hover:bg-pink-500/40 hover:scale-110"
                 aria-label="Instagram"
               >
-                <span className="text-white text-sm group-hover:text-pink-300 transition-colors">📷</span>
+                <Instagram className="h-4 w-4 text-white group-hover:text-pink-300 transition-colors" />
               </a>
               <a
                 href="https://wa.me/923019753393"
@@ -51,7 +51,7 @@ export default function Footer() {
                 className="group flex h-9 w-9 items-center justify-center rounded-full bg-brand-sky-blue/20 transition-all duration-300 hover:bg-green-500/40 hover:scale-110"
                 aria-label="WhatsApp"
               >
-                <span className="text-white text-sm group-hover:text-green-300 transition-colors">💬</span>
+                <MessageCircle className="h-4 w-4 text-white group-hover:text-green-300 transition-colors" />
               </a>
             </div>
           </div>
@@ -118,7 +118,7 @@ export default function Footer() {
                 className="group flex items-start gap-2.5 transition-colors duration-200"
               >
                 <Mail className="h-4 w-4 text-brand-sky-blue flex-shrink-0 mt-0.5" />
-                <div className="text-[0.85rem] text-slate-300 group-hover:text-brand-gold transition-colors">
+                <div className="text-[0.85rem] text-slate-300 group-hover:text-brand-gold transition-colors break-all">
                   globalinstituteofpsychology@gmail.com
                 </div>
               </a>

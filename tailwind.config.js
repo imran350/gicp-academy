@@ -33,8 +33,6 @@ export default {
       },
       letterSpacing: {
         'body-wide': '0.01em', // Avoid tight spacing
-      },
-      letterSpacing: {
         tightest: '-0.03em',
       },
       boxShadow: {
