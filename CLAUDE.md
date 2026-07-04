@@ -80,64 +80,108 @@ gicp-academy/
 ├── src/
 │   ├── components/
 │   │   ├── Navbar.jsx          ✅ Sticky nav + mobile hamburger
-│   │   ├── Hero.jsx            ✅ Full-width gradient hero with CTAs + stats
+│   │   ├── Hero.jsx            ✅ Full-width gradient hero with CTAs + stats (responsive stats strip)
 │   │   ├── CourseCard.jsx      ✅ Reusable card with icon, badges, hover lift
 │   │   ├── FeeSection.jsx      ✅ "Affordable Excellence" — flexible payment plans card
 │   │   ├── FeaturesList.jsx    ✅ 5 features grid
-│   │   ├── Footer.jsx          ✅ 3-column footer with contact info
-│   │   └── WhatsAppButton.jsx  ✅ Floating green button → wa.me/923019753393
+│   │   ├── Footer.jsx          ✅ 4-column footer, Lucide social icons (Facebook/Instagram/WhatsApp/Email)
+│   │   ├── WhatsAppButton.jsx  ✅ Floating green button → wa.me/923019753393
+│   │   ├── RevealSection.jsx   ✅ Shared scroll-reveal wrapper (useScrollReveal hook, IntersectionObserver)
+│   │   └── ErrorBoundary.jsx   ✅ Class component, wraps <Suspense> in App.jsx, "Reload Page" fallback
+│   ├── hooks/
+│   │   └── useScrollReveal.js  ✅ IntersectionObserver hook → [ref, isVisible]
 │   ├── pages/
-│   │   ├── Home.jsx            ✅ Hero → CPD Accreditation → Courses → Fee → Features → Trainers → CTA
-│   │   ├── Courses.jsx         ✅ All 10 diploma cards grid
+│   │   ├── Home.jsx            ✅ Hero → CPD → Courses → Testimonials → Fee → Features → Trainers → CTA
+│   │   ├── Courses.jsx         ✅ All 14 diploma cards grid
 │   │   ├── CourseDetail.jsx    ✅ Single program info + enrollment form
 │   │   ├── Admissions.jsx      ✅ Form (name, last name, whatsapp, email, course, payment method)
 │   │   ├── About.jsx           ✅ Mission, highlights, expert trainers, careers
-│   │   ├── Exam.jsx            ✅ 30-minute online exam with auto-submit
+│   │   ├── Exam.jsx            ✅ 30-minute online exam with auto-submit (hooks above early returns)
 │   │   └── Contact.jsx         ✅ Contact cards + therapy booking + enrollment form
-│   ├── data/courses.js         ✅ All 14 courses structured data
+│   ├── data/courses.js         ✅ All 14 courses structured data (dead backgroundImage field removed)
 │   ├── lib/supabase.js         ✅ Supabase client (null-safe when no env vars)
-│   ├── App.jsx                 ✅ Router with 5 routes + ScrollToTop
+│   ├── App.jsx                 ✅ 7 routes + ScrollToTop + ErrorBoundary + Suspense lazy-loading
 │   ├── main.jsx                ✅ Entry point
-│   └── index.css               ✅ Tailwind directives + custom btn classes + grain texture
-├── .env                        ✅ VITE_SUPABASE_URL + VITE_SUPABASE_ANON_KEY (placeholder)
+│   └── index.css               ✅ Tailwind directives + custom btn classes + grain texture + reduced-motion
+├── .env                        ✅ VITE_SUPABASE_URL + VITE_SUPABASE_ANON_KEY (real credentials set)
 ├── .gitignore                  ✅
-├── index.html                  ✅ With Google Fonts
+├── index.html                  ✅ With Google Fonts + SEO meta/OG tags
 ├── package.json                ✅ All deps installed
-├── vite.config.js              ✅
-├── tailwind.config.js          ✅
-├── postcss.config.js           ✅
+├── vite.config.js              ✅ @vitejs/plugin-react (CRITICAL — do not delete)
+├── tailwind.config.js          ✅ Custom colors, shadows, spring easing, merged letterSpacing keys
+├── postcss.config.js           ✅ tailwindcss + autoprefixer (CRITICAL — do not delete)
 └── screenshot.mjs              ✅ Puppeteer screenshot script
 ```
 
 ## Completed
 - [x] Project scaffolded (React + Vite + Tailwind)
-- [x] All 7 components built
-- [x] All 5 pages built
-- [x] Routing configured
+- [x] All 9 components built (including RevealSection + ErrorBoundary)
+- [x] All 7 pages built
+- [x] Routing configured (React Router v7, lazy-loaded, wrapped in ErrorBoundary + Suspense)
 - [x] Production build passes (`npm run build`)
-- [x] All 5 pages verified via screenshots
-- [x] Supabase client set up (null-safe, won't crash without env vars)
-- [x] Website confirmed working on localhost:5173
+- [x] All 7 pages verified via screenshots
+- [x] Supabase client set up (null-safe, won't crash without env vars) — real credentials active
+- [x] Website confirmed working on localhost:5173 and live at gicpacademy.com
 - [x] Resolved excessive white background issue (replaced bg-white with bg-brand-cream in all page sections)
 - [x] Fixed CourseCard.jsx invalid Tailwind classes
 - [x] Updated WhoWeServe.jsx to use current brand color system (navy/teal/gold/cream)
 - [x] Softened white card backgrounds with bg-white/80 for better cream page alignment
-- [x] Home page: Evenly distributed stats strip, 10 course cards visible (scroll reveal removed, CPD claims in horizontal layout, standardized hero subtext font style)
+- [x] Home page: Evenly distributed stats strip, 14 course cards visible, CPD claims horizontal layout
 - [x] Programs page: Increased top text opacity to 80% for visibility
-- [x] Course Detail page: Removed scholarship fee/Therapy Options, enlarged standard fee, added full course list dropdown, marked all required fields with asterisks, fixed payment method selection (cursor/padding/shadow/gold color), disabled WhatsApp auto-open (pre-filled link provided), updated form input styles for visibility
+- [x] Course Detail page: Removed scholarship fee/Therapy Options, enlarged standard fee, added full course list dropdown, marked required fields with asterisks, fixed payment method selection, encodeURIComponent on WhatsApp link, clipboard null-guard
 - [x] Fixed Home page double scrollbar issue (removed redundant layout wrappers/classes)
 - [x] Standardized Home page layout to match About/Programs page structure
 - [x] Updated Home page admissions banner text to 'Admissions Open for CPD-Accredited Professional Diploma Programs'
-- [x] Production SEO updates (meta tags, Open Graph tags, image alt tags, public/sitemap.xml creation)
+- [x] Production SEO updates (meta tags, Open Graph tags, image alt tags, public/sitemap.xml)
+- [x] **Section 1 — Critical Hooks/Null bugs fixed:**
+  - Exam.jsx: All hooks (useState/useEffect/useCallback) hoisted above both early returns
+  - Exam.jsx: Supabase null guard added (`if (!supabase) { setLoading(false); return }`)
+  - CourseDetail.jsx: Literal-string className bugs fixed → static `text-brand-teal`
+  - CourseDetail.jsx: Success state reset corrected (`program: ''`)
+- [x] **Section 2 — Invalid styling tokens fixed:**
+  - `to-magenta-600` → `to-fuchsia-600` (CourseDetail, Admissions, Contact)
+  - `text-clamp(...)` → `text-[clamp(0.7rem,1.5vw,0.78rem)]` (arbitrary value syntax)
+  - `!important` JSX class tokens → `!text-white` (correct Tailwind bang prefix)
+  - Invalid CSS in index.css: bare scrollbar props wrapped in `html {}`, invalid `.form-section { padding-y }` removed
+  - Duplicate `letterSpacing` key in tailwind.config.js merged (restored `body-wide` token)
+- [x] **Section 3 — Mobile responsiveness:**
+  - Hero.jsx stats strip: `grid-cols-3` → `grid-cols-1 sm:grid-cols-3`
+- [x] **Section 4 — Performance:**
+  - `animate-slowFloat` gated: `@media (hover: hover) and (pointer: fine)` (mobile CPU relief)
+  - Dead `backgroundImage` field removed from all 14 course objects in courses.js
+- [x] **Section 5 — Security:**
+  - Removed 3 PII `console.log` calls from Admissions.jsx
+  - `encodeURIComponent` on WhatsApp message strings (CourseDetail, Contact)
+- [x] **Section 7 — Accessibility:**
+  - `@media (prefers-reduced-motion: reduce)` full block added to index.css
+  - `navigator.clipboard?.writeText(...).catch(() => {})` null guard (CourseDetail, Admissions)
+  - `focus-within:ring-2 focus-within:ring-brand-gold` on payment radio labels (keyboard nav)
+  - `aria-hidden="true"` on decorative emoji/icon divs (CourseDetail, Admissions, Contact)
+  - `break-all` on long email display text (Footer, Contact)
+- [x] **New components added:** `RevealSection.jsx` (shared scroll-reveal), `ErrorBoundary.jsx` (route crash boundary)
+- [x] **Student Testimonials section added to Home.jsx** (3 real reviews: Hina, Amna, Ms. Sumaira) between Courses and FeeSection
+- [x] **Footer upgraded:** Lucide icons for Facebook/Instagram/WhatsApp replacing emoji; 4-column layout
+- [x] **Config files restored after accidental deletion:** `vite.config.js` + `postcss.config.js` (root cause of "React is not defined" + broken Tailwind)
 
 ## Pending (Next Session)
 - [ ] **Design comparison with MedicPro** — User shared reference: https://medicprointernationalacademy.co.uk/
   - Possible additions: Director's Message, Mission & Vision sections, "Who We Serve" section
   - Waiting for user direction on what to adopt
-- [ ] **Domain configuration** — Connect gicpacademy.com to Vercel deployment
+- [ ] **Domain confirmed live** — gicpacademy.com connected to Vercel ✅
+- [ ] **Deferred refactors** (safe-fixes-only was chosen — these are non-urgent):
+  - Extract shared `TrainerCard` component (duplicated in Home + About)
+  - Extract shared `CPDSection` component (duplicated in Home + About)
+  - `useFormValidation` hook (shared between Admissions + Contact)
+  - Centralize `paymentMethods.js` data array
+  - Standardize Supabase insert payloads across all 3 forms
+  - Per-route `<title>` tags (react-helmet or similar)
+  - Exam.jsx rework to dark glassmorphism theme (currently uses legacy cream theme)
+  - Remove `background-attachment: fixed` on mobile (performance)
 
 ## Key Notes
-- `.env` has placeholder values — Supabase won't work until real credentials are added
-- Supabase client is null-safe: app works fine without Supabase, form just shows error on submit
+- `.env` has **real** Supabase credentials — all 3 forms writing to `applications` table ✅
+- Supabase client is null-safe: app works fine without env vars, form shows error on submit
 - WhatsApp number: 0301-9753393 (links to wa.me/923019753393)
+- **NEVER delete `vite.config.js` or `postcss.config.js`** — deleting either breaks the entire dev server (React JSX won't compile / Tailwind won't process). Always keep both files.
 - The `frontend-design` skill doesn't exist in this environment — skip it
+- Bash tool never works in this environment (Linux env stuck) — use Read/Write/Edit/Glob tools only
